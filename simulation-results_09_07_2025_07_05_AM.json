@@ -1,0 +1,3876 @@
+{
+  "matchups": [
+    {
+      "vegas": {
+        "overUnderResult": {
+          "result": "Under",
+          "margin": 0.24549999999999983
+        },
+        "atsResult": {
+          "team": "Philadelphia",
+          "margin": 17.4095
+        },
+        "ouResult": "Under Hits by 0.2 Points",
+        "spreadResult": "Philadelphia Covers the Spread by 17.4 Points",
+        "line": {
+          "favored": "Philadelphia",
+          "spread": 8.5,
+          "pointsTotal": 48
+        }
+      },
+      "header": {
+        "awayTeam": "Dallas",
+        "homeTeam": "Philadelphia"
+      },
+      "finalScoreProjection": {
+        "Dallas": 10.9,
+        "Philadelphia": 36.8
+      },
+      "winProbability": {
+        "Dallas": "1.6%",
+        "Philadelphia": "98.4%"
+      },
+      "quarterBreakdown": {
+        "awayTeam": {
+          "q1": 2.1,
+          "q2": 2.8,
+          "q3": 3,
+          "q4": 3,
+          "total": 10.9
+        },
+        "homeTeam": {
+          "q1": 8.4,
+          "q2": 9.4,
+          "q3": 9.6,
+          "q4": 9.4,
+          "total": 36.8
+        }
+      },
+      "offensiveStatistics": {
+        "Dallas": {
+          "passingYards": 154.7,
+          "passCompletions": 23.8,
+          "passAttempts": 34.3,
+          "completionPercentage": 69.5,
+          "yardsPerAttempt": 4.5,
+          "yardsPerCompletion": 6.5,
+          "passingTDs": 0.7,
+          "rushingYards": 82.8,
+          "rushingAttempts": 19.6,
+          "yardsPerRush": 4.2,
+          "rushingTDs": 0.4,
+          "totalTDs": 1.1,
+          "totalFGsMade": 1,
+          "totalFGAttempts": 1.2,
+          "totalYards": 237.5,
+          "yardsPerPlay": 4.4,
+          "totalPlays": 53.8,
+          "negativeYardagePlays": 5.5,
+          "totalDrives": 10.6,
+          "avgStartingFieldPosition": 33.7,
+          "turnovers": 1.4,
+          "punts": 3.5,
+          "totalFirstDowns": 17.7,
+          "thirdDownAttempts": 11.6,
+          "thirdDownConversions": 5.8,
+          "thirdDownPercentage": "50%",
+          "fourthDownAttempts": 0.5,
+          "fourthDownConversions": 0.2,
+          "fourthDownPercentage": "42.6%",
+          "redZoneTrips": 2.5,
+          "redZoneTDs": 1.1,
+          "redZoneTDPercentage": "40%",
+          "redZoneFGs": 0.7,
+          "totalPenalties": 10.6,
+          "penaltyYards": 82.8,
+          "firstDownsByPenalty": 3.4,
+          "yardsPerFirstDown": 4.1,
+          "passRunSplitDown1": "56.6/43.4",
+          "yardsPerSecondDown": 4.1,
+          "passRunSplitDown2": "64.1/35.9",
+          "yardsPerThirdDown": 5.2,
+          "passRunSplitDown3": "76.3/23.7",
+          "yardsPerFourthDown": 2.2
+        },
+        "Philadelphia": {
+          "passingYards": 202.3,
+          "passCompletions": 16.1,
+          "passAttempts": 24.3,
+          "completionPercentage": 66.7,
+          "yardsPerAttempt": 8.4,
+          "yardsPerCompletion": 12.5,
+          "passingTDs": 2.2,
+          "rushingYards": 234.4,
+          "rushingAttempts": 32.2,
+          "yardsPerRush": 7.3,
+          "rushingTDs": 2.3,
+          "totalTDs": 4.6,
+          "totalFGsMade": 1.7,
+          "totalFGAttempts": 1.7,
+          "totalYards": 436.7,
+          "yardsPerPlay": 7.8,
+          "totalPlays": 56.5,
+          "negativeYardagePlays": 4.3,
+          "totalDrives": 10.7,
+          "avgStartingFieldPosition": 39.5,
+          "turnovers": 0.3,
+          "punts": 0.6,
+          "totalFirstDowns": 27.4,
+          "thirdDownAttempts": 8.7,
+          "thirdDownConversions": 4.8,
+          "thirdDownPercentage": "55.7%",
+          "fourthDownAttempts": 1.1,
+          "fourthDownConversions": 0.7,
+          "fourthDownPercentage": "65.8%",
+          "redZoneTrips": 7.1,
+          "redZoneTDs": 4.5,
+          "redZoneTDPercentage": "60%",
+          "redZoneFGs": 1.7,
+          "totalPenalties": 11.2,
+          "penaltyYards": 76.9,
+          "firstDownsByPenalty": 4.5,
+          "yardsPerFirstDown": 7.8,
+          "passRunSplitDown1": "32.4/67.6",
+          "yardsPerSecondDown": 7.3,
+          "passRunSplitDown2": "51.9/48.1",
+          "yardsPerThirdDown": 7.7,
+          "passRunSplitDown3": "60.2/39.8",
+          "yardsPerFourthDown": 8.2
+        }
+      },
+      "quarterEfficiency": {
+        "Dallas": {
+          "Q1": {
+            "pointsPerDrive": 0.8,
+            "yardsPerDrive": 23.6,
+            "timeOfPossession": "7:24"
+          },
+          "Q2": {
+            "pointsPerDrive": 1.1,
+            "yardsPerDrive": 21.1,
+            "timeOfPossession": "7:11"
+          },
+          "Q3": {
+            "pointsPerDrive": 1.1,
+            "yardsPerDrive": 22.4,
+            "timeOfPossession": "7:05"
+          },
+          "Q4": {
+            "pointsPerDrive": 1.1,
+            "yardsPerDrive": 22.8,
+            "timeOfPossession": "7:09"
+          }
+        },
+        "Philadelphia": {
+          "Q1": {
+            "pointsPerDrive": 3.3,
+            "yardsPerDrive": 43.2,
+            "timeOfPossession": "7:36"
+          },
+          "Q2": {
+            "pointsPerDrive": 3.5,
+            "yardsPerDrive": 40.4,
+            "timeOfPossession": "7:49"
+          },
+          "Q3": {
+            "pointsPerDrive": 3.5,
+            "yardsPerDrive": 40.5,
+            "timeOfPossession": "7:55"
+          },
+          "Q4": {
+            "pointsPerDrive": 3.5,
+            "yardsPerDrive": 40.2,
+            "timeOfPossession": "7:51"
+          }
+        }
+      },
+      "driveMetricsByQuarter": {
+        "Dallas": {
+          "Q1": {
+            "avgDrives": 2.53,
+            "avgTimePerDriveMin": 2.92
+          },
+          "Q2": {
+            "avgDrives": 2.67,
+            "avgTimePerDriveMin": 2.69
+          },
+          "Q3": {
+            "avgDrives": 2.73,
+            "avgTimePerDriveMin": 2.59
+          },
+          "Q4": {
+            "avgDrives": 2.67,
+            "avgTimePerDriveMin": 2.67
+          }
+        },
+        "Philadelphia": {
+          "Q1": {
+            "avgDrives": 2.53,
+            "avgTimePerDriveMin": 3
+          },
+          "Q2": {
+            "avgDrives": 2.7,
+            "avgTimePerDriveMin": 2.9
+          },
+          "Q3": {
+            "avgDrives": 2.75,
+            "avgTimePerDriveMin": 2.88
+          },
+          "Q4": {
+            "avgDrives": 2.73,
+            "avgTimePerDriveMin": 2.88
+          }
+        }
+      },
+      "gameFlowAnalysis": {
+        "firstHalf": {
+          "Dallas": 4.9,
+          "Philadelphia": 17.8
+        },
+        "secondHalf": {
+          "Dallas": 6,
+          "Philadelphia": 19
+        }
+      },
+      "additionalPredictions": {
+        "totalPoints": 47.8,
+        "expectedMarginOfVictory": 25.9,
+        "expectedLeadChanges": 0.3,
+        "timeOfPossession": {
+          "Dallas": "28:49",
+          "Philadelphia": "31:10"
+        }
+      }
+    },
+    {
+      "vegas": {
+        "overUnderResult": {
+          "result": "Under",
+          "margin": 1.6824999999999974
+        },
+        "atsResult": {
+          "team": "Kansas City",
+          "margin": 0.0045000000000001705
+        },
+        "ouResult": "Under Hits by 1.7 Points",
+        "spreadResult": "Kansas City Covers the Spread by 0.0 Points",
+        "line": {
+          "favored": "Kansas City",
+          "spread": 3,
+          "pointsTotal": 47
+        }
+      },
+      "header": {
+        "awayTeam": "Kansas City",
+        "homeTeam": "LA Chargers"
+      },
+      "finalScoreProjection": {
+        "Kansas City": 24.2,
+        "LA Chargers": 21.2
+      },
+      "winProbability": {
+        "Kansas City": "59.6%",
+        "LA Chargers": "40.4%"
+      },
+      "quarterBreakdown": {
+        "awayTeam": {
+          "q1": 5.4,
+          "q2": 6.3,
+          "q3": 6.1,
+          "q4": 6.3,
+          "total": 24.2
+        },
+        "homeTeam": {
+          "q1": 4.5,
+          "q2": 5.6,
+          "q3": 5.6,
+          "q4": 5.5,
+          "total": 21.2
+        }
+      },
+      "offensiveStatistics": {
+        "Kansas City": {
+          "passingYards": 210.7,
+          "passCompletions": 23,
+          "passAttempts": 32.2,
+          "completionPercentage": 71.7,
+          "yardsPerAttempt": 6.6,
+          "yardsPerCompletion": 9.2,
+          "passingTDs": 1.7,
+          "rushingYards": 132.1,
+          "rushingAttempts": 22.2,
+          "yardsPerRush": 5.9,
+          "rushingTDs": 1.2,
+          "totalTDs": 2.9,
+          "totalFGsMade": 1.2,
+          "totalFGAttempts": 1.3,
+          "totalYards": 342.8,
+          "yardsPerPlay": 6.3,
+          "totalPlays": 54.4,
+          "negativeYardagePlays": 3.9,
+          "totalDrives": 9.4,
+          "avgStartingFieldPosition": 36.2,
+          "turnovers": 0.8,
+          "punts": 0.7,
+          "totalFirstDowns": 24.6,
+          "thirdDownAttempts": 9.7,
+          "thirdDownConversions": 6,
+          "thirdDownPercentage": "62.2%",
+          "fourthDownAttempts": 1.3,
+          "fourthDownConversions": 0.8,
+          "fourthDownPercentage": "59.8%",
+          "redZoneTrips": 5.1,
+          "redZoneTDs": 2.9,
+          "redZoneTDPercentage": "60%",
+          "redZoneFGs": 1.2,
+          "totalPenalties": 10.3,
+          "penaltyYards": 76.9,
+          "firstDownsByPenalty": 4.1,
+          "yardsPerFirstDown": 7,
+          "passRunSplitDown1": "50.4/49.6",
+          "yardsPerSecondDown": 4.4,
+          "passRunSplitDown2": "61.6/38.4",
+          "yardsPerThirdDown": 7.2,
+          "passRunSplitDown3": "77.2/22.8",
+          "yardsPerFourthDown": 6.5
+        },
+        "LA Chargers": {
+          "passingYards": 195.7,
+          "passCompletions": 21,
+          "passAttempts": 30.8,
+          "completionPercentage": 68.2,
+          "yardsPerAttempt": 6.4,
+          "yardsPerCompletion": 9.3,
+          "passingTDs": 1.7,
+          "rushingYards": 119.2,
+          "rushingAttempts": 22.5,
+          "yardsPerRush": 5.2,
+          "rushingTDs": 0.9,
+          "totalTDs": 2.5,
+          "totalFGsMade": 1.1,
+          "totalFGAttempts": 1.3,
+          "totalYards": 314.9,
+          "yardsPerPlay": 5.9,
+          "totalPlays": 53.4,
+          "negativeYardagePlays": 4.2,
+          "totalDrives": 9.5,
+          "avgStartingFieldPosition": 35.7,
+          "turnovers": 0.5,
+          "punts": 0.9,
+          "totalFirstDowns": 20.8,
+          "thirdDownAttempts": 9.1,
+          "thirdDownConversions": 4.4,
+          "thirdDownPercentage": "48.6%",
+          "fourthDownAttempts": 1.8,
+          "fourthDownConversions": 1,
+          "fourthDownPercentage": "52.6%",
+          "redZoneTrips": 4.6,
+          "redZoneTDs": 2.5,
+          "redZoneTDPercentage": "50%",
+          "redZoneFGs": 1.1,
+          "totalPenalties": 10.3,
+          "penaltyYards": 78.8,
+          "firstDownsByPenalty": 3.9,
+          "yardsPerFirstDown": 4.7,
+          "passRunSplitDown1": "45.9/54.1",
+          "yardsPerSecondDown": 7.9,
+          "passRunSplitDown2": "63.4/36.6",
+          "yardsPerThirdDown": 5.2,
+          "passRunSplitDown3": "73.7/26.3",
+          "yardsPerFourthDown": 4.7
+        }
+      },
+      "quarterEfficiency": {
+        "Kansas City": {
+          "Q1": {
+            "pointsPerDrive": 2.4,
+            "yardsPerDrive": 39.9,
+            "timeOfPossession": "7:39"
+          },
+          "Q2": {
+            "pointsPerDrive": 2.6,
+            "yardsPerDrive": 35.8,
+            "timeOfPossession": "7:39"
+          },
+          "Q3": {
+            "pointsPerDrive": 2.5,
+            "yardsPerDrive": 34.9,
+            "timeOfPossession": "7:29"
+          },
+          "Q4": {
+            "pointsPerDrive": 2.6,
+            "yardsPerDrive": 35.4,
+            "timeOfPossession": "7:34"
+          }
+        },
+        "LA Chargers": {
+          "Q1": {
+            "pointsPerDrive": 2,
+            "yardsPerDrive": 35.3,
+            "timeOfPossession": "7:21"
+          },
+          "Q2": {
+            "pointsPerDrive": 2.4,
+            "yardsPerDrive": 33.3,
+            "timeOfPossession": "7:21"
+          },
+          "Q3": {
+            "pointsPerDrive": 2.3,
+            "yardsPerDrive": 32.9,
+            "timeOfPossession": "7:31"
+          },
+          "Q4": {
+            "pointsPerDrive": 2.3,
+            "yardsPerDrive": 32.3,
+            "timeOfPossession": "7:26"
+          }
+        }
+      },
+      "driveMetricsByQuarter": {
+        "Kansas City": {
+          "Q1": {
+            "avgDrives": 2.24,
+            "avgTimePerDriveMin": 3.41
+          },
+          "Q2": {
+            "avgDrives": 2.39,
+            "avgTimePerDriveMin": 3.2
+          },
+          "Q3": {
+            "avgDrives": 2.41,
+            "avgTimePerDriveMin": 3.1
+          },
+          "Q4": {
+            "avgDrives": 2.4,
+            "avgTimePerDriveMin": 3.16
+          }
+        },
+        "LA Chargers": {
+          "Q1": {
+            "avgDrives": 2.25,
+            "avgTimePerDriveMin": 3.27
+          },
+          "Q2": {
+            "avgDrives": 2.38,
+            "avgTimePerDriveMin": 3.08
+          },
+          "Q3": {
+            "avgDrives": 2.41,
+            "avgTimePerDriveMin": 3.12
+          },
+          "Q4": {
+            "avgDrives": 2.42,
+            "avgTimePerDriveMin": 3.07
+          }
+        }
+      },
+      "gameFlowAnalysis": {
+        "firstHalf": {
+          "Kansas City": 11.7,
+          "LA Chargers": 10.1
+        },
+        "secondHalf": {
+          "Kansas City": 12.4,
+          "LA Chargers": 11.1
+        }
+      },
+      "additionalPredictions": {
+        "totalPoints": 45.3,
+        "expectedMarginOfVictory": 3,
+        "expectedLeadChanges": 1.1,
+        "timeOfPossession": {
+          "Kansas City": "30:20",
+          "LA Chargers": "29:39"
+        }
+      }
+    },
+    {
+      "vegas": {
+        "overUnderResult": {
+          "result": "Under",
+          "margin": 4.429499999999997
+        },
+        "atsResult": {
+          "team": "Pick",
+          "margin": 16.1085
+        },
+        "ouResult": "Under Hits by 4.4 Points",
+        "spreadResult": "Pick Covers the Spread by 16.1 Points",
+        "line": {
+          "favored": "Pick",
+          "spread": 0,
+          "pointsTotal": 46
+        }
+      },
+      "header": {
+        "awayTeam": "Miami",
+        "homeTeam": "Indianapolis"
+      },
+      "finalScoreProjection": {
+        "Miami": 12.7,
+        "Indianapolis": 28.8
+      },
+      "winProbability": {
+        "Miami": "11.2%",
+        "Indianapolis": "88.8%"
+      },
+      "quarterBreakdown": {
+        "awayTeam": {
+          "q1": 2.5,
+          "q2": 3.5,
+          "q3": 3.4,
+          "q4": 3.4,
+          "total": 12.7
+        },
+        "homeTeam": {
+          "q1": 6.3,
+          "q2": 6.9,
+          "q3": 7.6,
+          "q4": 7.9,
+          "total": 28.8
+        }
+      },
+      "offensiveStatistics": {
+        "Miami": {
+          "passingYards": 145.3,
+          "passCompletions": 22.5,
+          "passAttempts": 33.6,
+          "completionPercentage": 67.1,
+          "yardsPerAttempt": 4.3,
+          "yardsPerCompletion": 6.4,
+          "passingTDs": 0.8,
+          "rushingYards": 89.3,
+          "rushingAttempts": 21.2,
+          "yardsPerRush": 4.1,
+          "rushingTDs": 0.6,
+          "totalTDs": 1.4,
+          "totalFGsMade": 1.1,
+          "totalFGAttempts": 1.3,
+          "totalYards": 234.6,
+          "yardsPerPlay": 4.3,
+          "totalPlays": 54.8,
+          "negativeYardagePlays": 6.9,
+          "totalDrives": 11.3,
+          "avgStartingFieldPosition": 35.9,
+          "turnovers": 1.3,
+          "punts": 4,
+          "totalFirstDowns": 18.2,
+          "thirdDownAttempts": 11.7,
+          "thirdDownConversions": 5.4,
+          "thirdDownPercentage": "46.6%",
+          "fourthDownAttempts": 0.5,
+          "fourthDownConversions": 0.2,
+          "fourthDownPercentage": "43.7%",
+          "redZoneTrips": 2.6,
+          "redZoneTDs": 1.4,
+          "redZoneTDPercentage": "50%",
+          "redZoneFGs": 0.7,
+          "totalPenalties": 11.1,
+          "penaltyYards": 84.9,
+          "firstDownsByPenalty": 3.7,
+          "yardsPerFirstDown": 4,
+          "passRunSplitDown1": "49.6/50.4",
+          "yardsPerSecondDown": 4.2,
+          "passRunSplitDown2": "64.7/35.3",
+          "yardsPerThirdDown": 4.7,
+          "passRunSplitDown3": "79.2/20.8",
+          "yardsPerFourthDown": 1.8
+        },
+        "Indianapolis": {
+          "passingYards": 189.2,
+          "passCompletions": 16.1,
+          "passAttempts": 26,
+          "completionPercentage": 62.2,
+          "yardsPerAttempt": 7.4,
+          "yardsPerCompletion": 11.8,
+          "passingTDs": 1.4,
+          "rushingYards": 218.2,
+          "rushingAttempts": 28.4,
+          "yardsPerRush": 7.7,
+          "rushingTDs": 1.9,
+          "totalTDs": 3.2,
+          "totalFGsMade": 2.1,
+          "totalFGAttempts": 2.2,
+          "totalYards": 407.4,
+          "yardsPerPlay": 7.5,
+          "totalPlays": 54.4,
+          "negativeYardagePlays": 4.1,
+          "totalDrives": 11.3,
+          "avgStartingFieldPosition": 37.3,
+          "turnovers": 0.9,
+          "punts": 1.8,
+          "totalFirstDowns": 26.4,
+          "thirdDownAttempts": 9.5,
+          "thirdDownConversions": 5.1,
+          "thirdDownPercentage": "53.4%",
+          "fourthDownAttempts": 0,
+          "fourthDownConversions": 0,
+          "fourthDownPercentage": "57.5%",
+          "redZoneTrips": 5.9,
+          "redZoneTDs": 3.2,
+          "redZoneTDPercentage": "50%",
+          "redZoneFGs": 1.7,
+          "totalPenalties": 10.9,
+          "penaltyYards": 79.5,
+          "firstDownsByPenalty": 4.8,
+          "yardsPerFirstDown": 8.8,
+          "passRunSplitDown1": "39.5/60.5",
+          "yardsPerSecondDown": 4.9,
+          "passRunSplitDown2": "53.8/46.2",
+          "yardsPerThirdDown": 7.8,
+          "passRunSplitDown3": "63.6/36.4",
+          "yardsPerFourthDown": 0.4
+        }
+      },
+      "quarterEfficiency": {
+        "Miami": {
+          "Q1": {
+            "pointsPerDrive": 0.9,
+            "yardsPerDrive": 21.4,
+            "timeOfPossession": "7:34"
+          },
+          "Q2": {
+            "pointsPerDrive": 1.2,
+            "yardsPerDrive": 20.3,
+            "timeOfPossession": "7:27"
+          },
+          "Q3": {
+            "pointsPerDrive": 1.2,
+            "yardsPerDrive": 20.9,
+            "timeOfPossession": "7:44"
+          },
+          "Q4": {
+            "pointsPerDrive": 1.2,
+            "yardsPerDrive": 20.4,
+            "timeOfPossession": "7:36"
+          }
+        },
+        "Indianapolis": {
+          "Q1": {
+            "pointsPerDrive": 2.3,
+            "yardsPerDrive": 37.4,
+            "timeOfPossession": "7:26"
+          },
+          "Q2": {
+            "pointsPerDrive": 2.5,
+            "yardsPerDrive": 34.7,
+            "timeOfPossession": "7:32"
+          },
+          "Q3": {
+            "pointsPerDrive": 2.6,
+            "yardsPerDrive": 35.8,
+            "timeOfPossession": "7:16"
+          },
+          "Q4": {
+            "pointsPerDrive": 2.7,
+            "yardsPerDrive": 36.4,
+            "timeOfPossession": "7:24"
+          }
+        }
+      },
+      "driveMetricsByQuarter": {
+        "Miami": {
+          "Q1": {
+            "avgDrives": 2.72,
+            "avgTimePerDriveMin": 2.78
+          },
+          "Q2": {
+            "avgDrives": 2.83,
+            "avgTimePerDriveMin": 2.63
+          },
+          "Q3": {
+            "avgDrives": 2.87,
+            "avgTimePerDriveMin": 2.7
+          },
+          "Q4": {
+            "avgDrives": 2.91,
+            "avgTimePerDriveMin": 2.61
+          }
+        },
+        "Indianapolis": {
+          "Q1": {
+            "avgDrives": 2.71,
+            "avgTimePerDriveMin": 2.74
+          },
+          "Q2": {
+            "avgDrives": 2.82,
+            "avgTimePerDriveMin": 2.67
+          },
+          "Q3": {
+            "avgDrives": 2.9,
+            "avgTimePerDriveMin": 2.51
+          },
+          "Q4": {
+            "avgDrives": 2.92,
+            "avgTimePerDriveMin": 2.53
+          }
+        }
+      },
+      "gameFlowAnalysis": {
+        "firstHalf": {
+          "Miami": 5.9,
+          "Indianapolis": 13.3
+        },
+        "secondHalf": {
+          "Miami": 6.8,
+          "Indianapolis": 15.6
+        }
+      },
+      "additionalPredictions": {
+        "totalPoints": 41.6,
+        "expectedMarginOfVictory": 16.1,
+        "expectedLeadChanges": 0.6,
+        "timeOfPossession": {
+          "Miami": "30:20",
+          "Indianapolis": "29:39"
+        }
+      }
+    },
+    {
+      "vegas": {
+        "overUnderResult": {
+          "result": "Over",
+          "margin": 4.115000000000002
+        },
+        "atsResult": {
+          "team": "Pittsburgh",
+          "margin": 7.912000000000001
+        },
+        "ouResult": "Over Hits by 4.1 Points",
+        "spreadResult": "Pittsburgh Covers the Spread by 7.9 Points",
+        "line": {
+          "favored": "Pittsburgh",
+          "spread": 2.5,
+          "pointsTotal": 38
+        }
+      },
+      "header": {
+        "awayTeam": "Pittsburgh",
+        "homeTeam": "NY Jets"
+      },
+      "finalScoreProjection": {
+        "Pittsburgh": 26.3,
+        "NY Jets": 15.9
+      },
+      "winProbability": {
+        "Pittsburgh": "79.0%",
+        "NY Jets": "21.0%"
+      },
+      "quarterBreakdown": {
+        "awayTeam": {
+          "q1": 5.5,
+          "q2": 6.9,
+          "q3": 6.8,
+          "q4": 7,
+          "total": 26.3
+        },
+        "homeTeam": {
+          "q1": 3.2,
+          "q2": 4,
+          "q3": 4.4,
+          "q4": 4.2,
+          "total": 15.9
+        }
+      },
+      "offensiveStatistics": {
+        "Pittsburgh": {
+          "passingYards": 202.9,
+          "passCompletions": 20.2,
+          "passAttempts": 29.3,
+          "completionPercentage": 69.1,
+          "yardsPerAttempt": 7,
+          "yardsPerCompletion": 10.1,
+          "passingTDs": 1.6,
+          "rushingYards": 153.8,
+          "rushingAttempts": 28.3,
+          "yardsPerRush": 5.4,
+          "rushingTDs": 1.6,
+          "totalTDs": 3.3,
+          "totalFGsMade": 1.1,
+          "totalFGAttempts": 1.2,
+          "totalYards": 356.8,
+          "yardsPerPlay": 6.2,
+          "totalPlays": 57.6,
+          "negativeYardagePlays": 4.9,
+          "totalDrives": 10.1,
+          "avgStartingFieldPosition": 36.5,
+          "turnovers": 0.7,
+          "punts": 0.8,
+          "totalFirstDowns": 24.9,
+          "thirdDownAttempts": 9.6,
+          "thirdDownConversions": 5.7,
+          "thirdDownPercentage": "59.2%",
+          "fourthDownAttempts": 1.5,
+          "fourthDownConversions": 0.7,
+          "fourthDownPercentage": "47.9%",
+          "redZoneTrips": 5.2,
+          "redZoneTDs": 3.3,
+          "redZoneTDPercentage": "60%",
+          "redZoneFGs": 1.1,
+          "totalPenalties": 12.2,
+          "penaltyYards": 102,
+          "firstDownsByPenalty": 5,
+          "yardsPerFirstDown": 4.7,
+          "passRunSplitDown1": "42.9/57.1",
+          "yardsPerSecondDown": 7.3,
+          "passRunSplitDown2": "51.6/48.4",
+          "yardsPerThirdDown": 8.2,
+          "passRunSplitDown3": "68.6/31.4",
+          "yardsPerFourthDown": 3.8
+        },
+        "NY Jets": {
+          "passingYards": 173.6,
+          "passCompletions": 22.5,
+          "passAttempts": 34.2,
+          "completionPercentage": 65.7,
+          "yardsPerAttempt": 5.1,
+          "yardsPerCompletion": 7.7,
+          "passingTDs": 1.1,
+          "rushingYards": 96.9,
+          "rushingAttempts": 19.8,
+          "yardsPerRush": 4.9,
+          "rushingTDs": 0.6,
+          "totalTDs": 1.8,
+          "totalFGsMade": 1.2,
+          "totalFGAttempts": 1.6,
+          "totalYards": 270.4,
+          "yardsPerPlay": 5,
+          "totalPlays": 54,
+          "negativeYardagePlays": 6,
+          "totalDrives": 10.1,
+          "avgStartingFieldPosition": 36.3,
+          "turnovers": 0.8,
+          "punts": 2.5,
+          "totalFirstDowns": 20.5,
+          "thirdDownAttempts": 11.4,
+          "thirdDownConversions": 6.7,
+          "thirdDownPercentage": "58.6%",
+          "fourthDownAttempts": 0.3,
+          "fourthDownConversions": 0.1,
+          "fourthDownPercentage": "42.4%",
+          "redZoneTrips": 3.6,
+          "redZoneTDs": 1.8,
+          "redZoneTDPercentage": "50%",
+          "redZoneFGs": 1,
+          "totalPenalties": 11.2,
+          "penaltyYards": 87.9,
+          "firstDownsByPenalty": 4.5,
+          "yardsPerFirstDown": 4.2,
+          "passRunSplitDown1": "52.8/47.2",
+          "yardsPerSecondDown": 4.3,
+          "passRunSplitDown2": "65.4/34.6",
+          "yardsPerThirdDown": 7.7,
+          "passRunSplitDown3": "82.1/17.9",
+          "yardsPerFourthDown": 1.7
+        }
+      },
+      "quarterEfficiency": {
+        "Pittsburgh": {
+          "Q1": {
+            "pointsPerDrive": 2.3,
+            "yardsPerDrive": 36.5,
+            "timeOfPossession": "7:43"
+          },
+          "Q2": {
+            "pointsPerDrive": 2.8,
+            "yardsPerDrive": 35.9,
+            "timeOfPossession": "7:44"
+          },
+          "Q3": {
+            "pointsPerDrive": 2.6,
+            "yardsPerDrive": 34.5,
+            "timeOfPossession": "7:30"
+          },
+          "Q4": {
+            "pointsPerDrive": 2.7,
+            "yardsPerDrive": 35.2,
+            "timeOfPossession": "7:40"
+          }
+        },
+        "NY Jets": {
+          "Q1": {
+            "pointsPerDrive": 1.4,
+            "yardsPerDrive": 28.6,
+            "timeOfPossession": "7:17"
+          },
+          "Q2": {
+            "pointsPerDrive": 1.6,
+            "yardsPerDrive": 25.4,
+            "timeOfPossession": "7:16"
+          },
+          "Q3": {
+            "pointsPerDrive": 1.7,
+            "yardsPerDrive": 27.2,
+            "timeOfPossession": "7:30"
+          },
+          "Q4": {
+            "pointsPerDrive": 1.6,
+            "yardsPerDrive": 26.5,
+            "timeOfPossession": "7:19"
+          }
+        }
+      },
+      "driveMetricsByQuarter": {
+        "Pittsburgh": {
+          "Q1": {
+            "avgDrives": 2.36,
+            "avgTimePerDriveMin": 3.27
+          },
+          "Q2": {
+            "avgDrives": 2.52,
+            "avgTimePerDriveMin": 3.06
+          },
+          "Q3": {
+            "avgDrives": 2.6,
+            "avgTimePerDriveMin": 2.89
+          },
+          "Q4": {
+            "avgDrives": 2.6,
+            "avgTimePerDriveMin": 2.95
+          }
+        },
+        "NY Jets": {
+          "Q1": {
+            "avgDrives": 2.36,
+            "avgTimePerDriveMin": 3.09
+          },
+          "Q2": {
+            "avgDrives": 2.55,
+            "avgTimePerDriveMin": 2.85
+          },
+          "Q3": {
+            "avgDrives": 2.6,
+            "avgTimePerDriveMin": 2.89
+          },
+          "Q4": {
+            "avgDrives": 2.59,
+            "avgTimePerDriveMin": 2.83
+          }
+        }
+      },
+      "gameFlowAnalysis": {
+        "firstHalf": {
+          "Pittsburgh": 12.4,
+          "NY Jets": 7.2
+        },
+        "secondHalf": {
+          "Pittsburgh": 13.8,
+          "NY Jets": 8.6
+        }
+      },
+      "additionalPredictions": {
+        "totalPoints": 42.1,
+        "expectedMarginOfVictory": 10.4,
+        "expectedLeadChanges": 1,
+        "timeOfPossession": {
+          "Pittsburgh": "30:38",
+          "NY Jets": "29:22"
+        }
+      }
+    },
+    {
+      "vegas": {
+        "overUnderResult": {
+          "result": "Over",
+          "margin": 13.8095
+        },
+        "atsResult": {
+          "team": "Washington",
+          "margin": 9.400499999999997
+        },
+        "ouResult": "Over Hits by 13.8 Points",
+        "spreadResult": "Washington Covers the Spread by 9.4 Points",
+        "line": {
+          "favored": "Washington",
+          "spread": 6,
+          "pointsTotal": 45.5
+        }
+      },
+      "header": {
+        "awayTeam": "NY Giants",
+        "homeTeam": "Washington"
+      },
+      "finalScoreProjection": {
+        "NY Giants": 22,
+        "Washington": 37.4
+      },
+      "winProbability": {
+        "NY Giants": "13.8%",
+        "Washington": "86.2%"
+      },
+      "quarterBreakdown": {
+        "awayTeam": {
+          "q1": 5.2,
+          "q2": 5.5,
+          "q3": 5.7,
+          "q4": 5.7,
+          "total": 22
+        },
+        "homeTeam": {
+          "q1": 7.9,
+          "q2": 9,
+          "q3": 10.2,
+          "q4": 10.2,
+          "total": 37.4
+        }
+      },
+      "offensiveStatistics": {
+        "NY Giants": {
+          "passingYards": 206.6,
+          "passCompletions": 23.5,
+          "passAttempts": 33.9,
+          "completionPercentage": 69.4,
+          "yardsPerAttempt": 6.1,
+          "yardsPerCompletion": 8.8,
+          "passingTDs": 1.7,
+          "rushingYards": 152.5,
+          "rushingAttempts": 21.7,
+          "yardsPerRush": 7,
+          "rushingTDs": 0.9,
+          "totalTDs": 2.6,
+          "totalFGsMade": 1.2,
+          "totalFGAttempts": 1.4,
+          "totalYards": 359.1,
+          "yardsPerPlay": 6.5,
+          "totalPlays": 55.6,
+          "negativeYardagePlays": 4.1,
+          "totalDrives": 11,
+          "avgStartingFieldPosition": 33.1,
+          "turnovers": 1.5,
+          "punts": 2.2,
+          "totalFirstDowns": 25,
+          "thirdDownAttempts": 9.1,
+          "thirdDownConversions": 4.8,
+          "thirdDownPercentage": "52.2%",
+          "fourthDownAttempts": 0.3,
+          "fourthDownConversions": 0.2,
+          "fourthDownPercentage": "51.4%",
+          "redZoneTrips": 4.5,
+          "redZoneTDs": 2.6,
+          "redZoneTDPercentage": "60%",
+          "redZoneFGs": 0.9,
+          "totalPenalties": 11.1,
+          "penaltyYards": 81.5,
+          "firstDownsByPenalty": 4.1,
+          "yardsPerFirstDown": 6.5,
+          "passRunSplitDown1": "56.2/43.8",
+          "yardsPerSecondDown": 6.3,
+          "passRunSplitDown2": "58.9/41.1",
+          "yardsPerThirdDown": 6.4,
+          "passRunSplitDown3": "79.3/20.7",
+          "yardsPerFourthDown": 2
+        },
+        "Washington": {
+          "passingYards": 241.5,
+          "passCompletions": 20.7,
+          "passAttempts": 31.1,
+          "completionPercentage": 66.9,
+          "yardsPerAttempt": 7.8,
+          "yardsPerCompletion": 11.6,
+          "passingTDs": 2.4,
+          "rushingYards": 233.4,
+          "rushingAttempts": 29.7,
+          "yardsPerRush": 7.8,
+          "rushingTDs": 2.3,
+          "totalTDs": 4.7,
+          "totalFGsMade": 1.5,
+          "totalFGAttempts": 1.7,
+          "totalYards": 475,
+          "yardsPerPlay": 7.8,
+          "totalPlays": 60.9,
+          "negativeYardagePlays": 5,
+          "totalDrives": 11.1,
+          "avgStartingFieldPosition": 37.1,
+          "turnovers": 0.6,
+          "punts": 0.6,
+          "totalFirstDowns": 29.6,
+          "thirdDownAttempts": 9.1,
+          "thirdDownConversions": 5.3,
+          "thirdDownPercentage": "58.5%",
+          "fourthDownAttempts": 1.1,
+          "fourthDownConversions": 0.7,
+          "fourthDownPercentage": "65%",
+          "redZoneTrips": 7.5,
+          "redZoneTDs": 4.7,
+          "redZoneTDPercentage": "60%",
+          "redZoneFGs": 1.5,
+          "totalPenalties": 11.5,
+          "penaltyYards": 90.1,
+          "firstDownsByPenalty": 4.2,
+          "yardsPerFirstDown": 7.9,
+          "passRunSplitDown1": "42.2/57.8",
+          "yardsPerSecondDown": 7.5,
+          "passRunSplitDown2": "56.5/43.5",
+          "yardsPerThirdDown": 7.6,
+          "passRunSplitDown3": "71.5/28.5",
+          "yardsPerFourthDown": 8
+        }
+      },
+      "quarterEfficiency": {
+        "NY Giants": {
+          "Q1": {
+            "pointsPerDrive": 2,
+            "yardsPerDrive": 36,
+            "timeOfPossession": "7:12"
+          },
+          "Q2": {
+            "pointsPerDrive": 2,
+            "yardsPerDrive": 31,
+            "timeOfPossession": "7:24"
+          },
+          "Q3": {
+            "pointsPerDrive": 2,
+            "yardsPerDrive": 31.9,
+            "timeOfPossession": "7:19"
+          },
+          "Q4": {
+            "pointsPerDrive": 2,
+            "yardsPerDrive": 31.9,
+            "timeOfPossession": "7:13"
+          }
+        },
+        "Washington": {
+          "Q1": {
+            "pointsPerDrive": 3.1,
+            "yardsPerDrive": 44.1,
+            "timeOfPossession": "7:48"
+          },
+          "Q2": {
+            "pointsPerDrive": 3.3,
+            "yardsPerDrive": 41,
+            "timeOfPossession": "7:36"
+          },
+          "Q3": {
+            "pointsPerDrive": 3.6,
+            "yardsPerDrive": 44,
+            "timeOfPossession": "7:41"
+          },
+          "Q4": {
+            "pointsPerDrive": 3.5,
+            "yardsPerDrive": 43.8,
+            "timeOfPossession": "7:47"
+          }
+        }
+      },
+      "driveMetricsByQuarter": {
+        "NY Giants": {
+          "Q1": {
+            "avgDrives": 2.59,
+            "avgTimePerDriveMin": 2.78
+          },
+          "Q2": {
+            "avgDrives": 2.75,
+            "avgTimePerDriveMin": 2.69
+          },
+          "Q3": {
+            "avgDrives": 2.85,
+            "avgTimePerDriveMin": 2.56
+          },
+          "Q4": {
+            "avgDrives": 2.85,
+            "avgTimePerDriveMin": 2.54
+          }
+        },
+        "Washington": {
+          "Q1": {
+            "avgDrives": 2.57,
+            "avgTimePerDriveMin": 3.04
+          },
+          "Q2": {
+            "avgDrives": 2.71,
+            "avgTimePerDriveMin": 2.8
+          },
+          "Q3": {
+            "avgDrives": 2.88,
+            "avgTimePerDriveMin": 2.67
+          },
+          "Q4": {
+            "avgDrives": 2.89,
+            "avgTimePerDriveMin": 2.69
+          }
+        }
+      },
+      "gameFlowAnalysis": {
+        "firstHalf": {
+          "NY Giants": 10.6,
+          "Washington": 16.9
+        },
+        "secondHalf": {
+          "NY Giants": 11.3,
+          "Washington": 20.4
+        }
+      },
+      "additionalPredictions": {
+        "totalPoints": 59.3,
+        "expectedMarginOfVictory": 15.4,
+        "expectedLeadChanges": 0.9,
+        "timeOfPossession": {
+          "NY Giants": "29:07",
+          "Washington": "30:52"
+        }
+      }
+    },
+    {
+      "vegas": {
+        "overUnderResult": {
+          "result": "Over",
+          "margin": 1.9350000000000023
+        },
+        "atsResult": {
+          "team": "Cincinnati",
+          "margin": 17.873000000000005
+        },
+        "ouResult": "Over Hits by 1.9 Points",
+        "spreadResult": "Cincinnati Covers the Spread by 17.9 Points",
+        "line": {
+          "favored": "Cincinnati",
+          "spread": 5,
+          "pointsTotal": 47.5
+        }
+      },
+      "header": {
+        "awayTeam": "Cincinnati",
+        "homeTeam": "Cleveland"
+      },
+      "finalScoreProjection": {
+        "Cincinnati": 36.2,
+        "Cleveland": 13.3
+      },
+      "winProbability": {
+        "Cincinnati": "96.6%",
+        "Cleveland": "3.4%"
+      },
+      "quarterBreakdown": {
+        "awayTeam": {
+          "q1": 7.9,
+          "q2": 9.1,
+          "q3": 9.7,
+          "q4": 9.5,
+          "total": 36.2
+        },
+        "homeTeam": {
+          "q1": 3,
+          "q2": 3.4,
+          "q3": 3.6,
+          "q4": 3.4,
+          "total": 13.3
+        }
+      },
+      "offensiveStatistics": {
+        "Cincinnati": {
+          "passingYards": 281.3,
+          "passCompletions": 26.6,
+          "passAttempts": 36,
+          "completionPercentage": 74,
+          "yardsPerAttempt": 7.9,
+          "yardsPerCompletion": 10.6,
+          "passingTDs": 2.9,
+          "rushingYards": 160.5,
+          "rushingAttempts": 26.6,
+          "yardsPerRush": 6,
+          "rushingTDs": 1.7,
+          "totalTDs": 4.6,
+          "totalFGsMade": 1.4,
+          "totalFGAttempts": 1.5,
+          "totalYards": 441.8,
+          "yardsPerPlay": 7.1,
+          "totalPlays": 62.7,
+          "negativeYardagePlays": 4.4,
+          "totalDrives": 11,
+          "avgStartingFieldPosition": 39.3,
+          "turnovers": 0.6,
+          "punts": 0.6,
+          "totalFirstDowns": 30,
+          "thirdDownAttempts": 9.7,
+          "thirdDownConversions": 6,
+          "thirdDownPercentage": "62.1%",
+          "fourthDownAttempts": 1.2,
+          "fourthDownConversions": 0.8,
+          "fourthDownPercentage": "64.6%",
+          "redZoneTrips": 7.1,
+          "redZoneTDs": 4.6,
+          "redZoneTDPercentage": "60%",
+          "redZoneFGs": 1.4,
+          "totalPenalties": 12.1,
+          "penaltyYards": 86,
+          "firstDownsByPenalty": 4.5,
+          "yardsPerFirstDown": 7,
+          "passRunSplitDown1": "45.7/54.3",
+          "yardsPerSecondDown": 6.8,
+          "passRunSplitDown2": "66.7/33.3",
+          "yardsPerThirdDown": 7.5,
+          "passRunSplitDown3": "75.8/24.2",
+          "yardsPerFourthDown": 6.9
+        },
+        "Cleveland": {
+          "passingYards": 174.7,
+          "passCompletions": 20.6,
+          "passAttempts": 35,
+          "completionPercentage": 59,
+          "yardsPerAttempt": 5,
+          "yardsPerCompletion": 8.5,
+          "passingTDs": 0.9,
+          "rushingYards": 105.5,
+          "rushingAttempts": 16.5,
+          "yardsPerRush": 6.4,
+          "rushingTDs": 0.4,
+          "totalTDs": 1.3,
+          "totalFGsMade": 1.3,
+          "totalFGAttempts": 1.5,
+          "totalYards": 280.3,
+          "yardsPerPlay": 5.4,
+          "totalPlays": 51.4,
+          "negativeYardagePlays": 5.8,
+          "totalDrives": 11,
+          "avgStartingFieldPosition": 33.3,
+          "turnovers": 2,
+          "punts": 2.8,
+          "totalFirstDowns": 19.3,
+          "thirdDownAttempts": 9.4,
+          "thirdDownConversions": 4.1,
+          "thirdDownPercentage": "44%",
+          "fourthDownAttempts": 0.4,
+          "fourthDownConversions": 0.2,
+          "fourthDownPercentage": "37.3%",
+          "redZoneTrips": 3.3,
+          "redZoneTDs": 1.3,
+          "redZoneTDPercentage": "40%",
+          "redZoneFGs": 1.1,
+          "totalPenalties": 10,
+          "penaltyYards": 77,
+          "firstDownsByPenalty": 3.2,
+          "yardsPerFirstDown": 5.3,
+          "passRunSplitDown1": "62.5/37.5",
+          "yardsPerSecondDown": 5.6,
+          "passRunSplitDown2": "70.1/29.9",
+          "yardsPerThirdDown": 5.4,
+          "passRunSplitDown3": "79.4/20.6",
+          "yardsPerFourthDown": 2
+        }
+      },
+      "quarterEfficiency": {
+        "Cincinnati": {
+          "Q1": {
+            "pointsPerDrive": 3.1,
+            "yardsPerDrive": 42.2,
+            "timeOfPossession": "8:26"
+          },
+          "Q2": {
+            "pointsPerDrive": 3.4,
+            "yardsPerDrive": 39.6,
+            "timeOfPossession": "8:37"
+          },
+          "Q3": {
+            "pointsPerDrive": 3.4,
+            "yardsPerDrive": 40.4,
+            "timeOfPossession": "8:36"
+          },
+          "Q4": {
+            "pointsPerDrive": 3.3,
+            "yardsPerDrive": 39.8,
+            "timeOfPossession": "8:42"
+          }
+        },
+        "Cleveland": {
+          "Q1": {
+            "pointsPerDrive": 1.2,
+            "yardsPerDrive": 28.6,
+            "timeOfPossession": "6:34"
+          },
+          "Q2": {
+            "pointsPerDrive": 1.2,
+            "yardsPerDrive": 24.3,
+            "timeOfPossession": "6:23"
+          },
+          "Q3": {
+            "pointsPerDrive": 1.2,
+            "yardsPerDrive": 24.7,
+            "timeOfPossession": "6:24"
+          },
+          "Q4": {
+            "pointsPerDrive": 1.2,
+            "yardsPerDrive": 24.5,
+            "timeOfPossession": "6:18"
+          }
+        }
+      },
+      "driveMetricsByQuarter": {
+        "Cincinnati": {
+          "Q1": {
+            "avgDrives": 2.54,
+            "avgTimePerDriveMin": 3.32
+          },
+          "Q2": {
+            "avgDrives": 2.72,
+            "avgTimePerDriveMin": 3.17
+          },
+          "Q3": {
+            "avgDrives": 2.86,
+            "avgTimePerDriveMin": 3.01
+          },
+          "Q4": {
+            "avgDrives": 2.86,
+            "avgTimePerDriveMin": 3.05
+          }
+        },
+        "Cleveland": {
+          "Q1": {
+            "avgDrives": 2.56,
+            "avgTimePerDriveMin": 2.56
+          },
+          "Q2": {
+            "avgDrives": 2.73,
+            "avgTimePerDriveMin": 2.33
+          },
+          "Q3": {
+            "avgDrives": 2.88,
+            "avgTimePerDriveMin": 2.22
+          },
+          "Q4": {
+            "avgDrives": 2.87,
+            "avgTimePerDriveMin": 2.2
+          }
+        }
+      },
+      "gameFlowAnalysis": {
+        "firstHalf": {
+          "Cincinnati": 17,
+          "Cleveland": 6.3
+        },
+        "secondHalf": {
+          "Cincinnati": 19.2,
+          "Cleveland": 6.9
+        }
+      },
+      "additionalPredictions": {
+        "totalPoints": 49.4,
+        "expectedMarginOfVictory": 22.9,
+        "expectedLeadChanges": 1,
+        "timeOfPossession": {
+          "Cincinnati": "34:21",
+          "Cleveland": "25:39"
+        }
+      }
+    },
+    {
+      "vegas": {
+        "overUnderResult": {
+          "result": "Under",
+          "margin": 6.477000000000004
+        },
+        "atsResult": {
+          "team": "Tampa Bay",
+          "margin": 2.5070000000000014
+        },
+        "ouResult": "Under Hits by 6.5 Points",
+        "spreadResult": "Tampa Bay Covers the Spread by 2.5 Points",
+        "line": {
+          "favored": "Tampa Bay",
+          "spread": 2,
+          "pointsTotal": 47
+        }
+      },
+      "header": {
+        "awayTeam": "Tampa Bay",
+        "homeTeam": "Atlanta"
+      },
+      "finalScoreProjection": {
+        "Tampa Bay": 22.5,
+        "Atlanta": 18
+      },
+      "winProbability": {
+        "Tampa Bay": "63.6%",
+        "Atlanta": "36.4%"
+      },
+      "quarterBreakdown": {
+        "awayTeam": {
+          "q1": 4.9,
+          "q2": 5.8,
+          "q3": 5.9,
+          "q4": 5.8,
+          "total": 22.5
+        },
+        "homeTeam": {
+          "q1": 3.8,
+          "q2": 4.7,
+          "q3": 4.7,
+          "q4": 4.8,
+          "total": 18
+        }
+      },
+      "offensiveStatistics": {
+        "Tampa Bay": {
+          "passingYards": 175.6,
+          "passCompletions": 19.3,
+          "passAttempts": 26.9,
+          "completionPercentage": 71.8,
+          "yardsPerAttempt": 6.6,
+          "yardsPerCompletion": 9.1,
+          "passingTDs": 1.4,
+          "rushingYards": 128.8,
+          "rushingAttempts": 23.7,
+          "yardsPerRush": 5.4,
+          "rushingTDs": 1.2,
+          "totalTDs": 2.7,
+          "totalFGsMade": 1.3,
+          "totalFGAttempts": 1.3,
+          "totalYards": 304.4,
+          "yardsPerPlay": 6,
+          "totalPlays": 50.7,
+          "negativeYardagePlays": 4.5,
+          "totalDrives": 9.6,
+          "avgStartingFieldPosition": 36.9,
+          "turnovers": 0.7,
+          "punts": 1.6,
+          "totalFirstDowns": 23.5,
+          "thirdDownAttempts": 8.8,
+          "thirdDownConversions": 5.5,
+          "thirdDownPercentage": "62.2%",
+          "fourthDownAttempts": 0.1,
+          "fourthDownConversions": 0.1,
+          "fourthDownPercentage": "50%",
+          "redZoneTrips": 4.3,
+          "redZoneTDs": 2.7,
+          "redZoneTDPercentage": "60%",
+          "redZoneFGs": 0.9,
+          "totalPenalties": 10.2,
+          "penaltyYards": 83.9,
+          "firstDownsByPenalty": 4.4,
+          "yardsPerFirstDown": 5.9,
+          "passRunSplitDown1": "45.7/54.3",
+          "yardsPerSecondDown": 5.8,
+          "passRunSplitDown2": "58.2/41.8",
+          "yardsPerThirdDown": 6.5,
+          "passRunSplitDown3": "65.2/34.8",
+          "yardsPerFourthDown": 0.6
+        },
+        "Atlanta": {
+          "passingYards": 187.7,
+          "passCompletions": 23.7,
+          "passAttempts": 33.3,
+          "completionPercentage": 71.2,
+          "yardsPerAttempt": 5.7,
+          "yardsPerCompletion": 7.9,
+          "passingTDs": 1.2,
+          "rushingYards": 112.7,
+          "rushingAttempts": 24.8,
+          "yardsPerRush": 4.5,
+          "rushingTDs": 0.9,
+          "totalTDs": 2.1,
+          "totalFGsMade": 1.1,
+          "totalFGAttempts": 1.3,
+          "totalYards": 300.4,
+          "yardsPerPlay": 5.2,
+          "totalPlays": 58.1,
+          "negativeYardagePlays": 4.7,
+          "totalDrives": 9.5,
+          "avgStartingFieldPosition": 35.8,
+          "turnovers": 1,
+          "punts": 1,
+          "totalFirstDowns": 22,
+          "thirdDownAttempts": 10.8,
+          "thirdDownConversions": 5.7,
+          "thirdDownPercentage": "52.7%",
+          "fourthDownAttempts": 2,
+          "fourthDownConversions": 1.2,
+          "fourthDownPercentage": "59.4%",
+          "redZoneTrips": 4.2,
+          "redZoneTDs": 2.1,
+          "redZoneTDPercentage": "50%",
+          "redZoneFGs": 1.1,
+          "totalPenalties": 10.8,
+          "penaltyYards": 85.9,
+          "firstDownsByPenalty": 4.2,
+          "yardsPerFirstDown": 5.1,
+          "passRunSplitDown1": "44.2/55.8",
+          "yardsPerSecondDown": 4.9,
+          "passRunSplitDown2": "62.2/37.8",
+          "yardsPerThirdDown": 5.5,
+          "passRunSplitDown3": "74.6/25.4",
+          "yardsPerFourthDown": 6
+        }
+      },
+      "quarterEfficiency": {
+        "Tampa Bay": {
+          "Q1": {
+            "pointsPerDrive": 2.1,
+            "yardsPerDrive": 33.3,
+            "timeOfPossession": "7:00"
+          },
+          "Q2": {
+            "pointsPerDrive": 2.4,
+            "yardsPerDrive": 31.8,
+            "timeOfPossession": "7:05"
+          },
+          "Q3": {
+            "pointsPerDrive": 2.4,
+            "yardsPerDrive": 31,
+            "timeOfPossession": "7:02"
+          },
+          "Q4": {
+            "pointsPerDrive": 2.4,
+            "yardsPerDrive": 31.1,
+            "timeOfPossession": "7:07"
+          }
+        },
+        "Atlanta": {
+          "Q1": {
+            "pointsPerDrive": 1.7,
+            "yardsPerDrive": 33.6,
+            "timeOfPossession": "8:00"
+          },
+          "Q2": {
+            "pointsPerDrive": 2,
+            "yardsPerDrive": 31.6,
+            "timeOfPossession": "7:55"
+          },
+          "Q3": {
+            "pointsPerDrive": 1.9,
+            "yardsPerDrive": 31.3,
+            "timeOfPossession": "7:58"
+          },
+          "Q4": {
+            "pointsPerDrive": 2,
+            "yardsPerDrive": 31.3,
+            "timeOfPossession": "7:53"
+          }
+        }
+      },
+      "driveMetricsByQuarter": {
+        "Tampa Bay": {
+          "Q1": {
+            "avgDrives": 2.3,
+            "avgTimePerDriveMin": 3.05
+          },
+          "Q2": {
+            "avgDrives": 2.38,
+            "avgTimePerDriveMin": 2.97
+          },
+          "Q3": {
+            "avgDrives": 2.46,
+            "avgTimePerDriveMin": 2.85
+          },
+          "Q4": {
+            "avgDrives": 2.47,
+            "avgTimePerDriveMin": 2.88
+          }
+        },
+        "Atlanta": {
+          "Q1": {
+            "avgDrives": 2.24,
+            "avgTimePerDriveMin": 3.57
+          },
+          "Q2": {
+            "avgDrives": 2.36,
+            "avgTimePerDriveMin": 3.36
+          },
+          "Q3": {
+            "avgDrives": 2.44,
+            "avgTimePerDriveMin": 3.26
+          },
+          "Q4": {
+            "avgDrives": 2.44,
+            "avgTimePerDriveMin": 3.23
+          }
+        }
+      },
+      "gameFlowAnalysis": {
+        "firstHalf": {
+          "Tampa Bay": 10.7,
+          "Atlanta": 8.5
+        },
+        "secondHalf": {
+          "Tampa Bay": 11.8,
+          "Atlanta": 9.6
+        }
+      },
+      "additionalPredictions": {
+        "totalPoints": 40.5,
+        "expectedMarginOfVictory": 4.5,
+        "expectedLeadChanges": 1,
+        "timeOfPossession": {
+          "Tampa Bay": "28:13",
+          "Atlanta": "31:46"
+        }
+      }
+    },
+    {
+      "vegas": {
+        "overUnderResult": {
+          "result": "Under",
+          "margin": 10.903500000000001
+        },
+        "atsResult": {
+          "team": "New England",
+          "margin": 3.8825000000000003
+        },
+        "ouResult": "Under Hits by 10.9 Points",
+        "spreadResult": "New England Covers the Spread by 3.9 Points",
+        "line": {
+          "favored": "New England",
+          "spread": 2.5,
+          "pointsTotal": 44
+        }
+      },
+      "header": {
+        "awayTeam": "Las Vegas",
+        "homeTeam": "New England"
+      },
+      "finalScoreProjection": {
+        "Las Vegas": 13.4,
+        "New England": 19.7
+      },
+      "winProbability": {
+        "Las Vegas": "31.1%",
+        "New England": "68.9%"
+      },
+      "quarterBreakdown": {
+        "awayTeam": {
+          "q1": 2.5,
+          "q2": 3.5,
+          "q3": 3.6,
+          "q4": 3.7,
+          "total": 13.4
+        },
+        "homeTeam": {
+          "q1": 4.1,
+          "q2": 4.8,
+          "q3": 5.4,
+          "q4": 5.4,
+          "total": 19.7
+        }
+      },
+      "offensiveStatistics": {
+        "Las Vegas": {
+          "passingYards": 165.6,
+          "passCompletions": 23.8,
+          "passAttempts": 35.3,
+          "completionPercentage": 67.5,
+          "yardsPerAttempt": 4.7,
+          "yardsPerCompletion": 7,
+          "passingTDs": 0.7,
+          "rushingYards": 90.5,
+          "rushingAttempts": 20.6,
+          "yardsPerRush": 4.4,
+          "rushingTDs": 0.6,
+          "totalTDs": 1.3,
+          "totalFGsMade": 1.4,
+          "totalFGAttempts": 1.5,
+          "totalYards": 256.1,
+          "yardsPerPlay": 4.6,
+          "totalPlays": 55.9,
+          "negativeYardagePlays": 5.5,
+          "totalDrives": 11.3,
+          "avgStartingFieldPosition": 36,
+          "turnovers": 1.6,
+          "punts": 3.5,
+          "totalFirstDowns": 19.5,
+          "thirdDownAttempts": 11.8,
+          "thirdDownConversions": 5.9,
+          "thirdDownPercentage": "50.2%",
+          "fourthDownAttempts": 0.3,
+          "fourthDownConversions": 0.1,
+          "fourthDownPercentage": "45.3%",
+          "redZoneTrips": 2.9,
+          "redZoneTDs": 1.3,
+          "redZoneTDPercentage": "50%",
+          "redZoneFGs": 0.9,
+          "totalPenalties": 9.9,
+          "penaltyYards": 76.6,
+          "firstDownsByPenalty": 3.9,
+          "yardsPerFirstDown": 4.5,
+          "passRunSplitDown1": "57.6/42.4",
+          "yardsPerSecondDown": 4.3,
+          "passRunSplitDown2": "62.5/37.5",
+          "yardsPerThirdDown": 5.1,
+          "passRunSplitDown3": "76/24",
+          "yardsPerFourthDown": 1.6
+        },
+        "New England": {
+          "passingYards": 159.3,
+          "passCompletions": 20.1,
+          "passAttempts": 31.1,
+          "completionPercentage": 64.8,
+          "yardsPerAttempt": 5.1,
+          "yardsPerCompletion": 7.9,
+          "passingTDs": 1.1,
+          "rushingYards": 142.2,
+          "rushingAttempts": 26.3,
+          "yardsPerRush": 5.4,
+          "rushingTDs": 0.9,
+          "totalTDs": 1.9,
+          "totalFGsMade": 2,
+          "totalFGAttempts": 2.3,
+          "totalYards": 301.5,
+          "yardsPerPlay": 5.2,
+          "totalPlays": 57.3,
+          "negativeYardagePlays": 6.1,
+          "totalDrives": 11.4,
+          "avgStartingFieldPosition": 39.1,
+          "turnovers": 0.8,
+          "punts": 2.9,
+          "totalFirstDowns": 21.6,
+          "thirdDownAttempts": 10.6,
+          "thirdDownConversions": 4.9,
+          "thirdDownPercentage": "46%",
+          "fourthDownAttempts": 0.1,
+          "fourthDownConversions": 0.1,
+          "fourthDownPercentage": "41.5%",
+          "redZoneTrips": 4.2,
+          "redZoneTDs": 1.9,
+          "redZoneTDPercentage": "50%",
+          "redZoneFGs": 1.5,
+          "totalPenalties": 11.7,
+          "penaltyYards": 88.7,
+          "firstDownsByPenalty": 4.3,
+          "yardsPerFirstDown": 4.3,
+          "passRunSplitDown1": "40.6/59.4",
+          "yardsPerSecondDown": 6.7,
+          "passRunSplitDown2": "59.8/40.2",
+          "yardsPerThirdDown": 4.8,
+          "passRunSplitDown3": "77.1/22.9",
+          "yardsPerFourthDown": 0.7
+        }
+      },
+      "quarterEfficiency": {
+        "Las Vegas": {
+          "Q1": {
+            "pointsPerDrive": 1,
+            "yardsPerDrive": 23.5,
+            "timeOfPossession": "7:24"
+          },
+          "Q2": {
+            "pointsPerDrive": 1.2,
+            "yardsPerDrive": 21.9,
+            "timeOfPossession": "7:22"
+          },
+          "Q3": {
+            "pointsPerDrive": 1.2,
+            "yardsPerDrive": 22.4,
+            "timeOfPossession": "7:09"
+          },
+          "Q4": {
+            "pointsPerDrive": 1.3,
+            "yardsPerDrive": 23,
+            "timeOfPossession": "7:11"
+          }
+        },
+        "New England": {
+          "Q1": {
+            "pointsPerDrive": 1.6,
+            "yardsPerDrive": 27.1,
+            "timeOfPossession": "7:36"
+          },
+          "Q2": {
+            "pointsPerDrive": 1.7,
+            "yardsPerDrive": 25.4,
+            "timeOfPossession": "7:38"
+          },
+          "Q3": {
+            "pointsPerDrive": 1.8,
+            "yardsPerDrive": 27.2,
+            "timeOfPossession": "7:51"
+          },
+          "Q4": {
+            "pointsPerDrive": 1.8,
+            "yardsPerDrive": 27,
+            "timeOfPossession": "7:49"
+          }
+        }
+      },
+      "driveMetricsByQuarter": {
+        "Las Vegas": {
+          "Q1": {
+            "avgDrives": 2.64,
+            "avgTimePerDriveMin": 2.8
+          },
+          "Q2": {
+            "avgDrives": 2.8,
+            "avgTimePerDriveMin": 2.63
+          },
+          "Q3": {
+            "avgDrives": 2.96,
+            "avgTimePerDriveMin": 2.42
+          },
+          "Q4": {
+            "avgDrives": 2.93,
+            "avgTimePerDriveMin": 2.46
+          }
+        },
+        "New England": {
+          "Q1": {
+            "avgDrives": 2.66,
+            "avgTimePerDriveMin": 2.85
+          },
+          "Q2": {
+            "avgDrives": 2.8,
+            "avgTimePerDriveMin": 2.73
+          },
+          "Q3": {
+            "avgDrives": 2.95,
+            "avgTimePerDriveMin": 2.66
+          },
+          "Q4": {
+            "avgDrives": 2.95,
+            "avgTimePerDriveMin": 2.65
+          }
+        }
+      },
+      "gameFlowAnalysis": {
+        "firstHalf": {
+          "Las Vegas": 6,
+          "New England": 8.9
+        },
+        "secondHalf": {
+          "Las Vegas": 7.4,
+          "New England": 10.8
+        }
+      },
+      "additionalPredictions": {
+        "totalPoints": 33.1,
+        "expectedMarginOfVictory": 6.4,
+        "expectedLeadChanges": 0.8,
+        "timeOfPossession": {
+          "Las Vegas": "29:07",
+          "New England": "30:53"
+        }
+      }
+    },
+    {
+      "vegas": {
+        "overUnderResult": {
+          "result": "Under",
+          "margin": 6.9510000000000005
+        },
+        "atsResult": {
+          "team": "Jacksonville",
+          "margin": 14.893999999999998
+        },
+        "ouResult": "Under Hits by 7.0 Points",
+        "spreadResult": "Jacksonville Covers the Spread by 14.9 Points",
+        "line": {
+          "favored": "Jacksonville",
+          "spread": 3.5,
+          "pointsTotal": 47
+        }
+      },
+      "header": {
+        "awayTeam": "Carolina",
+        "homeTeam": "Jacksonville"
+      },
+      "finalScoreProjection": {
+        "Carolina": 10.8,
+        "Jacksonville": 29.2
+      },
+      "winProbability": {
+        "Carolina": "6.1%",
+        "Jacksonville": "93.9%"
+      },
+      "quarterBreakdown": {
+        "awayTeam": {
+          "q1": 2.2,
+          "q2": 2.9,
+          "q3": 2.9,
+          "q4": 2.9,
+          "total": 10.8
+        },
+        "homeTeam": {
+          "q1": 6.6,
+          "q2": 7.6,
+          "q3": 7.7,
+          "q4": 7.3,
+          "total": 29.2
+        }
+      },
+      "offensiveStatistics": {
+        "Carolina": {
+          "passingYards": 134.4,
+          "passCompletions": 21,
+          "passAttempts": 30.8,
+          "completionPercentage": 68,
+          "yardsPerAttempt": 4.3,
+          "yardsPerCompletion": 6.4,
+          "passingTDs": 0.7,
+          "rushingYards": 85.9,
+          "rushingAttempts": 19.2,
+          "yardsPerRush": 4.4,
+          "rushingTDs": 0.4,
+          "totalTDs": 1.1,
+          "totalFGsMade": 1,
+          "totalFGAttempts": 1.2,
+          "totalYards": 220.2,
+          "yardsPerPlay": 4.4,
+          "totalPlays": 50,
+          "negativeYardagePlays": 4.5,
+          "totalDrives": 10.6,
+          "avgStartingFieldPosition": 35.2,
+          "turnovers": 1.3,
+          "punts": 3.5,
+          "totalFirstDowns": 17.3,
+          "thirdDownAttempts": 10.7,
+          "thirdDownConversions": 5,
+          "thirdDownPercentage": "47.3%",
+          "fourthDownAttempts": 0.5,
+          "fourthDownConversions": 0.2,
+          "fourthDownPercentage": "42.6%",
+          "redZoneTrips": 2.4,
+          "redZoneTDs": 1.1,
+          "redZoneTDPercentage": "40%",
+          "redZoneFGs": 0.7,
+          "totalPenalties": 10,
+          "penaltyYards": 77.7,
+          "firstDownsByPenalty": 4,
+          "yardsPerFirstDown": 4.4,
+          "passRunSplitDown1": "51.4/48.6",
+          "yardsPerSecondDown": 4,
+          "passRunSplitDown2": "62.9/37.1",
+          "yardsPerThirdDown": 4.7,
+          "passRunSplitDown3": "80.6/19.4",
+          "yardsPerFourthDown": 1.9
+        },
+        "Jacksonville": {
+          "passingYards": 231.4,
+          "passCompletions": 22,
+          "passAttempts": 32.2,
+          "completionPercentage": 68.7,
+          "yardsPerAttempt": 7.2,
+          "yardsPerCompletion": 10.5,
+          "passingTDs": 1.8,
+          "rushingYards": 165.2,
+          "rushingAttempts": 28.8,
+          "yardsPerRush": 5.7,
+          "rushingTDs": 1.8,
+          "totalTDs": 3.6,
+          "totalFGsMade": 1.4,
+          "totalFGAttempts": 1.5,
+          "totalYards": 396.6,
+          "yardsPerPlay": 6.5,
+          "totalPlays": 61,
+          "negativeYardagePlays": 4.4,
+          "totalDrives": 10.5,
+          "avgStartingFieldPosition": 37.8,
+          "turnovers": 1.1,
+          "punts": 0.6,
+          "totalFirstDowns": 26.5,
+          "thirdDownAttempts": 9.7,
+          "thirdDownConversions": 5.5,
+          "thirdDownPercentage": "56.8%",
+          "fourthDownAttempts": 1.5,
+          "fourthDownConversions": 1,
+          "fourthDownPercentage": "64.4%",
+          "redZoneTrips": 6,
+          "redZoneTDs": 3.6,
+          "redZoneTDPercentage": "60%",
+          "redZoneFGs": 1.4,
+          "totalPenalties": 11.2,
+          "penaltyYards": 83.7,
+          "firstDownsByPenalty": 5.2,
+          "yardsPerFirstDown": 5,
+          "passRunSplitDown1": "44.2/55.8",
+          "yardsPerSecondDown": 7.8,
+          "passRunSplitDown2": "56.8/43.2",
+          "yardsPerThirdDown": 7.6,
+          "passRunSplitDown3": "68/32",
+          "yardsPerFourthDown": 6.4
+        }
+      },
+      "quarterEfficiency": {
+        "Carolina": {
+          "Q1": {
+            "pointsPerDrive": 0.9,
+            "yardsPerDrive": 21.6,
+            "timeOfPossession": "6:47"
+          },
+          "Q2": {
+            "pointsPerDrive": 1.1,
+            "yardsPerDrive": 20,
+            "timeOfPossession": "6:40"
+          },
+          "Q3": {
+            "pointsPerDrive": 1.1,
+            "yardsPerDrive": 21,
+            "timeOfPossession": "6:55"
+          },
+          "Q4": {
+            "pointsPerDrive": 1.1,
+            "yardsPerDrive": 20.8,
+            "timeOfPossession": "6:51"
+          }
+        },
+        "Jacksonville": {
+          "Q1": {
+            "pointsPerDrive": 2.6,
+            "yardsPerDrive": 40.4,
+            "timeOfPossession": "8:13"
+          },
+          "Q2": {
+            "pointsPerDrive": 2.9,
+            "yardsPerDrive": 37.4,
+            "timeOfPossession": "8:20"
+          },
+          "Q3": {
+            "pointsPerDrive": 2.8,
+            "yardsPerDrive": 37.1,
+            "timeOfPossession": "8:05"
+          },
+          "Q4": {
+            "pointsPerDrive": 2.7,
+            "yardsPerDrive": 36.8,
+            "timeOfPossession": "8:09"
+          }
+        }
+      },
+      "driveMetricsByQuarter": {
+        "Carolina": {
+          "Q1": {
+            "avgDrives": 2.51,
+            "avgTimePerDriveMin": 2.7
+          },
+          "Q2": {
+            "avgDrives": 2.65,
+            "avgTimePerDriveMin": 2.52
+          },
+          "Q3": {
+            "avgDrives": 2.73,
+            "avgTimePerDriveMin": 2.54
+          },
+          "Q4": {
+            "avgDrives": 2.72,
+            "avgTimePerDriveMin": 2.52
+          }
+        },
+        "Jacksonville": {
+          "Q1": {
+            "avgDrives": 2.49,
+            "avgTimePerDriveMin": 3.3
+          },
+          "Q2": {
+            "avgDrives": 2.62,
+            "avgTimePerDriveMin": 3.18
+          },
+          "Q3": {
+            "avgDrives": 2.72,
+            "avgTimePerDriveMin": 2.98
+          },
+          "Q4": {
+            "avgDrives": 2.69,
+            "avgTimePerDriveMin": 3.03
+          }
+        }
+      },
+      "gameFlowAnalysis": {
+        "firstHalf": {
+          "Carolina": 5,
+          "Jacksonville": 14.2
+        },
+        "secondHalf": {
+          "Carolina": 5.8,
+          "Jacksonville": 15.1
+        }
+      },
+      "additionalPredictions": {
+        "totalPoints": 40,
+        "expectedMarginOfVictory": 18.4,
+        "expectedLeadChanges": 0.4,
+        "timeOfPossession": {
+          "Carolina": "27:13",
+          "Jacksonville": "32:47"
+        }
+      }
+    },
+    {
+      "vegas": {
+        "overUnderResult": {
+          "result": "Over",
+          "margin": 10.861500000000007
+        },
+        "atsResult": {
+          "team": "New Orleans",
+          "margin": 2.0975
+        },
+        "ouResult": "Over Hits by 10.9 Points",
+        "spreadResult": "New Orleans Covers the Spread by 2.1 Points",
+        "line": {
+          "favored": "Arizona",
+          "spread": 6.5,
+          "pointsTotal": 43.5
+        }
+      },
+      "header": {
+        "awayTeam": "Arizona",
+        "homeTeam": "New Orleans"
+      },
+      "finalScoreProjection": {
+        "Arizona": 29.4,
+        "New Orleans": 25
+      },
+      "winProbability": {
+        "Arizona": "62.5%",
+        "New Orleans": "37.5%"
+      },
+      "quarterBreakdown": {
+        "awayTeam": {
+          "q1": 6.6,
+          "q2": 7.5,
+          "q3": 7.6,
+          "q4": 7.7,
+          "total": 29.4
+        },
+        "homeTeam": {
+          "q1": 5.8,
+          "q2": 6.7,
+          "q3": 6.2,
+          "q4": 6.3,
+          "total": 25
+        }
+      },
+      "offensiveStatistics": {
+        "Arizona": {
+          "passingYards": 230.6,
+          "passCompletions": 21.5,
+          "passAttempts": 31.1,
+          "completionPercentage": 69.3,
+          "yardsPerAttempt": 7.5,
+          "yardsPerCompletion": 10.7,
+          "passingTDs": 2.2,
+          "rushingYards": 169,
+          "rushingAttempts": 22.8,
+          "yardsPerRush": 7.4,
+          "rushingTDs": 1.4,
+          "totalTDs": 3.6,
+          "totalFGsMade": 1.4,
+          "totalFGAttempts": 1.6,
+          "totalYards": 399.6,
+          "yardsPerPlay": 7.4,
+          "totalPlays": 53.9,
+          "negativeYardagePlays": 4.5,
+          "totalDrives": 10.4,
+          "avgStartingFieldPosition": 35.2,
+          "turnovers": 0.6,
+          "punts": 1.4,
+          "totalFirstDowns": 27.3,
+          "thirdDownAttempts": 8.2,
+          "thirdDownConversions": 4.8,
+          "thirdDownPercentage": "59.3%",
+          "fourthDownAttempts": 0.1,
+          "fourthDownConversions": 0.1,
+          "fourthDownPercentage": "53.2%",
+          "redZoneTrips": 5.6,
+          "redZoneTDs": 3.6,
+          "redZoneTDPercentage": "60%",
+          "redZoneFGs": 1.2,
+          "totalPenalties": 11.1,
+          "penaltyYards": 86.1,
+          "firstDownsByPenalty": 4.4,
+          "yardsPerFirstDown": 7.5,
+          "passRunSplitDown1": "51.5/48.5",
+          "yardsPerSecondDown": 7,
+          "passRunSplitDown2": "62.7/37.3",
+          "yardsPerThirdDown": 7.6,
+          "passRunSplitDown3": "70.7/29.3",
+          "yardsPerFourthDown": 0.9
+        },
+        "New Orleans": {
+          "passingYards": 226.9,
+          "passCompletions": 22.4,
+          "passAttempts": 33.1,
+          "completionPercentage": 67.9,
+          "yardsPerAttempt": 6.9,
+          "yardsPerCompletion": 10.1,
+          "passingTDs": 1.6,
+          "rushingYards": 153.4,
+          "rushingAttempts": 23.8,
+          "yardsPerRush": 6.4,
+          "rushingTDs": 1.3,
+          "totalTDs": 3,
+          "totalFGsMade": 1.4,
+          "totalFGAttempts": 1.5,
+          "totalYards": 380.3,
+          "yardsPerPlay": 6.7,
+          "totalPlays": 56.9,
+          "negativeYardagePlays": 4.2,
+          "totalDrives": 10.4,
+          "avgStartingFieldPosition": 34.9,
+          "turnovers": 1.2,
+          "punts": 0.8,
+          "totalFirstDowns": 24.3,
+          "thirdDownAttempts": 9.3,
+          "thirdDownConversions": 4.8,
+          "thirdDownPercentage": "51.7%",
+          "fourthDownAttempts": 1.6,
+          "fourthDownConversions": 0.9,
+          "fourthDownPercentage": "52.5%",
+          "redZoneTrips": 5.5,
+          "redZoneTDs": 2.9,
+          "redZoneTDPercentage": "50%",
+          "redZoneFGs": 1.4,
+          "totalPenalties": 10.1,
+          "penaltyYards": 82.1,
+          "firstDownsByPenalty": 3.6,
+          "yardsPerFirstDown": 6.5,
+          "passRunSplitDown1": "50.4/49.6",
+          "yardsPerSecondDown": 6.4,
+          "passRunSplitDown2": "60/40",
+          "yardsPerThirdDown": 7.3,
+          "passRunSplitDown3": "74.3/25.7",
+          "yardsPerFourthDown": 6.4
+        }
+      },
+      "quarterEfficiency": {
+        "Arizona": {
+          "Q1": {
+            "pointsPerDrive": 2.7,
+            "yardsPerDrive": 40.7,
+            "timeOfPossession": "7:26"
+          },
+          "Q2": {
+            "pointsPerDrive": 2.9,
+            "yardsPerDrive": 38.3,
+            "timeOfPossession": "7:23"
+          },
+          "Q3": {
+            "pointsPerDrive": 2.8,
+            "yardsPerDrive": 37.7,
+            "timeOfPossession": "7:24"
+          },
+          "Q4": {
+            "pointsPerDrive": 2.9,
+            "yardsPerDrive": 37.3,
+            "timeOfPossession": "7:24"
+          }
+        },
+        "New Orleans": {
+          "Q1": {
+            "pointsPerDrive": 2.3,
+            "yardsPerDrive": 39.8,
+            "timeOfPossession": "7:34"
+          },
+          "Q2": {
+            "pointsPerDrive": 2.6,
+            "yardsPerDrive": 37.4,
+            "timeOfPossession": "7:37"
+          },
+          "Q3": {
+            "pointsPerDrive": 2.3,
+            "yardsPerDrive": 34.9,
+            "timeOfPossession": "7:35"
+          },
+          "Q4": {
+            "pointsPerDrive": 2.4,
+            "yardsPerDrive": 35.1,
+            "timeOfPossession": "7:36"
+          }
+        }
+      },
+      "driveMetricsByQuarter": {
+        "Arizona": {
+          "Q1": {
+            "avgDrives": 2.48,
+            "avgTimePerDriveMin": 2.99
+          },
+          "Q2": {
+            "avgDrives": 2.63,
+            "avgTimePerDriveMin": 2.81
+          },
+          "Q3": {
+            "avgDrives": 2.66,
+            "avgTimePerDriveMin": 2.78
+          },
+          "Q4": {
+            "avgDrives": 2.67,
+            "avgTimePerDriveMin": 2.77
+          }
+        },
+        "New Orleans": {
+          "Q1": {
+            "avgDrives": 2.45,
+            "avgTimePerDriveMin": 3.08
+          },
+          "Q2": {
+            "avgDrives": 2.61,
+            "avgTimePerDriveMin": 2.91
+          },
+          "Q3": {
+            "avgDrives": 2.67,
+            "avgTimePerDriveMin": 2.84
+          },
+          "Q4": {
+            "avgDrives": 2.66,
+            "avgTimePerDriveMin": 2.85
+          }
+        }
+      },
+      "gameFlowAnalysis": {
+        "firstHalf": {
+          "Arizona": 14.1,
+          "New Orleans": 12.5
+        },
+        "secondHalf": {
+          "Arizona": 15.3,
+          "New Orleans": 12.5
+        }
+      },
+      "additionalPredictions": {
+        "totalPoints": 54.4,
+        "expectedMarginOfVictory": 4.4,
+        "expectedLeadChanges": 1.4,
+        "timeOfPossession": {
+          "Arizona": "29:37",
+          "New Orleans": "30:22"
+        }
+      }
+    },
+    {
+      "vegas": {
+        "overUnderResult": {
+          "result": "Over",
+          "margin": 10.465999999999994
+        },
+        "atsResult": {
+          "team": "San Francisco",
+          "margin": 18.279999999999998
+        },
+        "ouResult": "Over Hits by 10.5 Points",
+        "spreadResult": "San Francisco Covers the Spread by 18.3 Points",
+        "line": {
+          "favored": "San Francisco",
+          "spread": 2.5,
+          "pointsTotal": 43.5
+        }
+      },
+      "header": {
+        "awayTeam": "San Francisco",
+        "homeTeam": "Seattle"
+      },
+      "finalScoreProjection": {
+        "San Francisco": 37.4,
+        "Seattle": 16.6
+      },
+      "winProbability": {
+        "San Francisco": "92.4%",
+        "Seattle": "7.6%"
+      },
+      "quarterBreakdown": {
+        "awayTeam": {
+          "q1": 7.8,
+          "q2": 9.4,
+          "q3": 10.2,
+          "q4": 10,
+          "total": 37.4
+        },
+        "homeTeam": {
+          "q1": 3.6,
+          "q2": 4,
+          "q3": 4.5,
+          "q4": 4.5,
+          "total": 16.6
+        }
+      },
+      "offensiveStatistics": {
+        "San Francisco": {
+          "passingYards": 255.1,
+          "passCompletions": 18.4,
+          "passAttempts": 25.2,
+          "completionPercentage": 73.1,
+          "yardsPerAttempt": 10.2,
+          "yardsPerCompletion": 13.9,
+          "passingTDs": 2.5,
+          "rushingYards": 188.8,
+          "rushingAttempts": 23.7,
+          "yardsPerRush": 7.9,
+          "rushingTDs": 2.3,
+          "totalTDs": 4.9,
+          "totalFGsMade": 1,
+          "totalFGAttempts": 1.2,
+          "totalYards": 443.9,
+          "yardsPerPlay": 9.1,
+          "totalPlays": 49,
+          "negativeYardagePlays": 3.2,
+          "totalDrives": 11,
+          "avgStartingFieldPosition": 37.2,
+          "turnovers": 0.6,
+          "punts": 1.1,
+          "totalFirstDowns": 26.4,
+          "thirdDownAttempts": 6.8,
+          "thirdDownConversions": 4.2,
+          "thirdDownPercentage": "62.6%",
+          "fourthDownAttempts": 0,
+          "fourthDownConversions": 0,
+          "fourthDownPercentage": "65.5%",
+          "redZoneTrips": 6.6,
+          "redZoneTDs": 4.9,
+          "redZoneTDPercentage": "70%",
+          "redZoneFGs": 0.8,
+          "totalPenalties": 9.9,
+          "penaltyYards": 69.5,
+          "firstDownsByPenalty": 3.6,
+          "yardsPerFirstDown": 9.3,
+          "passRunSplitDown1": "45.2/54.8",
+          "yardsPerSecondDown": 8.5,
+          "passRunSplitDown2": "55.1/44.9",
+          "yardsPerThirdDown": 8.8,
+          "passRunSplitDown3": "70.6/29.3",
+          "yardsPerFourthDown": 0.3
+        },
+        "Seattle": {
+          "passingYards": 232.7,
+          "passCompletions": 28.3,
+          "passAttempts": 43.4,
+          "completionPercentage": 65.3,
+          "yardsPerAttempt": 5.4,
+          "yardsPerCompletion": 8.2,
+          "passingTDs": 1.2,
+          "rushingYards": 84.7,
+          "rushingAttempts": 19.8,
+          "yardsPerRush": 4.2,
+          "rushingTDs": 0.6,
+          "totalTDs": 1.8,
+          "totalFGsMade": 1.3,
+          "totalFGAttempts": 1.4,
+          "totalYards": 317.4,
+          "yardsPerPlay": 5,
+          "totalPlays": 63.2,
+          "negativeYardagePlays": 7.6,
+          "totalDrives": 10.7,
+          "avgStartingFieldPosition": 34.5,
+          "turnovers": 1.8,
+          "punts": 1.4,
+          "totalFirstDowns": 21.4,
+          "thirdDownAttempts": 12.9,
+          "thirdDownConversions": 6.9,
+          "thirdDownPercentage": "53.7%",
+          "fourthDownAttempts": 2.3,
+          "fourthDownConversions": 1.2,
+          "fourthDownPercentage": "53.6%",
+          "redZoneTrips": 4.2,
+          "redZoneTDs": 1.8,
+          "redZoneTDPercentage": "40%",
+          "redZoneFGs": 1.3,
+          "totalPenalties": 12.2,
+          "penaltyYards": 88.6,
+          "firstDownsByPenalty": 3.6,
+          "yardsPerFirstDown": 4.3,
+          "passRunSplitDown1": "60.2/39.8",
+          "yardsPerSecondDown": 4.3,
+          "passRunSplitDown2": "68.2/31.8",
+          "yardsPerThirdDown": 7.2,
+          "passRunSplitDown3": "83.6/16.4",
+          "yardsPerFourthDown": 6.1
+        }
+      },
+      "quarterEfficiency": {
+        "San Francisco": {
+          "Q1": {
+            "pointsPerDrive": 3.1,
+            "yardsPerDrive": 41.4,
+            "timeOfPossession": "6:36"
+          },
+          "Q2": {
+            "pointsPerDrive": 3.4,
+            "yardsPerDrive": 39.1,
+            "timeOfPossession": "6:45"
+          },
+          "Q3": {
+            "pointsPerDrive": 3.6,
+            "yardsPerDrive": 41.5,
+            "timeOfPossession": "7:12"
+          },
+          "Q4": {
+            "pointsPerDrive": 3.5,
+            "yardsPerDrive": 40.7,
+            "timeOfPossession": "7:12"
+          }
+        },
+        "Seattle": {
+          "Q1": {
+            "pointsPerDrive": 1.5,
+            "yardsPerDrive": 31.9,
+            "timeOfPossession": "8:24"
+          },
+          "Q2": {
+            "pointsPerDrive": 1.5,
+            "yardsPerDrive": 28.1,
+            "timeOfPossession": "8:15"
+          },
+          "Q3": {
+            "pointsPerDrive": 1.6,
+            "yardsPerDrive": 30,
+            "timeOfPossession": "7:48"
+          },
+          "Q4": {
+            "pointsPerDrive": 1.6,
+            "yardsPerDrive": 29.8,
+            "timeOfPossession": "7:47"
+          }
+        }
+      },
+      "driveMetricsByQuarter": {
+        "San Francisco": {
+          "Q1": {
+            "avgDrives": 2.5,
+            "avgTimePerDriveMin": 2.64
+          },
+          "Q2": {
+            "avgDrives": 2.73,
+            "avgTimePerDriveMin": 2.47
+          },
+          "Q3": {
+            "avgDrives": 2.84,
+            "avgTimePerDriveMin": 2.53
+          },
+          "Q4": {
+            "avgDrives": 2.88,
+            "avgTimePerDriveMin": 2.5
+          }
+        },
+        "Seattle": {
+          "Q1": {
+            "avgDrives": 2.43,
+            "avgTimePerDriveMin": 3.45
+          },
+          "Q2": {
+            "avgDrives": 2.64,
+            "avgTimePerDriveMin": 3.12
+          },
+          "Q3": {
+            "avgDrives": 2.79,
+            "avgTimePerDriveMin": 2.8
+          },
+          "Q4": {
+            "avgDrives": 2.79,
+            "avgTimePerDriveMin": 2.79
+          }
+        }
+      },
+      "gameFlowAnalysis": {
+        "firstHalf": {
+          "San Francisco": 17.2,
+          "Seattle": 7.6
+        },
+        "secondHalf": {
+          "San Francisco": 20.2,
+          "Seattle": 9
+        }
+      },
+      "additionalPredictions": {
+        "totalPoints": 54,
+        "expectedMarginOfVictory": 20.8,
+        "expectedLeadChanges": 1.1,
+        "timeOfPossession": {
+          "San Francisco": "27:45",
+          "Seattle": "32:15"
+        }
+      }
+    },
+    {
+      "vegas": {
+        "overUnderResult": {
+          "result": "Over",
+          "margin": 3.136000000000003
+        },
+        "atsResult": {
+          "team": "Denver",
+          "margin": 13.990000000000002
+        },
+        "ouResult": "Over Hits by 3.1 Points",
+        "spreadResult": "Denver Covers the Spread by 14.0 Points",
+        "line": {
+          "favored": "Denver",
+          "spread": 9,
+          "pointsTotal": 42
+        }
+      },
+      "header": {
+        "awayTeam": "Tennessee",
+        "homeTeam": "Denver"
+      },
+      "finalScoreProjection": {
+        "Tennessee": 11.1,
+        "Denver": 34.1
+      },
+      "winProbability": {
+        "Tennessee": "3.6%",
+        "Denver": "96.4%"
+      },
+      "quarterBreakdown": {
+        "awayTeam": {
+          "q1": 2,
+          "q2": 3.1,
+          "q3": 3,
+          "q4": 3,
+          "total": 11.1
+        },
+        "homeTeam": {
+          "q1": 7.6,
+          "q2": 8.8,
+          "q3": 8.9,
+          "q4": 8.8,
+          "total": 34.1
+        }
+      },
+      "offensiveStatistics": {
+        "Tennessee": {
+          "passingYards": 131.7,
+          "passCompletions": 20.3,
+          "passAttempts": 30.3,
+          "completionPercentage": 67,
+          "yardsPerAttempt": 4.3,
+          "yardsPerCompletion": 6.5,
+          "passingTDs": 0.7,
+          "rushingYards": 91.4,
+          "rushingAttempts": 19.3,
+          "yardsPerRush": 4.7,
+          "rushingTDs": 0.5,
+          "totalTDs": 1.1,
+          "totalFGsMade": 1,
+          "totalFGAttempts": 1.1,
+          "totalYards": 223.1,
+          "yardsPerPlay": 4.5,
+          "totalPlays": 49.7,
+          "negativeYardagePlays": 5.1,
+          "totalDrives": 10.8,
+          "avgStartingFieldPosition": 34.1,
+          "turnovers": 1.7,
+          "punts": 3.4,
+          "totalFirstDowns": 17.3,
+          "thirdDownAttempts": 10.2,
+          "thirdDownConversions": 4.8,
+          "thirdDownPercentage": "46.5%",
+          "fourthDownAttempts": 0.4,
+          "fourthDownConversions": 0.2,
+          "fourthDownPercentage": "36.3%",
+          "redZoneTrips": 2.4,
+          "redZoneTDs": 1.1,
+          "redZoneTDPercentage": "50%",
+          "redZoneFGs": 0.7,
+          "totalPenalties": 10.7,
+          "penaltyYards": 82.5,
+          "firstDownsByPenalty": 3.8,
+          "yardsPerFirstDown": 4.4,
+          "passRunSplitDown1": "50.6/49.4",
+          "yardsPerSecondDown": 4.2,
+          "passRunSplitDown2": "62.9/37.1",
+          "yardsPerThirdDown": 4.9,
+          "passRunSplitDown3": "80.6/19.4",
+          "yardsPerFourthDown": 1.5
+        },
+        "Denver": {
+          "passingYards": 267.7,
+          "passCompletions": 22.2,
+          "passAttempts": 29.8,
+          "completionPercentage": 74.7,
+          "yardsPerAttempt": 9,
+          "yardsPerCompletion": 12.1,
+          "passingTDs": 2.6,
+          "rushingYards": 182.8,
+          "rushingAttempts": 28.5,
+          "yardsPerRush": 6.4,
+          "rushingTDs": 1.7,
+          "totalTDs": 4.4,
+          "totalFGsMade": 1.2,
+          "totalFGAttempts": 1.2,
+          "totalYards": 450.5,
+          "yardsPerPlay": 7.8,
+          "totalPlays": 58.3,
+          "negativeYardagePlays": 3.6,
+          "totalDrives": 10.8,
+          "avgStartingFieldPosition": 37.1,
+          "turnovers": 1.2,
+          "punts": 0.5,
+          "totalFirstDowns": 30,
+          "thirdDownAttempts": 8.2,
+          "thirdDownConversions": 5.1,
+          "thirdDownPercentage": "61.4%",
+          "fourthDownAttempts": 1,
+          "fourthDownConversions": 0.7,
+          "fourthDownPercentage": "73.4%",
+          "redZoneTrips": 6.8,
+          "redZoneTDs": 4.4,
+          "redZoneTDPercentage": "60%",
+          "redZoneFGs": 1.2,
+          "totalPenalties": 12,
+          "penaltyYards": 88.1,
+          "firstDownsByPenalty": 5.4,
+          "yardsPerFirstDown": 7.5,
+          "passRunSplitDown1": "44.6/55.4",
+          "yardsPerSecondDown": 7.7,
+          "passRunSplitDown2": "52.1/47.9",
+          "yardsPerThirdDown": 8,
+          "passRunSplitDown3": "73.1/26.9",
+          "yardsPerFourthDown": 6.9
+        }
+      },
+      "quarterEfficiency": {
+        "Tennessee": {
+          "Q1": {
+            "pointsPerDrive": 0.8,
+            "yardsPerDrive": 21.1,
+            "timeOfPossession": "6:42"
+          },
+          "Q2": {
+            "pointsPerDrive": 1.1,
+            "yardsPerDrive": 20.3,
+            "timeOfPossession": "6:45"
+          },
+          "Q3": {
+            "pointsPerDrive": 1.1,
+            "yardsPerDrive": 20.9,
+            "timeOfPossession": "6:53"
+          },
+          "Q4": {
+            "pointsPerDrive": 1.1,
+            "yardsPerDrive": 20.8,
+            "timeOfPossession": "6:49"
+          }
+        },
+        "Denver": {
+          "Q1": {
+            "pointsPerDrive": 3,
+            "yardsPerDrive": 44.2,
+            "timeOfPossession": "8:18"
+          },
+          "Q2": {
+            "pointsPerDrive": 3.2,
+            "yardsPerDrive": 41.2,
+            "timeOfPossession": "8:15"
+          },
+          "Q3": {
+            "pointsPerDrive": 3.2,
+            "yardsPerDrive": 41.6,
+            "timeOfPossession": "8:07"
+          },
+          "Q4": {
+            "pointsPerDrive": 3.2,
+            "yardsPerDrive": 41.6,
+            "timeOfPossession": "8:11"
+          }
+        }
+      },
+      "driveMetricsByQuarter": {
+        "Tennessee": {
+          "Q1": {
+            "avgDrives": 2.56,
+            "avgTimePerDriveMin": 2.62
+          },
+          "Q2": {
+            "avgDrives": 2.75,
+            "avgTimePerDriveMin": 2.46
+          },
+          "Q3": {
+            "avgDrives": 2.73,
+            "avgTimePerDriveMin": 2.52
+          },
+          "Q4": {
+            "avgDrives": 2.73,
+            "avgTimePerDriveMin": 2.5
+          }
+        },
+        "Denver": {
+          "Q1": {
+            "avgDrives": 2.54,
+            "avgTimePerDriveMin": 3.26
+          },
+          "Q2": {
+            "avgDrives": 2.76,
+            "avgTimePerDriveMin": 2.99
+          },
+          "Q3": {
+            "avgDrives": 2.73,
+            "avgTimePerDriveMin": 2.97
+          },
+          "Q4": {
+            "avgDrives": 2.72,
+            "avgTimePerDriveMin": 3.01
+          }
+        }
+      },
+      "gameFlowAnalysis": {
+        "firstHalf": {
+          "Tennessee": 5.1,
+          "Denver": 16.4
+        },
+        "secondHalf": {
+          "Tennessee": 5.9,
+          "Denver": 17.7
+        }
+      },
+      "additionalPredictions": {
+        "totalPoints": 45.1,
+        "expectedMarginOfVictory": 23,
+        "expectedLeadChanges": 0.3,
+        "timeOfPossession": {
+          "Tennessee": "27:09",
+          "Denver": "32:50"
+        }
+      }
+    },
+    {
+      "vegas": {
+        "overUnderResult": {
+          "result": "Over",
+          "margin": 1.1129999999999995
+        },
+        "atsResult": {
+          "team": "Detroit",
+          "margin": 6.780000000000001
+        },
+        "ouResult": "Over Hits by 1.1 Points",
+        "spreadResult": "Detroit Covers the Spread by 6.8 Points",
+        "line": {
+          "favored": "Green Bay",
+          "spread": 2,
+          "pointsTotal": 47
+        }
+      },
+      "header": {
+        "awayTeam": "Detroit",
+        "homeTeam": "Green Bay"
+      },
+      "finalScoreProjection": {
+        "Detroit": 26.4,
+        "Green Bay": 21.7
+      },
+      "winProbability": {
+        "Detroit": "66.4%",
+        "Green Bay": "33.6%"
+      },
+      "quarterBreakdown": {
+        "awayTeam": {
+          "q1": 5.6,
+          "q2": 6.9,
+          "q3": 7,
+          "q4": 6.9,
+          "total": 26.4
+        },
+        "homeTeam": {
+          "q1": 4.4,
+          "q2": 5.5,
+          "q3": 5.9,
+          "q4": 5.9,
+          "total": 21.7
+        }
+      },
+      "offensiveStatistics": {
+        "Detroit": {
+          "passingYards": 210.2,
+          "passCompletions": 21.2,
+          "passAttempts": 27.4,
+          "completionPercentage": 77.7,
+          "yardsPerAttempt": 7.7,
+          "yardsPerCompletion": 9.9,
+          "passingTDs": 2.2,
+          "rushingYards": 129.2,
+          "rushingAttempts": 25.5,
+          "yardsPerRush": 5.1,
+          "rushingTDs": 1.2,
+          "totalTDs": 3.5,
+          "totalFGsMade": 0.7,
+          "totalFGAttempts": 0.8,
+          "totalYards": 339.4,
+          "yardsPerPlay": 6.4,
+          "totalPlays": 52.9,
+          "negativeYardagePlays": 3.1,
+          "totalDrives": 9,
+          "avgStartingFieldPosition": 35.3,
+          "turnovers": 0.5,
+          "punts": 0.6,
+          "totalFirstDowns": 24.3,
+          "thirdDownAttempts": 8.7,
+          "thirdDownConversions": 5.8,
+          "thirdDownPercentage": "66.9%",
+          "fourthDownAttempts": 1.2,
+          "fourthDownConversions": 0.8,
+          "fourthDownPercentage": "67.2%",
+          "redZoneTrips": 4.9,
+          "redZoneTDs": 3.5,
+          "redZoneTDPercentage": "70%",
+          "redZoneFGs": 0.7,
+          "totalPenalties": 9,
+          "penaltyYards": 65.4,
+          "firstDownsByPenalty": 4,
+          "yardsPerFirstDown": 6.3,
+          "passRunSplitDown1": "43.8/56.2",
+          "yardsPerSecondDown": 6,
+          "passRunSplitDown2": "53.4/46.6",
+          "yardsPerThirdDown": 7.2,
+          "passRunSplitDown3": "69.3/30.7",
+          "yardsPerFourthDown": 5.3
+        },
+        "Green Bay": {
+          "passingYards": 182.2,
+          "passCompletions": 20.6,
+          "passAttempts": 28.4,
+          "completionPercentage": 72.7,
+          "yardsPerAttempt": 6.5,
+          "yardsPerCompletion": 8.9,
+          "passingTDs": 1.5,
+          "rushingYards": 128.9,
+          "rushingAttempts": 25,
+          "yardsPerRush": 5.1,
+          "rushingTDs": 1.2,
+          "totalTDs": 2.7,
+          "totalFGsMade": 1,
+          "totalFGAttempts": 1.1,
+          "totalYards": 311.1,
+          "yardsPerPlay": 5.8,
+          "totalPlays": 53.4,
+          "negativeYardagePlays": 4.1,
+          "totalDrives": 8.9,
+          "avgStartingFieldPosition": 36.2,
+          "turnovers": 0.6,
+          "punts": 0.7,
+          "totalFirstDowns": 23.6,
+          "thirdDownAttempts": 9.2,
+          "thirdDownConversions": 5.4,
+          "thirdDownPercentage": "59.4%",
+          "fourthDownAttempts": 1.4,
+          "fourthDownConversions": 0.9,
+          "fourthDownPercentage": "61.8%",
+          "redZoneTrips": 4.6,
+          "redZoneTDs": 2.7,
+          "redZoneTDPercentage": "60%",
+          "redZoneFGs": 1,
+          "totalPenalties": 11.1,
+          "penaltyYards": 87.1,
+          "firstDownsByPenalty": 4.8,
+          "yardsPerFirstDown": 5.7,
+          "passRunSplitDown1": "43.1/56.9",
+          "yardsPerSecondDown": 5.6,
+          "passRunSplitDown2": "56.1/43.9",
+          "yardsPerThirdDown": 6.2,
+          "passRunSplitDown3": "73.2/26.8",
+          "yardsPerFourthDown": 6.6
+        }
+      },
+      "quarterEfficiency": {
+        "Detroit": {
+          "Q1": {
+            "pointsPerDrive": 2.6,
+            "yardsPerDrive": 39.8,
+            "timeOfPossession": "7:36"
+          },
+          "Q2": {
+            "pointsPerDrive": 3.1,
+            "yardsPerDrive": 37.3,
+            "timeOfPossession": "7:27"
+          },
+          "Q3": {
+            "pointsPerDrive": 3,
+            "yardsPerDrive": 36.9,
+            "timeOfPossession": "7:41"
+          },
+          "Q4": {
+            "pointsPerDrive": 3,
+            "yardsPerDrive": 37.7,
+            "timeOfPossession": "7:43"
+          }
+        },
+        "Green Bay": {
+          "Q1": {
+            "pointsPerDrive": 2.1,
+            "yardsPerDrive": 36.3,
+            "timeOfPossession": "7:24"
+          },
+          "Q2": {
+            "pointsPerDrive": 2.4,
+            "yardsPerDrive": 34.1,
+            "timeOfPossession": "7:33"
+          },
+          "Q3": {
+            "pointsPerDrive": 2.6,
+            "yardsPerDrive": 35,
+            "timeOfPossession": "7:18"
+          },
+          "Q4": {
+            "pointsPerDrive": 2.5,
+            "yardsPerDrive": 35,
+            "timeOfPossession": "7:17"
+          }
+        }
+      },
+      "driveMetricsByQuarter": {
+        "Detroit": {
+          "Q1": {
+            "avgDrives": 2.12,
+            "avgTimePerDriveMin": 3.58
+          },
+          "Q2": {
+            "avgDrives": 2.27,
+            "avgTimePerDriveMin": 3.28
+          },
+          "Q3": {
+            "avgDrives": 2.32,
+            "avgTimePerDriveMin": 3.31
+          },
+          "Q4": {
+            "avgDrives": 2.29,
+            "avgTimePerDriveMin": 3.37
+          }
+        },
+        "Green Bay": {
+          "Q1": {
+            "avgDrives": 2.08,
+            "avgTimePerDriveMin": 3.56
+          },
+          "Q2": {
+            "avgDrives": 2.24,
+            "avgTimePerDriveMin": 3.37
+          },
+          "Q3": {
+            "avgDrives": 2.3,
+            "avgTimePerDriveMin": 3.17
+          },
+          "Q4": {
+            "avgDrives": 2.3,
+            "avgTimePerDriveMin": 3.16
+          }
+        }
+      },
+      "gameFlowAnalysis": {
+        "firstHalf": {
+          "Detroit": 12.5,
+          "Green Bay": 9.9
+        },
+        "secondHalf": {
+          "Detroit": 13.9,
+          "Green Bay": 11.8
+        }
+      },
+      "additionalPredictions": {
+        "totalPoints": 48.1,
+        "expectedMarginOfVictory": 4.8,
+        "expectedLeadChanges": 1.2,
+        "timeOfPossession": {
+          "Detroit": "30:27",
+          "Green Bay": "29:32"
+        }
+      }
+    },
+    {
+      "vegas": {
+        "overUnderResult": {
+          "result": "Over",
+          "margin": 3.5674999999999955
+        },
+        "atsResult": {
+          "team": "LA Rams",
+          "margin": 9.837500000000002
+        },
+        "ouResult": "Over Hits by 3.6 Points",
+        "spreadResult": "LA Rams Covers the Spread by 9.8 Points",
+        "line": {
+          "favored": "LA Rams",
+          "spread": 3,
+          "pointsTotal": 44
+        }
+      },
+      "header": {
+        "awayTeam": "Houston",
+        "homeTeam": "LA Rams"
+      },
+      "finalScoreProjection": {
+        "Houston": 17.4,
+        "LA Rams": 30.2
+      },
+      "winProbability": {
+        "Houston": "18.6%",
+        "LA Rams": "81.4%"
+      },
+      "quarterBreakdown": {
+        "awayTeam": {
+          "q1": 3.7,
+          "q2": 4.6,
+          "q3": 4.6,
+          "q4": 4.5,
+          "total": 17.4
+        },
+        "homeTeam": {
+          "q1": 6.3,
+          "q2": 7.4,
+          "q3": 8.4,
+          "q4": 8.1,
+          "total": 30.2
+        }
+      },
+      "offensiveStatistics": {
+        "Houston": {
+          "passingYards": 161.6,
+          "passCompletions": 22.5,
+          "passAttempts": 34.8,
+          "completionPercentage": 64.9,
+          "yardsPerAttempt": 4.7,
+          "yardsPerCompletion": 7.2,
+          "passingTDs": 1,
+          "rushingYards": 120,
+          "rushingAttempts": 22.4,
+          "yardsPerRush": 5.3,
+          "rushingTDs": 1.2,
+          "totalTDs": 2.2,
+          "totalFGsMade": 0.7,
+          "totalFGAttempts": 0.8,
+          "totalYards": 281.6,
+          "yardsPerPlay": 4.9,
+          "totalPlays": 57.2,
+          "negativeYardagePlays": 6,
+          "totalDrives": 10,
+          "avgStartingFieldPosition": 34.3,
+          "turnovers": 1.1,
+          "punts": 1.4,
+          "totalFirstDowns": 21.4,
+          "thirdDownAttempts": 11,
+          "thirdDownConversions": 5.6,
+          "thirdDownPercentage": "50.5%",
+          "fourthDownAttempts": 2.7,
+          "fourthDownConversions": 1.3,
+          "fourthDownPercentage": "49.8%",
+          "redZoneTrips": 3.6,
+          "redZoneTDs": 2.2,
+          "redZoneTDPercentage": "60%",
+          "redZoneFGs": 0.7,
+          "totalPenalties": 11.6,
+          "penaltyYards": 86,
+          "firstDownsByPenalty": 4.4,
+          "yardsPerFirstDown": 5.1,
+          "passRunSplitDown1": "51.3/48.7",
+          "yardsPerSecondDown": 4.5,
+          "passRunSplitDown2": "58.3/41.7",
+          "yardsPerThirdDown": 5.2,
+          "passRunSplitDown3": "80.8/19.2",
+          "yardsPerFourthDown": 4
+        },
+        "LA Rams": {
+          "passingYards": 243.9,
+          "passCompletions": 21.7,
+          "passAttempts": 31.1,
+          "completionPercentage": 70.2,
+          "yardsPerAttempt": 7.9,
+          "yardsPerCompletion": 11.2,
+          "passingTDs": 2.1,
+          "rushingYards": 150.9,
+          "rushingAttempts": 23.2,
+          "yardsPerRush": 6.5,
+          "rushingTDs": 1.4,
+          "totalTDs": 3.6,
+          "totalFGsMade": 1.7,
+          "totalFGAttempts": 1.8,
+          "totalYards": 394.8,
+          "yardsPerPlay": 7.3,
+          "totalPlays": 54.3,
+          "negativeYardagePlays": 3.8,
+          "totalDrives": 10.1,
+          "avgStartingFieldPosition": 38.3,
+          "turnovers": 0.5,
+          "punts": 0.5,
+          "totalFirstDowns": 25.7,
+          "thirdDownAttempts": 8.4,
+          "thirdDownConversions": 4.5,
+          "thirdDownPercentage": "53%",
+          "fourthDownAttempts": 1.2,
+          "fourthDownConversions": 0.7,
+          "fourthDownPercentage": "61.9%",
+          "redZoneTrips": 6.3,
+          "redZoneTDs": 3.6,
+          "redZoneTDPercentage": "60%",
+          "redZoneFGs": 1.7,
+          "totalPenalties": 10.6,
+          "penaltyYards": 82.3,
+          "firstDownsByPenalty": 4.5,
+          "yardsPerFirstDown": 7.3,
+          "passRunSplitDown1": "49.9/50.1",
+          "yardsPerSecondDown": 6.9,
+          "passRunSplitDown2": "59.5/40.5",
+          "yardsPerThirdDown": 7.3,
+          "passRunSplitDown3": "75.3/24.7",
+          "yardsPerFourthDown": 6.8
+        }
+      },
+      "quarterEfficiency": {
+        "Houston": {
+          "Q1": {
+            "pointsPerDrive": 1.6,
+            "yardsPerDrive": 30.8,
+            "timeOfPossession": "7:41"
+          },
+          "Q2": {
+            "pointsPerDrive": 1.9,
+            "yardsPerDrive": 28.4,
+            "timeOfPossession": "7:43"
+          },
+          "Q3": {
+            "pointsPerDrive": 1.8,
+            "yardsPerDrive": 27.2,
+            "timeOfPossession": "7:41"
+          },
+          "Q4": {
+            "pointsPerDrive": 1.7,
+            "yardsPerDrive": 26.9,
+            "timeOfPossession": "7:35"
+          }
+        },
+        "LA Rams": {
+          "Q1": {
+            "pointsPerDrive": 2.8,
+            "yardsPerDrive": 41.3,
+            "timeOfPossession": "7:19"
+          },
+          "Q2": {
+            "pointsPerDrive": 2.9,
+            "yardsPerDrive": 38.2,
+            "timeOfPossession": "7:17"
+          },
+          "Q3": {
+            "pointsPerDrive": 3.2,
+            "yardsPerDrive": 39.6,
+            "timeOfPossession": "7:19"
+          },
+          "Q4": {
+            "pointsPerDrive": 3.1,
+            "yardsPerDrive": 39,
+            "timeOfPossession": "7:25"
+          }
+        }
+      },
+      "driveMetricsByQuarter": {
+        "Houston": {
+          "Q1": {
+            "avgDrives": 2.31,
+            "avgTimePerDriveMin": 3.33
+          },
+          "Q2": {
+            "avgDrives": 2.49,
+            "avgTimePerDriveMin": 3.1
+          },
+          "Q3": {
+            "avgDrives": 2.6,
+            "avgTimePerDriveMin": 2.95
+          },
+          "Q4": {
+            "avgDrives": 2.59,
+            "avgTimePerDriveMin": 2.92
+          }
+        },
+        "LA Rams": {
+          "Q1": {
+            "avgDrives": 2.3,
+            "avgTimePerDriveMin": 3.18
+          },
+          "Q2": {
+            "avgDrives": 2.51,
+            "avgTimePerDriveMin": 2.9
+          },
+          "Q3": {
+            "avgDrives": 2.62,
+            "avgTimePerDriveMin": 2.79
+          },
+          "Q4": {
+            "avgDrives": 2.63,
+            "avgTimePerDriveMin": 2.82
+          }
+        }
+      },
+      "gameFlowAnalysis": {
+        "firstHalf": {
+          "Houston": 8.3,
+          "LA Rams": 13.7
+        },
+        "secondHalf": {
+          "Houston": 9.1,
+          "LA Rams": 16.5
+        }
+      },
+      "additionalPredictions": {
+        "totalPoints": 47.6,
+        "expectedMarginOfVictory": 12.8,
+        "expectedLeadChanges": 0.8,
+        "timeOfPossession": {
+          "Houston": "30:41",
+          "LA Rams": "29:19"
+        }
+      }
+    },
+    {
+      "vegas": {
+        "overUnderResult": {
+          "result": "Under",
+          "margin": 2.382000000000005
+        },
+        "atsResult": {
+          "team": "Buffalo",
+          "margin": 2.4349999999999987
+        },
+        "ouResult": "Under Hits by 2.4 Points",
+        "spreadResult": "Buffalo Covers the Spread by 2.4 Points",
+        "line": {
+          "favored": "Pick",
+          "spread": 0,
+          "pointsTotal": 50.5
+        }
+      },
+      "header": {
+        "awayTeam": "Baltimore",
+        "homeTeam": "Buffalo"
+      },
+      "finalScoreProjection": {
+        "Baltimore": 25.3,
+        "Buffalo": 22.8
+      },
+      "winProbability": {
+        "Baltimore": "57.4%",
+        "Buffalo": "42.6%"
+      },
+      "quarterBreakdown": {
+        "awayTeam": {
+          "q1": 5.1,
+          "q2": 6.2,
+          "q3": 7,
+          "q4": 6.9,
+          "total": 25.3
+        },
+        "homeTeam": {
+          "q1": 4.8,
+          "q2": 5.9,
+          "q3": 6.1,
+          "q4": 6.1,
+          "total": 22.8
+        }
+      },
+      "offensiveStatistics": {
+        "Baltimore": {
+          "passingYards": 184.9,
+          "passCompletions": 18,
+          "passAttempts": 24.8,
+          "completionPercentage": 73.1,
+          "yardsPerAttempt": 7.5,
+          "yardsPerCompletion": 10.3,
+          "passingTDs": 1.6,
+          "rushingYards": 150,
+          "rushingAttempts": 24.6,
+          "yardsPerRush": 6.1,
+          "rushingTDs": 1.5,
+          "totalTDs": 3.1,
+          "totalFGsMade": 1.1,
+          "totalFGAttempts": 1.3,
+          "totalYards": 334.9,
+          "yardsPerPlay": 6.8,
+          "totalPlays": 49.3,
+          "negativeYardagePlays": 3.4,
+          "totalDrives": 9.3,
+          "avgStartingFieldPosition": 35.5,
+          "turnovers": 0.3,
+          "punts": 1.3,
+          "totalFirstDowns": 24.3,
+          "thirdDownAttempts": 7.9,
+          "thirdDownConversions": 5,
+          "thirdDownPercentage": "63.7%",
+          "fourthDownAttempts": 0.1,
+          "fourthDownConversions": 0.1,
+          "fourthDownPercentage": "53.2%",
+          "redZoneTrips": 4.7,
+          "redZoneTDs": 3.1,
+          "redZoneTDPercentage": "70%",
+          "redZoneFGs": 0.9,
+          "totalPenalties": 9.6,
+          "penaltyYards": 72.7,
+          "firstDownsByPenalty": 4,
+          "yardsPerFirstDown": 6.9,
+          "passRunSplitDown1": "42.7/57.3",
+          "yardsPerSecondDown": 6.4,
+          "passRunSplitDown2": "52.5/47.5",
+          "yardsPerThirdDown": 7,
+          "passRunSplitDown3": "69.4/30.6",
+          "yardsPerFourthDown": 0.7
+        },
+        "Buffalo": {
+          "passingYards": 193.2,
+          "passCompletions": 22.6,
+          "passAttempts": 31.7,
+          "completionPercentage": 71.7,
+          "yardsPerAttempt": 6.1,
+          "yardsPerCompletion": 8.5,
+          "passingTDs": 1.3,
+          "rushingYards": 134.4,
+          "rushingAttempts": 26.5,
+          "yardsPerRush": 5.1,
+          "rushingTDs": 1.4,
+          "totalTDs": 2.7,
+          "totalFGsMade": 1.3,
+          "totalFGAttempts": 1.4,
+          "totalYards": 327.6,
+          "yardsPerPlay": 5.6,
+          "totalPlays": 58.2,
+          "negativeYardagePlays": 4.6,
+          "totalDrives": 9.1,
+          "avgStartingFieldPosition": 36.1,
+          "turnovers": 0.4,
+          "punts": 0.8,
+          "totalFirstDowns": 24.4,
+          "thirdDownAttempts": 10.6,
+          "thirdDownConversions": 6.4,
+          "thirdDownPercentage": "60.2%",
+          "fourthDownAttempts": 1.5,
+          "fourthDownConversions": 0.9,
+          "fourthDownPercentage": "58.7%",
+          "redZoneTrips": 4.8,
+          "redZoneTDs": 2.7,
+          "redZoneTDPercentage": "60%",
+          "redZoneFGs": 1.3,
+          "totalPenalties": 11.4,
+          "penaltyYards": 89.7,
+          "firstDownsByPenalty": 4.4,
+          "yardsPerFirstDown": 5.6,
+          "passRunSplitDown1": "44/56",
+          "yardsPerSecondDown": 5.3,
+          "passRunSplitDown2": "56.8/43.2",
+          "yardsPerThirdDown": 6.1,
+          "passRunSplitDown3": "74/26",
+          "yardsPerFourthDown": 5.8
+        }
+      },
+      "quarterEfficiency": {
+        "Baltimore": {
+          "Q1": {
+            "pointsPerDrive": 2.3,
+            "yardsPerDrive": 37.2,
+            "timeOfPossession": "6:56"
+          },
+          "Q2": {
+            "pointsPerDrive": 2.7,
+            "yardsPerDrive": 33.7,
+            "timeOfPossession": "6:53"
+          },
+          "Q3": {
+            "pointsPerDrive": 3,
+            "yardsPerDrive": 37,
+            "timeOfPossession": "6:42"
+          },
+          "Q4": {
+            "pointsPerDrive": 2.9,
+            "yardsPerDrive": 36.5,
+            "timeOfPossession": "6:41"
+          }
+        },
+        "Buffalo": {
+          "Q1": {
+            "pointsPerDrive": 2.2,
+            "yardsPerDrive": 37.8,
+            "timeOfPossession": "8:04"
+          },
+          "Q2": {
+            "pointsPerDrive": 2.6,
+            "yardsPerDrive": 35.2,
+            "timeOfPossession": "8:07"
+          },
+          "Q3": {
+            "pointsPerDrive": 2.6,
+            "yardsPerDrive": 36,
+            "timeOfPossession": "8:18"
+          },
+          "Q4": {
+            "pointsPerDrive": 2.6,
+            "yardsPerDrive": 35.6,
+            "timeOfPossession": "8:19"
+          }
+        }
+      },
+      "driveMetricsByQuarter": {
+        "Baltimore": {
+          "Q1": {
+            "avgDrives": 2.19,
+            "avgTimePerDriveMin": 3.16
+          },
+          "Q2": {
+            "avgDrives": 2.34,
+            "avgTimePerDriveMin": 2.95
+          },
+          "Q3": {
+            "avgDrives": 2.39,
+            "avgTimePerDriveMin": 2.81
+          },
+          "Q4": {
+            "avgDrives": 2.4,
+            "avgTimePerDriveMin": 2.79
+          }
+        },
+        "Buffalo": {
+          "Q1": {
+            "avgDrives": 2.14,
+            "avgTimePerDriveMin": 3.77
+          },
+          "Q2": {
+            "avgDrives": 2.31,
+            "avgTimePerDriveMin": 3.52
+          },
+          "Q3": {
+            "avgDrives": 2.34,
+            "avgTimePerDriveMin": 3.55
+          },
+          "Q4": {
+            "avgDrives": 2.35,
+            "avgTimePerDriveMin": 3.55
+          }
+        }
+      },
+      "gameFlowAnalysis": {
+        "firstHalf": {
+          "Baltimore": 11.3,
+          "Buffalo": 10.7
+        },
+        "secondHalf": {
+          "Baltimore": 14,
+          "Buffalo": 12.1
+        }
+      },
+      "additionalPredictions": {
+        "totalPoints": 48.1,
+        "expectedMarginOfVictory": 2.4,
+        "expectedLeadChanges": 1.3,
+        "timeOfPossession": {
+          "Baltimore": "27:12",
+          "Buffalo": "32:48"
+        }
+      }
+    },
+    {
+      "vegas": {
+        "overUnderResult": {
+          "result": "Under",
+          "margin": 9.689999999999998
+        },
+        "atsResult": {
+          "team": "Chicago",
+          "margin": 1.458000000000002
+        },
+        "ouResult": "Under Hits by 9.7 Points",
+        "spreadResult": "Chicago Covers the Spread by 1.5 Points",
+        "line": {
+          "favored": "Minnesota",
+          "spread": 2,
+          "pointsTotal": 44
+        }
+      },
+      "header": {
+        "awayTeam": "Minnesota",
+        "homeTeam": "Chicago"
+      },
+      "finalScoreProjection": {
+        "Minnesota": 17.4,
+        "Chicago": 16.9
+      },
+      "winProbability": {
+        "Minnesota": "51.8%",
+        "Chicago": "48.1%"
+      },
+      "quarterBreakdown": {
+        "awayTeam": {
+          "q1": 3.5,
+          "q2": 4.5,
+          "q3": 4.6,
+          "q4": 4.8,
+          "total": 17.4
+        },
+        "homeTeam": {
+          "q1": 3.6,
+          "q2": 4.3,
+          "q3": 4.6,
+          "q4": 4.5,
+          "total": 16.9
+        }
+      },
+      "offensiveStatistics": {
+        "Minnesota": {
+          "passingYards": 154.7,
+          "passCompletions": 18.6,
+          "passAttempts": 27.8,
+          "completionPercentage": 67,
+          "yardsPerAttempt": 5.6,
+          "yardsPerCompletion": 8.3,
+          "passingTDs": 1.2,
+          "rushingYards": 104.4,
+          "rushingAttempts": 21.8,
+          "yardsPerRush": 4.8,
+          "rushingTDs": 0.8,
+          "totalTDs": 2,
+          "totalFGsMade": 1.2,
+          "totalFGAttempts": 1.4,
+          "totalYards": 259.1,
+          "yardsPerPlay": 5.2,
+          "totalPlays": 49.6,
+          "negativeYardagePlays": 5.4,
+          "totalDrives": 10.2,
+          "avgStartingFieldPosition": 36.4,
+          "turnovers": 1,
+          "punts": 2.6,
+          "totalFirstDowns": 19.3,
+          "thirdDownAttempts": 8.9,
+          "thirdDownConversions": 4.3,
+          "thirdDownPercentage": "48.7%",
+          "fourthDownAttempts": 0.2,
+          "fourthDownConversions": 0.1,
+          "fourthDownPercentage": "36.8%",
+          "redZoneTrips": 3.3,
+          "redZoneTDs": 2,
+          "redZoneTDPercentage": "60%",
+          "redZoneFGs": 0.8,
+          "totalPenalties": 9.7,
+          "penaltyYards": 78.5,
+          "firstDownsByPenalty": 3.6,
+          "yardsPerFirstDown": 4.6,
+          "passRunSplitDown1": "43.8/56.2",
+          "yardsPerSecondDown": 6,
+          "passRunSplitDown2": "61/39",
+          "yardsPerThirdDown": 5.1,
+          "passRunSplitDown3": "78.8/21.2",
+          "yardsPerFourthDown": 0.8
+        },
+        "Chicago": {
+          "passingYards": 159.8,
+          "passCompletions": 22.8,
+          "passAttempts": 36,
+          "completionPercentage": 63.3,
+          "yardsPerAttempt": 4.5,
+          "yardsPerCompletion": 7,
+          "passingTDs": 1.1,
+          "rushingYards": 114.8,
+          "rushingAttempts": 24.8,
+          "yardsPerRush": 4.6,
+          "rushingTDs": 0.7,
+          "totalTDs": 1.8,
+          "totalFGsMade": 1.5,
+          "totalFGAttempts": 1.6,
+          "totalYards": 274.6,
+          "yardsPerPlay": 4.5,
+          "totalPlays": 60.8,
+          "negativeYardagePlays": 6.7,
+          "totalDrives": 10,
+          "avgStartingFieldPosition": 38.9,
+          "turnovers": 0.6,
+          "punts": 1.3,
+          "totalFirstDowns": 21.2,
+          "thirdDownAttempts": 12.2,
+          "thirdDownConversions": 5.6,
+          "thirdDownPercentage": "45.6%",
+          "fourthDownAttempts": 2.8,
+          "fourthDownConversions": 1.5,
+          "fourthDownPercentage": "51.9%",
+          "redZoneTrips": 4.1,
+          "redZoneTDs": 1.8,
+          "redZoneTDPercentage": "40%",
+          "redZoneFGs": 1.5,
+          "totalPenalties": 13.2,
+          "penaltyYards": 95.7,
+          "firstDownsByPenalty": 5.2,
+          "yardsPerFirstDown": 4.4,
+          "passRunSplitDown1": "49.7/50.3",
+          "yardsPerSecondDown": 4.4,
+          "passRunSplitDown2": "59.2/40.8",
+          "yardsPerThirdDown": 4.7,
+          "passRunSplitDown3": "74.5/25.5",
+          "yardsPerFourthDown": 5.1
+        }
+      },
+      "quarterEfficiency": {
+        "Minnesota": {
+          "Q1": {
+            "pointsPerDrive": 1.5,
+            "yardsPerDrive": 27.1,
+            "timeOfPossession": "6:44"
+          },
+          "Q2": {
+            "pointsPerDrive": 1.8,
+            "yardsPerDrive": 25.4,
+            "timeOfPossession": "6:46"
+          },
+          "Q3": {
+            "pointsPerDrive": 1.8,
+            "yardsPerDrive": 24.8,
+            "timeOfPossession": "6:58"
+          },
+          "Q4": {
+            "pointsPerDrive": 1.8,
+            "yardsPerDrive": 25,
+            "timeOfPossession": "6:55"
+          }
+        },
+        "Chicago": {
+          "Q1": {
+            "pointsPerDrive": 1.5,
+            "yardsPerDrive": 29.5,
+            "timeOfPossession": "8:16"
+          },
+          "Q2": {
+            "pointsPerDrive": 1.7,
+            "yardsPerDrive": 26.7,
+            "timeOfPossession": "8:14"
+          },
+          "Q3": {
+            "pointsPerDrive": 1.8,
+            "yardsPerDrive": 27.2,
+            "timeOfPossession": "8:02"
+          },
+          "Q4": {
+            "pointsPerDrive": 1.7,
+            "yardsPerDrive": 27.3,
+            "timeOfPossession": "8:05"
+          }
+        }
+      },
+      "driveMetricsByQuarter": {
+        "Minnesota": {
+          "Q1": {
+            "avgDrives": 2.4,
+            "avgTimePerDriveMin": 2.81
+          },
+          "Q2": {
+            "avgDrives": 2.56,
+            "avgTimePerDriveMin": 2.65
+          },
+          "Q3": {
+            "avgDrives": 2.61,
+            "avgTimePerDriveMin": 2.67
+          },
+          "Q4": {
+            "avgDrives": 2.62,
+            "avgTimePerDriveMin": 2.64
+          }
+        },
+        "Chicago": {
+          "Q1": {
+            "avgDrives": 2.33,
+            "avgTimePerDriveMin": 3.54
+          },
+          "Q2": {
+            "avgDrives": 2.5,
+            "avgTimePerDriveMin": 3.29
+          },
+          "Q3": {
+            "avgDrives": 2.58,
+            "avgTimePerDriveMin": 3.12
+          },
+          "Q4": {
+            "avgDrives": 2.57,
+            "avgTimePerDriveMin": 3.14
+          }
+        }
+      },
+      "gameFlowAnalysis": {
+        "firstHalf": {
+          "Minnesota": 8,
+          "Chicago": 7.9
+        },
+        "secondHalf": {
+          "Minnesota": 9.4,
+          "Chicago": 9
+        }
+      },
+      "additionalPredictions": {
+        "totalPoints": 34.3,
+        "expectedMarginOfVictory": 0.5,
+        "expectedLeadChanges": 0.8,
+        "timeOfPossession": {
+          "Minnesota": "27:23",
+          "Chicago": "32:36"
+        }
+      }
+    }
+  ]
+}
