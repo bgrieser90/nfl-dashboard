@@ -191,33 +191,7 @@
             font-variant-numeric: tabular-nums;
             letter-spacing: -0.02em;
         }
-        
-        /* Premium Best Bet Badge */
-        .best-bet-badge {
-            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
-            box-shadow: 
-                0 10px 25px -5px rgba(251, 191, 36, 0.5),
-                inset 0 1px 2px rgba(255, 255, 255, 0.3);
-            position: relative;
-            overflow: hidden;
-            animation: glow 3s ease-in-out infinite;
-        }
-        
-        .best-bet-badge::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, #fbbf24, #f59e0b, #fbbf24);
-            border-radius: inherit;
-            filter: blur(8px);
-            opacity: 0.7;
-            z-index: -1;
-            animation: glow 3s ease-in-out infinite;
-        }
-        
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -267,6 +241,30 @@
                 padding: 0.75rem 1rem !important;
             }
 
+            /* Filter button mobile optimizations - compact to fit 4 on one row */
+            .filter-btn {
+                padding: 0.4rem 0.7rem !important;
+                font-size: 0.75rem !important;
+                min-height: 42px;
+                white-space: nowrap;
+            }
+
+            /* Prevent filter buttons from wrapping - keep on one row */
+            .flex.gap-2 {
+                flex-wrap: nowrap;
+                gap: 0.375rem !important;
+            }
+
+            /* Hide star icons on mobile to save space */
+            .filter-btn .filter-icon {
+                display: none;
+            }
+
+            /* Hide " Only" text on mobile */
+            .filter-btn .mobile-hide {
+                display: none;
+            }
+
             /* Optimize card spacing */
             .game-card {
                 padding: 0.75rem !important;
@@ -300,9 +298,28 @@
             .grid-cols-3 > div:nth-child(2) {
                 grid-column: 1 / -1;
                 order: -1;
-                padding: 0.5rem 0;
+                padding: 0.875rem 0;
                 border-bottom: 1px solid #e5e7eb;
-                margin-bottom: 0.5rem;
+                margin-bottom: 0.75rem;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 0.375rem;
+            }
+
+            /* Stack date, VS, and O/U vertically on mobile for better readability */
+            .grid-cols-3 > div:nth-child(2) span,
+            .grid-cols-3 > div:nth-child(2) p {
+                display: block;
+                margin: 0;
+            }
+
+            /* Ensure proper display for O/U container */
+            .grid-cols-3 > div:nth-child(2) > div {
+                display: block;
+                margin-top: 0;
             }
 
             /* Compact team sections */
@@ -328,10 +345,10 @@
                 line-height: 1.2 !important;
             }
 
-            /* Compact small text */
+            /* Compact small text - increased for better readability */
             .text-xs {
-                font-size: 0.65rem !important;
-                line-height: 1.2 !important;
+                font-size: 0.7rem !important;
+                line-height: 1.3 !important;
             }
 
             /* Stack rank+logo+name vertically in each column */
@@ -389,6 +406,17 @@
 
             .text-4xl {
                 font-size: 2.25rem !important;
+            }
+
+            /* Smaller filter buttons for extra small screens */
+            .filter-btn {
+                padding: 0.375rem 0.6rem !important;
+                font-size: 0.75rem !important;
+            }
+
+            /* Tighter gap between buttons on extra small screens */
+            .flex.gap-2 {
+                gap: 0.3rem !important;
             }
 
             /* Tighter spacing for small screens */
@@ -709,7 +737,7 @@
                     ⭐ 4+ Stars
                 </button>
                 <button onclick="filterGames(5)" data-filter="5" class="filter-btn bg-white text-gray-700 px-4 py-2 rounded-lg text-sm font-semibold transition-all hover:shadow-md">
-                    ⭐ 5 Stars Only
+                    ⭐ 5 Stars<span class="mobile-hide"> Only</span>
                 </button>
             </div>
             <div id="filtered-count" class="text-sm text-gray-600 font-medium">
@@ -720,20 +748,8 @@
         <!-- Games Grid -->
         <div class="space-y-6">
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0; border-top: 4px solid #006778;" data-stars="5" data-stars-cal="5">
-                
-                <!-- Best Bet Badge (if applicable) -->
-                
-                <div class="best-bet-badge text-white text-xs font-bold px-4 py-2 text-center">
-                    <span class="flex items-center justify-center space-x-2">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <span>BEST BET - SPREAD HIGH</span>
-                    </span>
-                </div>
-                
-                
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5">
+
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
                     <nav class="flex space-x-1 px-4 pt-2" aria-label="Tabs">
@@ -855,35 +871,8 @@
                                 <p class="text-xs text-gray-600 mt-1">Edge 9.9 pts | 95% confidence</p>
                             </div>
                         </div>
-                        
-                        <!-- Quarter Breakdown -->
-                        <div class="bg-gray-50 rounded-xl p-4">
-                            <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Quarter Breakdown</h4>
-                            <div class="grid grid-cols-6 gap-2 text-xs">
-                                <div></div>
-                                <div class="text-center font-medium text-gray-500">Q1</div>
-                                <div class="text-center font-medium text-gray-500">Q2</div>
-                                <div class="text-center font-medium text-gray-500">Q3</div>
-                                <div class="text-center font-medium text-gray-500">Q4</div>
-                                <div class="text-center font-medium text-gray-700">TOTAL</div>
-                                
-                                <div class="font-medium">LAR</div>
-                                <div class="text-center">7.7</div>
-                                <div class="text-center">9.4</div>
-                                <div class="text-center">8.2</div>
-                                <div class="text-center">8.9</div>
-                                <div class="text-center font-bold">34.1</div>
-                                
-                                <div class="font-medium">JAX</div>
-                                <div class="text-center">4.6</div>
-                                <div class="text-center">5.6</div>
-                                <div class="text-center">4.9</div>
-                                <div class="text-center">5.3</div>
-                                <div class="text-center font-bold">20.2</div>
-                            </div>
-                        </div>
                     </div>
-                    
+
                     <!-- Analytics Tab -->
                     <div id="game-0-analytics" class="space-y-6 hidden">
                         <!-- Offensive Stats Grid -->
@@ -1109,20 +1098,8 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0; border-top: 4px solid #0B162A;" data-stars="4" data-stars-cal="4">
-                
-                <!-- Best Bet Badge (if applicable) -->
-                
-                <div class="best-bet-badge text-white text-xs font-bold px-4 py-2 text-center">
-                    <span class="flex items-center justify-center space-x-2">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <span>BEST BET - TOTAL GOOD</span>
-                    </span>
-                </div>
-                
-                
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="4" data-stars-cal="4">
+
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
                     <nav class="flex space-x-1 px-4 pt-2" aria-label="Tabs">
@@ -1244,35 +1221,8 @@
                                 <p class="text-xs text-gray-600 mt-1">Edge 2.1 pts | 66% confidence</p>
                             </div>
                         </div>
-                        
-                        <!-- Quarter Breakdown -->
-                        <div class="bg-gray-50 rounded-xl p-4">
-                            <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Quarter Breakdown</h4>
-                            <div class="grid grid-cols-6 gap-2 text-xs">
-                                <div></div>
-                                <div class="text-center font-medium text-gray-500">Q1</div>
-                                <div class="text-center font-medium text-gray-500">Q2</div>
-                                <div class="text-center font-medium text-gray-500">Q3</div>
-                                <div class="text-center font-medium text-gray-500">Q4</div>
-                                <div class="text-center font-medium text-gray-700">TOTAL</div>
-                                
-                                <div class="font-medium">NO</div>
-                                <div class="text-center">5.0</div>
-                                <div class="text-center">6.1</div>
-                                <div class="text-center">5.3</div>
-                                <div class="text-center">5.7</div>
-                                <div class="text-center font-bold">22.1</div>
-                                
-                                <div class="font-medium">CHI</div>
-                                <div class="text-center">6.1</div>
-                                <div class="text-center">7.4</div>
-                                <div class="text-center">6.5</div>
-                                <div class="text-center">7.0</div>
-                                <div class="text-center font-bold">27.0</div>
-                            </div>
-                        </div>
                     </div>
-                    
+
                     <!-- Analytics Tab -->
                     <div id="game-1-analytics" class="space-y-6 hidden">
                         <!-- Offensive Stats Grid -->
@@ -1473,20 +1423,8 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0; border-top: 4px solid #003F2D;" data-stars="5" data-stars-cal="5">
-                
-                <!-- Best Bet Badge (if applicable) -->
-                
-                <div class="best-bet-badge text-white text-xs font-bold px-4 py-2 text-center">
-                    <span class="flex items-center justify-center space-x-2">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <span>BEST BET - SPREAD HIGH</span>
-                    </span>
-                </div>
-                
-                
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5">
+
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
                     <nav class="flex space-x-1 px-4 pt-2" aria-label="Tabs">
@@ -1608,35 +1546,8 @@
                                 <p class="text-xs text-gray-600 mt-1">Edge 5.5 pts | 84% confidence</p>
                             </div>
                         </div>
-                        
-                        <!-- Quarter Breakdown -->
-                        <div class="bg-gray-50 rounded-xl p-4">
-                            <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Quarter Breakdown</h4>
-                            <div class="grid grid-cols-6 gap-2 text-xs">
-                                <div></div>
-                                <div class="text-center font-medium text-gray-500">Q1</div>
-                                <div class="text-center font-medium text-gray-500">Q2</div>
-                                <div class="text-center font-medium text-gray-500">Q3</div>
-                                <div class="text-center font-medium text-gray-500">Q4</div>
-                                <div class="text-center font-medium text-gray-700">TOTAL</div>
-                                
-                                <div class="font-medium">CAR</div>
-                                <div class="text-center">6.7</div>
-                                <div class="text-center">8.2</div>
-                                <div class="text-center">7.2</div>
-                                <div class="text-center">7.8</div>
-                                <div class="text-center font-bold">29.9</div>
-                                
-                                <div class="font-medium">NYJ</div>
-                                <div class="text-center">3.8</div>
-                                <div class="text-center">4.7</div>
-                                <div class="text-center">4.1</div>
-                                <div class="text-center">4.4</div>
-                                <div class="text-center font-bold">17.1</div>
-                            </div>
-                        </div>
                     </div>
-                    
+
                     <!-- Analytics Tab -->
                     <div id="game-2-analytics" class="space-y-6 hidden">
                         <!-- Offensive Stats Grid -->
@@ -1862,20 +1773,8 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0; border-top: 4px solid #FF3C00;" data-stars="5" data-stars-cal="5">
-                
-                <!-- Best Bet Badge (if applicable) -->
-                
-                <div class="best-bet-badge text-white text-xs font-bold px-4 py-2 text-center">
-                    <span class="flex items-center justify-center space-x-2">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <span>BEST BET - SPREAD HIGH</span>
-                    </span>
-                </div>
-                
-                
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5">
+
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
                     <nav class="flex space-x-1 px-4 pt-2" aria-label="Tabs">
@@ -1997,35 +1896,8 @@
                                 <p class="text-xs text-gray-600 mt-1">Edge 2.8 pts | 70% confidence</p>
                             </div>
                         </div>
-                        
-                        <!-- Quarter Breakdown -->
-                        <div class="bg-gray-50 rounded-xl p-4">
-                            <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Quarter Breakdown</h4>
-                            <div class="grid grid-cols-6 gap-2 text-xs">
-                                <div></div>
-                                <div class="text-center font-medium text-gray-500">Q1</div>
-                                <div class="text-center font-medium text-gray-500">Q2</div>
-                                <div class="text-center font-medium text-gray-500">Q3</div>
-                                <div class="text-center font-medium text-gray-500">Q4</div>
-                                <div class="text-center font-medium text-gray-700">TOTAL</div>
-                                
-                                <div class="font-medium">MIA</div>
-                                <div class="text-center">5.1</div>
-                                <div class="text-center">6.2</div>
-                                <div class="text-center">5.4</div>
-                                <div class="text-center">5.9</div>
-                                <div class="text-center font-bold">22.7</div>
-                                
-                                <div class="font-medium">CLE</div>
-                                <div class="text-center">4.4</div>
-                                <div class="text-center">5.4</div>
-                                <div class="text-center">4.7</div>
-                                <div class="text-center">5.1</div>
-                                <div class="text-center font-bold">19.7</div>
-                            </div>
-                        </div>
                     </div>
-                    
+
                     <!-- Analytics Tab -->
                     <div id="game-3-analytics" class="space-y-6 hidden">
                         <!-- Offensive Stats Grid -->
@@ -2251,20 +2123,8 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0; border-top: 4px solid #E31837;" data-stars="5" data-stars-cal="5">
-                
-                <!-- Best Bet Badge (if applicable) -->
-                
-                <div class="best-bet-badge text-white text-xs font-bold px-4 py-2 text-center">
-                    <span class="flex items-center justify-center space-x-2">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <span>BEST BET - SPREAD GOOD</span>
-                    </span>
-                </div>
-                
-                
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5">
+
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
                     <nav class="flex space-x-1 px-4 pt-2" aria-label="Tabs">
@@ -2386,35 +2246,8 @@
                                 <p class="text-xs text-gray-600 mt-1">Edge 7.0 pts | 89% confidence</p>
                             </div>
                         </div>
-                        
-                        <!-- Quarter Breakdown -->
-                        <div class="bg-gray-50 rounded-xl p-4">
-                            <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Quarter Breakdown</h4>
-                            <div class="grid grid-cols-6 gap-2 text-xs">
-                                <div></div>
-                                <div class="text-center font-medium text-gray-500">Q1</div>
-                                <div class="text-center font-medium text-gray-500">Q2</div>
-                                <div class="text-center font-medium text-gray-500">Q3</div>
-                                <div class="text-center font-medium text-gray-500">Q4</div>
-                                <div class="text-center font-medium text-gray-700">TOTAL</div>
-                                
-                                <div class="font-medium">LV</div>
-                                <div class="text-center">5.0</div>
-                                <div class="text-center">6.1</div>
-                                <div class="text-center">5.3</div>
-                                <div class="text-center">5.7</div>
-                                <div class="text-center font-bold">22.1</div>
-                                
-                                <div class="font-medium">KC</div>
-                                <div class="text-center">6.8</div>
-                                <div class="text-center">8.4</div>
-                                <div class="text-center">7.3</div>
-                                <div class="text-center">7.9</div>
-                                <div class="text-center font-bold">30.4</div>
-                            </div>
-                        </div>
                     </div>
-                    
+
                     <!-- Analytics Tab -->
                     <div id="game-4-analytics" class="space-y-6 hidden">
                         <!-- Offensive Stats Grid -->
@@ -2640,20 +2473,8 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0; border-top: 4px solid #002244;" data-stars="5" data-stars-cal="5">
-                
-                <!-- Best Bet Badge (if applicable) -->
-                
-                <div class="best-bet-badge text-white text-xs font-bold px-4 py-2 text-center">
-                    <span class="flex items-center justify-center space-x-2">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <span>BEST BET - SPREAD HIGH</span>
-                    </span>
-                </div>
-                
-                
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5">
+
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
                     <nav class="flex space-x-1 px-4 pt-2" aria-label="Tabs">
@@ -2775,35 +2596,8 @@
                                 <p class="text-xs text-gray-600 mt-1">Edge 6.1 pts | 86% confidence</p>
                             </div>
                         </div>
-                        
-                        <!-- Quarter Breakdown -->
-                        <div class="bg-gray-50 rounded-xl p-4">
-                            <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Quarter Breakdown</h4>
-                            <div class="grid grid-cols-6 gap-2 text-xs">
-                                <div></div>
-                                <div class="text-center font-medium text-gray-500">Q1</div>
-                                <div class="text-center font-medium text-gray-500">Q2</div>
-                                <div class="text-center font-medium text-gray-500">Q3</div>
-                                <div class="text-center font-medium text-gray-500">Q4</div>
-                                <div class="text-center font-medium text-gray-700">TOTAL</div>
-                                
-                                <div class="font-medium">NE</div>
-                                <div class="text-center">7.1</div>
-                                <div class="text-center">8.7</div>
-                                <div class="text-center">7.6</div>
-                                <div class="text-center">8.2</div>
-                                <div class="text-center font-bold">31.6</div>
-                                
-                                <div class="font-medium">TEN</div>
-                                <div class="text-center">3.7</div>
-                                <div class="text-center">4.5</div>
-                                <div class="text-center">3.9</div>
-                                <div class="text-center">4.3</div>
-                                <div class="text-center font-bold">16.4</div>
-                            </div>
-                        </div>
                     </div>
-                    
+
                     <!-- Analytics Tab -->
                     <div id="game-5-analytics" class="space-y-6 hidden">
                         <!-- Offensive Stats Grid -->
@@ -3029,20 +2823,8 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0; border-top: 4px solid #4F2683;" data-stars="5" data-stars-cal="5">
-                
-                <!-- Best Bet Badge (if applicable) -->
-                
-                <div class="best-bet-badge text-white text-xs font-bold px-4 py-2 text-center">
-                    <span class="flex items-center justify-center space-x-2">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <span>BEST BET - SPREAD HIGH</span>
-                    </span>
-                </div>
-                
-                
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5">
+
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
                     <nav class="flex space-x-1 px-4 pt-2" aria-label="Tabs">
@@ -3164,35 +2946,8 @@
                                 <p class="text-xs text-gray-600 mt-1">Edge 2.6 pts | 68% confidence</p>
                             </div>
                         </div>
-                        
-                        <!-- Quarter Breakdown -->
-                        <div class="bg-gray-50 rounded-xl p-4">
-                            <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Quarter Breakdown</h4>
-                            <div class="grid grid-cols-6 gap-2 text-xs">
-                                <div></div>
-                                <div class="text-center font-medium text-gray-500">Q1</div>
-                                <div class="text-center font-medium text-gray-500">Q2</div>
-                                <div class="text-center font-medium text-gray-500">Q3</div>
-                                <div class="text-center font-medium text-gray-500">Q4</div>
-                                <div class="text-center font-medium text-gray-700">TOTAL</div>
-                                
-                                <div class="font-medium">PHI</div>
-                                <div class="text-center">6.2</div>
-                                <div class="text-center">7.6</div>
-                                <div class="text-center">6.6</div>
-                                <div class="text-center">7.2</div>
-                                <div class="text-center font-bold">27.5</div>
-                                
-                                <div class="font-medium">MIN</div>
-                                <div class="text-center">4.2</div>
-                                <div class="text-center">5.1</div>
-                                <div class="text-center">4.5</div>
-                                <div class="text-center">4.8</div>
-                                <div class="text-center font-bold">18.6</div>
-                            </div>
-                        </div>
                     </div>
-                    
+
                     <!-- Analytics Tab -->
                     <div id="game-6-analytics" class="space-y-6 hidden">
                         <!-- Offensive Stats Grid -->
@@ -3414,20 +3169,8 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0; border-top: 4px solid #002244;" data-stars="5" data-stars-cal="5">
-                
-                <!-- Best Bet Badge (if applicable) -->
-                
-                <div class="best-bet-badge text-white text-xs font-bold px-4 py-2 text-center">
-                    <span class="flex items-center justify-center space-x-2">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <span>BEST BET - SPREAD GOOD</span>
-                    </span>
-                </div>
-                
-                
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5">
+
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
                     <nav class="flex space-x-1 px-4 pt-2" aria-label="Tabs">
@@ -3549,35 +3292,8 @@
                                 <p class="text-xs text-gray-600 mt-1">Edge 5.8 pts | 85% confidence</p>
                             </div>
                         </div>
-                        
-                        <!-- Quarter Breakdown -->
-                        <div class="bg-gray-50 rounded-xl p-4">
-                            <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Quarter Breakdown</h4>
-                            <div class="grid grid-cols-6 gap-2 text-xs">
-                                <div></div>
-                                <div class="text-center font-medium text-gray-500">Q1</div>
-                                <div class="text-center font-medium text-gray-500">Q2</div>
-                                <div class="text-center font-medium text-gray-500">Q3</div>
-                                <div class="text-center font-medium text-gray-500">Q4</div>
-                                <div class="text-center font-medium text-gray-700">TOTAL</div>
-                                
-                                <div class="font-medium">NYG</div>
-                                <div class="text-center">4.1</div>
-                                <div class="text-center">5.1</div>
-                                <div class="text-center">4.4</div>
-                                <div class="text-center">4.8</div>
-                                <div class="text-center font-bold">18.4</div>
-                                
-                                <div class="font-medium">DEN</div>
-                                <div class="text-center">6.3</div>
-                                <div class="text-center">7.7</div>
-                                <div class="text-center">6.7</div>
-                                <div class="text-center">7.2</div>
-                                <div class="text-center font-bold">27.9</div>
-                            </div>
-                        </div>
                     </div>
-                    
+
                     <!-- Analytics Tab -->
                     <div id="game-7-analytics" class="space-y-6 hidden">
                         <!-- Offensive Stats Grid -->
@@ -3803,20 +3519,8 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0; border-top: 4px solid #007BC7;" data-stars="5" data-stars-cal="5">
-                
-                <!-- Best Bet Badge (if applicable) -->
-                
-                <div class="best-bet-badge text-white text-xs font-bold px-4 py-2 text-center">
-                    <span class="flex items-center justify-center space-x-2">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <span>BEST BET - SPREAD GOOD</span>
-                    </span>
-                </div>
-                
-                
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5">
+
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
                     <nav class="flex space-x-1 px-4 pt-2" aria-label="Tabs">
@@ -3938,35 +3642,8 @@
                                 <p class="text-xs text-gray-600 mt-1">Edge 8.3 pts | 92% confidence</p>
                             </div>
                         </div>
-                        
-                        <!-- Quarter Breakdown -->
-                        <div class="bg-gray-50 rounded-xl p-4">
-                            <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Quarter Breakdown</h4>
-                            <div class="grid grid-cols-6 gap-2 text-xs">
-                                <div></div>
-                                <div class="text-center font-medium text-gray-500">Q1</div>
-                                <div class="text-center font-medium text-gray-500">Q2</div>
-                                <div class="text-center font-medium text-gray-500">Q3</div>
-                                <div class="text-center font-medium text-gray-500">Q4</div>
-                                <div class="text-center font-medium text-gray-700">TOTAL</div>
-                                
-                                <div class="font-medium">IND</div>
-                                <div class="text-center">6.6</div>
-                                <div class="text-center">8.0</div>
-                                <div class="text-center">7.0</div>
-                                <div class="text-center">7.6</div>
-                                <div class="text-center font-bold">29.1</div>
-                                
-                                <div class="font-medium">LAC</div>
-                                <div class="text-center">6.1</div>
-                                <div class="text-center">7.5</div>
-                                <div class="text-center">6.5</div>
-                                <div class="text-center">7.1</div>
-                                <div class="text-center font-bold">27.1</div>
-                            </div>
-                        </div>
                     </div>
-                    
+
                     <!-- Analytics Tab -->
                     <div id="game-8-analytics" class="space-y-6 hidden">
                         <!-- Offensive Stats Grid -->
@@ -4192,20 +3869,8 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0; border-top: 4px solid #002244;" data-stars="5" data-stars-cal="5">
-                
-                <!-- Best Bet Badge (if applicable) -->
-                
-                <div class="best-bet-badge text-white text-xs font-bold px-4 py-2 text-center">
-                    <span class="flex items-center justify-center space-x-2">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <span>BEST BET - SPREAD HIGH</span>
-                    </span>
-                </div>
-                
-                
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5">
+
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
                     <nav class="flex space-x-1 px-4 pt-2" aria-label="Tabs">
@@ -4327,35 +3992,8 @@
                                 <p class="text-xs text-gray-600 mt-1">Edge 10.7 pts | 96% confidence</p>
                             </div>
                         </div>
-                        
-                        <!-- Quarter Breakdown -->
-                        <div class="bg-gray-50 rounded-xl p-4">
-                            <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Quarter Breakdown</h4>
-                            <div class="grid grid-cols-6 gap-2 text-xs">
-                                <div></div>
-                                <div class="text-center font-medium text-gray-500">Q1</div>
-                                <div class="text-center font-medium text-gray-500">Q2</div>
-                                <div class="text-center font-medium text-gray-500">Q3</div>
-                                <div class="text-center font-medium text-gray-500">Q4</div>
-                                <div class="text-center font-medium text-gray-700">TOTAL</div>
-                                
-                                <div class="font-medium">WAS</div>
-                                <div class="text-center">6.5</div>
-                                <div class="text-center">7.9</div>
-                                <div class="text-center">6.9</div>
-                                <div class="text-center">7.5</div>
-                                <div class="text-center font-bold">28.8</div>
-                                
-                                <div class="font-medium">DAL</div>
-                                <div class="text-center">8.2</div>
-                                <div class="text-center">10.0</div>
-                                <div class="text-center">8.7</div>
-                                <div class="text-center">9.5</div>
-                                <div class="text-center font-bold">36.4</div>
-                            </div>
-                        </div>
                     </div>
-                    
+
                     <!-- Analytics Tab -->
                     <div id="game-9-analytics" class="space-y-6 hidden">
                         <!-- Offensive Stats Grid -->
@@ -4581,20 +4219,8 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0; border-top: 4px solid #97233F;" data-stars="5" data-stars-cal="5">
-                
-                <!-- Best Bet Badge (if applicable) -->
-                
-                <div class="best-bet-badge text-white text-xs font-bold px-4 py-2 text-center">
-                    <span class="flex items-center justify-center space-x-2">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <span>BEST BET - SPREAD HIGH</span>
-                    </span>
-                </div>
-                
-                
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5">
+
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
                     <nav class="flex space-x-1 px-4 pt-2" aria-label="Tabs">
@@ -4716,35 +4342,8 @@
                                 <p class="text-xs text-gray-600 mt-1">Edge 7.8 pts | 91% confidence</p>
                             </div>
                         </div>
-                        
-                        <!-- Quarter Breakdown -->
-                        <div class="bg-gray-50 rounded-xl p-4">
-                            <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Quarter Breakdown</h4>
-                            <div class="grid grid-cols-6 gap-2 text-xs">
-                                <div></div>
-                                <div class="text-center font-medium text-gray-500">Q1</div>
-                                <div class="text-center font-medium text-gray-500">Q2</div>
-                                <div class="text-center font-medium text-gray-500">Q3</div>
-                                <div class="text-center font-medium text-gray-500">Q4</div>
-                                <div class="text-center font-medium text-gray-700">TOTAL</div>
-                                
-                                <div class="font-medium">GB</div>
-                                <div class="text-center">7.4</div>
-                                <div class="text-center">9.0</div>
-                                <div class="text-center">7.9</div>
-                                <div class="text-center">8.5</div>
-                                <div class="text-center font-bold">32.8</div>
-                                
-                                <div class="font-medium">ARI</div>
-                                <div class="text-center">4.3</div>
-                                <div class="text-center">5.2</div>
-                                <div class="text-center">4.6</div>
-                                <div class="text-center">4.9</div>
-                                <div class="text-center font-bold">19.0</div>
-                            </div>
-                        </div>
                     </div>
-                    
+
                     <!-- Analytics Tab -->
                     <div id="game-10-analytics" class="space-y-6 hidden">
                         <!-- Offensive Stats Grid -->
@@ -4970,20 +4569,8 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0; border-top: 4px solid #AA0000;" data-stars="5" data-stars-cal="5">
-                
-                <!-- Best Bet Badge (if applicable) -->
-                
-                <div class="best-bet-badge text-white text-xs font-bold px-4 py-2 text-center">
-                    <span class="flex items-center justify-center space-x-2">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <span>BEST BET - SPREAD GOOD</span>
-                    </span>
-                </div>
-                
-                
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5">
+
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
                     <nav class="flex space-x-1 px-4 pt-2" aria-label="Tabs">
@@ -5105,35 +4692,8 @@
                                 <p class="text-xs text-gray-600 mt-1">Edge 5.4 pts | 84% confidence</p>
                             </div>
                         </div>
-                        
-                        <!-- Quarter Breakdown -->
-                        <div class="bg-gray-50 rounded-xl p-4">
-                            <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Quarter Breakdown</h4>
-                            <div class="grid grid-cols-6 gap-2 text-xs">
-                                <div></div>
-                                <div class="text-center font-medium text-gray-500">Q1</div>
-                                <div class="text-center font-medium text-gray-500">Q2</div>
-                                <div class="text-center font-medium text-gray-500">Q3</div>
-                                <div class="text-center font-medium text-gray-500">Q4</div>
-                                <div class="text-center font-medium text-gray-700">TOTAL</div>
-                                
-                                <div class="font-medium">ATL</div>
-                                <div class="text-center">5.2</div>
-                                <div class="text-center">6.3</div>
-                                <div class="text-center">5.5</div>
-                                <div class="text-center">6.0</div>
-                                <div class="text-center font-bold">22.9</div>
-                                
-                                <div class="font-medium">SF</div>
-                                <div class="text-center">6.6</div>
-                                <div class="text-center">8.1</div>
-                                <div class="text-center">7.1</div>
-                                <div class="text-center">7.7</div>
-                                <div class="text-center font-bold">29.5</div>
-                            </div>
-                        </div>
                     </div>
-                    
+
                     <!-- Analytics Tab -->
                     <div id="game-11-analytics" class="space-y-6 hidden">
                         <!-- Offensive Stats Grid -->
@@ -5359,20 +4919,8 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0; border-top: 4px solid #0076B6;" data-stars="5" data-stars-cal="5">
-                
-                <!-- Best Bet Badge (if applicable) -->
-                
-                <div class="best-bet-badge text-white text-xs font-bold px-4 py-2 text-center">
-                    <span class="flex items-center justify-center space-x-2">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <span>BEST BET - SPREAD GOOD</span>
-                    </span>
-                </div>
-                
-                
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5">
+
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
                     <nav class="flex space-x-1 px-4 pt-2" aria-label="Tabs">
@@ -5494,35 +5042,8 @@
                                 <p class="text-xs text-gray-600 mt-1">Edge 12.0 pts | 97% confidence</p>
                             </div>
                         </div>
-                        
-                        <!-- Quarter Breakdown -->
-                        <div class="bg-gray-50 rounded-xl p-4">
-                            <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Quarter Breakdown</h4>
-                            <div class="grid grid-cols-6 gap-2 text-xs">
-                                <div></div>
-                                <div class="text-center font-medium text-gray-500">Q1</div>
-                                <div class="text-center font-medium text-gray-500">Q2</div>
-                                <div class="text-center font-medium text-gray-500">Q3</div>
-                                <div class="text-center font-medium text-gray-500">Q4</div>
-                                <div class="text-center font-medium text-gray-700">TOTAL</div>
-                                
-                                <div class="font-medium">TB</div>
-                                <div class="text-center">6.1</div>
-                                <div class="text-center">7.4</div>
-                                <div class="text-center">6.5</div>
-                                <div class="text-center">7.0</div>
-                                <div class="text-center font-bold">27.0</div>
-                                
-                                <div class="font-medium">DET</div>
-                                <div class="text-center">8.4</div>
-                                <div class="text-center">10.3</div>
-                                <div class="text-center">9.0</div>
-                                <div class="text-center">9.7</div>
-                                <div class="text-center font-bold">37.4</div>
-                            </div>
-                        </div>
                     </div>
-                    
+
                     <!-- Analytics Tab -->
                     <div id="game-12-analytics" class="space-y-6 hidden">
                         <!-- Offensive Stats Grid -->
@@ -5748,20 +5269,8 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0; border-top: 4px solid #002244;" data-stars="5" data-stars-cal="5">
-                
-                <!-- Best Bet Badge (if applicable) -->
-                
-                <div class="best-bet-badge text-white text-xs font-bold px-4 py-2 text-center">
-                    <span class="flex items-center justify-center space-x-2">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <span>BEST BET - SPREAD HIGH</span>
-                    </span>
-                </div>
-                
-                
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5">
+
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
                     <nav class="flex space-x-1 px-4 pt-2" aria-label="Tabs">
@@ -5883,35 +5392,8 @@
                                 <p class="text-xs text-gray-600 mt-1">Edge 15.3 pts | 99% confidence</p>
                             </div>
                         </div>
-                        
-                        <!-- Quarter Breakdown -->
-                        <div class="bg-gray-50 rounded-xl p-4">
-                            <h4 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Quarter Breakdown</h4>
-                            <div class="grid grid-cols-6 gap-2 text-xs">
-                                <div></div>
-                                <div class="text-center font-medium text-gray-500">Q1</div>
-                                <div class="text-center font-medium text-gray-500">Q2</div>
-                                <div class="text-center font-medium text-gray-500">Q3</div>
-                                <div class="text-center font-medium text-gray-500">Q4</div>
-                                <div class="text-center font-medium text-gray-700">TOTAL</div>
-                                
-                                <div class="font-medium">HOU</div>
-                                <div class="text-center">4.9</div>
-                                <div class="text-center">5.9</div>
-                                <div class="text-center">5.2</div>
-                                <div class="text-center">5.6</div>
-                                <div class="text-center font-bold">21.6</div>
-                                
-                                <div class="font-medium">SEA</div>
-                                <div class="text-center">7.7</div>
-                                <div class="text-center">9.4</div>
-                                <div class="text-center">8.2</div>
-                                <div class="text-center">8.9</div>
-                                <div class="text-center font-bold">34.2</div>
-                            </div>
-                        </div>
                     </div>
-                    
+
                     <!-- Analytics Tab -->
                     <div id="game-13-analytics" class="space-y-6 hidden">
                         <!-- Offensive Stats Grid -->
