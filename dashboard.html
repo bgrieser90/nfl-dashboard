@@ -230,24 +230,29 @@
             }
         }
 
-        /* Mobile Optimizations - SUBTLE ONLY */
+        /* Mobile Optimizations */
         @media (max-width: 768px) {
-            /* Slightly larger text for readability */
+            /* Base typography improvements */
             body {
                 font-size: 15px;
             }
 
-            /* Team names just a bit bigger */
+            /* Header size adjustments */
+            h1 {
+                font-size: 1.875rem !important;
+            }
+
             h3.text-lg {
                 font-size: 1.125rem !important;
             }
 
-            /* Scores slightly larger */
+            /* Score display optimization */
             .text-4xl {
-                font-size: 2.75rem !important;
+                font-size: 2.5rem !important;
+                line-height: 1.1 !important;
             }
 
-            /* Small text more readable */
+            /* Better readability for small text */
             .text-xs {
                 font-size: 0.8125rem !important;
             }
@@ -256,37 +261,156 @@
                 font-size: 0.9375rem !important;
             }
 
-            /* Better touch targets for buttons/tabs */
+            /* Touch-friendly buttons and tabs */
             button {
                 min-height: 44px;
-                padding: 0.75rem 1.25rem !important;
+                padding: 0.75rem 1rem !important;
             }
 
-            /* Reduce card padding slightly to fit better */
+            /* Optimize card spacing */
             .game-card {
-                padding: 0.875rem !important;
+                padding: 0.75rem !important;
+                margin-bottom: 1rem !important;
             }
 
-            /* Team logos slightly larger */
+            /* Container padding reduction */
+            .max-w-7xl {
+                padding-left: 0.75rem !important;
+                padding-right: 0.75rem !important;
+            }
+
+            /* Team logos sizing */
             img.w-12.h-12 {
                 width: 3rem !important;
                 height: 3rem !important;
             }
 
-            /* Stack filter controls only */
+            /* Grid optimizations */
             .md\:grid-cols-3 {
                 grid-template-columns: 1fr !important;
+            }
+
+            /* Two-column side-by-side layout for teams */
+            .grid-cols-3 {
+                grid-template-columns: 1fr 1fr !important;
+                gap: 0.5rem !important;
+            }
+
+            /* Move VS/date section to top and span full width */
+            .grid-cols-3 > div:nth-child(2) {
+                grid-column: 1 / -1;
+                order: -1;
+                padding: 0.5rem 0;
+                border-bottom: 1px solid #e5e7eb;
+                margin-bottom: 0.5rem;
+            }
+
+            /* Compact team sections */
+            .grid-cols-3 > div:not(:nth-child(2)) {
+                padding: 0.5rem;
+            }
+
+            /* Smaller logos for compact view */
+            img.w-12.h-12 {
+                width: 2rem !important;
+                height: 2rem !important;
+            }
+
+            /* Reduce score size for compact layout */
+            .text-4xl {
+                font-size: 1.75rem !important;
+                line-height: 1.1 !important;
+            }
+
+            /* Smaller team names */
+            h3.text-lg.font-semibold {
+                font-size: 0.8rem !important;
+                line-height: 1.2 !important;
+            }
+
+            /* Compact small text */
+            .text-xs {
+                font-size: 0.65rem !important;
+                line-height: 1.2 !important;
+            }
+
+            /* Stack rank+logo+name vertically in each column */
+            .flex.items-center.justify-center {
+                flex-direction: column !important;
+                gap: 0.25rem !important;
+            }
+
+            /* Quarter breakdown - make it scrollable horizontally */
+            .grid-cols-6 {
+                display: flex;
+                overflow-x: auto;
+                gap: 0.5rem !important;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: thin;
+            }
+
+            .grid-cols-6 > div {
+                flex: 0 0 auto;
+                min-width: 70px;
+                text-align: center;
+            }
+
+            /* Stack two-column layouts on mobile */
+            .grid-cols-2 {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* Reduce gaps on mobile */
+            .gap-4 {
+                gap: 0.75rem !important;
+            }
+
+            .gap-6 {
+                gap: 1rem !important;
+            }
+
+            /* Optimize confidence bars */
+            .confidence-bar {
+                height: 32px !important;
+            }
+
+            /* Make tabs more touch-friendly */
+            nav button {
+                padding: 0.875rem 1rem !important;
+                font-size: 0.875rem !important;
             }
         }
 
         @media (max-width: 480px) {
-            /* Very small screens */
+            /* Extra small screens */
             h1 {
-                font-size: 1.75rem !important;
+                font-size: 1.5rem !important;
             }
 
             .text-4xl {
-                font-size: 2.5rem !important;
+                font-size: 2.25rem !important;
+            }
+
+            /* Tighter spacing for small screens */
+            .game-card {
+                padding: 0.625rem !important;
+            }
+
+            .max-w-7xl {
+                padding-left: 0.5rem !important;
+                padding-right: 0.5rem !important;
+            }
+
+            /* Smaller team logos on tiny screens */
+            img.w-12.h-12 {
+                width: 2.5rem !important;
+                height: 2.5rem !important;
+            }
+
+            /* Make quarter breakdown items smaller */
+            .grid-cols-6 > div {
+                min-width: 60px;
+                font-size: 0.75rem !important;
             }
         }
         
