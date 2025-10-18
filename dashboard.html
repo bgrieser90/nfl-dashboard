@@ -265,6 +265,11 @@
                 display: none;
             }
 
+            /* Hide VS text on mobile - doesn't make sense with side-by-side layout */
+            .grid-cols-3 > div:nth-child(2) > span.text-sm.text-gray-400 {
+                display: none;
+            }
+
             /* Optimize card spacing */
             .game-card {
                 padding: 0.75rem !important;
@@ -649,7 +654,7 @@
             <div class="flex justify-between items-center py-4">
                 <div>
                     <h1 class="text-3xl sm:text-4xl font-black gradient-text" style="letter-spacing: -0.03em;">NFL Analytics Dashboard</h1>
-                    <p class="text-sm text-gray-600 mt-1 font-medium" style="letter-spacing: 0.025em;">Predictive Modeling - Last Model Run as of <span style="color: #10b981;">10/16/2025, 6:24:46 AM</span></p>
+                    <p class="text-sm text-gray-600 mt-1 font-medium" style="letter-spacing: 0.025em;">Last Model Run as of <span style="color: #10b981;">10/16 6:24 AM</span></p>
                 </div>
             </div>
         </div>
@@ -5624,7 +5629,7 @@
         <!-- Footer -->
         <div class="mt-8 pb-8 text-center">
             <p class="text-xs text-gray-400">Generated with NFL Advanced Analytics Engine</p>
-            <p class="text-xs text-gray-400 mt-1">Data refreshed: 10/16/2025, 6:24:46 AM</p>
+            <p class="text-xs text-gray-400 mt-1">Data refreshed: 10/16 6:24 AM</p>
         </div>
     </div>
 </body>
