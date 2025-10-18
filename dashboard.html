@@ -230,93 +230,63 @@
             }
         }
 
-        /* Mobile Optimizations */
+        /* Mobile Optimizations - SUBTLE ONLY */
         @media (max-width: 768px) {
-            /* Make game cards stack vertically on mobile */
-            .grid.grid-cols-3.gap-4.items-center {
-                grid-template-columns: 1fr !important;
-                gap: 1.5rem !important;
-            }
-
-            /* Increase font sizes for better readability */
+            /* Slightly larger text for readability */
             body {
-                font-size: 16px;
+                font-size: 15px;
             }
 
-            /* Larger team names */
+            /* Team names just a bit bigger */
             h3.text-lg {
-                font-size: 1.25rem !important;
+                font-size: 1.125rem !important;
             }
 
-            /* Larger scores */
+            /* Scores slightly larger */
             .text-4xl {
-                font-size: 3rem !important;
+                font-size: 2.75rem !important;
             }
 
-            /* Better readable small text */
+            /* Small text more readable */
             .text-xs {
-                font-size: 0.875rem !important;
+                font-size: 0.8125rem !important;
             }
 
             .text-sm {
-                font-size: 1rem !important;
+                font-size: 0.9375rem !important;
             }
 
-            /* Larger touch targets for tabs */
+            /* Better touch targets for buttons/tabs */
             button {
-                padding: 1rem 1.5rem !important;
-                font-size: 1.125rem !important;
-                min-height: 48px;
+                min-height: 44px;
+                padding: 0.75rem 1.25rem !important;
             }
 
-            /* Better spacing in game cards */
+            /* Reduce card padding slightly to fit better */
             .game-card {
-                padding: 1.5rem !important;
-            }
-
-            /* Center VS divider on mobile */
-            .text-center {
-                margin: 1rem 0 !important;
+                padding: 0.875rem !important;
             }
 
             /* Team logos slightly larger */
             img.w-12.h-12 {
-                width: 3.5rem !important;
-                height: 3.5rem !important;
+                width: 3rem !important;
+                height: 3rem !important;
             }
 
-            /* Stack filter controls vertically */
+            /* Stack filter controls only */
             .md\:grid-cols-3 {
                 grid-template-columns: 1fr !important;
-            }
-
-            /* Better container padding */
-            .container {
-                padding-left: 1rem !important;
-                padding-right: 1rem !important;
-            }
-
-            /* Make tabs more touch-friendly */
-            .tab-button {
-                padding: 1rem 1.5rem !important;
-                font-size: 1.125rem !important;
-                min-height: 48px;
             }
         }
 
         @media (max-width: 480px) {
-            /* Extra small screens - even more adjustments */
+            /* Very small screens */
             h1 {
-                font-size: 2rem !important;
+                font-size: 1.75rem !important;
             }
 
             .text-4xl {
                 font-size: 2.5rem !important;
-            }
-
-            /* Reduce card shadows for performance */
-            .game-card {
-                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
             }
         }
         
