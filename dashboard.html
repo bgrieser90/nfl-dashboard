@@ -265,9 +265,9 @@
                 display: none;
             }
 
-            /* Hide VS text on mobile - doesn't make sense with side-by-side layout */
-            .grid-cols-3 > div:nth-child(2) > span.text-sm.text-gray-400 {
-                display: none;
+            /* Hide entire VS/date/O/U section on mobile - creates too much whitespace */
+            .grid-cols-3 > div:nth-child(2) {
+                display: none !important;
             }
 
             /* Optimize card spacing */
@@ -496,6 +496,17 @@
             font-variant-numeric: tabular-nums;
             font-feature-settings: "tnum";
             letter-spacing: -0.01em;
+        }
+
+        /* Mobile kickoff time label - hidden on desktop, shown on mobile */
+        .mobile-kickoff-time {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-kickoff-time {
+                display: block;
+            }
         }
     </style>
     <script>
@@ -780,6 +791,8 @@
                         
                         <!-- Score Display -->
                         <div class="relative">
+                            <!-- Mobile-only kickoff time label -->
+                            
                             <div class="grid grid-cols-3 gap-4 items-center">
                                 <!-- Away Team -->
                                 <div class="text-center">
@@ -1130,6 +1143,8 @@
                         
                         <!-- Score Display -->
                         <div class="relative">
+                            <!-- Mobile-only kickoff time label -->
+                            
                             <div class="grid grid-cols-3 gap-4 items-center">
                                 <!-- Away Team -->
                                 <div class="text-center">
@@ -1455,6 +1470,8 @@
                         
                         <!-- Score Display -->
                         <div class="relative">
+                            <!-- Mobile-only kickoff time label -->
+                            
                             <div class="grid grid-cols-3 gap-4 items-center">
                                 <!-- Away Team -->
                                 <div class="text-center">
@@ -1805,6 +1822,8 @@
                         
                         <!-- Score Display -->
                         <div class="relative">
+                            <!-- Mobile-only kickoff time label -->
+                            
                             <div class="grid grid-cols-3 gap-4 items-center">
                                 <!-- Away Team -->
                                 <div class="text-center">
@@ -2155,6 +2174,8 @@
                         
                         <!-- Score Display -->
                         <div class="relative">
+                            <!-- Mobile-only kickoff time label -->
+                            
                             <div class="grid grid-cols-3 gap-4 items-center">
                                 <!-- Away Team -->
                                 <div class="text-center">
@@ -2505,6 +2526,8 @@
                         
                         <!-- Score Display -->
                         <div class="relative">
+                            <!-- Mobile-only kickoff time label -->
+                            
                             <div class="grid grid-cols-3 gap-4 items-center">
                                 <!-- Away Team -->
                                 <div class="text-center">
@@ -2855,6 +2878,8 @@
                         
                         <!-- Score Display -->
                         <div class="relative">
+                            <!-- Mobile-only kickoff time label -->
+                            
                             <div class="grid grid-cols-3 gap-4 items-center">
                                 <!-- Away Team -->
                                 <div class="text-center">
@@ -3201,6 +3226,8 @@
                         
                         <!-- Score Display -->
                         <div class="relative">
+                            <!-- Mobile-only kickoff time label -->
+                            
                             <div class="grid grid-cols-3 gap-4 items-center">
                                 <!-- Away Team -->
                                 <div class="text-center">
@@ -3551,6 +3578,8 @@
                         
                         <!-- Score Display -->
                         <div class="relative">
+                            <!-- Mobile-only kickoff time label -->
+                            
                             <div class="grid grid-cols-3 gap-4 items-center">
                                 <!-- Away Team -->
                                 <div class="text-center">
@@ -3901,6 +3930,8 @@
                         
                         <!-- Score Display -->
                         <div class="relative">
+                            <!-- Mobile-only kickoff time label -->
+                            
                             <div class="grid grid-cols-3 gap-4 items-center">
                                 <!-- Away Team -->
                                 <div class="text-center">
@@ -4251,6 +4282,8 @@
                         
                         <!-- Score Display -->
                         <div class="relative">
+                            <!-- Mobile-only kickoff time label -->
+                            
                             <div class="grid grid-cols-3 gap-4 items-center">
                                 <!-- Away Team -->
                                 <div class="text-center">
@@ -4601,6 +4634,8 @@
                         
                         <!-- Score Display -->
                         <div class="relative">
+                            <!-- Mobile-only kickoff time label -->
+                            
                             <div class="grid grid-cols-3 gap-4 items-center">
                                 <!-- Away Team -->
                                 <div class="text-center">
@@ -4951,6 +4986,8 @@
                         
                         <!-- Score Display -->
                         <div class="relative">
+                            <!-- Mobile-only kickoff time label -->
+                            
                             <div class="grid grid-cols-3 gap-4 items-center">
                                 <!-- Away Team -->
                                 <div class="text-center">
@@ -5301,6 +5338,8 @@
                         
                         <!-- Score Display -->
                         <div class="relative">
+                            <!-- Mobile-only kickoff time label -->
+                            
                             <div class="grid grid-cols-3 gap-4 items-center">
                                 <!-- Away Team -->
                                 <div class="text-center">
