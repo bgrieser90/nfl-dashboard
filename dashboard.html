@@ -640,6 +640,52 @@
             font-weight: 700;
         }
 
+        .breakdown-chip {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+            padding: 0.9rem 0.75rem;
+            border-radius: 0.9rem;
+            border: 1px solid rgba(226, 232, 240, 0.7);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.98));
+            box-shadow: 0 18px 34px -22px rgba(15, 23, 42, 0.4);
+            text-align: center;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .breakdown-chip:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 22px 44px -22px rgba(15, 23, 42, 0.5);
+        }
+
+        .breakdown-chip--highlight {
+            border-color: rgba(34, 197, 94, 0.35);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.98));
+            box-shadow: 0 20px 36px -24px rgba(16, 185, 129, 0.35);
+        }
+
+        .breakdown-chip__title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #475569;
+            text-transform: uppercase;
+            letter-spacing: 0.035em;
+        }
+
+        .breakdown-chip__value {
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: -0.015em;
+            color: #1f2937;
+        }
+
+        .breakdown-chip__meta {
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+
         /* Performance Badge Styles */
         .performance-badge {
             display: inline-flex;
@@ -888,9 +934,6 @@
         <!-- Model Performance Section -->
         <div class="bg-white rounded-xl shadow-md p-6 mb-6">
             <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                </svg>
                 Model Performance (108 games, Through Week 7)
             </h3>
 
@@ -989,30 +1032,30 @@
                         </div>
                         <div class="mt-4 pt-4 border-t border-gray-200">
                             <h5 class="text-xs font-semibold text-gray-500 uppercase mb-2">By Location × Favored</h5>
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
                                 
-                                    <div class="text-center p-2 bg-gray-50 rounded">
-                                        <div class="text-xs text-gray-600 mb-1">Away Dog</div>
-                                        <div class="text-sm font-bold" style="color: #ef4444">45.5%</div>
-                                        <div class="text-xs text-gray-500">5-6</div>
+                                    <div class="breakdown-chip">
+                                        <div class="breakdown-chip__title">Away Dog</div>
+                                        <div class="breakdown-chip__value" style="color: #ef4444">45.5%</div>
+                                        <div class="breakdown-chip__meta">5-6</div>
                                     </div>
                                 
-                                    <div class="text-center p-2 bg-gray-50 rounded">
-                                        <div class="text-xs text-gray-600 mb-1">Away Favorite</div>
-                                        <div class="text-sm font-bold" style="color: #f59e0b">67.5%</div>
-                                        <div class="text-xs text-gray-500">27-13</div>
+                                    <div class="breakdown-chip">
+                                        <div class="breakdown-chip__title">Away Favorite</div>
+                                        <div class="breakdown-chip__value" style="color: #f59e0b">67.5%</div>
+                                        <div class="breakdown-chip__meta">27-13</div>
                                     </div>
                                 
-                                    <div class="text-center p-2 bg-gray-50 rounded">
-                                        <div class="text-xs text-gray-600 mb-1">Home Dog</div>
-                                        <div class="text-sm font-bold" style="color: #10b981">70.0%</div>
-                                        <div class="text-xs text-gray-500">14-6</div>
+                                    <div class="breakdown-chip">
+                                        <div class="breakdown-chip__title">Home Dog</div>
+                                        <div class="breakdown-chip__value" style="color: #10b981">70.0%</div>
+                                        <div class="breakdown-chip__meta">14-6</div>
                                     </div>
                                 
-                                    <div class="text-center p-2 bg-gray-50 rounded">
-                                        <div class="text-xs text-gray-600 mb-1">Home Favorite</div>
-                                        <div class="text-sm font-bold" style="color: #10b981">75.7%</div>
-                                        <div class="text-xs text-gray-500">28-9</div>
+                                    <div class="breakdown-chip">
+                                        <div class="breakdown-chip__title">Home Favorite</div>
+                                        <div class="breakdown-chip__value" style="color: #10b981">75.7%</div>
+                                        <div class="breakdown-chip__meta">28-9</div>
                                     </div>
                                 
                             </div>
@@ -1093,34 +1136,34 @@
                         </div>
                         <div class="mt-4 pt-4 border-t border-gray-200">
                             <h5 class="text-xs font-semibold text-gray-500 uppercase mb-2">By Location × Side (Performance Highlights)</h5>
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
                                 
-                                    <div class="text-center p-2 rounded bg-green-50">
-                                        <div class="text-xs text-gray-600 mb-1">Away Dog</div>
-                                        <div class="text-sm font-bold" style="color: #10b981">61.5%</div>
-                                        <div class="text-xs text-gray-500">8-5</div>
-                                        <div class="text-xs text-gray-400">(13 picks)</div>
+                                    <div class="breakdown-chip breakdown-chip--highlight">
+                                        <div class="breakdown-chip__title">Away Dog</div>
+                                        <div class="breakdown-chip__value" style="color: #10b981">61.5%</div>
+                                        <div class="breakdown-chip__meta">8-5</div>
+                                        <div class="breakdown-chip__meta" style="font-size: 0.7rem;">(13 picks)</div>
                                     </div>
                                 
-                                    <div class="text-center p-2 rounded bg-gray-50">
-                                        <div class="text-xs text-gray-600 mb-1">Away Favorite</div>
-                                        <div class="text-sm font-bold" style="color: #ef4444">50.0%</div>
-                                        <div class="text-xs text-gray-500">19-19</div>
-                                        <div class="text-xs text-gray-400">(38 picks)</div>
+                                    <div class="breakdown-chip ">
+                                        <div class="breakdown-chip__title">Away Favorite</div>
+                                        <div class="breakdown-chip__value" style="color: #ef4444">50.0%</div>
+                                        <div class="breakdown-chip__meta">19-19</div>
+                                        <div class="breakdown-chip__meta" style="font-size: 0.7rem;">(38 picks)</div>
                                     </div>
                                 
-                                    <div class="text-center p-2 rounded bg-green-50">
-                                        <div class="text-xs text-gray-600 mb-1">Home Dog</div>
-                                        <div class="text-sm font-bold" style="color: #10b981">68.2%</div>
-                                        <div class="text-xs text-gray-500">15-7</div>
-                                        <div class="text-xs text-gray-400">(22 picks)</div>
+                                    <div class="breakdown-chip breakdown-chip--highlight">
+                                        <div class="breakdown-chip__title">Home Dog</div>
+                                        <div class="breakdown-chip__value" style="color: #10b981">68.2%</div>
+                                        <div class="breakdown-chip__meta">15-7</div>
+                                        <div class="breakdown-chip__meta" style="font-size: 0.7rem;">(22 picks)</div>
                                     </div>
                                 
-                                    <div class="text-center p-2 rounded bg-green-50">
-                                        <div class="text-xs text-gray-600 mb-1">Home Favorite</div>
-                                        <div class="text-sm font-bold" style="color: #10b981">58.8%</div>
-                                        <div class="text-xs text-gray-500">20-14-1</div>
-                                        <div class="text-xs text-gray-400">(34 picks)</div>
+                                    <div class="breakdown-chip breakdown-chip--highlight">
+                                        <div class="breakdown-chip__title">Home Favorite</div>
+                                        <div class="breakdown-chip__value" style="color: #10b981">58.8%</div>
+                                        <div class="breakdown-chip__meta">20-14-1</div>
+                                        <div class="breakdown-chip__meta" style="font-size: 0.7rem;">(34 picks)</div>
                                     </div>
                                 
                             </div>
