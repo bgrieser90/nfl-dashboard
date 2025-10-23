@@ -548,6 +548,133 @@
                 display: block;
             }
         }
+
+        /* Accuracy Summary Styles */
+        .accuracy-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(229, 231, 235, 0.5);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .accuracy-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .accuracy-card-primary {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(99, 102, 241, 0.05));
+            border: 2px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .performance-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(229, 231, 235, 0.5);
+            border-radius: 9999px;
+            overflow: hidden;
+        }
+
+        .performance-bar-fill {
+            height: 100%;
+            border-radius: 9999px;
+            transition: width 0.6s ease;
+        }
+
+        .breakdown-section {
+            border: none;
+        }
+
+        .breakdown-header {
+            width: 100%;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            transition: background-color 0.2s ease;
+        }
+
+        .breakdown-content {
+            transition: all 0.3s ease;
+            padding: 1rem;
+        }
+
+        .breakdown-content.hidden {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .breakdown-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(226, 232, 240, 0.7);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(249, 250, 251, 0.96));
+            box-shadow: 0 12px 24px -18px rgba(15, 23, 42, 0.35);
+            margin-bottom: 0.65rem;
+        }
+
+        .breakdown-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .breakdown-label {
+            font-size: 0.875rem;
+            color: #334155;
+            font-weight: 600;
+        }
+
+        .breakdown-record {
+            font-size: 0.85rem;
+            color: #475569;
+            margin: 0 0.75rem;
+        }
+
+        .breakdown-rate {
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        /* Performance Badge Styles */
+        .performance-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.25rem 0.5rem;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.1));
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 9999px;
+            cursor: help;
+            transition: all 0.2s ease;
+        }
+
+        .performance-badge:hover {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(16, 185, 129, 0.15));
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(34, 197, 94, 0.2);
+        }
+
+        /* Mobile Responsiveness for Accuracy Section */
+        @media (max-width: 768px) {
+            .accuracy-card {
+                padding: 1rem;
+            }
+
+            .performance-badge {
+                padding: 0.2rem 0.4rem;
+                font-size: 0.7rem;
+            }
+
+            .performance-badge svg {
+                width: 0.75rem;
+                height: 0.75rem;
+            }
+        }
     </style>
     <script>
         function toggleSection(id) {
@@ -556,7 +683,14 @@
             section.classList.toggle('hidden');
             icon.classList.toggle('rotate-180');
         }
-        
+
+        function toggleAccuracySection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const icon = document.getElementById(sectionId + '-icon');
+            section.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
         function showTab(gameIndex, tabName) {
             // Hide all tabs for this game
             ['overview', 'analytics', 'betting'].forEach(tab => {
@@ -750,6 +884,312 @@
             </div>
         </div>
 
+        
+        <!-- Model Performance Section -->
+        <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+            <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                </svg>
+                Model Performance (108 games, Through Week 7)
+            </h3>
+
+            <!-- Overall Performance Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <!-- Straight Up Card -->
+                <div class="accuracy-card">
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="text-sm font-semibold text-gray-600">Straight Up</h4>
+                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600">108 picks</span>
+                    </div>
+                    <div class="text-3xl font-bold mb-2" style="color: #f59e0b">
+                        68.5%
+                    </div>
+                    <div class="text-sm text-gray-600 mb-3">74-34</div>
+                    <div class="performance-bar">
+                        <div class="performance-bar-fill" style="width: 68.51851851851852%; background-color: #f59e0b"></div>
+                    </div>
+                </div>
+
+                <!-- Against Spread Card -->
+                <div class="accuracy-card">
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="text-sm font-semibold text-gray-600">Against the Spread</h4>
+                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600">107 picks</span>
+                    </div>
+                    <div class="text-3xl font-bold mb-2" style="color: #10b981">
+                        57.9%
+                    </div>
+                    <div class="text-sm text-gray-600 mb-3">62-45-1</div>
+                    <div class="performance-bar">
+                        <div class="performance-bar-fill" style="width: 57.943925233644855%; background-color: #10b981"></div>
+                    </div>
+                </div>
+
+                <!-- Over/Under Card -->
+                <div class="accuracy-card">
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="text-sm font-semibold text-gray-600">Over/Under</h4>
+                        <span class="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600">108 picks</span>
+                    </div>
+                    <div class="text-3xl font-bold mb-2" style="color: #10b981">
+                        55.6%
+                    </div>
+                    <div class="text-sm text-gray-600 mb-3">60-48</div>
+                    <div class="performance-bar">
+                        <div class="performance-bar-fill" style="width: 55.55555555555556%; background-color: #10b981"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Breakdowns (Expandable) -->
+            <div class="space-y-3">
+                <!-- SU Breakdown -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button onclick="toggleAccuracySection('su-breakdown')" class="w-full px-4 py-3 bg-gray-50 hover:bg-gray-100 flex items-center justify-between transition-colors">
+                        <span class="font-semibold text-gray-700">Straight Up Breakdown</span>
+                        <svg id="su-breakdown-icon" class="w-5 h-5 text-gray-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div id="su-breakdown" class="breakdown-content hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="text-xs font-semibold text-gray-500 uppercase mb-2">By Location</h5>
+                                
+                                    <div class="breakdown-row">
+                                        <span class="breakdown-label">Away</span>
+                                        <span class="breakdown-record">32-19</span>
+                                        <span class="breakdown-rate" style="color: #f59e0b">62.7%</span>
+                                    </div>
+                                
+                                    <div class="breakdown-row">
+                                        <span class="breakdown-label">Home</span>
+                                        <span class="breakdown-record">42-15</span>
+                                        <span class="breakdown-rate" style="color: #10b981">73.7%</span>
+                                    </div>
+                                
+                            </div>
+                            <div>
+                                <h5 class="text-xs font-semibold text-gray-500 uppercase mb-2">By Favored Status</h5>
+                                
+                                    <div class="breakdown-row">
+                                        <span class="breakdown-label">Favorite</span>
+                                        <span class="breakdown-record">55-22</span>
+                                        <span class="breakdown-rate" style="color: #10b981">71.4%</span>
+                                    </div>
+                                
+                                    <div class="breakdown-row">
+                                        <span class="breakdown-label">Underdog</span>
+                                        <span class="breakdown-record">19-12</span>
+                                        <span class="breakdown-rate" style="color: #f59e0b">61.3%</span>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-200">
+                            <h5 class="text-xs font-semibold text-gray-500 uppercase mb-2">By Location × Favored</h5>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                                
+                                    <div class="text-center p-2 bg-gray-50 rounded">
+                                        <div class="text-xs text-gray-600 mb-1">Away Dog</div>
+                                        <div class="text-sm font-bold" style="color: #ef4444">45.5%</div>
+                                        <div class="text-xs text-gray-500">5-6</div>
+                                    </div>
+                                
+                                    <div class="text-center p-2 bg-gray-50 rounded">
+                                        <div class="text-xs text-gray-600 mb-1">Away Favorite</div>
+                                        <div class="text-sm font-bold" style="color: #f59e0b">67.5%</div>
+                                        <div class="text-xs text-gray-500">27-13</div>
+                                    </div>
+                                
+                                    <div class="text-center p-2 bg-gray-50 rounded">
+                                        <div class="text-xs text-gray-600 mb-1">Home Dog</div>
+                                        <div class="text-sm font-bold" style="color: #10b981">70.0%</div>
+                                        <div class="text-xs text-gray-500">14-6</div>
+                                    </div>
+                                
+                                    <div class="text-center p-2 bg-gray-50 rounded">
+                                        <div class="text-xs text-gray-600 mb-1">Home Favorite</div>
+                                        <div class="text-sm font-bold" style="color: #10b981">75.7%</div>
+                                        <div class="text-xs text-gray-500">28-9</div>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ATS Breakdown -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button onclick="toggleAccuracySection('ats-breakdown')" class="w-full px-4 py-3 bg-gray-50 hover:bg-gray-100 flex items-center justify-between transition-colors">
+                        <span class="font-semibold text-gray-700">Against the Spread Breakdown</span>
+                        <svg id="ats-breakdown-icon" class="w-5 h-5 text-gray-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div id="ats-breakdown" class="breakdown-content hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <h5 class="text-xs font-semibold text-gray-500 uppercase mb-2">By Pick Location</h5>
+                                
+                                    <div class="breakdown-row">
+                                        <span class="breakdown-label">Away</span>
+                                        <span class="breakdown-record">27-24</span>
+                                        <span class="breakdown-rate" style="color: #f59e0b">52.9%</span>
+                                    </div>
+                                
+                                    <div class="breakdown-row">
+                                        <span class="breakdown-label">Home</span>
+                                        <span class="breakdown-record">35-21-1</span>
+                                        <span class="breakdown-rate" style="color: #10b981">62.5%</span>
+                                    </div>
+                                
+                            </div>
+                            <div>
+                                <h5 class="text-xs font-semibold text-gray-500 uppercase mb-2">By Pick Side</h5>
+                                
+                                    <div class="breakdown-row">
+                                        <span class="breakdown-label">Favorite</span>
+                                        <span class="breakdown-record">39-33-1</span>
+                                        <span class="breakdown-rate" style="color: #f59e0b">54.2%</span>
+                                    </div>
+                                
+                                    <div class="breakdown-row">
+                                        <span class="breakdown-label">Underdog</span>
+                                        <span class="breakdown-record">23-12</span>
+                                        <span class="breakdown-rate" style="color: #10b981">65.7%</span>
+                                    </div>
+                                
+                            </div>
+                            <div>
+                                <h5 class="text-xs font-semibold text-gray-500 uppercase mb-2">By Spread Range</h5>
+                                
+                                    <div class="breakdown-row">
+                                        <span class="breakdown-label">0-3</span>
+                                        <span class="breakdown-record">28-14-1</span>
+                                        <span class="breakdown-rate" style="color: #10b981">66.7%</span>
+                                    </div>
+                                
+                                    <div class="breakdown-row">
+                                        <span class="breakdown-label">4-7</span>
+                                        <span class="breakdown-record">24-22</span>
+                                        <span class="breakdown-rate" style="color: #f59e0b">52.2%</span>
+                                    </div>
+                                
+                                    <div class="breakdown-row">
+                                        <span class="breakdown-label">8-13.5</span>
+                                        <span class="breakdown-record">10-7</span>
+                                        <span class="breakdown-rate" style="color: #10b981">58.8%</span>
+                                    </div>
+                                
+                                    <div class="breakdown-row">
+                                        <span class="breakdown-label">>13.5</span>
+                                        <span class="breakdown-record">0-2</span>
+                                        <span class="breakdown-rate" style="color: #ef4444">0.0%</span>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-200">
+                            <h5 class="text-xs font-semibold text-gray-500 uppercase mb-2">By Location × Side (Performance Highlights)</h5>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                                
+                                    <div class="text-center p-2 rounded bg-green-50">
+                                        <div class="text-xs text-gray-600 mb-1">Away Dog</div>
+                                        <div class="text-sm font-bold" style="color: #10b981">61.5%</div>
+                                        <div class="text-xs text-gray-500">8-5</div>
+                                        <div class="text-xs text-gray-400">(13 picks)</div>
+                                    </div>
+                                
+                                    <div class="text-center p-2 rounded bg-gray-50">
+                                        <div class="text-xs text-gray-600 mb-1">Away Favorite</div>
+                                        <div class="text-sm font-bold" style="color: #ef4444">50.0%</div>
+                                        <div class="text-xs text-gray-500">19-19</div>
+                                        <div class="text-xs text-gray-400">(38 picks)</div>
+                                    </div>
+                                
+                                    <div class="text-center p-2 rounded bg-green-50">
+                                        <div class="text-xs text-gray-600 mb-1">Home Dog</div>
+                                        <div class="text-sm font-bold" style="color: #10b981">68.2%</div>
+                                        <div class="text-xs text-gray-500">15-7</div>
+                                        <div class="text-xs text-gray-400">(22 picks)</div>
+                                    </div>
+                                
+                                    <div class="text-center p-2 rounded bg-green-50">
+                                        <div class="text-xs text-gray-600 mb-1">Home Favorite</div>
+                                        <div class="text-sm font-bold" style="color: #10b981">58.8%</div>
+                                        <div class="text-xs text-gray-500">20-14-1</div>
+                                        <div class="text-xs text-gray-400">(34 picks)</div>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- O/U Breakdown -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button onclick="toggleAccuracySection('ou-breakdown')" class="w-full px-4 py-3 bg-gray-50 hover:bg-gray-100 flex items-center justify-between transition-colors">
+                        <span class="font-semibold text-gray-700">Over/Under Breakdown</span>
+                        <svg id="ou-breakdown-icon" class="w-5 h-5 text-gray-500 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div id="ou-breakdown" class="breakdown-content hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="text-xs font-semibold text-gray-500 uppercase mb-2">By Pick Direction</h5>
+                                
+                                    <div class="breakdown-row">
+                                        <span class="breakdown-label">Over</span>
+                                        <span class="breakdown-record">49-41</span>
+                                        <span class="breakdown-rate" style="color: #f59e0b">54.4%</span>
+                                    </div>
+                                
+                                    <div class="breakdown-row">
+                                        <span class="breakdown-label">Under</span>
+                                        <span class="breakdown-record">11-7</span>
+                                        <span class="breakdown-rate" style="color: #10b981">61.1%</span>
+                                    </div>
+                                
+                            </div>
+                            <div>
+                                <h5 class="text-xs font-semibold text-gray-500 uppercase mb-2">By Total Range</h5>
+                                
+                                    <div class="breakdown-row">
+                                        <span class="breakdown-label">43-47</span>
+                                        <span class="breakdown-record">29-27</span>
+                                        <span class="breakdown-rate" style="color: #ef4444">51.8%</span>
+                                    </div>
+                                
+                                    <div class="breakdown-row">
+                                        <span class="breakdown-label">48-52</span>
+                                        <span class="breakdown-record">14-14</span>
+                                        <span class="breakdown-rate" style="color: #ef4444">50.0%</span>
+                                    </div>
+                                
+                                    <div class="breakdown-row">
+                                        <span class="breakdown-label"><=42</span>
+                                        <span class="breakdown-record">15-6</span>
+                                        <span class="breakdown-rate" style="color: #10b981">71.4%</span>
+                                    </div>
+                                
+                                    <div class="breakdown-row">
+                                        <span class="breakdown-label">>52</span>
+                                        <span class="breakdown-record">2-1</span>
+                                        <span class="breakdown-rate" style="color: #10b981">66.7%</span>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
         <!-- Filters Section -->
         <div class="bg-white rounded-xl shadow-md p-4 mb-6">
             <h3 class="text-lg font-bold mb-3">Filter Games by Team Records</h3>
@@ -882,6 +1322,7 @@
                                             +3.5
                                         </span>
                                         
+                                        
                                     </div>
                                 </div>
                                 
@@ -912,6 +1353,14 @@
                                         <span class="text-xs font-medium px-2 py-1 rounded-full text-white" style="background: linear-gradient(to right, #007BC7, #008de5)">
                                             -3.5
                                         </span>
+                                        
+                                            <div class="performance-badge inline-flex ml-2" title="Strong performer: Home Favorite (58.8% over 34 games, 20-14-1)">
+                                                <svg class="w-3.5 h-3.5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span class="text-xs font-semibold text-green-700">59%</span>
+                                            </div>
+                                        
                                         
                                     </div>
                                 </div>
@@ -956,7 +1405,10 @@
                                         <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                     </div>
                                 </div>
-                                <p class="text-sm font-bold text-gray-900">OVER 44.5</p>
+                                <p class="text-sm font-bold text-gray-900">
+                                    OVER 44.5
+                                    
+                                </p>
                                 <p class="text-xs text-gray-600 mt-1">Edge 4.5 pts | 60% confidence</p>
                             </div>
                         </div>
@@ -1213,6 +1665,7 @@
                                             +7
                                         </span>
                                         
+                                        
                                     </div>
                                 </div>
                                 
@@ -1243,6 +1696,14 @@
                                         <span class="text-xs font-medium px-2 py-1 rounded-full text-white" style="background: linear-gradient(to right, #002244, #00274e)">
                                             -7
                                         </span>
+                                        
+                                            <div class="performance-badge inline-flex ml-2" title="Strong performer: Home Favorite (58.8% over 34 games, 20-14-1)">
+                                                <svg class="w-3.5 h-3.5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span class="text-xs font-semibold text-green-700">59%</span>
+                                            </div>
+                                        
                                         
                                     </div>
                                 </div>
@@ -1287,7 +1748,10 @@
                                         <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                     </div>
                                 </div>
-                                <p class="text-sm font-bold text-gray-900">OVER 40.5</p>
+                                <p class="text-sm font-bold text-gray-900">
+                                    OVER 40.5
+                                    
+                                </p>
                                 <p class="text-xs text-gray-600 mt-1">Edge 7.0 pts | 62% confidence</p>
                             </div>
                         </div>
@@ -1565,6 +2029,7 @@
                                             +1
                                         </span>
                                         
+                                        
                                     </div>
                                 </div>
                                 
@@ -1595,6 +2060,7 @@
                                         <span class="text-xs font-medium px-2 py-1 rounded-full bg-gray-100 text-gray-600" >
                                             -1
                                         </span>
+                                        
                                         
                                     </div>
                                 </div>
@@ -1639,7 +2105,10 @@
                                         <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                     </div>
                                 </div>
-                                <p class="text-sm font-bold text-gray-900">OVER 41.5</p>
+                                <p class="text-sm font-bold text-gray-900">
+                                    OVER 41.5
+                                    
+                                </p>
                                 <p class="text-xs text-gray-600 mt-1">Edge 8.2 pts | 62% confidence</p>
                             </div>
                         </div>
@@ -1896,6 +2365,7 @@
                                             -7.5
                                         </span>
                                         
+                                        
                                     </div>
                                 </div>
                                 
@@ -1926,6 +2396,14 @@
                                         <span class="text-xs font-medium px-2 py-1 rounded-full text-white" style="background: linear-gradient(to right, #0085CA, #0099e8)">
                                             +7.5
                                         </span>
+                                        
+                                            <div class="performance-badge inline-flex ml-2" title="Strong performer: Home Dog (68.2% over 22 games, 15-7)">
+                                                <svg class="w-3.5 h-3.5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span class="text-xs font-semibold text-green-700">68%</span>
+                                            </div>
+                                        
                                         
                                     </div>
                                 </div>
@@ -1970,7 +2448,10 @@
                                         <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                     </div>
                                 </div>
-                                <p class="text-sm font-bold text-gray-900">OVER 46</p>
+                                <p class="text-sm font-bold text-gray-900">
+                                    OVER 46
+                                    
+                                </p>
                                 <p class="text-xs text-gray-600 mt-1">Edge 4.3 pts | 60% confidence</p>
                             </div>
                         </div>
@@ -2227,6 +2708,7 @@
                                             +6.5
                                         </span>
                                         
+                                        
                                     </div>
                                 </div>
                                 
@@ -2257,6 +2739,14 @@
                                         <span class="text-xs font-medium px-2 py-1 rounded-full text-white" style="background: linear-gradient(to right, #FB4F14, #ff5b17)">
                                             -6.5
                                         </span>
+                                        
+                                            <div class="performance-badge inline-flex ml-2" title="Strong performer: Home Favorite (58.8% over 34 games, 20-14-1)">
+                                                <svg class="w-3.5 h-3.5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span class="text-xs font-semibold text-green-700">59%</span>
+                                            </div>
+                                        
                                         
                                     </div>
                                 </div>
@@ -2301,7 +2791,10 @@
                                         <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                     </div>
                                 </div>
-                                <p class="text-sm font-bold text-gray-900">UNDER 44.5</p>
+                                <p class="text-sm font-bold text-gray-900">
+                                    UNDER 44.5
+                                    
+                                </p>
                                 <p class="text-xs text-gray-600 mt-1">Edge 2.5 pts | 50% confidence</p>
                             </div>
                         </div>
@@ -2527,6 +3020,7 @@
                                             +6.5
                                         </span>
                                         
+                                        
                                     </div>
                                 </div>
                                 
@@ -2557,6 +3051,7 @@
                                         <span class="text-xs font-medium px-2 py-1 rounded-full bg-gray-100 text-gray-600" >
                                             -6.5
                                         </span>
+                                        
                                         
                                     </div>
                                 </div>
@@ -2601,7 +3096,10 @@
                                         <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                     </div>
                                 </div>
-                                <p class="text-sm font-bold text-gray-900">UNDER 48</p>
+                                <p class="text-sm font-bold text-gray-900">
+                                    UNDER 48
+                                    
+                                </p>
                                 <p class="text-xs text-gray-600 mt-1">Edge 2.4 pts | 50% confidence</p>
                             </div>
                         </div>
@@ -2858,6 +3356,7 @@
                                             +7.5
                                         </span>
                                         
+                                        
                                     </div>
                                 </div>
                                 
@@ -2888,6 +3387,14 @@
                                         <span class="text-xs font-medium px-2 py-1 rounded-full text-white" style="background: linear-gradient(to right, #A71930, #c01d37)">
                                             -7.5
                                         </span>
+                                        
+                                            <div class="performance-badge inline-flex ml-2" title="Strong performer: Home Favorite (58.8% over 34 games, 20-14-1)">
+                                                <svg class="w-3.5 h-3.5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span class="text-xs font-semibold text-green-700">59%</span>
+                                            </div>
+                                        
                                         
                                     </div>
                                 </div>
@@ -2932,7 +3439,10 @@
                                         <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                     </div>
                                 </div>
-                                <p class="text-sm font-bold text-gray-900">OVER 44.5</p>
+                                <p class="text-sm font-bold text-gray-900">
+                                    OVER 44.5
+                                    
+                                </p>
                                 <p class="text-xs text-gray-600 mt-1">Edge 5.3 pts | 62% confidence</p>
                             </div>
                         </div>
@@ -3189,6 +3699,7 @@
                                             +7.5
                                         </span>
                                         
+                                        
                                     </div>
                                 </div>
                                 
@@ -3219,6 +3730,14 @@
                                         <span class="text-xs font-medium px-2 py-1 rounded-full text-white" style="background: linear-gradient(to right, #004C54, #005761)">
                                             -7.5
                                         </span>
+                                        
+                                            <div class="performance-badge inline-flex ml-2" title="Strong performer: Home Favorite (58.8% over 34 games, 20-14-1)">
+                                                <svg class="w-3.5 h-3.5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span class="text-xs font-semibold text-green-700">59%</span>
+                                            </div>
+                                        
                                         
                                     </div>
                                 </div>
@@ -3263,7 +3782,10 @@
                                         <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                     </div>
                                 </div>
-                                <p class="text-sm font-bold text-gray-900">OVER 44</p>
+                                <p class="text-sm font-bold text-gray-900">
+                                    OVER 44
+                                    
+                                </p>
                                 <p class="text-xs text-gray-600 mt-1">Edge 8.7 pts | 62% confidence</p>
                             </div>
                         </div>
@@ -3541,6 +4063,7 @@
                                             -3.5
                                         </span>
                                         
+                                        
                                     </div>
                                 </div>
                                 
@@ -3571,6 +4094,14 @@
                                         <span class="text-xs font-medium px-2 py-1 rounded-full text-white" style="background: linear-gradient(to right, #D3BC8D, #f3d8a2)">
                                             +3.5
                                         </span>
+                                        
+                                            <div class="performance-badge inline-flex ml-2" title="Strong performer: Home Dog (68.2% over 22 games, 15-7)">
+                                                <svg class="w-3.5 h-3.5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span class="text-xs font-semibold text-green-700">68%</span>
+                                            </div>
+                                        
                                         
                                     </div>
                                 </div>
@@ -3615,7 +4146,10 @@
                                         <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                     </div>
                                 </div>
-                                <p class="text-sm font-bold text-gray-900">OVER 47</p>
+                                <p class="text-sm font-bold text-gray-900">
+                                    OVER 47
+                                    
+                                </p>
                                 <p class="text-xs text-gray-600 mt-1">Edge 3.1 pts | 58% confidence</p>
                             </div>
                         </div>
@@ -3872,6 +4406,7 @@
                                             +14
                                         </span>
                                         
+                                        
                                     </div>
                                 </div>
                                 
@@ -3902,6 +4437,14 @@
                                         <span class="text-xs font-medium px-2 py-1 rounded-full text-white" style="background: linear-gradient(to right, #002C5F, #00336d)">
                                             -14
                                         </span>
+                                        
+                                            <div class="performance-badge inline-flex ml-2" title="Strong performer: Home Favorite (58.8% over 34 games, 20-14-1)">
+                                                <svg class="w-3.5 h-3.5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span class="text-xs font-semibold text-green-700">59%</span>
+                                            </div>
+                                        
                                         
                                     </div>
                                 </div>
@@ -3946,7 +4489,10 @@
                                         <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                     </div>
                                 </div>
-                                <p class="text-sm font-bold text-gray-900">OVER 47</p>
+                                <p class="text-sm font-bold text-gray-900">
+                                    OVER 47
+                                    
+                                </p>
                                 <p class="text-xs text-gray-600 mt-1">Edge 5.2 pts | 61% confidence</p>
                             </div>
                         </div>
@@ -4224,6 +4770,7 @@
                                             +3.5
                                         </span>
                                         
+                                        
                                     </div>
                                 </div>
                                 
@@ -4254,6 +4801,7 @@
                                         <span class="text-xs font-medium px-2 py-1 rounded-full bg-gray-100 text-gray-600" >
                                             -3.5
                                         </span>
+                                        
                                         
                                     </div>
                                 </div>
@@ -4298,7 +4846,10 @@
                                         <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                     </div>
                                 </div>
-                                <p class="text-sm font-bold text-gray-900">OVER 51</p>
+                                <p class="text-sm font-bold text-gray-900">
+                                    OVER 51
+                                    
+                                </p>
                                 <p class="text-xs text-gray-600 mt-1">Edge 12.1 pts | 62% confidence</p>
                             </div>
                         </div>
@@ -4576,6 +5127,7 @@
                                             -3
                                         </span>
                                         
+                                        
                                     </div>
                                 </div>
                                 
@@ -4606,6 +5158,7 @@
                                         <span class="text-xs font-medium px-2 py-1 rounded-full bg-gray-100 text-gray-600" >
                                             +3
                                         </span>
+                                        
                                         
                                     </div>
                                 </div>
@@ -4650,7 +5203,10 @@
                                         <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                     </div>
                                 </div>
-                                <p class="text-sm font-bold text-gray-900">OVER 45</p>
+                                <p class="text-sm font-bold text-gray-900">
+                                    OVER 45
+                                    
+                                </p>
                                 <p class="text-xs text-gray-600 mt-1">Edge 9.8 pts | 62% confidence</p>
                             </div>
                         </div>
@@ -4907,6 +5463,7 @@
                                             +12.5
                                         </span>
                                         
+                                        
                                     </div>
                                 </div>
                                 
@@ -4937,6 +5494,14 @@
                                         <span class="text-xs font-medium px-2 py-1 rounded-full text-white" style="background: linear-gradient(to right, #E31837, #ff1c3f)">
                                             -12.5
                                         </span>
+                                        
+                                            <div class="performance-badge inline-flex ml-2" title="Strong performer: Home Favorite (58.8% over 34 games, 20-14-1)">
+                                                <svg class="w-3.5 h-3.5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span class="text-xs font-semibold text-green-700">59%</span>
+                                            </div>
+                                        
                                         
                                     </div>
                                 </div>
@@ -4981,7 +5546,10 @@
                                         <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                     </div>
                                 </div>
-                                <p class="text-sm font-bold text-gray-900">OVER 47</p>
+                                <p class="text-sm font-bold text-gray-900">
+                                    OVER 47
+                                    
+                                </p>
                                 <p class="text-xs text-gray-600 mt-1">Edge 12.8 pts | 62% confidence</p>
                             </div>
                         </div>
