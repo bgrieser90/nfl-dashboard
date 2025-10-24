@@ -725,7 +725,24 @@
         }
 
         .team-pill--moneyline {
-            margin-top: 0.35rem;
+            margin: 0;
+        }
+
+        .team-name-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+        }
+
+        .team-pill-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .team-meta {
+            letter-spacing: 0.025em;
         }
 
         @media (max-width: 640px) {
@@ -741,6 +758,12 @@
                 padding: 0.4rem 1rem;
             }
 
+            .team-pill-wrapper {
+                flex-basis: 100%;
+                margin-top: 0.4rem;
+                justify-content: center;
+            }
+
             .team-name {
                 align-items: center !important;
                 text-align: center !important;
@@ -749,6 +772,16 @@
 
             .team-name-row {
                 align-items: center !important;
+                flex-wrap: wrap;
+                gap: 0.35rem !important;
+            }
+        }
+
+        @media (min-width: 640px) {
+            .team-pill-wrapper {
+                margin-left: 0.5rem;
+                margin-top: 0;
+                justify-content: flex-start;
             }
         }
 
@@ -1441,15 +1474,15 @@
                             <div class="grid grid-cols-3 gap-4 items-center">
                                 <!-- Away Team -->
                                 <div class="text-center">
-                                    <div class="flex items-center justify-center gap-2 mb-2 team-name-row">
+                                    <div class="flex flex-col items-center justify-center mb-2">
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/cle.png" alt="Cleveland" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
-                                        <h3 class="team-name text-lg font-semibold text-gray-900 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                                            <span>Cleveland</span>
-                                            <span class="text-sm text-gray-600 font-normal">(2-5)</span>
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline sm:ml-2 mt-2 sm:mt-0 bg-gray-100 text-gray-600">+295</span>
-                                        </h3>
+                                        <div class="team-name-row">
+                                            <h3 class="team-name text-lg font-semibold text-gray-900">Cleveland</h3>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+295</span></div>
+                                        </div>
                                     </div>
-                                    <p class="text-xs text-gray-600 mb-2">
+                                    <p class="team-meta text-xs text-gray-600 mb-2">
+                                        Record: 2-5 |
                                         ATS: 3-4 |
                                         O/U: 3-4
                                     </p>
@@ -1474,15 +1507,15 @@
                                 
                                 <!-- Home Team -->
                                 <div class="text-center">
-                                    <div class="flex items-center justify-center gap-2 mb-2 team-name-row">
+                                    <div class="flex flex-col items-center justify-center mb-2">
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ne.png" alt="New England" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
-                                        <h3 class="team-name text-lg font-semibold text-gray-900 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                                            <span>New England</span>
-                                            <span class="text-sm text-gray-600 font-normal">(5-2)</span>
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline sm:ml-2 mt-2 sm:mt-0 shadow-sm" style="background: linear-gradient(to right, #002244, #00274e); color: #FFFFFF; border: 1px solid #001a33; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-375</span>
-                                        </h3>
+                                        <div class="team-name-row">
+                                            <h3 class="team-name text-lg font-semibold text-gray-900">New England</h3>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #002244, #00274e); color: #FFFFFF; border: 1px solid #001a33; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-375</span></div>
+                                        </div>
                                     </div>
-                                    <p class="text-xs text-gray-600 mb-2">
+                                    <p class="team-meta text-xs text-gray-600 mb-2">
+                                        Record: 5-2 |
                                         ATS: 5-2 |
                                         O/U: 3-4
                                     </p>
@@ -1811,15 +1844,15 @@
                             <div class="grid grid-cols-3 gap-4 items-center">
                                 <!-- Away Team -->
                                 <div class="text-center">
-                                    <div class="flex items-center justify-center gap-2 mb-2 team-name-row">
+                                    <div class="flex flex-col items-center justify-center mb-2">
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/sf.png" alt="San Francisco" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
-                                        <h3 class="team-name text-lg font-semibold text-gray-900 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                                            <span>San Francisco</span>
-                                            <span class="text-sm text-gray-600 font-normal">(5-2)</span>
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline sm:ml-2 mt-2 sm:mt-0 shadow-sm" style="background: linear-gradient(to right, #AA0000, #c40000); color: #FFFFFF; border: 1px solid #800000; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+105</span>
-                                        </h3>
+                                        <div class="team-name-row">
+                                            <h3 class="team-name text-lg font-semibold text-gray-900">San Francisco</h3>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #AA0000, #c40000); color: #FFFFFF; border: 1px solid #800000; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+105</span></div>
+                                        </div>
                                     </div>
-                                    <p class="text-xs text-gray-600 mb-2">
+                                    <p class="team-meta text-xs text-gray-600 mb-2">
+                                        Record: 5-2 |
                                         ATS: 4-3 |
                                         O/U: 4-3
                                     </p>
@@ -1844,15 +1877,15 @@
                                 
                                 <!-- Home Team -->
                                 <div class="text-center">
-                                    <div class="flex items-center justify-center gap-2 mb-2 team-name-row">
+                                    <div class="flex flex-col items-center justify-center mb-2">
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/hou.png" alt="Houston" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
-                                        <h3 class="team-name text-lg font-semibold text-gray-900 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                                            <span>Houston</span>
-                                            <span class="text-sm text-gray-600 font-normal">(2-4)</span>
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline sm:ml-2 mt-2 sm:mt-0 bg-gray-100 text-gray-600">-125</span>
-                                        </h3>
+                                        <div class="team-name-row">
+                                            <h3 class="team-name text-lg font-semibold text-gray-900">Houston</h3>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">-125</span></div>
+                                        </div>
                                     </div>
-                                    <p class="text-xs text-gray-600 mb-2">
+                                    <p class="team-meta text-xs text-gray-600 mb-2">
+                                        Record: 2-4 |
                                         ATS: 2-4 |
                                         O/U: 2-4
                                     </p>
@@ -2160,15 +2193,15 @@
                             <div class="grid grid-cols-3 gap-4 items-center">
                                 <!-- Away Team -->
                                 <div class="text-center">
-                                    <div class="flex items-center justify-center gap-2 mb-2 team-name-row">
+                                    <div class="flex flex-col items-center justify-center mb-2">
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/buf.png" alt="Buffalo" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
-                                        <h3 class="team-name text-lg font-semibold text-gray-900 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                                            <span>Buffalo</span>
-                                            <span class="text-sm text-gray-600 font-normal">(4-2)</span>
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline sm:ml-2 mt-2 sm:mt-0 shadow-sm" style="background: linear-gradient(to right, #00338D, #003ba2); color: #FFFFFF; border: 1px solid #00266a; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-375</span>
-                                        </h3>
+                                        <div class="team-name-row">
+                                            <h3 class="team-name text-lg font-semibold text-gray-900">Buffalo</h3>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #00338D, #003ba2); color: #FFFFFF; border: 1px solid #00266a; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-375</span></div>
+                                        </div>
                                     </div>
-                                    <p class="text-xs text-gray-600 mb-2">
+                                    <p class="team-meta text-xs text-gray-600 mb-2">
+                                        Record: 4-2 |
                                         ATS: 2-4 |
                                         O/U: 3-3
                                     </p>
@@ -2193,15 +2226,15 @@
                                 
                                 <!-- Home Team -->
                                 <div class="text-center">
-                                    <div class="flex items-center justify-center gap-2 mb-2 team-name-row">
+                                    <div class="flex flex-col items-center justify-center mb-2">
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500-dark/car.png" alt="Carolina" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
-                                        <h3 class="team-name text-lg font-semibold text-gray-900 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                                            <span>Carolina</span>
-                                            <span class="text-sm text-gray-600 font-normal">(4-3)</span>
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline sm:ml-2 mt-2 sm:mt-0 bg-gray-100 text-gray-600">+295</span>
-                                        </h3>
+                                        <div class="team-name-row">
+                                            <h3 class="team-name text-lg font-semibold text-gray-900">Carolina</h3>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+295</span></div>
+                                        </div>
                                     </div>
-                                    <p class="text-xs text-gray-600 mb-2">
+                                    <p class="team-meta text-xs text-gray-600 mb-2">
+                                        Record: 4-3 |
                                         ATS: 5-2 |
                                         O/U: 4-3
                                     </p>
@@ -2509,15 +2542,15 @@
                             <div class="grid grid-cols-3 gap-4 items-center">
                                 <!-- Away Team -->
                                 <div class="text-center">
-                                    <div class="flex items-center justify-center gap-2 mb-2 team-name-row">
+                                    <div class="flex flex-col items-center justify-center mb-2">
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png" alt="NY Jets" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
-                                        <h3 class="team-name text-lg font-semibold text-gray-900 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                                            <span>NY Jets</span>
-                                            <span class="text-sm text-gray-600 font-normal">(0-7)</span>
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline sm:ml-2 mt-2 sm:mt-0 bg-gray-100 text-gray-600">+240</span>
-                                        </h3>
+                                        <div class="team-name-row">
+                                            <h3 class="team-name text-lg font-semibold text-gray-900">NY Jets</h3>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+240</span></div>
+                                        </div>
                                     </div>
-                                    <p class="text-xs text-gray-600 mb-2">
+                                    <p class="team-meta text-xs text-gray-600 mb-2">
+                                        Record: 0-7 |
                                         ATS: 3-4 |
                                         O/U: 4-3
                                     </p>
@@ -2542,15 +2575,15 @@
                                 
                                 <!-- Home Team -->
                                 <div class="text-center">
-                                    <div class="flex items-center justify-center gap-2 mb-2 team-name-row">
+                                    <div class="flex flex-col items-center justify-center mb-2">
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/cin.png" alt="Cincinnati" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
-                                        <h3 class="team-name text-lg font-semibold text-gray-900 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                                            <span>Cincinnati</span>
-                                            <span class="text-sm text-gray-600 font-normal">(3-4)</span>
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline sm:ml-2 mt-2 sm:mt-0 shadow-sm" style="background: linear-gradient(to right, #FB4F14, #ff5b17); color: #FFFFFF; border: 1px solid #bc3b0f; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-298</span>
-                                        </h3>
+                                        <div class="team-name-row">
+                                            <h3 class="team-name text-lg font-semibold text-gray-900">Cincinnati</h3>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #FB4F14, #ff5b17); color: #FFFFFF; border: 1px solid #bc3b0f; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-298</span></div>
+                                        </div>
                                     </div>
-                                    <p class="text-xs text-gray-600 mb-2">
+                                    <p class="team-meta text-xs text-gray-600 mb-2">
+                                        Record: 3-4 |
                                         ATS: 3-4 |
                                         O/U: 5-2
                                     </p>
@@ -2827,15 +2860,15 @@
                             <div class="grid grid-cols-3 gap-4 items-center">
                                 <!-- Away Team -->
                                 <div class="text-center">
-                                    <div class="flex items-center justify-center gap-2 mb-2 team-name-row">
+                                    <div class="flex flex-col items-center justify-center mb-2">
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/chi.png" alt="Chicago" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
-                                        <h3 class="team-name text-lg font-semibold text-gray-900 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                                            <span>Chicago</span>
-                                            <span class="text-sm text-gray-600 font-normal">(4-2)</span>
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline sm:ml-2 mt-2 sm:mt-0 shadow-sm" style="background: linear-gradient(to right, #0B162A, #0d1930); color: #FFFFFF; border: 1px solid #081120; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+240</span>
-                                        </h3>
+                                        <div class="team-name-row">
+                                            <h3 class="team-name text-lg font-semibold text-gray-900">Chicago</h3>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #0B162A, #0d1930); color: #FFFFFF; border: 1px solid #081120; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+240</span></div>
+                                        </div>
                                     </div>
-                                    <p class="text-xs text-gray-600 mb-2">
+                                    <p class="team-meta text-xs text-gray-600 mb-2">
+                                        Record: 4-2 |
                                         ATS: 4-2 |
                                         O/U: 3-3
                                     </p>
@@ -2860,15 +2893,15 @@
                                 
                                 <!-- Home Team -->
                                 <div class="text-center">
-                                    <div class="flex items-center justify-center gap-2 mb-2 team-name-row">
+                                    <div class="flex flex-col items-center justify-center mb-2">
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/bal.png" alt="Baltimore" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
-                                        <h3 class="team-name text-lg font-semibold text-gray-900 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                                            <span>Baltimore</span>
-                                            <span class="text-sm text-gray-600 font-normal">(1-5)</span>
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline sm:ml-2 mt-2 sm:mt-0 bg-gray-100 text-gray-600">-298</span>
-                                        </h3>
+                                        <div class="team-name-row">
+                                            <h3 class="team-name text-lg font-semibold text-gray-900">Baltimore</h3>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">-298</span></div>
+                                        </div>
                                     </div>
-                                    <p class="text-xs text-gray-600 mb-2">
+                                    <p class="team-meta text-xs text-gray-600 mb-2">
+                                        Record: 1-5 |
                                         ATS: 1-5 |
                                         O/U: 5-1
                                     </p>
@@ -3176,15 +3209,15 @@
                             <div class="grid grid-cols-3 gap-4 items-center">
                                 <!-- Away Team -->
                                 <div class="text-center">
-                                    <div class="flex items-center justify-center gap-2 mb-2 team-name-row">
+                                    <div class="flex flex-col items-center justify-center mb-2">
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/mia.png" alt="Miami" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
-                                        <h3 class="team-name text-lg font-semibold text-gray-900 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                                            <span>Miami</span>
-                                            <span class="text-sm text-gray-600 font-normal">(1-6)</span>
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline sm:ml-2 mt-2 sm:mt-0 bg-gray-100 text-gray-600">+340</span>
-                                        </h3>
+                                        <div class="team-name-row">
+                                            <h3 class="team-name text-lg font-semibold text-gray-900">Miami</h3>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+340</span></div>
+                                        </div>
                                     </div>
-                                    <p class="text-xs text-gray-600 mb-2">
+                                    <p class="team-meta text-xs text-gray-600 mb-2">
+                                        Record: 1-6 |
                                         ATS: 3-4 |
                                         O/U: 6-1
                                     </p>
@@ -3209,15 +3242,15 @@
                                 
                                 <!-- Home Team -->
                                 <div class="text-center">
-                                    <div class="flex items-center justify-center gap-2 mb-2 team-name-row">
+                                    <div class="flex flex-col items-center justify-center mb-2">
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/atl.png" alt="Atlanta" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
-                                        <h3 class="team-name text-lg font-semibold text-gray-900 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                                            <span>Atlanta</span>
-                                            <span class="text-sm text-gray-600 font-normal">(3-3)</span>
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline sm:ml-2 mt-2 sm:mt-0 shadow-sm" style="background: linear-gradient(to right, #A71930, #c01d37); color: #FFFFFF; border: 1px solid #7d1324; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-440</span>
-                                        </h3>
+                                        <div class="team-name-row">
+                                            <h3 class="team-name text-lg font-semibold text-gray-900">Atlanta</h3>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #A71930, #c01d37); color: #FFFFFF; border: 1px solid #7d1324; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-440</span></div>
+                                        </div>
                                     </div>
-                                    <p class="text-xs text-gray-600 mb-2">
+                                    <p class="team-meta text-xs text-gray-600 mb-2">
+                                        Record: 3-3 |
                                         ATS: 3-3 |
                                         O/U: 1-5
                                     </p>
@@ -3525,15 +3558,15 @@
                             <div class="grid grid-cols-3 gap-4 items-center">
                                 <!-- Away Team -->
                                 <div class="text-center">
-                                    <div class="flex items-center justify-center gap-2 mb-2 team-name-row">
+                                    <div class="flex flex-col items-center justify-center mb-2">
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/nyg.png" alt="NY Giants" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
-                                        <h3 class="team-name text-lg font-semibold text-gray-900 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                                            <span>NY Giants</span>
-                                            <span class="text-sm text-gray-600 font-normal">(2-5)</span>
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline sm:ml-2 mt-2 sm:mt-0 bg-gray-100 text-gray-600">+320</span>
-                                        </h3>
+                                        <div class="team-name-row">
+                                            <h3 class="team-name text-lg font-semibold text-gray-900">NY Giants</h3>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+320</span></div>
+                                        </div>
                                     </div>
-                                    <p class="text-xs text-gray-600 mb-2">
+                                    <p class="team-meta text-xs text-gray-600 mb-2">
+                                        Record: 2-5 |
                                         ATS: 4-3 |
                                         O/U: 3-4
                                     </p>
@@ -3558,15 +3591,15 @@
                                 
                                 <!-- Home Team -->
                                 <div class="text-center">
-                                    <div class="flex items-center justify-center gap-2 mb-2 team-name-row">
+                                    <div class="flex flex-col items-center justify-center mb-2">
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/phi.png" alt="Philadelphia" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
-                                        <h3 class="team-name text-lg font-semibold text-gray-900 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                                            <span>Philadelphia</span>
-                                            <span class="text-sm text-gray-600 font-normal">(5-2)</span>
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline sm:ml-2 mt-2 sm:mt-0 shadow-sm" style="background: linear-gradient(to right, #004C54, #005761); color: #FFFFFF; border: 1px solid #00393f; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-410</span>
-                                        </h3>
+                                        <div class="team-name-row">
+                                            <h3 class="team-name text-lg font-semibold text-gray-900">Philadelphia</h3>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #004C54, #005761); color: #FFFFFF; border: 1px solid #00393f; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-410</span></div>
+                                        </div>
                                     </div>
-                                    <p class="text-xs text-gray-600 mb-2">
+                                    <p class="team-meta text-xs text-gray-600 mb-2">
+                                        Record: 5-2 |
                                         ATS: 4-3 |
                                         O/U: 4-3
                                     </p>
@@ -3895,15 +3928,15 @@
                             <div class="grid grid-cols-3 gap-4 items-center">
                                 <!-- Away Team -->
                                 <div class="text-center">
-                                    <div class="flex items-center justify-center gap-2 mb-2 team-name-row">
+                                    <div class="flex flex-col items-center justify-center mb-2">
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/tb.png" alt="Tampa Bay" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
-                                        <h3 class="team-name text-lg font-semibold text-gray-900 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                                            <span>Tampa Bay</span>
-                                            <span class="text-sm text-gray-600 font-normal">(5-2)</span>
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline sm:ml-2 mt-2 sm:mt-0 shadow-sm" style="background: linear-gradient(to right, #A71930, #c01d37); color: #FFFFFF; border: 1px solid #7d1324; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-225</span>
-                                        </h3>
+                                        <div class="team-name-row">
+                                            <h3 class="team-name text-lg font-semibold text-gray-900">Tampa Bay</h3>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #A71930, #c01d37); color: #FFFFFF; border: 1px solid #7d1324; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-225</span></div>
+                                        </div>
                                     </div>
-                                    <p class="text-xs text-gray-600 mb-2">
+                                    <p class="team-meta text-xs text-gray-600 mb-2">
+                                        Record: 5-2 |
                                         ATS: 4-3 |
                                         O/U: 4-3
                                     </p>
@@ -3928,15 +3961,15 @@
                                 
                                 <!-- Home Team -->
                                 <div class="text-center">
-                                    <div class="flex items-center justify-center gap-2 mb-2 team-name-row">
+                                    <div class="flex flex-col items-center justify-center mb-2">
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/no.png" alt="New Orleans" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
-                                        <h3 class="team-name text-lg font-semibold text-gray-900 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                                            <span>New Orleans</span>
-                                            <span class="text-sm text-gray-600 font-normal">(1-6)</span>
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline sm:ml-2 mt-2 sm:mt-0 bg-gray-100 text-gray-600">+185</span>
-                                        </h3>
+                                        <div class="team-name-row">
+                                            <h3 class="team-name text-lg font-semibold text-gray-900">New Orleans</h3>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+185</span></div>
+                                        </div>
                                     </div>
-                                    <p class="text-xs text-gray-600 mb-2">
+                                    <p class="team-meta text-xs text-gray-600 mb-2">
+                                        Record: 1-6 |
                                         ATS: 2-5 |
                                         O/U: 3-4
                                     </p>
@@ -4244,15 +4277,15 @@
                             <div class="grid grid-cols-3 gap-4 items-center">
                                 <!-- Away Team -->
                                 <div class="text-center">
-                                    <div class="flex items-center justify-center gap-2 mb-2 team-name-row">
+                                    <div class="flex flex-col items-center justify-center mb-2">
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ten.png" alt="Tennessee" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
-                                        <h3 class="team-name text-lg font-semibold text-gray-900 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                                            <span>Tennessee</span>
-                                            <span class="text-sm text-gray-600 font-normal">(1-6)</span>
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline sm:ml-2 mt-2 sm:mt-0 bg-gray-100 text-gray-600">+850</span>
-                                        </h3>
+                                        <div class="team-name-row">
+                                            <h3 class="team-name text-lg font-semibold text-gray-900">Tennessee</h3>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+850</span></div>
+                                        </div>
                                     </div>
-                                    <p class="text-xs text-gray-600 mb-2">
+                                    <p class="team-meta text-xs text-gray-600 mb-2">
+                                        Record: 1-6 |
                                         ATS: 2-5 |
                                         O/U: 4-3
                                     </p>
@@ -4277,15 +4310,15 @@
                                 
                                 <!-- Home Team -->
                                 <div class="text-center">
-                                    <div class="flex items-center justify-center gap-2 mb-2 team-name-row">
+                                    <div class="flex flex-col items-center justify-center mb-2">
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ind.png" alt="Indianapolis" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
-                                        <h3 class="team-name text-lg font-semibold text-gray-900 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                                            <span>Indianapolis</span>
-                                            <span class="text-sm text-gray-600 font-normal">(6-1)</span>
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline sm:ml-2 mt-2 sm:mt-0 shadow-sm" style="background: linear-gradient(to right, #002C5F, #00336d); color: #FFFFFF; border: 1px solid #002147; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-1450</span>
-                                        </h3>
+                                        <div class="team-name-row">
+                                            <h3 class="team-name text-lg font-semibold text-gray-900">Indianapolis</h3>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #002C5F, #00336d); color: #FFFFFF; border: 1px solid #002147; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-1450</span></div>
+                                        </div>
                                     </div>
-                                    <p class="text-xs text-gray-600 mb-2">
+                                    <p class="team-meta text-xs text-gray-600 mb-2">
+                                        Record: 6-1 |
                                         ATS: 5-2 |
                                         O/U: 4-3
                                     </p>
@@ -4614,15 +4647,15 @@
                             <div class="grid grid-cols-3 gap-4 items-center">
                                 <!-- Away Team -->
                                 <div class="text-center">
-                                    <div class="flex items-center justify-center gap-2 mb-2 team-name-row">
+                                    <div class="flex flex-col items-center justify-center mb-2">
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/dal.png" alt="Dallas" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
-                                        <h3 class="team-name text-lg font-semibold text-gray-900 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                                            <span>Dallas</span>
-                                            <span class="text-sm text-gray-600 font-normal">(3-3-1)</span>
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline sm:ml-2 mt-2 sm:mt-0 shadow-sm" style="background: linear-gradient(to right, #002244, #00274e); color: #FFFFFF; border: 1px solid #001a33; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+154</span>
-                                        </h3>
+                                        <div class="team-name-row">
+                                            <h3 class="team-name text-lg font-semibold text-gray-900">Dallas</h3>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #002244, #00274e); color: #FFFFFF; border: 1px solid #001a33; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+154</span></div>
+                                        </div>
                                     </div>
-                                    <p class="text-xs text-gray-600 mb-2">
+                                    <p class="team-meta text-xs text-gray-600 mb-2">
+                                        Record: 3-3-1 |
                                         ATS: 4-3 |
                                         O/U: 5-2
                                     </p>
@@ -4647,15 +4680,15 @@
                                 
                                 <!-- Home Team -->
                                 <div class="text-center">
-                                    <div class="flex items-center justify-center gap-2 mb-2 team-name-row">
+                                    <div class="flex flex-col items-center justify-center mb-2">
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/den.png" alt="Denver" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
-                                        <h3 class="team-name text-lg font-semibold text-gray-900 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                                            <span>Denver</span>
-                                            <span class="text-sm text-gray-600 font-normal">(5-2)</span>
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline sm:ml-2 mt-2 sm:mt-0 bg-gray-100 text-gray-600">-185</span>
-                                        </h3>
+                                        <div class="team-name-row">
+                                            <h3 class="team-name text-lg font-semibold text-gray-900">Denver</h3>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">-185</span></div>
+                                        </div>
                                     </div>
-                                    <p class="text-xs text-gray-600 mb-2">
+                                    <p class="team-meta text-xs text-gray-600 mb-2">
+                                        Record: 5-2 |
                                         ATS: 2-5 |
                                         O/U: 2-5
                                     </p>
@@ -4984,15 +5017,15 @@
                             <div class="grid grid-cols-3 gap-4 items-center">
                                 <!-- Away Team -->
                                 <div class="text-center">
-                                    <div class="flex items-center justify-center gap-2 mb-2 team-name-row">
+                                    <div class="flex flex-col items-center justify-center mb-2">
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/gb.png" alt="Green Bay" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
-                                        <h3 class="team-name text-lg font-semibold text-gray-900 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                                            <span>Green Bay</span>
-                                            <span class="text-sm text-gray-600 font-normal">(4-1-1)</span>
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline sm:ml-2 mt-2 sm:mt-0 shadow-sm" style="background: linear-gradient(to right, #203731, #253f38); color: #FFFFFF; border: 1px solid #182925; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-162</span>
-                                        </h3>
+                                        <div class="team-name-row">
+                                            <h3 class="team-name text-lg font-semibold text-gray-900">Green Bay</h3>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #203731, #253f38); color: #FFFFFF; border: 1px solid #182925; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-162</span></div>
+                                        </div>
                                     </div>
-                                    <p class="text-xs text-gray-600 mb-2">
+                                    <p class="team-meta text-xs text-gray-600 mb-2">
+                                        Record: 4-1-1 |
                                         ATS: 2-4 |
                                         O/U: 3-3
                                     </p>
@@ -5017,15 +5050,15 @@
                                 
                                 <!-- Home Team -->
                                 <div class="text-center">
-                                    <div class="flex items-center justify-center gap-2 mb-2 team-name-row">
+                                    <div class="flex flex-col items-center justify-center mb-2">
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/pit.png" alt="Pittsburgh" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
-                                        <h3 class="team-name text-lg font-semibold text-gray-900 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                                            <span>Pittsburgh</span>
-                                            <span class="text-sm text-gray-600 font-normal">(4-2)</span>
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline sm:ml-2 mt-2 sm:mt-0 bg-gray-100 text-gray-600">+136</span>
-                                        </h3>
+                                        <div class="team-name-row">
+                                            <h3 class="team-name text-lg font-semibold text-gray-900">Pittsburgh</h3>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+136</span></div>
+                                        </div>
                                     </div>
-                                    <p class="text-xs text-gray-600 mb-2">
+                                    <p class="team-meta text-xs text-gray-600 mb-2">
+                                        Record: 4-2 |
                                         ATS: 3-3 |
                                         O/U: 4-2
                                     </p>
@@ -5333,15 +5366,15 @@
                             <div class="grid grid-cols-3 gap-4 items-center">
                                 <!-- Away Team -->
                                 <div class="text-center">
-                                    <div class="flex items-center justify-center gap-2 mb-2 team-name-row">
+                                    <div class="flex flex-col items-center justify-center mb-2">
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png" alt="Washington" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
-                                        <h3 class="team-name text-lg font-semibold text-gray-900 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                                            <span>Washington</span>
-                                            <span class="text-sm text-gray-600 font-normal">(3-4)</span>
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline sm:ml-2 mt-2 sm:mt-0 bg-gray-100 text-gray-600">+550</span>
-                                        </h3>
+                                        <div class="team-name-row">
+                                            <h3 class="team-name text-lg font-semibold text-gray-900">Washington</h3>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+550</span></div>
+                                        </div>
                                     </div>
-                                    <p class="text-xs text-gray-600 mb-2">
+                                    <p class="team-meta text-xs text-gray-600 mb-2">
+                                        Record: 3-4 |
                                         ATS: 3-4 |
                                         O/U: 3-4
                                     </p>
@@ -5366,15 +5399,15 @@
                                 
                                 <!-- Home Team -->
                                 <div class="text-center">
-                                    <div class="flex items-center justify-center gap-2 mb-2 team-name-row">
+                                    <div class="flex flex-col items-center justify-center mb-2">
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/kc.png" alt="Kansas City" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
-                                        <h3 class="team-name text-lg font-semibold text-gray-900 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                                            <span>Kansas City</span>
-                                            <span class="text-sm text-gray-600 font-normal">(4-3)</span>
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline sm:ml-2 mt-2 sm:mt-0 shadow-sm" style="background: linear-gradient(to right, #E31837, #ff1c3f); color: #FFFFFF; border: 1px solid #aa1229; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-800</span>
-                                        </h3>
+                                        <div class="team-name-row">
+                                            <h3 class="team-name text-lg font-semibold text-gray-900">Kansas City</h3>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #E31837, #ff1c3f); color: #FFFFFF; border: 1px solid #aa1229; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-800</span></div>
+                                        </div>
                                     </div>
-                                    <p class="text-xs text-gray-600 mb-2">
+                                    <p class="team-meta text-xs text-gray-600 mb-2">
+                                        Record: 4-3 |
                                         ATS: 4-3 |
                                         O/U: 3-4
                                     </p>
