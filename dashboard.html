@@ -270,11 +270,6 @@
                 display: none;
             }
 
-            /* Hide entire VS/date/O/U section on mobile - creates too much whitespace */
-            .grid-cols-3 > div:nth-child(2) {
-                display: none !important;
-            }
-
             /* Optimize card spacing */
             .game-card {
                 padding: 0.75rem !important;
@@ -317,6 +312,20 @@
                 justify-content: center;
                 align-items: center;
                 gap: 0.375rem;
+            }
+
+            .grid-cols-3 > div:nth-child(2) .mobile-kickoff-label {
+                order: 1;
+            }
+
+            .grid-cols-3 > div:nth-child(2) .mobile-ou-line {
+                order: 2;
+                margin-top: 0.25rem !important;
+            }
+
+            .grid-cols-3 > div:nth-child(2) .mobile-vs-label {
+                order: 3;
+                margin-top: 0.35rem !important;
             }
 
             /* Stack date, VS, and O/U vertically on mobile for better readability */
@@ -1470,9 +1479,9 @@
                                 
                                 <!-- VS Divider -->
                                 <div class="text-center">
-                                    <p class="text-xs text-gray-600 font-medium mb-1">Oct 26 • 1:00 PM ET</p>
-                                    <span class="text-sm text-gray-400 font-medium">VS</span>
-                                    <div class="mt-2">
+                                    <p class="text-xs text-gray-600 font-medium mb-1 mobile-kickoff-label">Oct 26 • 1:00 PM ET</p>
+                                    <span class="text-sm text-gray-400 font-medium mobile-vs-label">VS</span>
+                                    <div class="mt-2 mobile-ou-line">
                                         <span class="text-xs text-gray-600 font-medium">O/U 40.5 <span class="text-[10px] text-gray-400">Model: 47.5 (o)</span></span>
                                     </div>
                                 </div>
@@ -1842,9 +1851,9 @@
                                 
                                 <!-- VS Divider -->
                                 <div class="text-center">
-                                    <p class="text-xs text-gray-600 font-medium mb-1">Oct 26 • 1:00 PM ET</p>
-                                    <span class="text-sm text-gray-400 font-medium">VS</span>
-                                    <div class="mt-2">
+                                    <p class="text-xs text-gray-600 font-medium mb-1 mobile-kickoff-label">Oct 26 • 1:00 PM ET</p>
+                                    <span class="text-sm text-gray-400 font-medium mobile-vs-label">VS</span>
+                                    <div class="mt-2 mobile-ou-line">
                                         <span class="text-xs text-gray-600 font-medium">O/U 41.5 <span class="text-[10px] text-gray-400">Model: 49.5 (o)</span></span>
                                     </div>
                                 </div>
@@ -2193,9 +2202,9 @@
                                 
                                 <!-- VS Divider -->
                                 <div class="text-center">
-                                    <p class="text-xs text-gray-600 font-medium mb-1">Oct 26 • 1:00 PM ET</p>
-                                    <span class="text-sm text-gray-400 font-medium">VS</span>
-                                    <div class="mt-2">
+                                    <p class="text-xs text-gray-600 font-medium mb-1 mobile-kickoff-label">Oct 26 • 1:00 PM ET</p>
+                                    <span class="text-sm text-gray-400 font-medium mobile-vs-label">VS</span>
+                                    <div class="mt-2 mobile-ou-line">
                                         <span class="text-xs text-gray-600 font-medium">O/U 46 <span class="text-[10px] text-gray-400">Model: 50 (o)</span></span>
                                     </div>
                                 </div>
@@ -2544,9 +2553,9 @@
                                 
                                 <!-- VS Divider -->
                                 <div class="text-center">
-                                    <p class="text-xs text-gray-600 font-medium mb-1">Oct 26 • 1:00 PM ET</p>
-                                    <span class="text-sm text-gray-400 font-medium">VS</span>
-                                    <div class="mt-2">
+                                    <p class="text-xs text-gray-600 font-medium mb-1 mobile-kickoff-label">Oct 26 • 1:00 PM ET</p>
+                                    <span class="text-sm text-gray-400 font-medium mobile-vs-label">VS</span>
+                                    <div class="mt-2 mobile-ou-line">
                                         <span class="text-xs text-gray-600 font-medium">O/U 44.5 <span class="text-[10px] text-gray-400">Model: 42 (u)</span></span>
                                     </div>
                                 </div>
@@ -2864,9 +2873,9 @@
                                 
                                 <!-- VS Divider -->
                                 <div class="text-center">
-                                    <p class="text-xs text-gray-600 font-medium mb-1">Oct 26 • 1:00 PM ET</p>
-                                    <span class="text-sm text-gray-400 font-medium">VS</span>
-                                    <div class="mt-2">
+                                    <p class="text-xs text-gray-600 font-medium mb-1 mobile-kickoff-label">Oct 26 • 1:00 PM ET</p>
+                                    <span class="text-sm text-gray-400 font-medium mobile-vs-label">VS</span>
+                                    <div class="mt-2 mobile-ou-line">
                                         <span class="text-xs text-gray-600 font-medium">O/U 48 <span class="text-[10px] text-gray-400">Model: 45 (u)</span></span>
                                     </div>
                                 </div>
@@ -3215,9 +3224,9 @@
                                 
                                 <!-- VS Divider -->
                                 <div class="text-center">
-                                    <p class="text-xs text-gray-600 font-medium mb-1">Oct 26 • 1:00 PM ET</p>
-                                    <span class="text-sm text-gray-400 font-medium">VS</span>
-                                    <div class="mt-2">
+                                    <p class="text-xs text-gray-600 font-medium mb-1 mobile-kickoff-label">Oct 26 • 1:00 PM ET</p>
+                                    <span class="text-sm text-gray-400 font-medium mobile-vs-label">VS</span>
+                                    <div class="mt-2 mobile-ou-line">
                                         <span class="text-xs text-gray-600 font-medium">O/U 44.5 <span class="text-[10px] text-gray-400">Model: 49.5 (o)</span></span>
                                     </div>
                                 </div>
@@ -3566,9 +3575,9 @@
                                 
                                 <!-- VS Divider -->
                                 <div class="text-center">
-                                    <p class="text-xs text-gray-600 font-medium mb-1">Oct 26 • 1:00 PM ET</p>
-                                    <span class="text-sm text-gray-400 font-medium">VS</span>
-                                    <div class="mt-2">
+                                    <p class="text-xs text-gray-600 font-medium mb-1 mobile-kickoff-label">Oct 26 • 1:00 PM ET</p>
+                                    <span class="text-sm text-gray-400 font-medium mobile-vs-label">VS</span>
+                                    <div class="mt-2 mobile-ou-line">
                                         <span class="text-xs text-gray-600 font-medium">O/U 44 <span class="text-[10px] text-gray-400">Model: 52.5 (o)</span></span>
                                     </div>
                                 </div>
@@ -3938,9 +3947,9 @@
                                 
                                 <!-- VS Divider -->
                                 <div class="text-center">
-                                    <p class="text-xs text-gray-600 font-medium mb-1">Oct 26 • 4:05 PM ET</p>
-                                    <span class="text-sm text-gray-400 font-medium">VS</span>
-                                    <div class="mt-2">
+                                    <p class="text-xs text-gray-600 font-medium mb-1 mobile-kickoff-label">Oct 26 • 4:05 PM ET</p>
+                                    <span class="text-sm text-gray-400 font-medium mobile-vs-label">VS</span>
+                                    <div class="mt-2 mobile-ou-line">
                                         <span class="text-xs text-gray-600 font-medium">O/U 47 <span class="text-[10px] text-gray-400">Model: 50.5 (o)</span></span>
                                     </div>
                                 </div>
@@ -4289,9 +4298,9 @@
                                 
                                 <!-- VS Divider -->
                                 <div class="text-center">
-                                    <p class="text-xs text-gray-600 font-medium mb-1">Oct 26 • 4:25 PM ET</p>
-                                    <span class="text-sm text-gray-400 font-medium">VS</span>
-                                    <div class="mt-2">
+                                    <p class="text-xs text-gray-600 font-medium mb-1 mobile-kickoff-label">Oct 26 • 4:25 PM ET</p>
+                                    <span class="text-sm text-gray-400 font-medium mobile-vs-label">VS</span>
+                                    <div class="mt-2 mobile-ou-line">
                                         <span class="text-xs text-gray-600 font-medium">O/U 47 <span class="text-[10px] text-gray-400">Model: 52 (o)</span></span>
                                     </div>
                                 </div>
@@ -4661,9 +4670,9 @@
                                 
                                 <!-- VS Divider -->
                                 <div class="text-center">
-                                    <p class="text-xs text-gray-600 font-medium mb-1">Oct 26 • 4:25 PM ET</p>
-                                    <span class="text-sm text-gray-400 font-medium">VS</span>
-                                    <div class="mt-2">
+                                    <p class="text-xs text-gray-600 font-medium mb-1 mobile-kickoff-label">Oct 26 • 4:25 PM ET</p>
+                                    <span class="text-sm text-gray-400 font-medium mobile-vs-label">VS</span>
+                                    <div class="mt-2 mobile-ou-line">
                                         <span class="text-xs text-gray-600 font-medium">O/U 51 <span class="text-[10px] text-gray-400">Model: 63 (o)</span></span>
                                     </div>
                                 </div>
@@ -5033,9 +5042,9 @@
                                 
                                 <!-- VS Divider -->
                                 <div class="text-center">
-                                    <p class="text-xs text-gray-600 font-medium mb-1">Oct 26 • 8:20 PM ET</p>
-                                    <span class="text-sm text-gray-400 font-medium">VS</span>
-                                    <div class="mt-2">
+                                    <p class="text-xs text-gray-600 font-medium mb-1 mobile-kickoff-label">Oct 26 • 8:20 PM ET</p>
+                                    <span class="text-sm text-gray-400 font-medium mobile-vs-label">VS</span>
+                                    <div class="mt-2 mobile-ou-line">
                                         <span class="text-xs text-gray-600 font-medium">O/U 45 <span class="text-[10px] text-gray-400">Model: 55 (o)</span></span>
                                     </div>
                                 </div>
@@ -5384,9 +5393,9 @@
                                 
                                 <!-- VS Divider -->
                                 <div class="text-center">
-                                    <p class="text-xs text-gray-600 font-medium mb-1">Oct 27 • 8:15 PM ET</p>
-                                    <span class="text-sm text-gray-400 font-medium">VS</span>
-                                    <div class="mt-2">
+                                    <p class="text-xs text-gray-600 font-medium mb-1 mobile-kickoff-label">Oct 27 • 8:15 PM ET</p>
+                                    <span class="text-sm text-gray-400 font-medium mobile-vs-label">VS</span>
+                                    <div class="mt-2 mobile-ou-line">
                                         <span class="text-xs text-gray-600 font-medium">O/U 47</span>
                                     </div>
                                 </div>
