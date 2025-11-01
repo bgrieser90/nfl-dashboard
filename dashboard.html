@@ -881,6 +881,7 @@
         const MATCHUP_SEGMENTS = ['HomeFav', 'HomeDog', 'AwayFav', 'AwayDog'];
         let currentStarFilter = 'all';
         let currentMatchupSegment = 'all';
+        let currentSuFilter = 'all';
 
         function applyGameFilters() {
             const cards = document.querySelectorAll('.game-card');
@@ -899,7 +900,9 @@
                 const starPass = Number.isFinite(rawStars) ? rawStars >= minStars : true;
                 const segment = card.dataset.atsSegment || 'unknown';
                 const segmentPass = currentMatchupSegment === 'all' || segment === currentMatchupSegment;
-                const shouldShow = recordVisible && starPass && segmentPass;
+                const suCategory = (card.dataset.suCategory || 'unknown').toLowerCase();
+                const suPass = currentSuFilter === 'all' || currentSuFilter === suCategory;
+                const shouldShow = recordVisible && starPass && segmentPass && suPass;
                 card.style.display = shouldShow ? '' : 'none';
                 if (shouldShow) visibleCount++;
             });
@@ -923,6 +926,21 @@
                 btnEl.setAttribute('aria-pressed', 'true');
             }
 
+            applyGameFilters();
+        }
+
+        function filterByMoneyline(mode, btnEl) {
+            let nextMode = mode;
+            if (mode !== 'all' && btnEl && btnEl.classList.contains('filter-btn--active')) {
+                nextMode = 'all';
+            }
+            currentSuFilter = nextMode;
+            document.querySelectorAll('[data-su-filter]').forEach(btn => {
+                const filterValue = btn.dataset.suFilter || 'all';
+                const isActive = currentSuFilter !== 'all' && filterValue === currentSuFilter;
+                btn.classList.toggle('filter-btn--active', isActive);
+                btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            });
             applyGameFilters();
         }
 
@@ -1460,23 +1478,28 @@
                         <button onclick="filterByStars('all', this)" data-filter="all" class="filter-btn filter-btn--active" aria-pressed="true">
                             <span class="filter-label">All Picks</span>
                         </button>
-                        <button onclick="filterByStars('3plus', this)" data-filter="3plus" class="filter-btn" aria-pressed="false">
-                            <span class="flex items-center gap-2">
-                            <span class="filter-icon"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
-                            <span class="filter-label">3+ Stars</span>
+                    <button onclick="filterByStars('3plus', this)" data-filter="3plus" class="filter-btn" aria-pressed="false" aria-label="3+ Stars">
+                        <span class="filter-label flex items-center gap-1">
+                            <span class="inline-flex gap-0.5"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
+                            <span>+</span>
                         </span>
                     </button>
-                    <button onclick="filterByStars('4plus', this)" data-filter="4plus" class="filter-btn" aria-pressed="false">
-                        <span class="flex items-center gap-2">
-                            <span class="filter-icon"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
-                            <span class="filter-label">4+ Stars</span>
+                    <button onclick="filterByStars('4plus', this)" data-filter="4plus" class="filter-btn" aria-pressed="false" aria-label="4+ Stars">
+                        <span class="filter-label flex items-center gap-1">
+                            <span class="inline-flex gap-0.5"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
+                            <span>+</span>
                         </span>
                     </button>
-                    <button onclick="filterByStars('5', this)" data-filter="5" class="filter-btn" aria-pressed="false">
-                        <span class="flex items-center gap-2">
-                            <span class="filter-icon"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
-                            <span class="filter-label">5 Stars<span class="mobile-hide"> Only</span></span>
+                    <button onclick="filterByStars('5', this)" data-filter="5" class="filter-btn" aria-pressed="false" aria-label="5 Stars Only">
+                        <span class="filter-label flex items-center gap-0.5">
+                            <span class="inline-flex gap-0.5"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                         </span>
+                    </button>
+                    <button onclick="filterByMoneyline('favorite', this)" data-su-filter="favorite" class="filter-btn su-filter-btn" aria-pressed="false">
+                        <span class="filter-label">Favorites</span>
+                    </button>
+                    <button onclick="filterByMoneyline('upset', this)" data-su-filter="upset" class="filter-btn su-filter-btn" aria-pressed="false">
+                        <span class="filter-label">Upsets</span>
                     </button>
                     <button onclick="setMatchupSegment('HomeFav')" class="filter-btn matchup-filter-btn" data-segment="HomeFav" aria-pressed="false">
                         Home Fav
@@ -1501,7 +1524,7 @@
         <!-- Games Grid -->
         <div class="space-y-6">
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="AwayFav" data-record-visible="true">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="AwayFav" data-su-category="favorite" data-record-visible="true">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -2073,7 +2096,7 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="3" data-stars-cal="3" data-ats-segment="AwayFav" data-record-visible="true">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="3" data-stars-cal="3" data-ats-segment="AwayFav" data-su-category="favorite" data-record-visible="true">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -2645,7 +2668,7 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="4" data-stars-cal="4" data-ats-segment="HomeFav" data-record-visible="true">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="4" data-stars-cal="4" data-ats-segment="HomeFav" data-su-category="favorite" data-record-visible="true">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -3217,7 +3240,7 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="HomeFav" data-record-visible="true">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="HomeFav" data-su-category="favorite" data-record-visible="true">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -3789,7 +3812,7 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="HomeFav" data-record-visible="true">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="HomeFav" data-su-category="favorite" data-record-visible="true">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -4361,7 +4384,7 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="HomeDog" data-record-visible="true">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="HomeDog" data-su-category="favorite" data-record-visible="true">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -4933,7 +4956,7 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="3" data-stars-cal="3" data-ats-segment="AwayFav" data-record-visible="true">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="3" data-stars-cal="3" data-ats-segment="AwayFav" data-su-category="favorite" data-record-visible="true">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -5505,7 +5528,7 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="3" data-stars-cal="3" data-ats-segment="HomeFav" data-record-visible="true">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="3" data-stars-cal="3" data-ats-segment="HomeFav" data-su-category="favorite" data-record-visible="true">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -6077,7 +6100,7 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="3" data-stars-cal="3" data-ats-segment="AwayFav" data-record-visible="true">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="3" data-stars-cal="3" data-ats-segment="AwayFav" data-su-category="favorite" data-record-visible="true">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -6649,7 +6672,7 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="HomeDog" data-record-visible="true">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="HomeDog" data-su-category="upset" data-record-visible="true">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -7221,7 +7244,7 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="HomeFav" data-record-visible="true">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="HomeFav" data-su-category="favorite" data-record-visible="true">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -7793,7 +7816,7 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="HomeDog" data-record-visible="true">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="HomeDog" data-su-category="favorite" data-record-visible="true">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -8365,7 +8388,7 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="3" data-stars-cal="3" data-ats-segment="AwayFav" data-record-visible="true">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="3" data-stars-cal="3" data-ats-segment="AwayFav" data-su-category="favorite" data-record-visible="true">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -8937,7 +8960,7 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="3" data-stars-cal="3" data-ats-segment="HomeFav" data-record-visible="true">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="3" data-stars-cal="3" data-ats-segment="HomeFav" data-su-category="favorite" data-record-visible="true">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
