@@ -448,8 +448,15 @@
             .overview-section .grid.grid-cols-3 > div:nth-child(2) .mobile-ou-line {
                 margin-top: 0.1rem !important;
             }
+            /* Center the VS pill horizontally and vertically within the matchup row */
+            .overview-section .grid.grid-cols-3 { position: relative; }
+            .overview-section .grid.grid-cols-3 > div:nth-child(2) { position: relative; }
             .overview-section .grid.grid-cols-3 > div:nth-child(2) .mobile-vs-label {
-                margin-top: 0.1rem !important;
+                position: absolute !important;
+                top: 50% !important;
+                left: 50% !important;
+                transform: translate(-50%, -50%) !important;
+                margin-top: 0 !important;
             }
 
             /* -------- Mobile-only: compact Spread/Total cards only -------- */
@@ -465,6 +472,17 @@
             }
             .prediction-card p.text-xs.text-gray-600 {
                 margin-top: 0.25rem !important;
+            }
+
+            /* -------- Mobile-only: tighten team meta line spacing (record/ATS/O-U row) -------- */
+            .overview-section .team-meta {
+                margin-bottom: 0.35rem !important;
+            }
+
+            /* -------- Mobile-only: win probability section spacing -------- */
+            .overview-section .winprob-container {
+                margin-top: 0.5rem !important;
+                margin-bottom: 0.35rem !important;
             }
         }
 
@@ -1734,7 +1752,7 @@
                             </div>
 
                             <!-- Win Probability Bars -->
-                            <div class="mt-6 space-y-2">
+                            <div class="mt-6 space-y-2 winprob-container">
                                 <div class="relative h-8 bg-gray-100 rounded-full overflow-hidden">
                                     <div class="absolute inset-0 flex">
                                         <div class="flex items-center justify-center"
@@ -2307,7 +2325,7 @@
                             </div>
 
                             <!-- Win Probability Bars -->
-                            <div class="mt-6 space-y-2">
+                            <div class="mt-6 space-y-2 winprob-container">
                                 <div class="relative h-8 bg-gray-100 rounded-full overflow-hidden">
                                     <div class="absolute inset-0 flex">
                                         <div class="flex items-center justify-center"
@@ -2880,7 +2898,7 @@
                             </div>
 
                             <!-- Win Probability Bars -->
-                            <div class="mt-6 space-y-2">
+                            <div class="mt-6 space-y-2 winprob-container">
                                 <div class="relative h-8 bg-gray-100 rounded-full overflow-hidden">
                                     <div class="absolute inset-0 flex">
                                         <div class="flex items-center justify-center"
@@ -3453,7 +3471,7 @@
                             </div>
 
                             <!-- Win Probability Bars -->
-                            <div class="mt-6 space-y-2">
+                            <div class="mt-6 space-y-2 winprob-container">
                                 <div class="relative h-8 bg-gray-100 rounded-full overflow-hidden">
                                     <div class="absolute inset-0 flex">
                                         <div class="flex items-center justify-center"
@@ -4026,7 +4044,7 @@
                             </div>
 
                             <!-- Win Probability Bars -->
-                            <div class="mt-6 space-y-2">
+                            <div class="mt-6 space-y-2 winprob-container">
                                 <div class="relative h-8 bg-gray-100 rounded-full overflow-hidden">
                                     <div class="absolute inset-0 flex">
                                         <div class="flex items-center justify-center"
@@ -4599,7 +4617,7 @@
                             </div>
 
                             <!-- Win Probability Bars -->
-                            <div class="mt-6 space-y-2">
+                            <div class="mt-6 space-y-2 winprob-container">
                                 <div class="relative h-8 bg-gray-100 rounded-full overflow-hidden">
                                     <div class="absolute inset-0 flex">
                                         <div class="flex items-center justify-center"
@@ -5172,7 +5190,7 @@
                             </div>
 
                             <!-- Win Probability Bars -->
-                            <div class="mt-6 space-y-2">
+                            <div class="mt-6 space-y-2 winprob-container">
                                 <div class="relative h-8 bg-gray-100 rounded-full overflow-hidden">
                                     <div class="absolute inset-0 flex">
                                         <div class="flex items-center justify-center"
@@ -5745,7 +5763,7 @@
                             </div>
 
                             <!-- Win Probability Bars -->
-                            <div class="mt-6 space-y-2">
+                            <div class="mt-6 space-y-2 winprob-container">
                                 <div class="relative h-8 bg-gray-100 rounded-full overflow-hidden">
                                     <div class="absolute inset-0 flex">
                                         <div class="flex items-center justify-center"
@@ -6318,7 +6336,7 @@
                             </div>
 
                             <!-- Win Probability Bars -->
-                            <div class="mt-6 space-y-2">
+                            <div class="mt-6 space-y-2 winprob-container">
                                 <div class="relative h-8 bg-gray-100 rounded-full overflow-hidden">
                                     <div class="absolute inset-0 flex">
                                         <div class="flex items-center justify-center"
@@ -6891,7 +6909,7 @@
                             </div>
 
                             <!-- Win Probability Bars -->
-                            <div class="mt-6 space-y-2">
+                            <div class="mt-6 space-y-2 winprob-container">
                                 <div class="relative h-8 bg-gray-100 rounded-full overflow-hidden">
                                     <div class="absolute inset-0 flex">
                                         <div class="flex items-center justify-center"
@@ -7464,7 +7482,7 @@
                             </div>
 
                             <!-- Win Probability Bars -->
-                            <div class="mt-6 space-y-2">
+                            <div class="mt-6 space-y-2 winprob-container">
                                 <div class="relative h-8 bg-gray-100 rounded-full overflow-hidden">
                                     <div class="absolute inset-0 flex">
                                         <div class="flex items-center justify-center"
@@ -8037,7 +8055,7 @@
                             </div>
 
                             <!-- Win Probability Bars -->
-                            <div class="mt-6 space-y-2">
+                            <div class="mt-6 space-y-2 winprob-container">
                                 <div class="relative h-8 bg-gray-100 rounded-full overflow-hidden">
                                     <div class="absolute inset-0 flex">
                                         <div class="flex items-center justify-center"
@@ -8610,7 +8628,7 @@
                             </div>
 
                             <!-- Win Probability Bars -->
-                            <div class="mt-6 space-y-2">
+                            <div class="mt-6 space-y-2 winprob-container">
                                 <div class="relative h-8 bg-gray-100 rounded-full overflow-hidden">
                                     <div class="absolute inset-0 flex">
                                         <div class="flex items-center justify-center"
