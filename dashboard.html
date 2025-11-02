@@ -427,6 +427,45 @@
                 padding: 0.875rem 1rem !important;
                 font-size: 0.875rem !important;
             }
+
+            /* -------- Mobile-only: tighter tabs bar (Overview/Analytics/Betting) -------- */
+            .game-card .border-b.border-gray-200.bg-gray-50 nav {
+                padding-top: 0.25rem !important;
+                padding-bottom: 0 !important;
+            }
+            .game-card nav button[id^="tab-"] {
+                padding-top: 0.35rem !important;
+                padding-bottom: 0.35rem !important;
+                line-height: 1.2 !important;
+            }
+
+            /* -------- Mobile-only: compact middle matchup strip (VS / O/U / Model) -------- */
+            .overview-section .grid.grid-cols-3 > div:nth-child(2) {
+                padding: 0.25rem 0 0.2rem !important;
+                margin-bottom: 0.25rem !important;
+                gap: 0.15rem !important;
+            }
+            .overview-section .grid.grid-cols-3 > div:nth-child(2) .mobile-ou-line {
+                margin-top: 0.1rem !important;
+            }
+            .overview-section .grid.grid-cols-3 > div:nth-child(2) .mobile-vs-label {
+                margin-top: 0.1rem !important;
+            }
+
+            /* -------- Mobile-only: compact Spread/Total cards only -------- */
+            .prediction-card {
+                padding: 0.5rem !important;
+            }
+            .prediction-card > .flex.items-center.justify-between {
+                margin-bottom: 0.25rem !important;
+            }
+            .prediction-card p.text-sm.font-bold {
+                margin: 0 !important;
+                line-height: 1.2 !important;
+            }
+            .prediction-card p.text-xs.text-gray-600 {
+                margin-top: 0.25rem !important;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1715,7 +1754,7 @@
                             <!-- Key Predictions -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <!-- Spread Prediction -->
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 prediction-card">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Spread Pick</span>
                                     <div class="flex">
@@ -1734,7 +1773,7 @@
                             </div>
                             
                             <!-- Total Prediction -->
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 prediction-card">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Total Pick</span>
                                     <div class="flex">
@@ -2288,7 +2327,7 @@
                             <!-- Key Predictions -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <!-- Spread Prediction -->
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 prediction-card">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Spread Pick</span>
                                     <div class="flex">
@@ -2307,7 +2346,7 @@
                             </div>
                             
                             <!-- Total Prediction -->
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 prediction-card">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Total Pick</span>
                                     <div class="flex">
@@ -2861,7 +2900,7 @@
                             <!-- Key Predictions -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <!-- Spread Prediction -->
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 prediction-card">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Spread Pick</span>
                                     <div class="flex">
@@ -2880,7 +2919,7 @@
                             </div>
                             
                             <!-- Total Prediction -->
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 prediction-card">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Total Pick</span>
                                     <div class="flex">
@@ -3434,7 +3473,7 @@
                             <!-- Key Predictions -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <!-- Spread Prediction -->
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 prediction-card">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Spread Pick</span>
                                     <div class="flex">
@@ -3453,7 +3492,7 @@
                             </div>
                             
                             <!-- Total Prediction -->
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 prediction-card">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Total Pick</span>
                                     <div class="flex">
@@ -4007,7 +4046,7 @@
                             <!-- Key Predictions -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <!-- Spread Prediction -->
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 prediction-card">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Spread Pick</span>
                                     <div class="flex">
@@ -4026,7 +4065,7 @@
                             </div>
                             
                             <!-- Total Prediction -->
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 prediction-card">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Total Pick</span>
                                     <div class="flex">
@@ -4580,7 +4619,7 @@
                             <!-- Key Predictions -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <!-- Spread Prediction -->
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 prediction-card">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Spread Pick</span>
                                     <div class="flex">
@@ -4599,7 +4638,7 @@
                             </div>
                             
                             <!-- Total Prediction -->
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 prediction-card">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Total Pick</span>
                                     <div class="flex">
@@ -5153,7 +5192,7 @@
                             <!-- Key Predictions -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <!-- Spread Prediction -->
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 prediction-card">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Spread Pick</span>
                                     <div class="flex">
@@ -5172,7 +5211,7 @@
                             </div>
                             
                             <!-- Total Prediction -->
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 prediction-card">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Total Pick</span>
                                     <div class="flex">
@@ -5726,7 +5765,7 @@
                             <!-- Key Predictions -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <!-- Spread Prediction -->
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 prediction-card">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Spread Pick</span>
                                     <div class="flex">
@@ -5745,7 +5784,7 @@
                             </div>
                             
                             <!-- Total Prediction -->
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 prediction-card">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Total Pick</span>
                                     <div class="flex">
@@ -6299,7 +6338,7 @@
                             <!-- Key Predictions -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <!-- Spread Prediction -->
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 prediction-card">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Spread Pick</span>
                                     <div class="flex">
@@ -6318,7 +6357,7 @@
                             </div>
                             
                             <!-- Total Prediction -->
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 prediction-card">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Total Pick</span>
                                     <div class="flex">
@@ -6872,7 +6911,7 @@
                             <!-- Key Predictions -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <!-- Spread Prediction -->
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 prediction-card">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Spread Pick</span>
                                     <div class="flex">
@@ -6891,7 +6930,7 @@
                             </div>
                             
                             <!-- Total Prediction -->
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 prediction-card">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Total Pick</span>
                                     <div class="flex">
@@ -7445,7 +7484,7 @@
                             <!-- Key Predictions -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <!-- Spread Prediction -->
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 prediction-card">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Spread Pick</span>
                                     <div class="flex">
@@ -7464,7 +7503,7 @@
                             </div>
                             
                             <!-- Total Prediction -->
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 prediction-card">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Total Pick</span>
                                     <div class="flex">
@@ -8018,7 +8057,7 @@
                             <!-- Key Predictions -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <!-- Spread Prediction -->
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 prediction-card">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Spread Pick</span>
                                     <div class="flex">
@@ -8037,7 +8076,7 @@
                             </div>
                             
                             <!-- Total Prediction -->
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 prediction-card">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Total Pick</span>
                                     <div class="flex">
@@ -8591,7 +8630,7 @@
                             <!-- Key Predictions -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <!-- Spread Prediction -->
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 prediction-card">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Spread Pick</span>
                                     <div class="flex">
@@ -8610,7 +8649,7 @@
                             </div>
                             
                             <!-- Total Prediction -->
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 prediction-card">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Total Pick</span>
                                     <div class="flex">
