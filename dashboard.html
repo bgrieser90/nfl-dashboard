@@ -923,6 +923,23 @@
             box-sizing: border-box;
             min-width: 3rem;
             text-align: center;
+            overflow: visible; /* ensure shadows/rounded corners are not cut */
+            /* Fix subtle bottom clipping in some browsers by forcing a tighter line box
+               and ensuring the pill sits above adjacent rows */
+            line-height: 1;
+            vertical-align: middle;
+            position: relative;
+            z-index: 2;
+            /* Nudge space below to avoid visual overlap from following rows */
+            margin-bottom: 1px;
+            padding-bottom: 0.3rem; /* slightly larger than py-1 (0.25rem) to avoid cut-off */
+            background-clip: padding-box; /* keep border from visually collapsing into background */
+            transform: translateZ(0); /* create its own layer to avoid sub‑pixel clipping */
+        }
+
+        .team-pill-row {
+            overflow: visible;
+            padding-bottom: 0.2rem; /* extra outside space below ATS pill row */
         }
 
         .team-pill--moneyline {
@@ -938,6 +955,7 @@
             justify-content: center;
             gap: 0.4rem;
             flex-wrap: wrap;
+            padding-bottom: 0.35rem; /* tiny extra clearance to prevent overlap with following record line */
         }
 
         /* Ensure clear separation between name/ML row and record line at all sizes */
@@ -948,11 +966,15 @@
         .team-pill-wrapper {
             display: flex;
             justify-content: center;
+            /* Remove baseline artifacts so inline pills don't get cropped at the bottom */
+            line-height: 0;
+            margin-bottom: 0.1rem; /* extra outside spacing for pill row */
         }
 
         .team-meta {
             letter-spacing: 0.025em;
-            margin-top: 0.6rem; /* ensure separation from name/ML row at all sizes */
+            padding-top: 0.125rem; /* prevent margin-collapsing with preceding row */
+            margin-top: 0.55rem; /* ensure separation from name/ML row at all sizes */
             line-height: 1.35;
         }
 
@@ -1775,7 +1797,7 @@
                                         15.9
                                     </p>
                                     <p class="text-xs text-gray-500 mt-1">Raw: 20.2 • Adj: 15.9</p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center">
+                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">+5.5</span>
                                         
                                     </div>
@@ -1806,7 +1828,7 @@
                                         30.4
                                     </p>
                                     <p class="text-xs text-gray-500 mt-1">Raw: 37.2 • Adj: 30.4</p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center">
+                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold shadow-sm" style="background: linear-gradient(to right, #002244, #00274e); color: #FFFFFF; border: 1px solid #001a33; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-5.5</span>
                                         
                                     </div>
@@ -2348,7 +2370,7 @@
                                         21.7
                                     </p>
                                     <p class="text-xs text-gray-500 mt-1">Raw: 25.8 • Adj: 21.7</p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center">
+                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">+1</span>
                                         
                                     </div>
@@ -2379,7 +2401,7 @@
                                         24.7
                                     </p>
                                     <p class="text-xs text-gray-500 mt-1">Raw: 31.3 • Adj: 24.7</p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center">
+                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold shadow-sm" style="background: linear-gradient(to right, #03202F, #032536); color: #FFFFFF; border: 1px solid #021823; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-1</span>
                                         
                                     </div>
@@ -2921,7 +2943,7 @@
                                         34.4
                                     </p>
                                     <p class="text-xs text-gray-500 mt-1">Raw: 44.9 • Adj: 34.4</p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center">
+                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold shadow-sm" style="background: linear-gradient(to right, #002C5F, #00336d); color: #FFFFFF; border: 1px solid #002147; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-3</span>
                                         
                                     </div>
@@ -2952,7 +2974,7 @@
                                         25.8
                                     </p>
                                     <p class="text-xs text-gray-500 mt-1">Raw: 24.3 • Adj: 25.8</p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center">
+                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">+3</span>
                                         
                                     </div>
@@ -3494,7 +3516,7 @@
                                         26.6
                                     </p>
                                     <p class="text-xs text-gray-500 mt-1">Raw: 31.2 • Adj: 26.6</p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center">
+                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">-10</span>
                                         
                                     </div>
@@ -3525,7 +3547,7 @@
                                         18.2
                                     </p>
                                     <p class="text-xs text-gray-500 mt-1">Raw: 23.6 • Adj: 18.2</p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center">
+                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold shadow-sm" style="background: linear-gradient(to right, #002244, #00274e); color: #FFFFFF; border: 1px solid #001a33; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+10</span>
                                         
                                     </div>
@@ -4067,7 +4089,7 @@
                                         28.0
                                     </p>
                                     <p class="text-xs text-gray-500 mt-1">Raw: 27.7 • Adj: 28.0</p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center">
+                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold shadow-sm" style="background: linear-gradient(to right, #0B162A, #0d1930); color: #FFFFFF; border: 1px solid #081120; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-2</span>
                                         
                                     </div>
@@ -4098,7 +4120,7 @@
                                         25.4
                                     </p>
                                     <p class="text-xs text-gray-500 mt-1">Raw: 25.0 • Adj: 25.4</p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center">
+                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">+2</span>
                                         
                                     </div>
@@ -4640,7 +4662,7 @@
                                         18.2
                                     </p>
                                     <p class="text-xs text-gray-500 mt-1">Raw: 18.2</p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center">
+                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">+9</span>
                                         
                                     </div>
@@ -4671,7 +4693,7 @@
                                         33.7
                                     </p>
                                     <p class="text-xs text-gray-500 mt-1">Raw: 47.7 • Adj: 33.7</p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center">
+                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold shadow-sm" style="background: linear-gradient(to right, #0076B6, #0088d1); color: #FFFFFF; border: 1px solid #005989; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-9</span>
                                         
                                     </div>
@@ -5213,7 +5235,7 @@
                                         16.7
                                     </p>
                                     <p class="text-xs text-gray-500 mt-1">Raw: 22.2 • Adj: 16.7</p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center">
+                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">+13</span>
                                         
                                     </div>
@@ -5244,7 +5266,7 @@
                                         31.1
                                     </p>
                                     <p class="text-xs text-gray-500 mt-1">Raw: 39.9 • Adj: 31.1</p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center">
+                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold shadow-sm" style="background: linear-gradient(to right, #203731, #253f38); color: #FFFFFF; border: 1px solid #182925; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-13</span>
                                         
                                     </div>
@@ -5786,7 +5808,7 @@
                                         28.4
                                     </p>
                                     <p class="text-xs text-gray-500 mt-1">Raw: 31.5 • Adj: 28.4</p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center">
+                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold shadow-sm" style="background: linear-gradient(to right, #AA0000, #c40000); color: #FFFFFF; border: 1px solid #800000; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-2.5</span>
                                         
                                     </div>
@@ -5817,7 +5839,7 @@
                                         21.3
                                     </p>
                                     <p class="text-xs text-gray-500 mt-1">Raw: 27.1 • Adj: 21.3</p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center">
+                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">+2.5</span>
                                         
                                     </div>
@@ -6359,7 +6381,7 @@
                                         17.7
                                     </p>
                                     <p class="text-xs text-gray-500 mt-1">Raw: 17.8 • Adj: 17.7</p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center">
+                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">-3</span>
                                         
                                     </div>
@@ -6390,7 +6412,7 @@
                                         23.8
                                     </p>
                                     <p class="text-xs text-gray-500 mt-1">Raw: 26.5 • Adj: 23.8</p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center">
+                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold shadow-sm" style="background: linear-gradient(to right, #000000, #000000); color: #FFFFFF; border: 1px solid #000000; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+3</span>
                                         
                                     </div>
@@ -6932,7 +6954,7 @@
                                         13.7
                                     </p>
                                     <p class="text-xs text-gray-500 mt-1">Raw: 17.3 • Adj: 13.7</p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center">
+                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">+13.5</span>
                                         
                                     </div>
@@ -6963,7 +6985,7 @@
                                         31.6
                                     </p>
                                     <p class="text-xs text-gray-500 mt-1">Raw: 38.5 • Adj: 31.6</p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center">
+                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold shadow-sm" style="background: linear-gradient(to right, #003594, #003daa); color: #FFFFFF; border: 1px solid #00286f; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-13.5</span>
                                         
                                     </div>
@@ -7505,7 +7527,7 @@
                                         28.7
                                     </p>
                                     <p class="text-xs text-gray-500 mt-1">Raw: 34.3 • Adj: 28.7</p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center">
+                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">-1</span>
                                         
                                     </div>
@@ -7536,7 +7558,7 @@
                                         27.8
                                     </p>
                                     <p class="text-xs text-gray-500 mt-1">Raw: 31.8 • Adj: 27.8</p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center">
+                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold shadow-sm" style="background: linear-gradient(to right, #00338D, #003ba2); color: #FFFFFF; border: 1px solid #00266a; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+1</span>
                                         
                                     </div>
@@ -8078,7 +8100,7 @@
                                         30.0
                                     </p>
                                     <p class="text-xs text-gray-500 mt-1">Raw: 42.6 • Adj: 30.0</p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center">
+                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold shadow-sm" style="background: linear-gradient(to right, #002244, #00274e); color: #FFFFFF; border: 1px solid #001a33; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-3.5</span>
                                         
                                     </div>
@@ -8109,7 +8131,7 @@
                                         24.5
                                     </p>
                                     <p class="text-xs text-gray-500 mt-1">Raw: 34.2 • Adj: 24.5</p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center">
+                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">+3.5</span>
                                         
                                     </div>
@@ -8651,7 +8673,7 @@
                                         22.3
                                     </p>
                                     <p class="text-xs text-gray-500 mt-1">Raw: 20.3 • Adj: 22.3</p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center">
+                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">+2.5</span>
                                         
                                     </div>
@@ -8682,7 +8704,7 @@
                                         35.9
                                     </p>
                                     <p class="text-xs text-gray-500 mt-1">Raw: 42.6 • Adj: 35.9</p>
-                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center">
+                                    <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold shadow-sm" style="background: linear-gradient(to right, #002244, #00274e); color: #FFFFFF; border: 1px solid #001a33; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-2.5</span>
                                         
                                     </div>
