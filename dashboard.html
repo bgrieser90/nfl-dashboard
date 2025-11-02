@@ -441,8 +441,9 @@
 
             /* -------- Mobile-only: compact middle matchup strip (VS / O/U / Model) -------- */
             .overview-section .grid.grid-cols-3 > div:nth-child(2) {
-                padding: 0.2rem 0 0.15rem !important;
-                margin-bottom: 0.1rem !important;
+                padding-top: 0.1rem !important;
+                padding-bottom: 0.1rem !important;
+                margin-bottom: 0.2rem !important;
                 gap: 0.12rem !important;
             }
             .overview-section .grid.grid-cols-3 > div:nth-child(2) .mobile-ou-line {
@@ -477,14 +478,14 @@
                 margin-top: 0.25rem !important;
             }
 
-            /* Reduce top margin above team logo rows to shrink space under divider */
+            /* Adjust top block spacing: allow breathing room under divider */
             .overview-section .grid.grid-cols-3 > div:not(:nth-child(2)) > .mb-2 {
-                margin-bottom: 0.15rem !important;
+                margin-bottom: 0.4rem !important;
             }
 
-            /* -------- Mobile-only: tighten team meta line spacing (record/ATS/O-U row) -------- */
+            /* -------- Mobile-only: record line spacing (record/ATS/O-U row) -------- */
             .overview-section .team-meta {
-                margin-bottom: 0.35rem !important;
+                margin-bottom: 0.5rem !important;
             }
 
             /* -------- Mobile-only: win probability section spacing -------- */
