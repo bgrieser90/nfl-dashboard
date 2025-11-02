@@ -277,11 +277,17 @@
             /* Optimize card spacing */
             .game-card {
                 padding: 0.75rem !important;
-                margin-bottom: 1rem !important;
+                margin-bottom: 0.75rem !important;
             }
 
             .game-card .p-6 {
                 padding: 0.75rem !important;
+            }
+
+            /* Reduce tab navigation padding */
+            .game-card nav {
+                padding-top: 0.375rem !important;
+                padding-bottom: 0.375rem !important;
             }
 
             /* Container padding reduction */
@@ -342,7 +348,7 @@
             }
 
             .overview-section > :not([hidden]) ~ :not([hidden]) {
-                margin-top: 0.9rem !important;
+                margin-top: 0.6rem !important;
             }
 
             /* Stack date, VS, and O/U vertically on mobile for better readability */
@@ -422,6 +428,67 @@
                 height: 32px !important;
             }
 
+            /* Optimize Spread Pick boxes for mobile */
+            .bg-gradient-to-br.rounded-xl {
+                padding: 0.75rem !important;
+            }
+
+            /* Reduce spacing in spread pick content */
+            .bg-gradient-to-br.rounded-xl .text-xs {
+                margin-top: 0.25rem !important;
+                margin-bottom: 0.25rem !important;
+            }
+
+            .bg-gradient-to-br.rounded-xl .text-lg {
+                font-size: 1rem !important;
+                margin-bottom: 0.25rem !important;
+            }
+
+            .bg-gradient-to-br.rounded-xl .text-2xl {
+                font-size: 1.5rem !important;
+                line-height: 1.2 !important;
+            }
+
+            /* Optimize Filter Games by Team Records section */
+            .bg-white.rounded-xl.shadow-md {
+                padding: 0.75rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .bg-white.rounded-xl.shadow-md h3 {
+                font-size: 1rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            /* Reduce slider section spacing */
+            .bg-white.rounded-xl.shadow-md .grid {
+                gap: 0.75rem !important;
+            }
+
+            /* Additional vertical space optimizations */
+            /* Reduce win probability section spacing */
+            .mb-4 {
+                margin-bottom: 0.75rem !important;
+            }
+
+            .mb-6 {
+                margin-bottom: 1rem !important;
+            }
+
+            /* Tighten team info sections */
+            .grid-cols-3 > div:not(:nth-child(2)) {
+                padding: 0.5rem !important;
+            }
+
+            /* Reduce spacing around scores and stats */
+            .mt-2 {
+                margin-top: 0.5rem !important;
+            }
+
+            .mt-4 {
+                margin-top: 0.75rem !important;
+            }
+
             /* Make tabs more touch-friendly */
             nav button {
                 padding: 0.875rem 1rem !important;
@@ -443,6 +510,7 @@
             .filter-btn {
                 padding: 0.375rem 0.6rem !important;
                 font-size: 0.75rem !important;
+                min-height: 40px;
             }
 
             /* Tighter gap between buttons on extra small screens */
@@ -452,12 +520,41 @@
 
             /* Tighter spacing for small screens */
             .game-card {
-                padding: 0.625rem !important;
+                padding: 0.5rem !important;
+            }
+
+            .game-card .p-6 {
+                padding: 0.5rem !important;
             }
 
             .max-w-7xl {
                 padding-left: 0.5rem !important;
                 padding-right: 0.5rem !important;
+            }
+
+            /* Further reduce overview section spacing */
+            .overview-section > :not([hidden]) ~ :not([hidden]) {
+                margin-top: 0.5rem !important;
+            }
+
+            /* Further reduce Spread Pick box padding */
+            .bg-gradient-to-br.rounded-xl {
+                padding: 0.625rem !important;
+            }
+
+            .bg-gradient-to-br.rounded-xl .text-lg {
+                font-size: 0.9rem !important;
+            }
+
+            /* Further reduce Filter Games section padding */
+            .bg-white.rounded-xl.shadow-md {
+                padding: 0.625rem !important;
+                margin-bottom: 0.75rem !important;
+            }
+
+            .bg-white.rounded-xl.shadow-md h3 {
+                font-size: 0.9rem !important;
+                margin-bottom: 0.375rem !important;
             }
 
             /* Smaller team logos on tiny screens */
@@ -662,6 +759,94 @@
 
         .breakdown-row:last-child {
             margin-bottom: 0;
+        }
+
+        .conference-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 0.85rem;
+            margin-top: 0.75rem;
+        }
+
+        .conference-grid--compact {
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 0.6rem;
+            margin-top: 0.5rem;
+        }
+
+        .conference-card {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            padding: 1rem 1.05rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(226, 232, 240, 0.75);
+            background: linear-gradient(150deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.95));
+            box-shadow: 0 16px 36px -28px rgba(15, 23, 42, 0.45);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .conference-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 40px -26px rgba(30, 64, 175, 0.35);
+        }
+
+        .conference-card--highlight {
+            border-color: rgba(16, 185, 129, 0.4);
+            box-shadow: 0 20px 44px -26px rgba(16, 185, 129, 0.4);
+        }
+
+        .conference-card__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .conference-card__name {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .conference-card__count {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #94a3b8;
+            letter-spacing: 0.045em;
+            text-transform: uppercase;
+        }
+
+        .conference-card__metrics {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 0.75rem;
+        }
+
+        .conference-card__record {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #475569;
+            letter-spacing: 0.01em;
+        }
+
+        .conference-card__rate {
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .conference-card--mini {
+            padding: 0.85rem 0.9rem;
+            gap: 0.5rem;
+        }
+
+        .conference-card__label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #94a3b8;
+            letter-spacing: 0.045em;
+            text-transform: uppercase;
         }
 
         .breakdown-label {
@@ -1767,7 +1952,7 @@
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
-                                                Model edges summarized below.
+                                                Top recommended play highlighted below.
                                             </p>
                                         </div>
                                         <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
@@ -1793,7 +1978,6 @@
                                                         </span>
                                                     </div>
                                             </div>
-                                            
                                         </div>
                                     </div>
                                 </div>
@@ -1804,7 +1988,7 @@
                                     <div class="flex items-center justify-between">
                                         <h4 class="text-sm font-semibold text-gray-700">Model Edge</h4>
                                         <span class="inline-flex items-center gap-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-blue-600">
-                                            MODERATE · WATCH
+                                            Spread: MODERATE · Total: WATCH
                                         </span>
                                     </div>
                                     <div class="mt-4 space-y-4">
@@ -1818,7 +2002,7 @@
                                                     +12.0
                                                 </span>
                                             </div>
-                                        <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
+                                            <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
                                                     <dd class="font-semibold text-slate-900">65.0%</dd>
@@ -1828,6 +2012,7 @@
                                                     <dd class="font-semibold text-slate-900">65.6%</dd>
                                                 </div>
                                             </dl>
+                                            
                                         </div>
                                         <div class="rounded-lg bg-slate-50 p-4">
                                             <div class="flex items-center justify-between">
@@ -1839,7 +2024,7 @@
                                                     +6.8
                                                 </span>
                                             </div>
-                                        <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
+                                            <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
                                                     <dd class="font-semibold text-slate-900">72.7%</dd>
@@ -1849,6 +2034,7 @@
                                                     <dd class="font-semibold text-slate-900">70.8%</dd>
                                                 </div>
                                             </dl>
+                                            
                                         </div>
                                         <div class="rounded-lg bg-slate-50 p-4">
                                             <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Residual Adjustments</p>
@@ -2339,7 +2525,7 @@
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
-                                                Model edges summarized below.
+                                                Top recommended play highlighted below.
                                             </p>
                                         </div>
                                         <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
@@ -2365,7 +2551,6 @@
                                                         </span>
                                                     </div>
                                             </div>
-                                            
                                         </div>
                                     </div>
                                 </div>
@@ -2376,7 +2561,7 @@
                                     <div class="flex items-center justify-between">
                                         <h4 class="text-sm font-semibold text-gray-700">Model Edge</h4>
                                         <span class="inline-flex items-center gap-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-blue-600">
-                                            LEAN · MINIMAL
+                                            Spread: LEAN · Total: MINIMAL
                                         </span>
                                     </div>
                                     <div class="mt-4 space-y-4">
@@ -2390,7 +2575,7 @@
                                                     +3.0
                                                 </span>
                                             </div>
-                                        <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
+                                            <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
                                                     <dd class="font-semibold text-slate-900">58.8%</dd>
@@ -2400,6 +2585,7 @@
                                                     <dd class="font-semibold text-slate-900">60.3%</dd>
                                                 </div>
                                             </dl>
+                                            
                                         </div>
                                         <div class="rounded-lg bg-slate-50 p-4">
                                             <div class="flex items-center justify-between">
@@ -2411,7 +2597,7 @@
                                                     +8.9
                                                 </span>
                                             </div>
-                                        <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
+                                            <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
                                                     <dd class="font-semibold text-slate-900">65.5%</dd>
@@ -2421,6 +2607,7 @@
                                                     <dd class="font-semibold text-slate-900">60.9%</dd>
                                                 </div>
                                             </dl>
+                                            
                                         </div>
                                         <div class="rounded-lg bg-slate-50 p-4">
                                             <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Residual Adjustments</p>
@@ -2911,7 +3098,7 @@
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
-                                                Model edges summarized below.
+                                                Top recommended play highlighted below.
                                             </p>
                                         </div>
                                         <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
@@ -2937,7 +3124,6 @@
                                                         </span>
                                                     </div>
                                             </div>
-                                            
                                         </div>
                                     </div>
                                 </div>
@@ -2948,7 +3134,7 @@
                                     <div class="flex items-center justify-between">
                                         <h4 class="text-sm font-semibold text-gray-700">Model Edge</h4>
                                         <span class="inline-flex items-center gap-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-blue-600">
-                                            LEAN · MINIMAL
+                                            Spread: LEAN · Total: MINIMAL
                                         </span>
                                     </div>
                                     <div class="mt-4 space-y-4">
@@ -2962,7 +3148,7 @@
                                                     +7.7
                                                 </span>
                                             </div>
-                                        <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
+                                            <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
                                                     <dd class="font-semibold text-slate-900">61.7%</dd>
@@ -2972,6 +3158,7 @@
                                                     <dd class="font-semibold text-slate-900">63.1%</dd>
                                                 </div>
                                             </dl>
+                                            
                                         </div>
                                         <div class="rounded-lg bg-slate-50 p-4">
                                             <div class="flex items-center justify-between">
@@ -2983,7 +3170,7 @@
                                                     +10.7
                                                 </span>
                                             </div>
-                                        <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
+                                            <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
                                                     <dd class="font-semibold text-slate-900">61.0%</dd>
@@ -2993,6 +3180,7 @@
                                                     <dd class="font-semibold text-slate-900">57.8%</dd>
                                                 </div>
                                             </dl>
+                                            
                                         </div>
                                         <div class="rounded-lg bg-slate-50 p-4">
                                             <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Residual Adjustments</p>
@@ -3509,7 +3697,6 @@
                                                         </span>
                                                     </div>
                                             </div>
-                                            
                                         </div>
                                     </div>
                                 </div>
@@ -3520,7 +3707,7 @@
                                     <div class="flex items-center justify-between">
                                         <h4 class="text-sm font-semibold text-gray-700">Model Edge</h4>
                                         <span class="inline-flex items-center gap-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-blue-600">
-                                            STRONG · WATCH
+                                            Spread: STRONG · Total: WATCH
                                         </span>
                                     </div>
                                     <div class="mt-4 space-y-4">
@@ -3534,7 +3721,7 @@
                                                     +11.6
                                                 </span>
                                             </div>
-                                        <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
+                                            <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
                                                     <dd class="font-semibold text-slate-900">82.6%</dd>
@@ -3544,6 +3731,7 @@
                                                     <dd class="font-semibold text-slate-900">79.4%</dd>
                                                 </div>
                                             </dl>
+                                            
                                         </div>
                                         <div class="rounded-lg bg-slate-50 p-4">
                                             <div class="flex items-center justify-between">
@@ -3555,7 +3743,7 @@
                                                     +10.3
                                                 </span>
                                             </div>
-                                        <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
+                                            <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
                                                     <dd class="font-semibold text-slate-900">78.3%</dd>
@@ -3565,6 +3753,7 @@
                                                     <dd class="font-semibold text-slate-900">80.4%</dd>
                                                 </div>
                                             </dl>
+                                            
                                         </div>
                                         <div class="rounded-lg bg-slate-50 p-4">
                                             <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Residual Adjustments</p>
@@ -4055,7 +4244,7 @@
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
-                                                Model edges summarized below.
+                                                Top recommended play highlighted below.
                                             </p>
                                         </div>
                                         <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
@@ -4081,7 +4270,6 @@
                                                         </span>
                                                     </div>
                                             </div>
-                                            
                                         </div>
                                     </div>
                                 </div>
@@ -4092,7 +4280,7 @@
                                     <div class="flex items-center justify-between">
                                         <h4 class="text-sm font-semibold text-gray-700">Model Edge</h4>
                                         <span class="inline-flex items-center gap-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-blue-600">
-                                            LEAN · WATCH
+                                            Spread: LEAN · Total: WATCH
                                         </span>
                                     </div>
                                     <div class="mt-4 space-y-4">
@@ -4106,7 +4294,7 @@
                                                     +1.6
                                                 </span>
                                             </div>
-                                        <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
+                                            <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
                                                     <dd class="font-semibold text-slate-900">58.8%</dd>
@@ -4116,6 +4304,7 @@
                                                     <dd class="font-semibold text-slate-900">57.4%</dd>
                                                 </div>
                                             </dl>
+                                            
                                         </div>
                                         <div class="rounded-lg bg-slate-50 p-4">
                                             <div class="flex items-center justify-between">
@@ -4127,7 +4316,7 @@
                                                     +7.9
                                                 </span>
                                             </div>
-                                        <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
+                                            <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
                                                     <dd class="font-semibold text-slate-900">74.8%</dd>
@@ -4137,6 +4326,7 @@
                                                     <dd class="font-semibold text-slate-900">70.2%</dd>
                                                 </div>
                                             </dl>
+                                            
                                         </div>
                                         <div class="rounded-lg bg-slate-50 p-4">
                                             <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Residual Adjustments</p>
@@ -4627,7 +4817,7 @@
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
-                                                Model edges summarized below.
+                                                Top recommended play highlighted below.
                                             </p>
                                         </div>
                                         <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
@@ -4653,7 +4843,6 @@
                                                         </span>
                                                     </div>
                                             </div>
-                                            
                                         </div>
                                     </div>
                                 </div>
@@ -4664,7 +4853,7 @@
                                     <div class="flex items-center justify-between">
                                         <h4 class="text-sm font-semibold text-gray-700">Model Edge</h4>
                                         <span class="inline-flex items-center gap-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-blue-600">
-                                            STRONG · MINIMAL
+                                            Spread: STRONG · Total: MINIMAL
                                         </span>
                                     </div>
                                     <div class="mt-4 space-y-4">
@@ -4678,7 +4867,7 @@
                                                     +14.4
                                                 </span>
                                             </div>
-                                        <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
+                                            <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
                                                     <dd class="font-semibold text-slate-900">80.2%</dd>
@@ -4688,6 +4877,7 @@
                                                     <dd class="font-semibold text-slate-900">80.5%</dd>
                                                 </div>
                                             </dl>
+                                            
                                         </div>
                                         <div class="rounded-lg bg-slate-50 p-4">
                                             <div class="flex items-center justify-between">
@@ -4699,7 +4889,7 @@
                                                     +7.4
                                                 </span>
                                             </div>
-                                        <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
+                                            <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
                                                     <dd class="font-semibold text-slate-900">66.7%</dd>
@@ -4709,6 +4899,7 @@
                                                     <dd class="font-semibold text-slate-900">63.1%</dd>
                                                 </div>
                                             </dl>
+                                            
                                         </div>
                                         <div class="rounded-lg bg-slate-50 p-4">
                                             <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Residual Adjustments</p>
@@ -5199,7 +5390,7 @@
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
-                                                Model edges summarized below.
+                                                Top recommended play highlighted below.
                                             </p>
                                         </div>
                                         <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
@@ -5225,7 +5416,6 @@
                                                         </span>
                                                     </div>
                                             </div>
-                                            
                                         </div>
                                     </div>
                                 </div>
@@ -5236,7 +5426,7 @@
                                     <div class="flex items-center justify-between">
                                         <h4 class="text-sm font-semibold text-gray-700">Model Edge</h4>
                                         <span class="inline-flex items-center gap-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-blue-600">
-                                            STRONG · WATCH
+                                            Spread: STRONG · Total: WATCH
                                         </span>
                                     </div>
                                     <div class="mt-4 space-y-4">
@@ -5250,7 +5440,7 @@
                                                     +11.5
                                                 </span>
                                             </div>
-                                        <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
+                                            <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
                                                     <dd class="font-semibold text-slate-900">82.6%</dd>
@@ -5260,6 +5450,7 @@
                                                     <dd class="font-semibold text-slate-900">80.9%</dd>
                                                 </div>
                                             </dl>
+                                            
                                         </div>
                                         <div class="rounded-lg bg-slate-50 p-4">
                                             <div class="flex items-center justify-between">
@@ -5271,7 +5462,7 @@
                                                     +7.3
                                                 </span>
                                             </div>
-                                        <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
+                                            <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
                                                     <dd class="font-semibold text-slate-900">69.2%</dd>
@@ -5281,6 +5472,7 @@
                                                     <dd class="font-semibold text-slate-900">61.7%</dd>
                                                 </div>
                                             </dl>
+                                            
                                         </div>
                                         <div class="rounded-lg bg-slate-50 p-4">
                                             <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Residual Adjustments</p>
@@ -5771,7 +5963,7 @@
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
-                                                Model edges summarized below.
+                                                Top recommended play highlighted below.
                                             </p>
                                         </div>
                                         <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
@@ -5797,7 +5989,6 @@
                                                         </span>
                                                     </div>
                                             </div>
-                                            
                                         </div>
                                     </div>
                                 </div>
@@ -5808,7 +5999,7 @@
                                     <div class="flex items-center justify-between">
                                         <h4 class="text-sm font-semibold text-gray-700">Model Edge</h4>
                                         <span class="inline-flex items-center gap-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-blue-600">
-                                            LEAN · WATCH
+                                            Spread: LEAN · Total: WATCH
                                         </span>
                                     </div>
                                     <div class="mt-4 space-y-4">
@@ -5822,7 +6013,7 @@
                                                     +5.6
                                                 </span>
                                             </div>
-                                        <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
+                                            <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
                                                     <dd class="font-semibold text-slate-900">58.8%</dd>
@@ -5832,6 +6023,7 @@
                                                     <dd class="font-semibold text-slate-900">57.3%</dd>
                                                 </div>
                                             </dl>
+                                            
                                         </div>
                                         <div class="rounded-lg bg-slate-50 p-4">
                                             <div class="flex items-center justify-between">
@@ -5843,7 +6035,7 @@
                                                     +10.2
                                                 </span>
                                             </div>
-                                        <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
+                                            <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
                                                     <dd class="font-semibold text-slate-900">78.3%</dd>
@@ -5853,6 +6045,7 @@
                                                     <dd class="font-semibold text-slate-900">78.0%</dd>
                                                 </div>
                                             </dl>
+                                            
                                         </div>
                                         <div class="rounded-lg bg-slate-50 p-4">
                                             <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Residual Adjustments</p>
@@ -6343,7 +6536,7 @@
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
-                                                Model edges summarized below.
+                                                Top recommended play highlighted below.
                                             </p>
                                         </div>
                                         <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
@@ -6369,7 +6562,6 @@
                                                         </span>
                                                     </div>
                                             </div>
-                                            
                                         </div>
                                     </div>
                                 </div>
@@ -6380,7 +6572,7 @@
                                     <div class="flex items-center justify-between">
                                         <h4 class="text-sm font-semibold text-gray-700">Model Edge</h4>
                                         <span class="inline-flex items-center gap-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-blue-600">
-                                            STRONG · MINIMAL
+                                            Spread: STRONG · Total: MINIMAL
                                         </span>
                                     </div>
                                     <div class="mt-4 space-y-4">
@@ -6394,7 +6586,7 @@
                                                     +18.1
                                                 </span>
                                             </div>
-                                        <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
+                                            <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
                                                     <dd class="font-semibold text-slate-900">82.4%</dd>
@@ -6404,6 +6596,7 @@
                                                     <dd class="font-semibold text-slate-900">79.9%</dd>
                                                 </div>
                                             </dl>
+                                            
                                         </div>
                                         <div class="rounded-lg bg-slate-50 p-4">
                                             <div class="flex items-center justify-between">
@@ -6415,7 +6608,7 @@
                                                     +7.0
                                                 </span>
                                             </div>
-                                        <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
+                                            <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
                                                     <dd class="font-semibold text-slate-900">66.7%</dd>
@@ -6425,6 +6618,7 @@
                                                     <dd class="font-semibold text-slate-900">66.7%</dd>
                                                 </div>
                                             </dl>
+                                            
                                         </div>
                                         <div class="rounded-lg bg-slate-50 p-4">
                                             <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Residual Adjustments</p>
@@ -6915,7 +7109,7 @@
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
-                                                Model edges summarized below.
+                                                Top recommended play highlighted below.
                                             </p>
                                         </div>
                                         <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
@@ -6941,7 +7135,6 @@
                                                         </span>
                                                     </div>
                                             </div>
-                                            
                                         </div>
                                     </div>
                                 </div>
@@ -6952,7 +7145,7 @@
                                     <div class="flex items-center justify-between">
                                         <h4 class="text-sm font-semibold text-gray-700">Model Edge</h4>
                                         <span class="inline-flex items-center gap-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-blue-600">
-                                            STRONG · LEAN
+                                            Spread: STRONG · Total: LEAN
                                         </span>
                                     </div>
                                     <div class="mt-4 space-y-4">
@@ -6966,7 +7159,7 @@
                                                     +13.9
                                                 </span>
                                             </div>
-                                        <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
+                                            <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
                                                     <dd class="font-semibold text-slate-900">82.6%</dd>
@@ -6976,6 +7169,7 @@
                                                     <dd class="font-semibold text-slate-900">80.2%</dd>
                                                 </div>
                                             </dl>
+                                            
                                         </div>
                                         <div class="rounded-lg bg-slate-50 p-4">
                                             <div class="flex items-center justify-between">
@@ -6987,7 +7181,7 @@
                                                     +11.8
                                                 </span>
                                             </div>
-                                        <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
+                                            <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
                                                     <dd class="font-semibold text-slate-900">82.5%</dd>
@@ -6997,6 +7191,7 @@
                                                     <dd class="font-semibold text-slate-900">81.9%</dd>
                                                 </div>
                                             </dl>
+                                            
                                         </div>
                                         <div class="rounded-lg bg-slate-50 p-4">
                                             <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Residual Adjustments</p>
@@ -7487,7 +7682,7 @@
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
-                                                Model edges summarized below.
+                                                Top recommended play highlighted below.
                                             </p>
                                         </div>
                                         <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
@@ -7513,7 +7708,6 @@
                                                         </span>
                                                     </div>
                                             </div>
-                                            
                                         </div>
                                     </div>
                                 </div>
@@ -7524,7 +7718,7 @@
                                     <div class="flex items-center justify-between">
                                         <h4 class="text-sm font-semibold text-gray-700">Model Edge</h4>
                                         <span class="inline-flex items-center gap-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-blue-600">
-                                            STRONG · MINIMAL
+                                            Spread: STRONG · Total: MINIMAL
                                         </span>
                                     </div>
                                     <div class="mt-4 space-y-4">
@@ -7538,7 +7732,7 @@
                                                     +7.1
                                                 </span>
                                             </div>
-                                        <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
+                                            <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
                                                     <dd class="font-semibold text-slate-900">77.5%</dd>
@@ -7548,6 +7742,7 @@
                                                     <dd class="font-semibold text-slate-900">79.8%</dd>
                                                 </div>
                                             </dl>
+                                            
                                         </div>
                                         <div class="rounded-lg bg-slate-50 p-4">
                                             <div class="flex items-center justify-between">
@@ -7559,7 +7754,7 @@
                                                     +7.0
                                                 </span>
                                             </div>
-                                        <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
+                                            <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
                                                     <dd class="font-semibold text-slate-900">66.7%</dd>
@@ -7569,6 +7764,7 @@
                                                     <dd class="font-semibold text-slate-900">61.8%</dd>
                                                 </div>
                                             </dl>
+                                            
                                         </div>
                                         <div class="rounded-lg bg-slate-50 p-4">
                                             <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Residual Adjustments</p>
@@ -8059,7 +8255,7 @@
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
-                                                Model edges summarized below.
+                                                Top recommended play highlighted below.
                                             </p>
                                         </div>
                                         <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
@@ -8085,7 +8281,6 @@
                                                         </span>
                                                     </div>
                                             </div>
-                                            
                                         </div>
                                     </div>
                                 </div>
@@ -8096,7 +8291,7 @@
                                     <div class="flex items-center justify-between">
                                         <h4 class="text-sm font-semibold text-gray-700">Model Edge</h4>
                                         <span class="inline-flex items-center gap-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-blue-600">
-                                            LEAN · MINIMAL
+                                            Spread: LEAN · Total: MINIMAL
                                         </span>
                                     </div>
                                     <div class="mt-4 space-y-4">
@@ -8110,7 +8305,7 @@
                                                     +3.5
                                                 </span>
                                             </div>
-                                        <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
+                                            <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
                                                     <dd class="font-semibold text-slate-900">60.5%</dd>
@@ -8120,6 +8315,7 @@
                                                     <dd class="font-semibold text-slate-900">58.7%</dd>
                                                 </div>
                                             </dl>
+                                            
                                         </div>
                                         <div class="rounded-lg bg-slate-50 p-4">
                                             <div class="flex items-center justify-between">
@@ -8131,7 +8327,7 @@
                                                     +10.9
                                                 </span>
                                             </div>
-                                        <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
+                                            <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
                                                     <dd class="font-semibold text-slate-900">65.5%</dd>
@@ -8141,6 +8337,7 @@
                                                     <dd class="font-semibold text-slate-900">65.9%</dd>
                                                 </div>
                                             </dl>
+                                            
                                         </div>
                                         <div class="rounded-lg bg-slate-50 p-4">
                                             <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Residual Adjustments</p>
@@ -8631,7 +8828,7 @@
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
-                                                Model edges summarized below.
+                                                Top recommended play highlighted below.
                                             </p>
                                         </div>
                                         <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
@@ -8657,7 +8854,6 @@
                                                         </span>
                                                     </div>
                                             </div>
-                                            
                                         </div>
                                     </div>
                                 </div>
@@ -8668,7 +8864,7 @@
                                     <div class="flex items-center justify-between">
                                         <h4 class="text-sm font-semibold text-gray-700">Model Edge</h4>
                                         <span class="inline-flex items-center gap-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-blue-600">
-                                            LEAN · WATCH
+                                            Spread: LEAN · Total: WATCH
                                         </span>
                                     </div>
                                     <div class="mt-4 space-y-4">
@@ -8682,7 +8878,7 @@
                                                     +12.6
                                                 </span>
                                             </div>
-                                        <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
+                                            <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
                                                     <dd class="font-semibold text-slate-900">60.5%</dd>
@@ -8692,6 +8888,7 @@
                                                     <dd class="font-semibold text-slate-900">60.2%</dd>
                                                 </div>
                                             </dl>
+                                            
                                         </div>
                                         <div class="rounded-lg bg-slate-50 p-4">
                                             <div class="flex items-center justify-between">
@@ -8703,7 +8900,7 @@
                                                     +7.7
                                                 </span>
                                             </div>
-                                        <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
+                                            <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
                                                     <dd class="font-semibold text-slate-900">69.2%</dd>
@@ -8713,6 +8910,7 @@
                                                     <dd class="font-semibold text-slate-900">65.0%</dd>
                                                 </div>
                                             </dl>
+                                            
                                         </div>
                                         <div class="rounded-lg bg-slate-50 p-4">
                                             <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Residual Adjustments</p>
