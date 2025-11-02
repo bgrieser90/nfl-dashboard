@@ -441,9 +441,9 @@
 
             /* -------- Mobile-only: compact middle matchup strip (VS / O/U / Model) -------- */
             .overview-section .grid.grid-cols-3 > div:nth-child(2) {
-                padding: 0.25rem 0 0.2rem !important;
-                margin-bottom: 0.25rem !important;
-                gap: 0.15rem !important;
+                padding: 0.2rem 0 0.15rem !important;
+                margin-bottom: 0.1rem !important;
+                gap: 0.12rem !important;
             }
             .overview-section .grid.grid-cols-3 > div:nth-child(2) .mobile-ou-line {
                 margin-top: 0.1rem !important;
@@ -463,10 +463,11 @@
 
             /* -------- Mobile-only: compact Spread/Total cards only -------- */
             .prediction-card {
-                padding: 0.5rem !important;
+                padding: 0.65rem !important; /* slightly increased for readability */
             }
             .prediction-card > .flex.items-center.justify-between {
                 margin-bottom: 0.25rem !important;
+                flex-wrap: nowrap !important;
             }
             .prediction-card p.text-sm.font-bold {
                 margin: 0 !important;
@@ -474,6 +475,11 @@
             }
             .prediction-card p.text-xs.text-gray-600 {
                 margin-top: 0.25rem !important;
+            }
+
+            /* Reduce top margin above team logo rows to shrink space under divider */
+            .overview-section .grid.grid-cols-3 > div:not(:nth-child(2)) > .mb-2 {
+                margin-bottom: 0.15rem !important;
             }
 
             /* -------- Mobile-only: tighten team meta line spacing (record/ATS/O-U row) -------- */
@@ -486,6 +492,13 @@
                 margin-top: 0.5rem !important;
                 margin-bottom: 0.35rem !important;
             }
+
+            /* -------- Mobile-only: Record filter collapse defaults + filter count alignment -------- */
+            .record-filter-content { display: none; }
+            .record-filter-content.hidden { display: none; }
+            .record-filter-content.is-open { display: block; }
+            #filtered-count { width: 100%; text-align: center; align-self: center; margin-top: 0.25rem !important; }
+            #filter-controls { margin-bottom: 0.75rem !important; }
         }
 
         @media (max-width: 480px) {
@@ -633,6 +646,9 @@
         }
         
         @media (min-width: 640px) {
+            /* Desktop/tablet: ensure record filter content visible even if hidden class present */
+            .record-filter-content.hidden { display: block !important; }
+            .record-filter-content { display: block !important; }
             .filter-strip {
                 overflow: visible;
                 padding-bottom: 0;
@@ -1001,6 +1017,18 @@
             const icon = document.getElementById(sectionId + '-icon');
             section.classList.toggle('hidden');
             icon.classList.toggle('rotate-180');
+        }
+
+        // Mobile-only: record filters collapse/expand helper without affecting desktop sections
+        function toggleRecordFilters(contentId, chevronId, btnEl) {
+            const el = document.getElementById(contentId);
+            if (!el) return;
+            // Toggle both display flags so mobile CSS shows when open
+            el.classList.toggle('hidden');
+            el.classList.toggle('is-open');
+            if (btnEl) btnEl.setAttribute('aria-expanded', el.classList.contains('hidden') ? 'false' : 'true');
+            const chev = document.getElementById(chevronId);
+            if (chev) chev.classList.toggle('rotate-180');
         }
 
         function showTab(gameIndex, tabName) {
@@ -1571,7 +1599,17 @@
 
         <!-- Filters Section -->
         <div class="bg-white rounded-xl shadow-md p-4 mb-6">
-            <h3 class="text-lg font-bold mb-3">Filter Games by Team Records</h3>
+            <div class="flex items-center justify-between">
+                <h3 class="text-lg font-bold">Filter Games by Team Records</h3>
+                <button type="button" class="sm:hidden inline-flex items-center text-gray-600 hover:text-gray-800"
+                        aria-controls="record-filter-content" aria-expanded="false"
+                        onclick="toggleRecordFilters('record-filter-content','record-filter-chevron', this)">
+                    <svg id="record-filter-chevron" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+            </div>
+            <div id="record-filter-content" class="hidden record-filter-content mt-3">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <!-- Win % Filter -->
                 <div>
@@ -1615,10 +1653,11 @@
                     <span id="record-filtered-count" class="font-bold">13</span> games match record filters
                 </span>
             </div>
+            </div>
         </div>
 
         <!-- Filter Controls -->
-        <div class="mb-6">
+        <div class="mb-6" id="filter-controls">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div class="filter-strip w-full sm:w-auto">
                     <div class="filter-strip__inner flex flex-nowrap sm:flex-wrap gap-2">
