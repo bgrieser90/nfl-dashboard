@@ -202,7 +202,7 @@
         .analytics-panel::before { content:""; position:absolute; left:0; top:0; height:6px; width:100%; background: var(--accent, #0ea5e9); border-top-left-radius:14px; border-top-right-radius:14px; }
         .analytics-header { display:flex; align-items:center; gap:8px; font-weight:600; color:#111827; margin-bottom:12px; }
         .analytics-dot { width:10px; height:10px; border-radius:999px; background: var(--accent, #0ea5e9); }
-        .analytics-grid { display:grid; grid-template-columns: repeat(6, minmax(110px, 1fr)); gap:10px; }
+        .analytics-grid { display:grid; grid-template-columns: repeat(8, minmax(110px, 1fr)); gap:10px; }
         /* Keep 6-up layout until small mobile */
         @media (max-width: 700px) { .analytics-grid { grid-template-columns: repeat(2, 1fr); } }
         
@@ -1807,7 +1807,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/lv.png" alt="Las Vegas" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">Las Vegas</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+380</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+390</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -1838,7 +1838,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/den.png" alt="Denver" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">Denver</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #002244, #00274e); color: #FFFFFF; border: 1px solid #001a33; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-500</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #002244, #00274e); color: #FFFFFF; border: 1px solid #001a33; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-520</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -1884,12 +1884,12 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    Denver -1 (-422)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(79% Cover Probability)</span>
+                                    Denver -1.5 (-423)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(79% Cover Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     <span class="matchup-pill" style="background-color: rgba(16, 185, 129, 0.18); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.45)" title="ATS hit rate 55.3%">Home Favorite</span>
                                     
-                                    <span>Edge 10.1 pts</span>
+                                    <span>Edge 9.6 pts</span>
                                     
                                 </p>
                             </div>
@@ -1922,7 +1922,7 @@
                             
                             <!-- Away Team Stats -->
                             <div class="analytics-panel" style="--accent:#000000;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>Las Vegas</span></div>
+                                <div class="analytics-header"><span>Las Vegas</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="218">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -1959,12 +1959,17 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">0.4</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="1.7">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">1.7</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
                                 </div>
                             </div>
                             
                             <!-- Home Team Stats -->
                             <div class="analytics-panel" style="--accent:#002244;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>Denver</span></div>
+                                <div class="analytics-header"><span>Denver</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="197">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -1999,6 +2004,11 @@
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="rushing_tds" data-value="1.8">
                                         <p class="text-xs text-gray-500 font-medium">Rush TDs</p>
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">1.8</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="0.8">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">0.8</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
                                 </div>
@@ -2082,20 +2092,20 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Spread</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">Denver -1 (-422)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">Denver -1.5 (-423)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
-                                                    +10.1
+                                                    +9.6
                                                 </span>
                                             </div>
                                             <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
-                                                    <dd class="font-semibold text-slate-900">79.3%</dd>
+                                                    <dd class="font-semibold text-slate-900">78.9%</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">80.8%</dd>
+                                                    <dd class="font-semibold text-slate-900">80.9%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -2368,7 +2378,7 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="4" data-stars-cal="4" data-ats-segment="HomeFav" data-su-category="favorite" data-record-visible="true">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="HomeFav" data-su-category="favorite" data-record-visible="true">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -2475,16 +2485,16 @@
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Spread Pick</span>
                                     <div class="flex">
-                                        <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    Indianapolis -1 (-260)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #3b82f6;">(68% Cover Probability)</span>
+                                    Indianapolis -0.5 (-262)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(70% Cover Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     <span class="matchup-pill" style="background-color: rgba(16, 185, 129, 0.18); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.45)" title="ATS hit rate 55.3%">Home Favorite</span>
                                     
-                                    <span>Edge 13.3 pts</span>
+                                    <span>Edge 13.8 pts</span>
                                     
                                 </p>
                             </div>
@@ -2517,7 +2527,7 @@
                             
                             <!-- Away Team Stats -->
                             <div class="analytics-panel" style="--accent:#A71930;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>Atlanta</span></div>
+                                <div class="analytics-header"><span>Atlanta</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="249">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -2554,12 +2564,17 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">1.0</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="0.7">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">0.7</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
                                 </div>
                             </div>
                             
                             <!-- Home Team Stats -->
                             <div class="analytics-panel" style="--accent:#002C5F;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>Indianapolis</span></div>
+                                <div class="analytics-header"><span>Indianapolis</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="318">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -2596,6 +2611,11 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">2.7</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="1.1">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">1.1</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -2629,8 +2649,8 @@
                                                 Betting Overview
                                             </span>
                                             <div class="mt-1 flex flex-wrap items-center gap-2">
-                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · Indianapolis -1 (-260) · MODERATE</span>
-                                                <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
+                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · Indianapolis -0.5 (-262) · STRONG</span>
+                                                <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
                                                 Top recommended play highlighted below.
@@ -2669,7 +2689,7 @@
                                     <div class="flex items-center justify-between">
                                         <h4 class="text-sm font-semibold text-gray-700">Model Edge</h4>
                                         <span class="inline-flex items-center gap-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-blue-600">
-                                            Spread: MODERATE · Total: MINIMAL
+                                            Spread: STRONG · Total: MINIMAL
                                         </span>
                                     </div>
                                     <div class="mt-4 space-y-4">
@@ -2677,20 +2697,20 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Spread</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">Indianapolis -1 (-260)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">Indianapolis -0.5 (-262)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
-                                                    +13.3
+                                                    +13.8
                                                 </span>
                                             </div>
                                             <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
-                                                    <dd class="font-semibold text-slate-900">68.5%</dd>
+                                                    <dd class="font-semibold text-slate-900">70.1%</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">72.2%</dd>
+                                                    <dd class="font-semibold text-slate-900">72.4%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -2997,7 +3017,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ne.png" alt="New England" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">New England</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #002244, #00274e); color: #FFFFFF; border: 1px solid #001a33; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+120</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #002244, #00274e); color: #FFFFFF; border: 1px solid #001a33; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+124</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -3028,7 +3048,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/tb.png" alt="Tampa Bay" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">Tampa Bay</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">-142</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">-148</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -3074,7 +3094,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    New England +9.5 (-380)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(78% Cover Probability)</span>
+                                    New England +9.5 (-412)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(78% Cover Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     <span class="matchup-pill" style="background-color: rgba(239, 68, 68, 0.18); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.45)" title="ATS hit rate 50.0%">Away Dog</span>
@@ -3093,7 +3113,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    OVER 44.5 (-180)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(70% Hit Probability)</span>
+                                    OVER 44.5 (-186)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(70% Hit Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     
@@ -3112,7 +3132,7 @@
                             
                             <!-- Away Team Stats -->
                             <div class="analytics-panel" style="--accent:#002244;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>New England</span></div>
+                                <div class="analytics-header"><span>New England</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="271">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -3149,12 +3169,17 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">1.6</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="0.9">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">0.9</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
                                 </div>
                             </div>
                             
                             <!-- Home Team Stats -->
                             <div class="analytics-panel" style="--accent:#A71930;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>Tampa Bay</span></div>
+                                <div class="analytics-header"><span>Tampa Bay</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="221">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -3191,6 +3216,11 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">1.3</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="0.6">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">0.6</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -3224,7 +3254,7 @@
                                                 Betting Overview
                                             </span>
                                             <div class="mt-1 flex flex-wrap items-center gap-2">
-                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · New England +9.5 (-380) · STRONG</span>
+                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · New England +9.5 (-412) · STRONG</span>
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
@@ -3272,7 +3302,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Spread</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">New England +9.5 (-380)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">New England +9.5 (-412)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +15.4
@@ -3285,7 +3315,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">79.2%</dd>
+                                                    <dd class="font-semibold text-slate-900">80.5%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -3294,7 +3324,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Total</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 44.5 (-180)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 44.5 (-186)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +7.8
@@ -3307,7 +3337,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">64.3%</dd>
+                                                    <dd class="font-semibold text-slate-900">65.0%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -3669,7 +3699,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    Carolina -1.5 (-217)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #3b82f6;">(66% Cover Probability)</span>
+                                    Carolina -1.5 (-216)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #3b82f6;">(66% Cover Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     <span class="matchup-pill" style="background-color: rgba(16, 185, 129, 0.18); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.45)" title="ATS hit rate 55.3%">Home Favorite</span>
@@ -3684,15 +3714,15 @@
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Total Pick</span>
                                     <div class="flex">
-                                        <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    OVER 33.5 (-263)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(74% Hit Probability)</span>
+                                    OVER 29.5 (-467)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(85% Hit Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     
-                                    <span>Edge 7.1 pts</span>
+                                    <span>Edge 11.1 pts</span>
                                     
                                 </p>
                             </div>
@@ -3707,7 +3737,7 @@
                             
                             <!-- Away Team Stats -->
                             <div class="analytics-panel" style="--accent:#D3BC8D;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>New Orleans</span></div>
+                                <div class="analytics-header"><span>New Orleans</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="194">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -3744,12 +3774,17 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">0.5</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="2.1">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">2.1</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
                                 </div>
                             </div>
                             
                             <!-- Home Team Stats -->
                             <div class="analytics-panel" style="--accent:#0085CA;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>Carolina</span></div>
+                                <div class="analytics-header"><span>Carolina</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="145">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -3786,6 +3821,11 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">1.5</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="1.2">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">1.2</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -3819,7 +3859,7 @@
                                                 Betting Overview
                                             </span>
                                             <div class="mt-1 flex flex-wrap items-center gap-2">
-                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · Carolina -1.5 (-217) · MODERATE</span>
+                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · Carolina -1.5 (-216) · MODERATE</span>
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
@@ -3859,7 +3899,7 @@
                                     <div class="flex items-center justify-between">
                                         <h4 class="text-sm font-semibold text-gray-700">Model Edge</h4>
                                         <span class="inline-flex items-center gap-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-blue-600">
-                                            Spread: MODERATE · Total: WATCH
+                                            Spread: MODERATE · Total: LEAN
                                         </span>
                                     </div>
                                     <div class="mt-4 space-y-4">
@@ -3867,7 +3907,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Spread</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">Carolina -1.5 (-217)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">Carolina -1.5 (-216)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +7.4
@@ -3880,7 +3920,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">68.5%</dd>
+                                                    <dd class="font-semibold text-slate-900">68.4%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -3889,20 +3929,20 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Total</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 33.5 (-263)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 29.5 (-467)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
-                                                    +7.1
+                                                    +11.1
                                                 </span>
                                             </div>
                                             <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
-                                                    <dd class="font-semibold text-slate-900">73.7%</dd>
+                                                    <dd class="font-semibold text-slate-900">85.2%</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">72.5%</dd>
+                                                    <dd class="font-semibold text-slate-900">82.4%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -4187,7 +4227,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/jax.png" alt="Jacksonville" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">Jacksonville</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+105</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">-122</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -4218,7 +4258,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/hou.png" alt="Houston" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">Houston</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #03202F, #032536); color: #FFFFFF; border: 1px solid #021823; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-125</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #03202F, #032536); color: #FFFFFF; border: 1px solid #021823; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+102</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -4279,15 +4319,15 @@
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Total Pick</span>
                                     <div class="flex">
-                                        <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    OVER 31.5 (-284)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(74% Hit Probability)</span>
+                                    OVER 27.5 (-498)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(79% Hit Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     
-                                    <span>Edge 6.8 pts</span>
+                                    <span>Edge 10.8 pts</span>
                                     
                                 </p>
                             </div>
@@ -4302,7 +4342,7 @@
                             
                             <!-- Away Team Stats -->
                             <div class="analytics-panel" style="--accent:#006778;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>Jacksonville</span></div>
+                                <div class="analytics-header"><span>Jacksonville</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="181">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -4339,12 +4379,17 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">0.7</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="0.6">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">0.6</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
                                 </div>
                             </div>
                             
                             <!-- Home Team Stats -->
                             <div class="analytics-panel" style="--accent:#03202F;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>Houston</span></div>
+                                <div class="analytics-header"><span>Houston</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="221">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -4378,6 +4423,11 @@
                                     </div>
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="rushing_tds" data-value="0.9">
                                         <p class="text-xs text-gray-500 font-medium">Rush TDs</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">0.9</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="0.9">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">0.9</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
@@ -4454,7 +4504,7 @@
                                     <div class="flex items-center justify-between">
                                         <h4 class="text-sm font-semibold text-gray-700">Model Edge</h4>
                                         <span class="inline-flex items-center gap-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-blue-600">
-                                            Spread: LEAN · Total: WATCH
+                                            Spread: LEAN · Total: LEAN
                                         </span>
                                     </div>
                                     <div class="mt-4 space-y-4">
@@ -4471,7 +4521,7 @@
                                             <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
-                                                    <dd class="font-semibold text-slate-900">57.5%</dd>
+                                                    <dd class="font-semibold text-slate-900">56.7%</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
@@ -4484,20 +4534,20 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Total</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 31.5 (-284)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 27.5 (-498)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
-                                                    +6.8
+                                                    +10.8
                                                 </span>
                                             </div>
                                             <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
-                                                    <dd class="font-semibold text-slate-900">73.7%</dd>
+                                                    <dd class="font-semibold text-slate-900">78.7%</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">74.0%</dd>
+                                                    <dd class="font-semibold text-slate-900">83.3%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -4859,12 +4909,12 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    Baltimore -1 (-189)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #f59e0b;">(64% Cover Probability)</span>
+                                    Baltimore -1.5 (-195)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #f59e0b;">(63% Cover Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     <span class="matchup-pill" style="background-color: rgba(245, 158, 11, 0.18); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.45)" title="ATS hit rate 54.5%">Away Favorite</span>
                                     
-                                    <span>Edge 8.2 pts</span>
+                                    <span>Edge 7.7 pts</span>
                                     
                                 </p>
                             </div>
@@ -4874,15 +4924,15 @@
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Total Pick</span>
                                     <div class="flex">
-                                        <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    OVER 41.5 (-270)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(74% Hit Probability)</span>
+                                    UNDER 58.5 (-374)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(86% Hit Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     
-                                    <span>Edge 6.9 pts</span>
+                                    <span>Edge 10.1 pts</span>
                                     
                                 </p>
                             </div>
@@ -4897,7 +4947,7 @@
                             
                             <!-- Away Team Stats -->
                             <div class="analytics-panel" style="--accent:#241773;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>Baltimore</span></div>
+                                <div class="analytics-header"><span>Baltimore</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="297">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -4934,12 +4984,17 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">1.3</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="0.5">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">0.5</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
                                 </div>
                             </div>
                             
                             <!-- Home Team Stats -->
                             <div class="analytics-panel" style="--accent:#4F2683;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>Minnesota</span></div>
+                                <div class="analytics-header"><span>Minnesota</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="212">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -4976,6 +5031,11 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">0.6</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="1.7">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">1.7</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -5009,7 +5069,7 @@
                                                 Betting Overview
                                             </span>
                                             <div class="mt-1 flex flex-wrap items-center gap-2">
-                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · Baltimore -1 (-189) · LEAN</span>
+                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · Baltimore -1.5 (-195) · LEAN</span>
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
@@ -5049,7 +5109,7 @@
                                     <div class="flex items-center justify-between">
                                         <h4 class="text-sm font-semibold text-gray-700">Model Edge</h4>
                                         <span class="inline-flex items-center gap-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-blue-600">
-                                            Spread: LEAN · Total: WATCH
+                                            Spread: LEAN · Total: LEAN
                                         </span>
                                     </div>
                                     <div class="mt-4 space-y-4">
@@ -5057,20 +5117,20 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Spread</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">Baltimore -1 (-189)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">Baltimore -1.5 (-195)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
-                                                    +8.2
+                                                    +7.7
                                                 </span>
                                             </div>
                                             <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
-                                                    <dd class="font-semibold text-slate-900">64.2%</dd>
+                                                    <dd class="font-semibold text-slate-900">62.9%</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">65.4%</dd>
+                                                    <dd class="font-semibold text-slate-900">66.1%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -5079,20 +5139,20 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Total</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 41.5 (-270)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">UNDER 58.5 (-374)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
-                                                    +6.9
+                                                    +10.1
                                                 </span>
                                             </div>
                                             <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
-                                                    <dd class="font-semibold text-slate-900">73.7%</dd>
+                                                    <dd class="font-semibold text-slate-900">85.8%</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">73.0%</dd>
+                                                    <dd class="font-semibold text-slate-900">78.9%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -5377,7 +5437,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/cle.png" alt="Cleveland" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">Cleveland</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">-135</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">-130</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -5408,7 +5468,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png" alt="NY Jets" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">NY Jets</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #003F2D, #004834); color: #FFFFFF; border: 1px solid #002f22; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+114</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #003F2D, #004834); color: #FFFFFF; border: 1px solid #002f22; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+110</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -5454,7 +5514,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    Cleveland +11 (-304)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(81% Cover Probability)</span>
+                                    Cleveland +11 (-330)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(81% Cover Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     <span class="matchup-pill" style="background-color: rgba(239, 68, 68, 0.18); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.45)" title="ATS hit rate 50.0%">Away Dog</span>
@@ -5492,7 +5552,7 @@
                             
                             <!-- Away Team Stats -->
                             <div class="analytics-panel" style="--accent:#FF3C00;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>Cleveland</span></div>
+                                <div class="analytics-header"><span>Cleveland</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="136">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -5529,12 +5589,17 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">0.8</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="1.0">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">1.0</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
                                 </div>
                             </div>
                             
                             <!-- Home Team Stats -->
                             <div class="analytics-panel" style="--accent:#003F2D;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>NY Jets</span></div>
+                                <div class="analytics-header"><span>NY Jets</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="106">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -5569,6 +5634,11 @@
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="rushing_tds" data-value="1.1">
                                         <p class="text-xs text-gray-500 font-medium">Rush TDs</p>
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">1.1</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="0.9">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">0.9</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
                                 </div>
@@ -5652,7 +5722,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Spread</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">Cleveland +11 (-304)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">Cleveland +11 (-330)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +10.6
@@ -5665,7 +5735,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">75.2%</dd>
+                                                    <dd class="font-semibold text-slate-900">76.7%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -5972,7 +6042,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/nyg.png" alt="NY Giants" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">NY Giants</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+154</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+180</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -6003,7 +6073,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/chi.png" alt="Chicago" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">Chicago</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #0B162A, #0d1930); color: #FFFFFF; border: 1px solid #081120; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-185</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #0B162A, #0d1930); color: #FFFFFF; border: 1px solid #081120; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-218</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -6049,12 +6119,12 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    Chicago -1.5 (-171)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #f59e0b;">(61% Cover Probability)</span>
+                                    Chicago -0.5 (-197)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #f59e0b;">(64% Cover Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     <span class="matchup-pill" style="background-color: rgba(16, 185, 129, 0.18); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.45)" title="ATS hit rate 55.3%">Home Favorite</span>
                                     
-                                    <span>Edge 2.3 pts</span>
+                                    <span>Edge 3.3 pts</span>
                                     
                                 </p>
                             </div>
@@ -6064,15 +6134,15 @@
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Total Pick</span>
                                     <div class="flex">
-                                        <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    OVER 45.5 (-157)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #f59e0b;">(64% Hit Probability)</span>
+                                    OVER 44.5 (-140)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #3b82f6;">(68% Hit Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     
-                                    <span>Edge 8.0 pts</span>
+                                    <span>Edge 9.0 pts</span>
                                     
                                 </p>
                             </div>
@@ -6087,7 +6157,7 @@
                             
                             <!-- Away Team Stats -->
                             <div class="analytics-panel" style="--accent:#0B2265;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>NY Giants</span></div>
+                                <div class="analytics-header"><span>NY Giants</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="230">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -6124,12 +6194,17 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">1.4</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="0.7">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">0.7</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
                                 </div>
                             </div>
                             
                             <!-- Home Team Stats -->
                             <div class="analytics-panel" style="--accent:#0B162A;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>Chicago</span></div>
+                                <div class="analytics-header"><span>Chicago</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="237">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -6166,6 +6241,11 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">1.8</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="0.7">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">0.7</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -6199,7 +6279,7 @@
                                                 Betting Overview
                                             </span>
                                             <div class="mt-1 flex flex-wrap items-center gap-2">
-                                                <span class="text-lg font-bold text-gray-900">BEST BET · Total · OVER 45.5 (-157) · MINIMAL</span>
+                                                <span class="text-lg font-bold text-gray-900">BEST BET · Total · OVER 44.5 (-140) · WATCH</span>
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
@@ -6239,7 +6319,7 @@
                                     <div class="flex items-center justify-between">
                                         <h4 class="text-sm font-semibold text-gray-700">Model Edge</h4>
                                         <span class="inline-flex items-center gap-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-blue-600">
-                                            Spread: LEAN · Total: MINIMAL
+                                            Spread: LEAN · Total: WATCH
                                         </span>
                                     </div>
                                     <div class="mt-4 space-y-4">
@@ -6247,20 +6327,20 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Spread</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">Chicago -1.5 (-171)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">Chicago -0.5 (-197)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
-                                                    +2.3
+                                                    +3.3
                                                 </span>
                                             </div>
                                             <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
-                                                    <dd class="font-semibold text-slate-900">61.2%</dd>
+                                                    <dd class="font-semibold text-slate-900">64.2%</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">63.1%</dd>
+                                                    <dd class="font-semibold text-slate-900">66.3%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -6269,20 +6349,20 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Total</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 45.5 (-157)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 44.5 (-140)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
-                                                    +8.0
+                                                    +9.0
                                                 </span>
                                             </div>
                                             <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
-                                                    <dd class="font-semibold text-slate-900">63.9%</dd>
+                                                    <dd class="font-semibold text-slate-900">68.2%</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">61.1%</dd>
+                                                    <dd class="font-semibold text-slate-900">58.3%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -6567,7 +6647,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/buf.png" alt="Buffalo" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">Buffalo</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #00338D, #003ba2); color: #FFFFFF; border: 1px solid #00266a; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-470</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #00338D, #003ba2); color: #FFFFFF; border: 1px solid #00266a; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-485</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -6598,7 +6678,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/mia.png" alt="Miami" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">Miami</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+360</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+370</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -6644,7 +6724,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    Buffalo -1.5 (-409)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(79% Cover Probability)</span>
+                                    Buffalo -1.5 (-407)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(79% Cover Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     <span class="matchup-pill" style="background-color: rgba(245, 158, 11, 0.18); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.45)" title="ATS hit rate 54.5%">Away Favorite</span>
@@ -6663,7 +6743,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    OVER 45.5 (-189)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(71% Hit Probability)</span>
+                                    OVER 45.5 (-195)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(71% Hit Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     
@@ -6682,7 +6762,7 @@
                             
                             <!-- Away Team Stats -->
                             <div class="analytics-panel" style="--accent:#00338D;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>Buffalo</span></div>
+                                <div class="analytics-header"><span>Buffalo</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="210">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -6719,12 +6799,17 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">2.5</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="0.6">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">0.6</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
                                 </div>
                             </div>
                             
                             <!-- Home Team Stats -->
                             <div class="analytics-panel" style="--accent:#008E97;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>Miami</span></div>
+                                <div class="analytics-header"><span>Miami</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="173">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -6761,6 +6846,11 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">0.8</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="1.9">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">1.9</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -6794,7 +6884,7 @@
                                                 Betting Overview
                                             </span>
                                             <div class="mt-1 flex flex-wrap items-center gap-2">
-                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · Buffalo -1.5 (-409) · STRONG</span>
+                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · Buffalo -1.5 (-407) · STRONG</span>
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
@@ -6842,7 +6932,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Spread</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">Buffalo -1.5 (-409)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">Buffalo -1.5 (-407)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +13.1
@@ -6855,7 +6945,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">80.4%</dd>
+                                                    <dd class="font-semibold text-slate-900">80.3%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -6864,7 +6954,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Total</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 45.5 (-189)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 45.5 (-195)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +7.3
@@ -6877,7 +6967,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">65.4%</dd>
+                                                    <dd class="font-semibold text-slate-900">66.1%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -7239,7 +7329,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    Seattle -1.5 (-256)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(70% Cover Probability)</span>
+                                    Seattle -1.5 (-266)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(70% Cover Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     <span class="matchup-pill" style="background-color: rgba(16, 185, 129, 0.18); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.45)" title="ATS hit rate 55.3%">Home Favorite</span>
@@ -7258,7 +7348,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    OVER 43.5 (-144)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #f59e0b;">(61% Hit Probability)</span>
+                                    OVER 43.5 (-140)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #f59e0b;">(61% Hit Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     
@@ -7277,7 +7367,7 @@
                             
                             <!-- Away Team Stats -->
                             <div class="analytics-panel" style="--accent:#97233F;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>Arizona</span></div>
+                                <div class="analytics-header"><span>Arizona</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="259">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -7314,12 +7404,17 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">1.1</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="0.8">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">0.8</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
                                 </div>
                             </div>
                             
                             <!-- Home Team Stats -->
                             <div class="analytics-panel" style="--accent:#002244;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>Seattle</span></div>
+                                <div class="analytics-header"><span>Seattle</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="395">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -7356,6 +7451,11 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">1.6</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="1.3">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">1.3</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -7389,7 +7489,7 @@
                                                 Betting Overview
                                             </span>
                                             <div class="mt-1 flex flex-wrap items-center gap-2">
-                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · Seattle -1.5 (-256) · STRONG</span>
+                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · Seattle -1.5 (-266) · STRONG</span>
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
@@ -7437,7 +7537,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Spread</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">Seattle -1.5 (-256)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">Seattle -1.5 (-266)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +10.4
@@ -7450,7 +7550,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">71.9%</dd>
+                                                    <dd class="font-semibold text-slate-900">72.7%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -7459,7 +7559,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Total</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 43.5 (-144)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 43.5 (-140)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +10.6
@@ -7472,7 +7572,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">59.0%</dd>
+                                                    <dd class="font-semibold text-slate-900">58.3%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -7757,7 +7857,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/det.png" alt="Detroit" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">Detroit</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #0076B6, #0088d1); color: #FFFFFF; border: 1px solid #005989; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-520</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #0076B6, #0088d1); color: #FFFFFF; border: 1px solid #005989; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-470</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -7788,7 +7888,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png" alt="Washington" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">Washington</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+390</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+360</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -7834,7 +7934,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    Detroit -2 (-411)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(78% Cover Probability)</span>
+                                    Detroit -2 (-376)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(78% Cover Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     <span class="matchup-pill" style="background-color: rgba(245, 158, 11, 0.18); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.45)" title="ATS hit rate 54.5%">Away Favorite</span>
@@ -7853,7 +7953,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    OVER 47.5 (-139)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #f59e0b;">(62% Hit Probability)</span>
+                                    OVER 47.5 (-135)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #f59e0b;">(62% Hit Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     
@@ -7872,7 +7972,7 @@
                             
                             <!-- Away Team Stats -->
                             <div class="analytics-panel" style="--accent:#0076B6;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>Detroit</span></div>
+                                <div class="analytics-header"><span>Detroit</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="277">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -7909,12 +8009,17 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">2.3</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="0.7">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">0.7</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
                                 </div>
                             </div>
                             
                             <!-- Home Team Stats -->
                             <div class="analytics-panel" style="--accent:#5A1414;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>Washington</span></div>
+                                <div class="analytics-header"><span>Washington</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="226">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -7951,6 +8056,11 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">1.4</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="1.6">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">1.6</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -7984,7 +8094,7 @@
                                                 Betting Overview
                                             </span>
                                             <div class="mt-1 flex flex-wrap items-center gap-2">
-                                                <span class="text-lg font-bold text-gray-900">BEST BET · Total · OVER 47.5 (-139) · MINIMAL</span>
+                                                <span class="text-lg font-bold text-gray-900">BEST BET · Total · OVER 47.5 (-135) · MINIMAL</span>
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
@@ -8032,7 +8142,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Spread</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">Detroit -2 (-411)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">Detroit -2 (-376)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +9.1
@@ -8045,7 +8155,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">80.4%</dd>
+                                                    <dd class="font-semibold text-slate-900">79.0%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -8054,7 +8164,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Total</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 47.5 (-139)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 47.5 (-135)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +7.7
@@ -8067,7 +8177,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">58.2%</dd>
+                                                    <dd class="font-semibold text-slate-900">57.4%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -8352,7 +8462,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/lar.png" alt="LA Rams" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">LA Rams</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #003594, #003daa); color: #FFFFFF; border: 1px solid #00286f; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-198</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #003594, #003daa); color: #FFFFFF; border: 1px solid #00286f; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-225</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -8383,7 +8493,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/sf.png" alt="San Francisco" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">San Francisco</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+164</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+185</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -8429,12 +8539,12 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    LA Rams -1.5 (-177)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #f59e0b;">(61% Cover Probability)</span>
+                                    LA Rams -0.5 (-195)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #f59e0b;">(64% Cover Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     <span class="matchup-pill" style="background-color: rgba(245, 158, 11, 0.18); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.45)" title="ATS hit rate 54.5%">Away Favorite</span>
                                     
-                                    <span>Edge 3.7 pts</span>
+                                    <span>Edge 4.7 pts</span>
                                     
                                 </p>
                             </div>
@@ -8467,7 +8577,7 @@
                             
                             <!-- Away Team Stats -->
                             <div class="analytics-panel" style="--accent:#003594;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>LA Rams</span></div>
+                                <div class="analytics-header"><span>LA Rams</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="301">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -8504,12 +8614,17 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">1.7</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="0.5">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">0.5</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
                                 </div>
                             </div>
                             
                             <!-- Home Team Stats -->
                             <div class="analytics-panel" style="--accent:#AA0000;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>San Francisco</span></div>
+                                <div class="analytics-header"><span>San Francisco</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="255">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -8544,6 +8659,11 @@
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="rushing_tds" data-value="0.8">
                                         <p class="text-xs text-gray-500 font-medium">Rush TDs</p>
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">0.8</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="1.2">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">1.2</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
                                 </div>
@@ -8627,20 +8747,20 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Spread</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">LA Rams -1.5 (-177)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">LA Rams -0.5 (-195)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
-                                                    +3.7
+                                                    +4.7
                                                 </span>
                                             </div>
                                             <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
-                                                    <dd class="font-semibold text-slate-900">61.2%</dd>
+                                                    <dd class="font-semibold text-slate-900">64.2%</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">63.9%</dd>
+                                                    <dd class="font-semibold text-slate-900">66.1%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -9024,7 +9144,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    LA Chargers -1 (-141)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #f59e0b;">(60% Cover Probability)</span>
+                                    LA Chargers -1 (-145)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #f59e0b;">(60% Cover Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     <span class="matchup-pill" style="background-color: rgba(16, 185, 129, 0.18); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.45)" title="ATS hit rate 55.3%">Home Favorite</span>
@@ -9062,7 +9182,7 @@
                             
                             <!-- Away Team Stats -->
                             <div class="analytics-panel" style="--accent:#000000;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>Pittsburgh</span></div>
+                                <div class="analytics-header"><span>Pittsburgh</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="226">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -9099,12 +9219,17 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">0.7</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="1.2">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">1.2</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
                                 </div>
                             </div>
                             
                             <!-- Home Team Stats -->
                             <div class="analytics-panel" style="--accent:#007BC7;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>LA Chargers</span></div>
+                                <div class="analytics-header"><span>LA Chargers</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="229">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -9141,6 +9266,11 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">2.0</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="1.1">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">1.1</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -9174,7 +9304,7 @@
                                                 Betting Overview
                                             </span>
                                             <div class="mt-1 flex flex-wrap items-center gap-2">
-                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · LA Chargers -1 (-141) · LEAN</span>
+                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · LA Chargers -1 (-145) · LEAN</span>
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
@@ -9222,7 +9352,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Spread</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">LA Chargers -1 (-141)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">LA Chargers -1 (-145)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +8.7
@@ -9235,7 +9365,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">58.5%</dd>
+                                                    <dd class="font-semibold text-slate-900">59.2%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -9563,7 +9693,7 @@
                                     <p class="text-xs text-gray-600 font-medium mb-1 mobile-kickoff-label">Nov 10 • 8:15 PM ET</p>
                                     <span class="text-sm text-gray-400 font-medium mobile-vs-label">VS</span>
                                     <div class="mt-1 mobile-ou-line">
-                                        <span class="text-xs text-gray-600 font-medium">O/U 44.5 <span class="text-[10px] text-gray-400">Model: 55.5 (o)</span></span>
+                                        <span class="text-xs text-gray-600 font-medium">O/U 44.5</span>
                                     </div>
                                 </div>
                                 
@@ -9619,7 +9749,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    Philadelphia +12.5 (-496)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(82% Cover Probability)</span>
+                                    Philadelphia +12.5 (-518)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(82% Cover Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     <span class="matchup-pill" style="background-color: rgba(239, 68, 68, 0.18); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.45)" title="ATS hit rate 50.0%">Away Dog</span>
@@ -9638,11 +9768,11 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    OVER 43.5 (-134)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #f59e0b;">(60% Hit Probability)</span>
+                                    OVER 44.5<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #ef4444;">(54% Hit Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     
-                                    <span>Edge 11.8 pts</span>
+                                    <span>Edge 10.8 pts</span>
                                     
                                 </p>
                             </div>
@@ -9657,7 +9787,7 @@
                             
                             <!-- Away Team Stats -->
                             <div class="analytics-panel" style="--accent:#004C54;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>Philadelphia</span></div>
+                                <div class="analytics-header"><span>Philadelphia</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="295">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -9694,12 +9824,17 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">2.0</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="0.4">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">0.4</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
                                 </div>
                             </div>
                             
                             <!-- Home Team Stats -->
                             <div class="analytics-panel" style="--accent:#203731;">
-                                <div class="analytics-header"><span class="analytics-dot"></span><span>Green Bay</span></div>
+                                <div class="analytics-header"><span>Green Bay</span></div>
                                 <div class="analytics-grid">
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="366">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
@@ -9736,6 +9871,11 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">1.2</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="0.6">
+                                        <p class="text-xs text-gray-500 font-medium">Turnovers</p>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">0.6</span></div>
+                                        <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -9769,7 +9909,7 @@
                                                 Betting Overview
                                             </span>
                                             <div class="mt-1 flex flex-wrap items-center gap-2">
-                                                <span class="text-lg font-bold text-gray-900">BEST BET · Total · OVER 43.5 (-134) · MINIMAL</span>
+                                                <span class="text-lg font-bold text-gray-900">BEST BET · Total · OVER 44.5 · MINIMAL</span>
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
@@ -9817,7 +9957,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Spread</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">Philadelphia +12.5 (-496)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">Philadelphia +12.5 (-518)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +13.5
@@ -9830,7 +9970,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">83.2%</dd>
+                                                    <dd class="font-semibold text-slate-900">83.8%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -9839,20 +9979,20 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Total</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 43.5 (-134)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 44.5</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
-                                                    +11.8
+                                                    +10.8
                                                 </span>
                                             </div>
                                             <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
-                                                    <dd class="font-semibold text-slate-900">60.4%</dd>
+                                                    <dd class="font-semibold text-slate-900">54.1%</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">57.3%</dd>
+                                                    <dd class="font-semibold text-slate-900">52.4%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -10127,7 +10267,7 @@
     </div>
 <script>
 (function(){
-  var MAE = {"passing_yards":68.51,"pass_attempts":11.74,"pass_completions":7.47,"passing_tds":1,"rushing_yards":62.12,"rushing_attempts":8.04,"rushing_tds":0.91};
+  var MAE = {"passing_yards":68.51,"pass_attempts":11.74,"pass_completions":7.47,"passing_tds":1,"rushing_yards":62.12,"rushing_attempts":8.04,"rushing_tds":0.91,"turnovers":0.95};
   function fmt(prop, v){ return /_tds$/.test(prop) ? (Math.round(v*10)/10).toFixed(1) : Math.round(v); }
   function apply(){
     var cards = document.querySelectorAll('.stat-card');
