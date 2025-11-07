@@ -892,7 +892,8 @@
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.98));
             box-shadow: 0 18px 34px -22px rgba(15, 23, 42, 0.4);
             text-align: center;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background-color .2s ease, border-color .2s ease;
+            position: relative;
         }
 
         .breakdown-chip:hover {
@@ -906,14 +907,32 @@
             box-shadow: 0 20px 36px -24px rgba(16, 185, 129, 0.35);
         }
 
-        /* Stronger selected indication for chips and rows */
+        /* Stronger selected indication for chips and rows (override hover) */
         .breakdown-chip.breakdown-selectable.is-selected,
+        .breakdown-chip.breakdown-selectable.is-selected:hover,
+        .breakdown-chip.breakdown-selectable.is-selected.breakdown-chip--highlight,
+        .breakdown-chip.breakdown-selectable.is-selected.breakdown-chip--highlight:hover,
         .breakdown-row.breakdown-selectable.is-selected,
-        .conference-card.breakdown-selectable.is-selected {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(37, 99, 235, 0.12)) !important;
-            border-color: rgba(37, 99, 235, 0.65) !important;
-            box-shadow: inset 0 0 0 2px rgba(37, 99, 235, 0.45) !important;
-            transform: translateY(-1px);
+        .breakdown-row.breakdown-selectable.is-selected:hover,
+        .conference-card.breakdown-selectable.is-selected,
+        .conference-card.breakdown-selectable.is-selected:hover {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.10), rgba(37, 99, 235, 0.14)) !important;
+            border-color: rgba(37, 99, 235, 0.75) !important;
+            box-shadow: inset 0 0 0 2px rgba(37, 99, 235, 0.55) !important;
+            transform: translateY(0) !important;
+        }
+
+        /* Tiny selection dot indicator (non-intrusive) */
+        .breakdown-chip.breakdown-selectable.is-selected::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 8px;
+            height: 8px;
+            border-radius: 9999px;
+            background: #2563eb;
+            box-shadow: 0 0 0 2px #ffffff;
         }
 
         .breakdown-chip__title {
@@ -1084,6 +1103,30 @@
             }
         }
     </style>
+    <!-- Late CSS to force visible selection state over any hover styles -->
+    <style>
+        .breakdown-selectable { position: relative; }
+        .breakdown-selectable[data-selected="true"],
+        .breakdown-selectable[data-selected="true"]:hover {
+            background: linear-gradient(135deg, rgba(37,99,235,0.10), rgba(37,99,235,0.14)) !important;
+            border-color: rgba(37,99,235,0.85) !important;
+            box-shadow: inset 0 0 0 2px rgba(37,99,235,0.60) !important;
+            transform: none !important;
+        }
+        .breakdown-selectable[data-selected="true"]::after {
+            content: "";
+            position: absolute; top: 8px; right: 8px; width: 10px; height: 10px;
+            border-radius: 9999px; background: #2563eb; box-shadow: 0 0 0 2px #fff;
+        }
+        /* Disable hover lift/shadow on interactive chips used as filters
+           so hover does not visually override selection state */
+        .breakdown-chip.breakdown-selectable[data-filter-su-combo]:hover,
+        .breakdown-chip.breakdown-selectable[data-filter-ats-combo]:hover {
+            transform: none !important;
+            /* keep the base (non-hover) shadow for visual consistency */
+            box-shadow: 0 18px 34px -22px rgba(15, 23, 42, 0.4) !important;
+        }
+    </style>
     <script>
         function toggleSection(id) {
             const section = document.getElementById(id);
@@ -1225,6 +1268,7 @@
             document.querySelectorAll('[data-filter-su-pick-location], [data-filter-su-combo]').forEach(n => {
                 n.classList.remove('is-selected');
                 n.setAttribute('aria-pressed', 'false');
+                n.removeAttribute('data-selected');
             });
             applyGameFilters();
         }
@@ -1246,6 +1290,7 @@
             document.querySelectorAll('[data-filter-total-min], [data-ou-filter-row]').forEach(n => {
                 n.classList.remove('is-selected');
                 n.setAttribute('aria-pressed', 'false');
+                n.removeAttribute('data-selected');
             });
             applyGameFilters();
         }
@@ -1355,12 +1400,20 @@
         });
 
         function setupBreakdownFilterClicks() {
-            const selectSingleInGroup = (selector, targetEl, makeActive) => {
-                document.querySelectorAll(selector).forEach(node => {
-                    node.classList.remove('is-selected');
-                    node.setAttribute('aria-pressed', 'false');
+            // Clear selection state for a group, but keep an optional element intact
+            const clearSelection = (selector, exceptEl = null) => {
+                document.querySelectorAll(selector).forEach(n => {
+                    if (exceptEl && n === exceptEl) return;
+                    n.removeAttribute('data-selected');
+                    n.classList.remove('is-selected');
+                    n.setAttribute('aria-pressed', 'false');
                 });
-                if (makeActive && targetEl) {
+            };
+            // Set selection on one target and clear the rest of the group (excluding target)
+            const setSelection = (selector, targetEl) => {
+                clearSelection(selector, targetEl);
+                if (targetEl) {
+                    targetEl.setAttribute('data-selected', 'true');
                     targetEl.classList.add('is-selected');
                     targetEl.setAttribute('aria-pressed', 'true');
                 }
@@ -1379,9 +1432,10 @@
                     const same = currentSuPickLocation === nextLoc && currentSuFilter === nextFav;
                     currentSuPickLocation = same ? 'all' : nextLoc;
                     currentSuFilter = same ? 'all' : nextFav;
-                    selectSingleInGroup('[data-filter-su-combo]', same ? null : el, !same);
-                    selectSingleInGroup('[data-filter-su-pick-location]', null, false);
-                    selectSingleInGroup('[data-su-filter]', null, false);
+                    setSelection('[data-filter-su-combo]', same ? null : el);
+                    // Clear other SU groups but do NOT clear the clicked combo chip (it has these attributes too)
+                    clearSelection('[data-filter-su-pick-location]', el);
+                    clearSelection('[data-su-filter-row]', el);
                     // Sync top buttons
                     document.querySelectorAll('button[data-su-filter]').forEach(btn => {
                         const filterValue = btn.dataset.suFilter || 'all';
@@ -1402,9 +1456,9 @@
                     const same = currentAtsLocation === nextLoc && currentAtsSide === nextSide;
                     currentAtsLocation = same ? 'all' : nextLoc;
                     currentAtsSide = same ? 'all' : nextSide;
-                    selectSingleInGroup('[data-filter-ats-combo]', same ? null : el, !same);
-                    selectSingleInGroup('[data-filter-ats-location]', null, false);
-                    selectSingleInGroup('[data-filter-ats-side]', null, false);
+                    setSelection('[data-filter-ats-combo]', same ? null : el);
+                    clearSelection('[data-filter-ats-location]', el);
+                    clearSelection('[data-filter-ats-side]', el);
                     applyGameFilters();
                     return;
                 }
@@ -1414,10 +1468,10 @@
                     const val = (el.getAttribute('data-filter-su-pick-location') || '').toLowerCase();
                     if (currentSuPickLocation === val) {
                         currentSuPickLocation = 'all';
-                        selectSingleInGroup('[data-filter-su-pick-location]', null, false);
+                        setSelection('[data-filter-su-pick-location]', null);
                     } else {
                         currentSuPickLocation = val;
-                        selectSingleInGroup('[data-filter-su-pick-location]', el, true);
+                        setSelection('[data-filter-su-pick-location]', el);
                     }
                     applyGameFilters();
                     return;
@@ -1435,7 +1489,7 @@
                         btn.classList.toggle('filter-btn--active', isActive);
                         btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
                     });
-                    selectSingleInGroup('[data-su-filter-row]', next === 'all' ? null : el, next !== 'all');
+                    setSelection('[data-su-filter-row]', next === 'all' ? null : el);
                     applyGameFilters();
                     return;
                 }
@@ -1451,7 +1505,7 @@
                         btn.classList.toggle('filter-btn--active', isActive);
                         btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
                     });
-                    selectSingleInGroup('[data-ou-filter-row]', next === 'all' ? null : el, next !== 'all');
+                    setSelection('[data-ou-filter-row]', next === 'all' ? null : el);
                     applyGameFilters();
                     return;
                 }
@@ -1461,10 +1515,10 @@
                     const val = (el.getAttribute('data-filter-ats-location') || '').toLowerCase();
                     if (currentAtsLocation === val) {
                         currentAtsLocation = 'all';
-                        selectSingleInGroup('[data-filter-ats-location]', null, false);
+                        setSelection('[data-filter-ats-location]', null);
                     } else {
                         currentAtsLocation = val;
-                        selectSingleInGroup('[data-filter-ats-location]', el, true);
+                        setSelection('[data-filter-ats-location]', el);
                     }
                     applyGameFilters();
                     return;
@@ -1475,10 +1529,10 @@
                     const val = (el.getAttribute('data-filter-ats-side') || '').toLowerCase();
                     if (currentAtsSide === val) {
                         currentAtsSide = 'all';
-                        selectSingleInGroup('[data-filter-ats-side]', null, false);
+                        setSelection('[data-filter-ats-side]', null);
                     } else {
                         currentAtsSide = val;
-                        selectSingleInGroup('[data-filter-ats-side]', el, true);
+                        setSelection('[data-filter-ats-side]', el);
                     }
                     applyGameFilters();
                     return;
@@ -1490,7 +1544,7 @@
                     const max = parseFloat(el.getAttribute('data-filter-spread-max'));
                     const same = currentSpreadBand && currentSpreadBand.min === min && currentSpreadBand.max === max;
                     currentSpreadBand = same ? null : { min, max };
-                    selectSingleInGroup('[data-filter-spread-min]', same ? null : el, !same);
+                    setSelection('[data-filter-spread-min]', same ? null : el);
                     applyGameFilters();
                     return;
                 }
@@ -1501,7 +1555,7 @@
                     const max = parseFloat(el.getAttribute('data-filter-total-max'));
                     const same = currentTotalBand && currentTotalBand.min === min && currentTotalBand.max === max;
                     currentTotalBand = same ? null : { min, max };
-                    selectSingleInGroup('[data-filter-total-min]', same ? null : el, !same);
+                    setSelection('[data-filter-total-min]', same ? null : el);
                     applyGameFilters();
                     return;
                 }
@@ -1531,9 +1585,18 @@
                 allBtn.setAttribute('aria-pressed', 'true');
             }
             setMatchupSegment('all');
+            // Clear highlights on breakdown rows/chips and remove inline visuals
             document.querySelectorAll('.breakdown-selectable').forEach(n => {
                 n.classList.remove('is-selected');
+                n.removeAttribute('data-selected');
                 n.setAttribute('aria-pressed', 'false');
+                try {
+                    n.style.removeProperty('background');
+                    n.style.removeProperty('border-color');
+                    n.style.removeProperty('box-shadow');
+                    const dot = n.querySelector('.sel-dot');
+                    if (dot) dot.remove();
+                } catch (_) {}
             });
             applyGameFilters();
         }
@@ -2112,7 +2175,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    Indianapolis -0.5 (-262)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(70% Cover Probability)</span>
+                                    Indianapolis -0.5 (-258)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(70% Cover Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     <span class="matchup-pill" style="background-color: rgba(16, 185, 129, 0.18); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.45)" title="ATS hit rate 55.3%">Home Favorite</span>
@@ -2131,7 +2194,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    OVER 45.5 (-162)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #f59e0b;">(64% Hit Probability)</span>
+                                    OVER 45.5 (-157)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #f59e0b;">(64% Hit Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     
@@ -2272,7 +2335,7 @@
                                                 Betting Overview
                                             </span>
                                             <div class="mt-1 flex flex-wrap items-center gap-2">
-                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · Indianapolis -0.5 (-262) · STRONG</span>
+                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · Indianapolis -0.5 (-258) · STRONG</span>
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
@@ -2320,7 +2383,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Spread</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">Indianapolis -0.5 (-262)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">Indianapolis -0.5 (-258)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +13.8
@@ -2333,7 +2396,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">72.4%</dd>
+                                                    <dd class="font-semibold text-slate-900">72.1%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -2342,7 +2405,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Total</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 45.5 (-162)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 45.5 (-157)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +7.9
@@ -2355,7 +2418,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">61.8%</dd>
+                                                    <dd class="font-semibold text-slate-900">61.1%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -2717,7 +2780,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    Chicago -0.5 (-197)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #f59e0b;">(64% Cover Probability)</span>
+                                    Chicago -0.5 (-198)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #f59e0b;">(64% Cover Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     <span class="matchup-pill" style="background-color: rgba(16, 185, 129, 0.18); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.45)" title="ATS hit rate 55.3%">Home Favorite</span>
@@ -2736,7 +2799,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    OVER 44.5 (-140)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #3b82f6;">(68% Hit Probability)</span>
+                                    OVER 44.5 (-139)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #3b82f6;">(68% Hit Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     
@@ -2877,7 +2940,7 @@
                                                 Betting Overview
                                             </span>
                                             <div class="mt-1 flex flex-wrap items-center gap-2">
-                                                <span class="text-lg font-bold text-gray-900">BEST BET · Total · OVER 44.5 (-140) · WATCH</span>
+                                                <span class="text-lg font-bold text-gray-900">BEST BET · Total · OVER 44.5 (-139) · WATCH</span>
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
@@ -2925,7 +2988,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Spread</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">Chicago -0.5 (-197)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">Chicago -0.5 (-198)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +3.5
@@ -2938,7 +3001,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">66.3%</dd>
+                                                    <dd class="font-semibold text-slate-900">66.4%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -2947,7 +3010,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Total</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 44.5 (-140)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 44.5 (-139)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +9.0
@@ -2960,7 +3023,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">58.3%</dd>
+                                                    <dd class="font-semibold text-slate-900">58.2%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -3245,7 +3308,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/jax.png" alt="Jacksonville" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">Jacksonville</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">-122</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">-115</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -3276,7 +3339,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/hou.png" alt="Houston" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">Houston</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #03202F, #032536); color: #FFFFFF; border: 1px solid #021823; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+102</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #03202F, #032536); color: #FFFFFF; border: 1px solid #021823; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-105</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -3341,7 +3404,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    OVER 27.5 (-498)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #3b82f6;">(65% Hit Probability)</span>
+                                    OVER 27.5 (-486)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #3b82f6;">(65% Hit Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     
@@ -3543,7 +3606,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">51.0%</dd>
+                                                    <dd class="font-semibold text-slate-900">53.1%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -3552,7 +3615,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Total</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 27.5 (-498)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 27.5 (-486)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +10.4
@@ -3565,7 +3628,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">83.3%</dd>
+                                                    <dd class="font-semibold text-slate-900">82.9%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -3927,7 +3990,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    Baltimore -1.5 (-195)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #f59e0b;">(63% Cover Probability)</span>
+                                    Baltimore -1.5 (-189)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #f59e0b;">(63% Cover Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     <span class="matchup-pill" style="background-color: rgba(245, 158, 11, 0.18); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.45)" title="ATS hit rate 54.5%">Away Favorite</span>
@@ -3946,7 +4009,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    UNDER 58.5 (-374)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #3b82f6;">(69% Hit Probability)</span>
+                                    UNDER 58.5 (-364)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #3b82f6;">(69% Hit Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     
@@ -4087,7 +4150,7 @@
                                                 Betting Overview
                                             </span>
                                             <div class="mt-1 flex flex-wrap items-center gap-2">
-                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · Baltimore -1.5 (-195) · LEAN</span>
+                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · Baltimore -1.5 (-189) · LEAN</span>
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
@@ -4135,7 +4198,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Spread</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">Baltimore -1.5 (-195)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">Baltimore -1.5 (-189)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +7.4
@@ -4148,7 +4211,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">66.1%</dd>
+                                                    <dd class="font-semibold text-slate-900">65.4%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -4157,7 +4220,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Total</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">UNDER 58.5 (-374)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">UNDER 58.5 (-364)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +10.3
@@ -4170,7 +4233,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">78.9%</dd>
+                                                    <dd class="font-semibold text-slate-900">78.4%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -4532,12 +4595,12 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    Cleveland +11 (-330)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(81% Cover Probability)</span>
+                                    Cleveland +12 (-350)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(82% Cover Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     <span class="matchup-pill" style="background-color: rgba(239, 68, 68, 0.18); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.45)" title="ATS hit rate 50.0%">Away Dog</span>
                                     
-                                    <span>Edge 10.8 pts</span>
+                                    <span>Edge 11.8 pts</span>
                                     
                                 </p>
                             </div>
@@ -4551,7 +4614,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    UNDER 43.5 (-229)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(74% Hit Probability)</span>
+                                    UNDER 43.5 (-241)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(74% Hit Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     
@@ -4740,20 +4803,20 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Spread</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">Cleveland +11 (-330)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">Cleveland +12 (-350)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
-                                                    +10.8
+                                                    +11.8
                                                 </span>
                                             </div>
                                             <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
-                                                    <dd class="font-semibold text-slate-900">81.3%</dd>
+                                                    <dd class="font-semibold text-slate-900">82.1%</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">76.7%</dd>
+                                                    <dd class="font-semibold text-slate-900">77.8%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -4762,7 +4825,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Total</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">UNDER 43.5 (-229)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">UNDER 43.5 (-241)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +8.2
@@ -4775,7 +4838,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">69.6%</dd>
+                                                    <dd class="font-semibold text-slate-900">70.7%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -5137,7 +5200,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    Carolina -1.5 (-216)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #3b82f6;">(66% Cover Probability)</span>
+                                    Carolina -1.5 (-219)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #3b82f6;">(66% Cover Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     <span class="matchup-pill" style="background-color: rgba(16, 185, 129, 0.18); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.45)" title="ATS hit rate 55.3%">Home Favorite</span>
@@ -5152,15 +5215,15 @@
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Total Pick</span>
                                     <div class="flex">
-                                        <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                        <svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    OVER 29.5 (-467)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(72% Hit Probability)</span>
+                                    OVER 28.5 (-480)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #3b82f6;">(66% Hit Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     
-                                    <span>Edge 10.7 pts</span>
+                                    <span>Edge 11.7 pts</span>
                                     
                                 </p>
                             </div>
@@ -5337,7 +5400,7 @@
                                     <div class="flex items-center justify-between">
                                         <h4 class="text-sm font-semibold text-gray-700">Model Edge</h4>
                                         <span class="inline-flex items-center gap-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-blue-600">
-                                            Spread: MODERATE · Total: WATCH
+                                            Spread: MODERATE · Total: MINIMAL
                                         </span>
                                     </div>
                                     <div class="mt-4 space-y-4">
@@ -5345,7 +5408,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Spread</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">Carolina -1.5 (-216)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">Carolina -1.5 (-219)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +7.2
@@ -5358,7 +5421,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">68.4%</dd>
+                                                    <dd class="font-semibold text-slate-900">68.7%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -5367,20 +5430,20 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Total</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 29.5 (-467)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 28.5 (-480)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
-                                                    +10.7
+                                                    +11.7
                                                 </span>
                                             </div>
                                             <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
-                                                    <dd class="font-semibold text-slate-900">72.1%</dd>
+                                                    <dd class="font-semibold text-slate-900">66.5%</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">82.4%</dd>
+                                                    <dd class="font-semibold text-slate-900">82.8%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -5665,7 +5728,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ne.png" alt="New England" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">New England</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #002244, #00274e); color: #FFFFFF; border: 1px solid #001a33; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+124</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #002244, #00274e); color: #FFFFFF; border: 1px solid #001a33; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+120</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -5696,7 +5759,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/tb.png" alt="Tampa Bay" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">Tampa Bay</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">-148</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">-142</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -5742,12 +5805,12 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    New England +10.5 (-483)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(79% Cover Probability)</span>
+                                    New England +12.5 (-508)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(82% Cover Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     <span class="matchup-pill" style="background-color: rgba(239, 68, 68, 0.18); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.45)" title="ATS hit rate 50.0%">Away Dog</span>
                                     
-                                    <span>Edge 16.2 pts</span>
+                                    <span>Edge 18.2 pts</span>
                                     
                                 </p>
                             </div>
@@ -5761,7 +5824,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    OVER 44.5 (-186)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(70% Hit Probability)</span>
+                                    OVER 44.5 (-187)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(70% Hit Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     
@@ -5902,7 +5965,7 @@
                                                 Betting Overview
                                             </span>
                                             <div class="mt-1 flex flex-wrap items-center gap-2">
-                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · New England +10.5 (-483) · STRONG</span>
+                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · New England +12.5 (-508) · STRONG</span>
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
@@ -5950,20 +6013,20 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Spread</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">New England +10.5 (-483)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">New England +12.5 (-508)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
-                                                    +16.2
+                                                    +18.2
                                                 </span>
                                             </div>
                                             <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
-                                                    <dd class="font-semibold text-slate-900">79.3%</dd>
+                                                    <dd class="font-semibold text-slate-900">82.1%</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">82.8%</dd>
+                                                    <dd class="font-semibold text-slate-900">83.6%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -5972,7 +6035,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Total</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 44.5 (-186)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 44.5 (-187)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +7.7
@@ -5985,7 +6048,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">65.0%</dd>
+                                                    <dd class="font-semibold text-slate-900">65.2%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -6270,7 +6333,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/buf.png" alt="Buffalo" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">Buffalo</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #00338D, #003ba2); color: #FFFFFF; border: 1px solid #00266a; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-485</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #00338D, #003ba2); color: #FFFFFF; border: 1px solid #00266a; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-535</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -6301,7 +6364,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/mia.png" alt="Miami" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">Miami</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+370</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+400</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -6347,7 +6410,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    Buffalo -1.5 (-407)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(79% Cover Probability)</span>
+                                    Buffalo -1.5 (-429)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(79% Cover Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     <span class="matchup-pill" style="background-color: rgba(245, 158, 11, 0.18); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.45)" title="ATS hit rate 54.5%">Away Favorite</span>
@@ -6507,7 +6570,7 @@
                                                 Betting Overview
                                             </span>
                                             <div class="mt-1 flex flex-wrap items-center gap-2">
-                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · Buffalo -1.5 (-407) · STRONG</span>
+                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · Buffalo -1.5 (-429) · STRONG</span>
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
@@ -6555,7 +6618,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Spread</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">Buffalo -1.5 (-407)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">Buffalo -1.5 (-429)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +13.0
@@ -6568,7 +6631,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">80.3%</dd>
+                                                    <dd class="font-semibold text-slate-900">81.1%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -6875,7 +6938,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ari.png" alt="Arizona" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">Arizona</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+245</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+250</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -6906,7 +6969,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/sea.png" alt="Seattle" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">Seattle</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #002244, #00274e); color: #FFFFFF; border: 1px solid #001a33; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-305</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #002244, #00274e); color: #FFFFFF; border: 1px solid #001a33; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-310</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -6952,7 +7015,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    Seattle -1.5 (-266)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(70% Cover Probability)</span>
+                                    Seattle -1.5 (-269)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(70% Cover Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     <span class="matchup-pill" style="background-color: rgba(16, 185, 129, 0.18); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.45)" title="ATS hit rate 55.3%">Home Favorite</span>
@@ -6971,7 +7034,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    OVER 43.5 (-140)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #f59e0b;">(61% Hit Probability)</span>
+                                    OVER 43.5 (-146)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #f59e0b;">(61% Hit Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     
@@ -7112,7 +7175,7 @@
                                                 Betting Overview
                                             </span>
                                             <div class="mt-1 flex flex-wrap items-center gap-2">
-                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · Seattle -1.5 (-266) · STRONG</span>
+                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · Seattle -1.5 (-269) · STRONG</span>
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
@@ -7160,7 +7223,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Spread</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">Seattle -1.5 (-266)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">Seattle -1.5 (-269)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +10.4
@@ -7173,7 +7236,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">72.7%</dd>
+                                                    <dd class="font-semibold text-slate-900">72.9%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -7182,7 +7245,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Total</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 43.5 (-140)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 43.5 (-146)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +10.6
@@ -7195,7 +7258,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">58.3%</dd>
+                                                    <dd class="font-semibold text-slate-900">59.3%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -8085,7 +8148,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/lar.png" alt="LA Rams" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">LA Rams</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #003594, #003daa); color: #FFFFFF; border: 1px solid #00286f; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-225</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #003594, #003daa); color: #FFFFFF; border: 1px solid #00286f; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-230</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -8116,7 +8179,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/sf.png" alt="San Francisco" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">San Francisco</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+185</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+190</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -8162,7 +8225,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    LA Rams -0.5 (-195)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #f59e0b;">(64% Cover Probability)</span>
+                                    LA Rams -0.5 (-203)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #f59e0b;">(64% Cover Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     <span class="matchup-pill" style="background-color: rgba(245, 158, 11, 0.18); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.45)" title="ATS hit rate 54.5%">Away Favorite</span>
@@ -8181,7 +8244,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    OVER 46.5 (-163)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #3b82f6;">(65% Hit Probability)</span>
+                                    OVER 46.5 (-169)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #3b82f6;">(65% Hit Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     
@@ -8322,7 +8385,7 @@
                                                 Betting Overview
                                             </span>
                                             <div class="mt-1 flex flex-wrap items-center gap-2">
-                                                <span class="text-lg font-bold text-gray-900">BEST BET · Total · OVER 46.5 (-163) · MINIMAL</span>
+                                                <span class="text-lg font-bold text-gray-900">BEST BET · Total · OVER 46.5 (-169) · MINIMAL</span>
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
@@ -8370,7 +8433,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Spread</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">LA Rams -0.5 (-195)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">LA Rams -0.5 (-203)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +4.9
@@ -8383,7 +8446,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">66.1%</dd>
+                                                    <dd class="font-semibold text-slate-900">67.0%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -8392,7 +8455,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Total</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 46.5 (-163)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">OVER 46.5 (-169)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +7.0
@@ -8405,7 +8468,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">62.0%</dd>
+                                                    <dd class="font-semibold text-slate-900">62.8%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -8690,7 +8753,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/pit.png" alt="Pittsburgh" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">Pittsburgh</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+136</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+130</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -8721,7 +8784,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/lac.png" alt="LA Chargers" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">LA Chargers</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #007BC7, #008de5); color: #FFFFFF; border: 1px solid #005c95; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-162</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #007BC7, #008de5); color: #FFFFFF; border: 1px solid #005c95; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-155</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -8767,12 +8830,12 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    LA Chargers -1 (-145)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #f59e0b;">(60% Cover Probability)</span>
+                                    LA Chargers -1.5 (-145)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #f59e0b;">(59% Cover Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     <span class="matchup-pill" style="background-color: rgba(16, 185, 129, 0.18); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.45)" title="ATS hit rate 55.3%">Home Favorite</span>
                                     
-                                    <span>Edge 8.7 pts</span>
+                                    <span>Edge 8.2 pts</span>
                                     
                                 </p>
                             </div>
@@ -8927,7 +8990,7 @@
                                                 Betting Overview
                                             </span>
                                             <div class="mt-1 flex flex-wrap items-center gap-2">
-                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · LA Chargers -1 (-145) · LEAN</span>
+                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · LA Chargers -1.5 (-145) · LEAN</span>
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
@@ -8975,16 +9038,16 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Spread</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">LA Chargers -1 (-145)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">LA Chargers -1.5 (-145)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
-                                                    +8.7
+                                                    +8.2
                                                 </span>
                                             </div>
                                             <dl class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Prob</dt>
-                                                    <dd class="font-semibold text-slate-900">60.2%</dd>
+                                                    <dd class="font-semibold text-slate-900">58.6%</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
@@ -9295,7 +9358,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/phi.png" alt="Philadelphia" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">Philadelphia</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #004C54, #005761); color: #FFFFFF; border: 1px solid #00393f; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+114</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #004C54, #005761); color: #FFFFFF; border: 1px solid #00393f; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+102</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -9326,7 +9389,7 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/gb.png" alt="Green Bay" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">Green Bay</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">-135</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">-122</span></div>
                                         </div>
                                     </div>
                                     <p class="team-meta text-xs text-gray-600 mb-2">
@@ -9372,7 +9435,7 @@
                                     </div>
                                 </div>
                                 <p class="text-sm font-bold text-gray-900">
-                                    Philadelphia +12.5 (-518)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(82% Cover Probability)</span>
+                                    Philadelphia +12.5 (-447)<span class="ml-2 inline-flex items-center text-xs font-semibold" style="color: #10b981;">(82% Cover Probability)</span>
                                 </p>
                                 <p class="text-xs text-gray-600 mt-1 flex items-center gap-2 flex-wrap">
                                     <span class="matchup-pill" style="background-color: rgba(239, 68, 68, 0.18); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.45)" title="ATS hit rate 50.0%">Away Dog</span>
@@ -9580,7 +9643,7 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Spread</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">Philadelphia +12.5 (-518)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">Philadelphia +12.5 (-447)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
                                                     +13.7
@@ -9593,7 +9656,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">83.8%</dd>
+                                                    <dd class="font-semibold text-slate-900">81.7%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -9615,7 +9678,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">52.4%</dd>
+                                                    <dd class="font-semibold text-slate-900">52.8%</dd>
                                                 </div>
                                             </dl>
                                             
