@@ -317,7 +317,33 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         <div class="bg-white rounded-2xl shadow-lg border border-slate-200 p-5 sm:p-6">
             <h2 class="text-lg sm:text-xl font-bold text-slate-900 mb-1">Model Accuracy Overview</h2>
-            <p class="text-xs sm:text-sm text-slate-500 mb-6">Weeks 1–14</p>
+            <p class="text-xs sm:text-sm text-slate-500 mb-4">Weeks 1–14</p>
+
+            <!-- Filter Controls -->
+            <div class="mb-4 space-y-2">
+                <!-- Status line + Clear button -->
+                <div class="flex items-center justify-between">
+                    <span id="accuracy-filter-status" class="text-xs text-slate-500">Filtered: All games</span>
+                    <button id="accuracy-filter-clear" onclick="clearAccuracyFilters()"
+                            class="invisible text-xs text-blue-600 hover:text-blue-800 font-medium">
+                        Clear
+                    </button>
+                </div>
+
+                <!-- Dimension pills - Desktop -->
+                <div id="accuracy-dimension-pills" class="hidden md:flex flex-wrap gap-1.5"></div>
+
+                <!-- Dimension select - Mobile -->
+                <div class="md:hidden">
+                    <select id="accuracy-dimension-select"
+                            onchange="accuracyFilterState.dimension = this.value; accuracyFilterState.value = 'ALL'; onFilterChange();"
+                            class="w-full text-xs border border-slate-200 rounded-lg px-3 py-2 bg-white text-slate-700">
+                    </select>
+                </div>
+
+                <!-- Bucket chips (both desktop and mobile) -->
+                <div id="accuracy-bucket-chips" class="hidden flex flex-wrap gap-1.5 overflow-x-auto pb-1 -mx-1 px-1"></div>
+            </div>
 
             <style>
                 @media (min-width: 768px) {
@@ -350,18 +376,18 @@
                     <div class="hidden md:block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">Last Week</div>
                     <div class="flex items-center gap-3">
                         <span class="text-sm text-slate-600 w-8">SU</span>
-                        <span class="text-base font-bold" style="color: #10b981">78.6%</span>
-                        <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">11-3</span>
+                        <span data-metric="su-pct" class="text-base font-bold" style="color: #10b981">78.6%</span>
+                        <span data-metric="su-record" class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">11-3</span>
                     </div>
                     <div class="flex items-center gap-3">
                         <span class="text-sm text-slate-600 w-8">ATS</span>
-                        <span class="text-base font-bold" style="color: #10b981">69.2%</span>
-                        <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">9-4-1</span>
+                        <span data-metric="ats-pct" class="text-base font-bold" style="color: #10b981">69.2%</span>
+                        <span data-metric="ats-record" class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">9-4-1</span>
                     </div>
                     <div class="flex items-center gap-3">
                         <span class="text-sm text-slate-600 w-8">O/U</span>
-                        <span class="text-base font-bold" style="color: #10b981">57.1%</span>
-                        <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">8-6</span>
+                        <span data-metric="ou-pct" class="text-base font-bold" style="color: #10b981">57.1%</span>
+                        <span data-metric="ou-record" class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">8-6</span>
                     </div>
                 </div>
 
@@ -370,18 +396,18 @@
                     <div class="hidden md:block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">Last 3 Weeks</div>
                     <div class="flex items-center gap-3">
                         <span class="text-sm text-slate-600 w-8">SU</span>
-                        <span class="text-base font-bold" style="color: #10b981">72.2%</span>
-                        <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">31-12</span>
+                        <span data-metric="su-pct" class="text-base font-bold" style="color: #10b981">72.2%</span>
+                        <span data-metric="su-record" class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">31-12</span>
                     </div>
                     <div class="flex items-center gap-3">
                         <span class="text-sm text-slate-600 w-8">ATS</span>
-                        <span class="text-base font-bold" style="color: #10b981">58.8%</span>
-                        <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">24-17-2</span>
+                        <span data-metric="ats-pct" class="text-base font-bold" style="color: #10b981">58.8%</span>
+                        <span data-metric="ats-record" class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">24-17-2</span>
                     </div>
                     <div class="flex items-center gap-3">
                         <span class="text-sm text-slate-600 w-8">O/U</span>
-                        <span class="text-base font-bold" style="color: #10b981">56.0%</span>
-                        <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">24-19</span>
+                        <span data-metric="ou-pct" class="text-base font-bold" style="color: #10b981">56.0%</span>
+                        <span data-metric="ou-record" class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">24-19</span>
                     </div>
                 </div>
 
@@ -390,18 +416,18 @@
                     <div class="hidden md:block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">Season</div>
                     <div class="flex items-center gap-3">
                         <span class="text-sm text-slate-600 w-8">SU</span>
-                        <span class="text-base font-bold" style="color: #f59e0b">66.9%</span>
-                        <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">119-59</span>
+                        <span data-metric="su-pct" class="text-base font-bold" style="color: #f59e0b">66.9%</span>
+                        <span data-metric="su-record" class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">119-59</span>
                     </div>
                     <div class="flex items-center gap-3">
                         <span class="text-sm text-slate-600 w-8">ATS</span>
-                        <span class="text-base font-bold" style="color: #10b981">58.3%</span>
-                        <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">102-73-3</span>
+                        <span data-metric="ats-pct" class="text-base font-bold" style="color: #10b981">58.3%</span>
+                        <span data-metric="ats-record" class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">102-73-3</span>
                     </div>
                     <div class="flex items-center gap-3">
                         <span class="text-sm text-slate-600 w-8">O/U</span>
-                        <span class="text-base font-bold" style="color: #f59e0b">52.2%</span>
-                        <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">93-85</span>
+                        <span data-metric="ou-pct" class="text-base font-bold" style="color: #f59e0b">52.2%</span>
+                        <span data-metric="ou-record" class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">93-85</span>
                     </div>
                 </div>
             </div>
@@ -1605,6 +1631,392 @@
         window.INSIGHTS_ACCURACY_RAW = {"ats":{"by_location_x_side":{"Away Dog":{"count":36,"hit_rate":55.55555555555556,"losses":16,"pushes":0,"ties":0,"wins":20},"Away Favorite":{"count":56,"hit_rate":53.57142857142857,"losses":26,"pushes":1,"ties":0,"wins":30},"Home Dog":{"count":34,"hit_rate":67.64705882352942,"losses":11,"pushes":0,"ties":0,"wins":23},"Home Favorite":{"count":49,"hit_rate":59.183673469387756,"losses":20,"pushes":2,"ties":0,"wins":29}},"by_matchup_conference":{"Unknown vs Unknown":{"count":175,"hit_rate":58.285714285714285,"losses":73,"pushes":3,"ties":0,"wins":102}},"by_pick_conference":{"Unknown":{"count":175,"hit_rate":58.285714285714285,"losses":73,"pushes":3,"ties":0,"wins":102}},"by_pick_location":{"Away":{"count":92,"hit_rate":54.347826086956516,"losses":42,"pushes":1,"ties":0,"wins":50},"Home":{"count":83,"hit_rate":62.65060240963856,"losses":31,"pushes":2,"ties":0,"wins":52}},"by_pick_side":{"Favorite":{"count":105,"hit_rate":56.19047619047619,"losses":46,"pushes":3,"ties":0,"wins":59},"Underdog":{"count":70,"hit_rate":61.42857142857143,"losses":27,"pushes":0,"ties":0,"wins":43}},"by_spread_band":{"0-3":{"count":66,"hit_rate":57.57575757575758,"losses":28,"pushes":2,"ties":0,"wins":38},"4-7":{"count":73,"hit_rate":58.9041095890411,"losses":30,"pushes":1,"ties":0,"wins":43},"8-13.5":{"count":32,"hit_rate":56.25,"losses":14,"pushes":0,"ties":0,"wins":18},">13.5":{"count":4,"hit_rate":75,"losses":1,"pushes":0,"ties":0,"wins":3}},"overall":{"count":175,"hit_rate":58.285714285714285,"losses":73,"pushes":3,"ties":0,"wins":102}},"metadata":{"conferences_available":true,"games_evaluated":178,"games_with_predictions":178,"generated_at":"2025-11-26T16:21:41Z","league":"nfl","missing_conference_teams":["Arizona","Atlanta","Baltimore","Buffalo","Carolina","Chicago","Cincinnati","Cleveland","Dallas","Denver","Detroit","Green Bay","Houston","Indianapolis","Jacksonville","Kansas City","LA Chargers","LA Rams","Las Vegas","Miami","Minnesota","NY Giants","NY Jets","New England","New Orleans","Philadelphia","Pittsburgh","San Francisco","Seattle","Tampa Bay","Tennessee","Washington"],"score_source":"adjusted","season":2025,"weeks":[1,2,3,4,5,6,7,8,9,10,11,12]},"ou":{"by_pick":{"Over":{"count":88,"hit_rate":52.27272727272727,"losses":42,"pushes":0,"ties":0,"wins":46},"Under":{"count":90,"hit_rate":52.22222222222223,"losses":43,"pushes":0,"ties":0,"wins":47}},"by_total_band":{"43-47":{"count":83,"hit_rate":46.98795180722892,"losses":44,"pushes":0,"ties":0,"wins":39},"48-52":{"count":56,"hit_rate":51.78571428571429,"losses":27,"pushes":0,"ties":0,"wins":29},"<=42":{"count":34,"hit_rate":61.76470588235294,"losses":13,"pushes":0,"ties":0,"wins":21},">52":{"count":5,"hit_rate":80,"losses":1,"pushes":0,"ties":0,"wins":4}},"overall":{"count":178,"hit_rate":52.24719101123596,"losses":85,"pushes":0,"ties":0,"wins":93}},"su":{"by_favored_status":{"Favorite":{"count":136,"hit_rate":71.32352941176471,"losses":39,"pushes":0,"ties":0,"wins":97},"Underdog":{"count":42,"hit_rate":52.38095238095239,"losses":20,"pushes":0,"ties":0,"wins":22}},"by_location":{"Away":{"count":83,"hit_rate":62.65060240963856,"losses":31,"pushes":0,"ties":0,"wins":52},"Home":{"count":95,"hit_rate":70.52631578947368,"losses":28,"pushes":0,"ties":0,"wins":67}},"by_location_x_favored":{"Away Dog":{"count":17,"hit_rate":35.294117647058826,"losses":11,"pushes":0,"ties":0,"wins":6},"Away Favorite":{"count":66,"hit_rate":69.6969696969697,"losses":20,"pushes":0,"ties":0,"wins":46},"Home Dog":{"count":25,"hit_rate":64,"losses":9,"pushes":0,"ties":0,"wins":16},"Home Favorite":{"count":70,"hit_rate":72.85714285714285,"losses":19,"pushes":0,"ties":0,"wins":51}},"by_matchup_conference":{"Unknown vs Unknown":{"count":178,"hit_rate":66.85393258426966,"losses":59,"pushes":0,"ties":0,"wins":119}},"by_pick_conference":{"Unknown":{"count":178,"hit_rate":66.85393258426966,"losses":59,"pushes":0,"ties":0,"wins":119}},"overall":{"count":178,"hit_rate":66.85393258426966,"losses":59,"pushes":0,"ties":0,"wins":119}},"version":1};
         window.INSIGHTS_TEAM_FORM = {"Detroit":{"team":"Detroit","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/det.png","gamesPlayed":5,"avgPF":"27.0","avgPA":"20.2","avgMargin":"6.8","avgPassYdsFor":"255.0","avgPassYdsAgainst":"208.0","avgRushYdsFor":"153.2","avgRushYdsAgainst":"109.2","totalPassTDFor":9,"totalPassTDAgainst":8,"totalRushTDFor":7,"totalRushTDAgainst":3,"last5ATS":"2-3","last5OU":"3-2","seasonRecord":"7-4","seasonATS":"6-5","seasonOU":"6-5","modelSu":{"games":11,"wins":6,"losses":5,"pushes":0,"hitRate":"54.5"},"modelAts":{"games":11,"wins":5,"losses":6,"pushes":0,"hitRate":"45.5"},"modelOu":{"games":11,"wins":5,"losses":6,"pushes":0,"hitRate":"45.5"}},"Green Bay":{"team":"Green Bay","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/gb.png","gamesPlayed":5,"avgPF":"21.0","avgPA":"15.4","avgMargin":"5.6","avgPassYdsFor":"218.4","avgPassYdsAgainst":"146.6","avgRushYdsFor":"115.2","avgRushYdsAgainst":"120.4","totalPassTDFor":7,"totalPassTDAgainst":3,"totalRushTDFor":5,"totalRushTDAgainst":5,"last5ATS":"2-3","last5OU":"2-3","seasonRecord":"7-3-1","seasonATS":"4-7","seasonOU":"5-6","modelSu":{"games":11,"wins":7,"losses":3,"pushes":1,"hitRate":"70.0"},"modelAts":{"games":11,"wins":4,"losses":7,"pushes":0,"hitRate":"36.4"},"modelOu":{"games":11,"wins":6,"losses":5,"pushes":0,"hitRate":"54.5"}},"Dallas":{"team":"Dallas","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/dal.png","gamesPlayed":5,"avgPF":"28.4","avgPA":"26.0","avgMargin":"2.4","avgPassYdsFor":"262.6","avgPassYdsAgainst":"231.6","avgRushYdsFor":"124.4","avgRushYdsAgainst":"104.8","totalPassTDFor":11,"totalPassTDAgainst":10,"totalRushTDFor":4,"totalRushTDAgainst":6,"last5ATS":"3-2","last5OU":"3-2","seasonRecord":"5-5-1","seasonATS":"6-5","seasonOU":"7-4","modelSu":{"games":11,"wins":6,"losses":4,"pushes":1,"hitRate":"60.0"},"modelAts":{"games":11,"wins":5,"losses":6,"pushes":0,"hitRate":"45.5"},"modelOu":{"games":11,"wins":8,"losses":3,"pushes":0,"hitRate":"72.7"}},"Kansas City":{"team":"Kansas City","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/kc.png","gamesPlayed":5,"avgPF":"24.4","avgPA":"15.4","avgMargin":"9.0","avgPassYdsFor":"277.4","avgPassYdsAgainst":"199.4","avgRushYdsFor":"117.8","avgRushYdsAgainst":"71.8","totalPassTDFor":9,"totalPassTDAgainst":4,"totalRushTDFor":4,"totalRushTDAgainst":4,"last5ATS":"2-3","last5OU":"0-5","seasonRecord":"6-5","seasonATS":"5-6","seasonOU":"3-8","modelSu":{"games":11,"wins":6,"losses":5,"pushes":0,"hitRate":"54.5"},"modelAts":{"games":11,"wins":4,"losses":7,"pushes":0,"hitRate":"36.4"},"modelOu":{"games":11,"wins":4,"losses":7,"pushes":0,"hitRate":"36.4"}},"Baltimore":{"team":"Baltimore","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/bal.png","gamesPlayed":5,"avgPF":"26.2","avgPA":"13.4","avgMargin":"12.8","avgPassYdsFor":"169.0","avgPassYdsAgainst":"210.2","avgRushYdsFor":"152.2","avgRushYdsAgainst":"97.4","totalPassTDFor":6,"totalPassTDAgainst":2,"totalRushTDFor":7,"totalRushTDAgainst":2,"last5ATS":"3-2","last5OU":"2-3","seasonRecord":"6-5","seasonATS":"4-7","seasonOU":"7-4","modelSu":{"games":11,"wins":6,"losses":5,"pushes":0,"hitRate":"54.5"},"modelAts":{"games":11,"wins":6,"losses":5,"pushes":0,"hitRate":"54.5"},"modelOu":{"games":11,"wins":7,"losses":4,"pushes":0,"hitRate":"63.6"}},"Cincinnati":{"team":"Cincinnati","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/cin.png","gamesPlayed":5,"avgPF":"29.0","avgPA":"35.4","avgMargin":"-6.4","avgPassYdsFor":"274.6","avgPassYdsAgainst":"261.4","avgRushYdsFor":"118.8","avgRushYdsAgainst":"180.4","totalPassTDFor":11,"totalPassTDAgainst":14,"totalRushTDFor":3,"totalRushTDAgainst":3,"last5ATS":"2-3","last5OU":"3-2","seasonRecord":"3-8","seasonATS":"4-7","seasonOU":"7-4","modelSu":{"games":11,"wins":9,"losses":2,"pushes":0,"hitRate":"81.8"},"modelAts":{"games":11,"wins":5,"losses":6,"pushes":0,"hitRate":"45.5"},"modelOu":{"games":11,"wins":7,"losses":4,"pushes":0,"hitRate":"63.6"}},"Philadelphia":{"team":"Philadelphia","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/phi.png","gamesPlayed":5,"avgPF":"22.6","avgPA":"16.4","avgMargin":"6.2","avgPassYdsFor":"210.0","avgPassYdsAgainst":"244.8","avgRushYdsFor":"128.6","avgRushYdsAgainst":"92.0","totalPassTDFor":9,"totalPassTDAgainst":4,"totalRushTDFor":4,"totalRushTDAgainst":4,"last5ATS":"4-1","last5OU":"2-3","seasonRecord":"8-3","seasonATS":"7-4","seasonOU":"5-6","modelSu":{"games":11,"wins":6,"losses":5,"pushes":0,"hitRate":"54.5"},"modelAts":{"games":11,"wins":7,"losses":4,"pushes":0,"hitRate":"63.6"},"modelOu":{"games":11,"wins":7,"losses":4,"pushes":0,"hitRate":"63.6"}},"Chicago":{"team":"Chicago","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/chi.png","gamesPlayed":5,"avgPF":"27.4","avgPA":"27.4","avgMargin":"0.0","avgPassYdsFor":"239.6","avgPassYdsAgainst":"239.6","avgRushYdsFor":"157.8","avgRushYdsAgainst":"138.6","totalPassTDFor":8,"totalPassTDAgainst":7,"totalRushTDFor":7,"totalRushTDAgainst":7,"last5ATS":"2-2-1","last5OU":"3-2","seasonRecord":"8-3","seasonATS":"6-4-1","seasonOU":"6-5","modelSu":{"games":11,"wins":8,"losses":3,"pushes":0,"hitRate":"72.7"},"modelAts":{"games":11,"wins":4,"losses":6,"pushes":1,"hitRate":"40.0"},"modelOu":{"games":11,"wins":6,"losses":5,"pushes":0,"hitRate":"54.5"}},"Miami":{"team":"Miami","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/mia.png","gamesPlayed":5,"avgPF":"18.4","avgPA":"19.0","avgMargin":"-0.6","avgPassYdsFor":"175.4","avgPassYdsAgainst":"190.8","avgRushYdsFor":"138.6","avgRushYdsAgainst":"111.6","totalPassTDFor":6,"totalPassTDAgainst":7,"totalRushTDFor":3,"totalRushTDAgainst":4,"last5ATS":"3-2","last5OU":"1-4","seasonRecord":"4-7","seasonATS":"6-5","seasonOU":"6-5","modelSu":{"games":11,"wins":5,"losses":6,"pushes":0,"hitRate":"45.5"},"modelAts":{"games":11,"wins":5,"losses":6,"pushes":0,"hitRate":"45.5"},"modelOu":{"games":11,"wins":4,"losses":7,"pushes":0,"hitRate":"36.4"}},"New Orleans":{"team":"New Orleans","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/no.png","gamesPlayed":5,"avgPF":"10.8","avgPA":"22.8","avgMargin":"-12.0","avgPassYdsFor":"216.6","avgPassYdsAgainst":"167.6","avgRushYdsFor":"70.0","avgRushYdsAgainst":"135.0","totalPassTDFor":5,"totalPassTDAgainst":6,"totalRushTDFor":0,"totalRushTDAgainst":5,"last5ATS":"1-4","last5OU":"0-5","seasonRecord":"2-9","seasonATS":"3-8","seasonOU":"3-8","modelSu":{"games":11,"wins":9,"losses":2,"pushes":0,"hitRate":"81.8"},"modelAts":{"games":11,"wins":6,"losses":5,"pushes":0,"hitRate":"54.5"},"modelOu":{"games":11,"wins":4,"losses":7,"pushes":0,"hitRate":"36.4"}},"NY Jets":{"team":"NY Jets","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png","gamesPlayed":5,"avgPF":"19.2","avgPA":"24.2","avgMargin":"-5.0","avgPassYdsFor":"147.6","avgPassYdsAgainst":"185.6","avgRushYdsFor":"136.0","avgRushYdsAgainst":"125.4","totalPassTDFor":6,"totalPassTDAgainst":6,"totalRushTDFor":2,"totalRushTDAgainst":7,"last5ATS":"3-2","last5OU":"2-3","seasonRecord":"2-9","seasonATS":"6-5","seasonOU":"6-5","modelSu":{"games":11,"wins":10,"losses":1,"pushes":0,"hitRate":"90.9"},"modelAts":{"games":11,"wins":8,"losses":3,"pushes":0,"hitRate":"72.7"},"modelOu":{"games":11,"wins":5,"losses":6,"pushes":0,"hitRate":"45.5"}},"Atlanta":{"team":"Atlanta","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/atl.png","gamesPlayed":5,"avgPF":"21.8","avgPA":"25.8","avgMargin":"-4.0","avgPassYdsFor":"187.8","avgPassYdsAgainst":"249.4","avgRushYdsFor":"100.4","avgRushYdsAgainst":"144.0","totalPassTDFor":7,"totalPassTDAgainst":11,"totalRushTDFor":5,"totalRushTDAgainst":3,"last5ATS":"3-2","last5OU":"3-2","seasonRecord":"4-7","seasonATS":"6-5","seasonOU":"4-7","modelSu":{"games":11,"wins":4,"losses":7,"pushes":0,"hitRate":"36.4"},"modelAts":{"games":11,"wins":4,"losses":7,"pushes":0,"hitRate":"36.4"},"modelOu":{"games":11,"wins":5,"losses":6,"pushes":0,"hitRate":"45.5"}},"Tennessee":{"team":"Tennessee","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/ten.png","gamesPlayed":5,"avgPF":"16.8","avgPA":"28.4","avgMargin":"-11.6","avgPassYdsFor":"193.0","avgPassYdsAgainst":"231.8","avgRushYdsFor":"72.4","avgRushYdsAgainst":"131.8","totalPassTDFor":4,"totalPassTDAgainst":10,"totalRushTDFor":2,"totalRushTDAgainst":5,"last5ATS":"3-2","last5OU":"4-1","seasonRecord":"1-10","seasonATS":"5-6","seasonOU":"7-4","modelSu":{"games":11,"wins":10,"losses":1,"pushes":0,"hitRate":"90.9"},"modelAts":{"games":11,"wins":9,"losses":2,"pushes":0,"hitRate":"81.8"},"modelOu":{"games":11,"wins":8,"losses":3,"pushes":0,"hitRate":"72.7"}},"Jacksonville":{"team":"Jacksonville","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/jax.png","gamesPlayed":5,"avgPF":"25.6","avgPA":"26.0","avgMargin":"-0.4","avgPassYdsFor":"197.8","avgPassYdsAgainst":"220.4","avgRushYdsFor":"133.0","avgRushYdsAgainst":"74.6","totalPassTDFor":7,"totalPassTDAgainst":12,"totalRushTDFor":7,"totalRushTDAgainst":3,"last5ATS":"2-3","last5OU":"3-2","seasonRecord":"7-4","seasonATS":"6-5","seasonOU":"6-5","modelSu":{"games":11,"wins":6,"losses":5,"pushes":0,"hitRate":"54.5"},"modelAts":{"games":11,"wins":7,"losses":4,"pushes":0,"hitRate":"63.6"},"modelOu":{"games":11,"wins":4,"losses":7,"pushes":0,"hitRate":"36.4"}},"Indianapolis":{"team":"Indianapolis","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/ind.png","gamesPlayed":5,"avgPF":"29.4","avgPA":"22.6","avgMargin":"6.8","avgPassYdsFor":"245.4","avgPassYdsAgainst":"260.4","avgRushYdsFor":"147.2","avgRushYdsAgainst":"98.6","totalPassTDFor":11,"totalPassTDAgainst":8,"totalRushTDFor":7,"totalRushTDAgainst":4,"last5ATS":"3-2","last5OU":"3-2","seasonRecord":"8-3","seasonATS":"7-4","seasonOU":"6-5","modelSu":{"games":11,"wins":9,"losses":2,"pushes":0,"hitRate":"81.8"},"modelAts":{"games":11,"wins":5,"losses":6,"pushes":0,"hitRate":"45.5"},"modelOu":{"games":11,"wins":6,"losses":5,"pushes":0,"hitRate":"54.5"}},"Houston":{"team":"Houston","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/hou.png","gamesPlayed":5,"avgPF":"23.2","avgPA":"18.8","avgMargin":"4.4","avgPassYdsFor":"236.8","avgPassYdsAgainst":"163.8","avgRushYdsFor":"109.4","avgRushYdsAgainst":"88.6","totalPassTDFor":7,"totalPassTDAgainst":7,"totalRushTDFor":2,"totalRushTDAgainst":1,"last5ATS":"3-2","last5OU":"1-4","seasonRecord":"6-5","seasonATS":"5-6","seasonOU":"3-8","modelSu":{"games":11,"wins":7,"losses":4,"pushes":0,"hitRate":"63.6"},"modelAts":{"games":11,"wins":7,"losses":4,"pushes":0,"hitRate":"63.6"},"modelOu":{"games":11,"wins":4,"losses":7,"pushes":0,"hitRate":"36.4"}},"Carolina":{"team":"Carolina","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500-dark/car.png","gamesPlayed":5,"avgPF":"14.2","avgPA":"23.4","avgMargin":"-9.2","avgPassYdsFor":"182.8","avgPassYdsAgainst":"222.4","avgRushYdsFor":"97.2","avgRushYdsAgainst":"148.6","totalPassTDFor":4,"totalPassTDAgainst":4,"totalRushTDFor":4,"totalRushTDAgainst":9,"last5ATS":"2-3","last5OU":"2-3","seasonRecord":"6-6","seasonATS":"7-5","seasonOU":"6-6","modelSu":{"games":12,"wins":6,"losses":6,"pushes":0,"hitRate":"50.0"},"modelAts":{"games":12,"wins":5,"losses":7,"pushes":0,"hitRate":"41.7"},"modelOu":{"games":12,"wins":8,"losses":4,"pushes":0,"hitRate":"66.7"}},"LA Rams":{"team":"LA Rams","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/lar.png","gamesPlayed":5,"avgPF":"33.2","avgPA":"13.8","avgMargin":"19.4","avgPassYdsFor":"223.4","avgPassYdsAgainst":"219.8","avgRushYdsFor":"115.0","avgRushYdsAgainst":"96.6","totalPassTDFor":18,"totalPassTDAgainst":6,"totalRushTDFor":4,"totalRushTDAgainst":2,"last5ATS":"4-1","last5OU":"1-4","seasonRecord":"9-2","seasonATS":"8-3","seasonOU":"4-7","modelSu":{"games":11,"wins":8,"losses":3,"pushes":0,"hitRate":"72.7"},"modelAts":{"games":11,"wins":11,"losses":0,"pushes":0,"hitRate":"100.0"},"modelOu":{"games":11,"wins":5,"losses":6,"pushes":0,"hitRate":"45.5"}},"Tampa Bay":{"team":"Tampa Bay","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/tb.png","gamesPlayed":5,"avgPF":"18.8","avgPA":"26.6","avgMargin":"-7.8","avgPassYdsFor":"165.4","avgPassYdsAgainst":"258.2","avgRushYdsFor":"113.4","avgRushYdsAgainst":"109.0","totalPassTDFor":7,"totalPassTDAgainst":10,"totalRushTDFor":3,"totalRushTDAgainst":6,"last5ATS":"1-4","last5OU":"2-3","seasonRecord":"6-5","seasonATS":"5-6","seasonOU":"6-5","modelSu":{"games":11,"wins":8,"losses":3,"pushes":0,"hitRate":"72.7"},"modelAts":{"games":11,"wins":6,"losses":5,"pushes":0,"hitRate":"54.5"},"modelOu":{"games":11,"wins":6,"losses":5,"pushes":0,"hitRate":"54.5"}},"Arizona":{"team":"Arizona","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/ari.png","gamesPlayed":5,"avgPF":"23.6","avgPA":"31.2","avgMargin":"-7.6","avgPassYdsFor":"277.2","avgPassYdsAgainst":"195.0","avgRushYdsFor":"86.6","avgRushYdsAgainst":"128.8","totalPassTDFor":9,"totalPassTDAgainst":10,"totalRushTDFor":4,"totalRushTDAgainst":5,"last5ATS":"2-3","last5OU":"4-1","seasonRecord":"3-8","seasonATS":"5-6","seasonOU":"7-4","modelSu":{"games":11,"wins":8,"losses":3,"pushes":0,"hitRate":"72.7"},"modelAts":{"games":11,"wins":5,"losses":6,"pushes":0,"hitRate":"45.5"},"modelOu":{"games":11,"wins":4,"losses":7,"pushes":0,"hitRate":"36.4"}},"Cleveland":{"team":"Cleveland","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/cle.png","gamesPlayed":5,"avgPF":"20.8","avgPA":"19.6","avgMargin":"1.2","avgPassYdsFor":"130.8","avgPassYdsAgainst":"156.4","avgRushYdsFor":"100.0","avgRushYdsAgainst":"129.4","totalPassTDFor":5,"totalPassTDAgainst":5,"totalRushTDFor":5,"totalRushTDAgainst":2,"last5ATS":"3-2","last5OU":"4-1","seasonRecord":"3-8","seasonATS":"5-6","seasonOU":"6-5","modelSu":{"games":11,"wins":8,"losses":3,"pushes":0,"hitRate":"72.7"},"modelAts":{"games":11,"wins":7,"losses":4,"pushes":0,"hitRate":"63.6"},"modelOu":{"games":11,"wins":5,"losses":6,"pushes":0,"hitRate":"45.5"}},"San Francisco":{"team":"San Francisco","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/sf.png","gamesPlayed":5,"avgPF":"27.2","avgPA":"24.6","avgMargin":"2.6","avgPassYdsFor":"218.8","avgPassYdsAgainst":"277.0","avgRushYdsFor":"104.6","avgRushYdsAgainst":"101.0","totalPassTDFor":12,"totalPassTDAgainst":11,"totalRushTDFor":5,"totalRushTDAgainst":4,"last5ATS":"3-2","last5OU":"3-2","seasonRecord":"8-4","seasonATS":"7-5","seasonOU":"7-5","modelSu":{"games":12,"wins":8,"losses":4,"pushes":0,"hitRate":"66.7"},"modelAts":{"games":12,"wins":8,"losses":4,"pushes":0,"hitRate":"66.7"},"modelOu":{"games":12,"wins":7,"losses":5,"pushes":0,"hitRate":"58.3"}},"Seattle":{"team":"Seattle","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/sea.png","gamesPlayed":5,"avgPF":"31.6","avgPA":"20.0","avgMargin":"11.6","avgPassYdsFor":"244.0","avgPassYdsAgainst":"179.8","avgRushYdsFor":"130.6","avgRushYdsAgainst":"105.0","totalPassTDFor":8,"totalPassTDAgainst":6,"totalRushTDFor":7,"totalRushTDAgainst":5,"last5ATS":"4-1","last5OU":"4-1","seasonRecord":"8-3","seasonATS":"8-3","seasonOU":"7-4","modelSu":{"games":11,"wins":10,"losses":1,"pushes":0,"hitRate":"90.9"},"modelAts":{"games":11,"wins":9,"losses":2,"pushes":0,"hitRate":"81.8"},"modelOu":{"games":11,"wins":7,"losses":4,"pushes":0,"hitRate":"63.6"}},"Minnesota":{"team":"Minnesota","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/min.png","gamesPlayed":5,"avgPF":"15.8","avgPA":"26.0","avgMargin":"-10.2","avgPassYdsFor":"138.6","avgPassYdsAgainst":"188.6","avgRushYdsFor":"100.8","avgRushYdsAgainst":"142.0","totalPassTDFor":5,"totalPassTDAgainst":6,"totalRushTDFor":3,"totalRushTDAgainst":6,"last5ATS":"1-4","last5OU":"2-3","seasonRecord":"4-7","seasonATS":"4-7","seasonOU":"7-4","modelSu":{"games":11,"wins":9,"losses":2,"pushes":0,"hitRate":"81.8"},"modelAts":{"games":11,"wins":8,"losses":3,"pushes":0,"hitRate":"72.7"},"modelOu":{"games":11,"wins":10,"losses":1,"pushes":0,"hitRate":"90.9"}},"Pittsburgh":{"team":"Pittsburgh","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/pit.png","gamesPlayed":5,"avgPF":"24.8","avgPA":"24.6","avgMargin":"0.2","avgPassYdsFor":"185.6","avgPassYdsAgainst":"258.6","avgRushYdsFor":"100.2","avgRushYdsAgainst":"93.6","totalPassTDFor":7,"totalPassTDAgainst":10,"totalRushTDFor":4,"totalRushTDAgainst":3,"last5ATS":"2-2-1","last5OU":"2-3","seasonRecord":"6-5","seasonATS":"5-5-1","seasonOU":"6-5","modelSu":{"games":11,"wins":8,"losses":3,"pushes":0,"hitRate":"72.7"},"modelAts":{"games":11,"wins":5,"losses":5,"pushes":1,"hitRate":"50.0"},"modelOu":{"games":11,"wins":6,"losses":5,"pushes":0,"hitRate":"54.5"}},"Buffalo":{"team":"Buffalo","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/buf.png","gamesPlayed":5,"avgPF":"28.8","avgPA":"23.0","avgMargin":"5.8","avgPassYdsFor":"243.4","avgPassYdsAgainst":"169.4","avgRushYdsFor":"142.6","avgRushYdsAgainst":"140.0","totalPassTDFor":8,"totalPassTDAgainst":7,"totalRushTDFor":10,"totalRushTDAgainst":6,"last5ATS":"3-2","last5OU":"2-3","seasonRecord":"7-4","seasonATS":"5-6","seasonOU":"5-6","modelSu":{"games":11,"wins":5,"losses":6,"pushes":0,"hitRate":"45.5"},"modelAts":{"games":11,"wins":3,"losses":8,"pushes":0,"hitRate":"27.3"},"modelOu":{"games":11,"wins":4,"losses":7,"pushes":0,"hitRate":"36.4"}},"LA Chargers":{"team":"LA Chargers","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/lac.png","gamesPlayed":5,"avgPF":"23.8","avgPA":"22.6","avgMargin":"1.2","avgPassYdsFor":"221.4","avgPassYdsAgainst":"166.0","avgRushYdsFor":"109.8","avgRushYdsAgainst":"101.4","totalPassTDFor":9,"totalPassTDAgainst":6,"totalRushTDFor":3,"totalRushTDAgainst":6,"last5ATS":"2-3","last5OU":"3-2","seasonRecord":"7-4","seasonATS":"5-6","seasonOU":"5-6","modelSu":{"games":11,"wins":8,"losses":3,"pushes":0,"hitRate":"72.7"},"modelAts":{"games":11,"wins":8,"losses":3,"pushes":0,"hitRate":"72.7"},"modelOu":{"games":11,"wins":5,"losses":6,"pushes":0,"hitRate":"45.5"}},"Las Vegas":{"team":"Las Vegas","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/lv.png","gamesPlayed":5,"avgPF":"12.4","avgPA":"25.6","avgMargin":"-13.2","avgPassYdsFor":"175.0","avgPassYdsAgainst":"221.4","avgRushYdsFor":"48.6","avgRushYdsAgainst":"113.0","totalPassTDFor":6,"totalPassTDAgainst":9,"totalRushTDFor":1,"totalRushTDAgainst":6,"last5ATS":"2-3","last5OU":"2-3","seasonRecord":"2-9","seasonATS":"4-7","seasonOU":"4-7","modelSu":{"games":11,"wins":8,"losses":3,"pushes":0,"hitRate":"72.7"},"modelAts":{"games":11,"wins":6,"losses":5,"pushes":0,"hitRate":"54.5"},"modelOu":{"games":11,"wins":4,"losses":7,"pushes":0,"hitRate":"36.4"}},"Washington":{"team":"Washington","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png","gamesPlayed":5,"avgPF":"15.6","avgPA":"34.0","avgMargin":"-18.4","avgPassYdsFor":"188.0","avgPassYdsAgainst":"266.6","avgRushYdsFor":"123.6","avgRushYdsAgainst":"156.6","totalPassTDFor":5,"totalPassTDAgainst":13,"totalRushTDFor":5,"totalRushTDAgainst":6,"last5ATS":"0-5","last5OU":"3-2","seasonRecord":"3-8","seasonATS":"3-8","seasonOU":"5-6","modelSu":{"games":11,"wins":7,"losses":4,"pushes":0,"hitRate":"63.6"},"modelAts":{"games":11,"wins":7,"losses":4,"pushes":0,"hitRate":"63.6"},"modelOu":{"games":11,"wins":6,"losses":5,"pushes":0,"hitRate":"54.5"}},"Denver":{"team":"Denver","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/den.png","gamesPlayed":5,"avgPF":"25.4","avgPA":"19.4","avgMargin":"6.0","avgPassYdsFor":"220.4","avgPassYdsAgainst":"210.6","avgRushYdsFor":"112.8","avgRushYdsAgainst":"88.0","totalPassTDFor":11,"totalPassTDAgainst":6,"totalRushTDFor":3,"totalRushTDAgainst":5,"last5ATS":"3-2","last5OU":"2-3","seasonRecord":"9-2","seasonATS":"5-6","seasonOU":"3-8","modelSu":{"games":11,"wins":7,"losses":4,"pushes":0,"hitRate":"63.6"},"modelAts":{"games":11,"wins":2,"losses":9,"pushes":0,"hitRate":"18.2"},"modelOu":{"games":11,"wins":4,"losses":7,"pushes":0,"hitRate":"36.4"}},"New England":{"team":"New England","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/ne.png","gamesPlayed":5,"avgPF":"27.4","avgPA":"18.6","avgMargin":"8.8","avgPassYdsFor":"258.2","avgPassYdsAgainst":"182.4","avgRushYdsFor":"125.0","avgRushYdsAgainst":"102.4","totalPassTDFor":9,"totalPassTDAgainst":10,"totalRushTDFor":5,"totalRushTDAgainst":1,"last5ATS":"3-2","last5OU":"3-2","seasonRecord":"10-2","seasonATS":"8-4","seasonOU":"6-6","modelSu":{"games":12,"wins":8,"losses":4,"pushes":0,"hitRate":"66.7"},"modelAts":{"games":12,"wins":6,"losses":6,"pushes":0,"hitRate":"50.0"},"modelOu":{"games":12,"wins":6,"losses":6,"pushes":0,"hitRate":"50.0"}},"NY Giants":{"team":"NY Giants","logoUrl":"https://a.espncdn.com/i/teamlogos/nfl/500/nyg.png","gamesPlayed":5,"avgPF":"22.2","avgPA":"31.4","avgMargin":"-9.2","avgPassYdsFor":"241.6","avgPassYdsAgainst":"203.4","avgRushYdsFor":"123.6","avgRushYdsAgainst":"194.2","totalPassTDFor":6,"totalPassTDAgainst":12,"totalRushTDFor":7,"totalRushTDAgainst":8,"last5ATS":"3-2","last5OU":"4-1","seasonRecord":"2-10","seasonATS":"7-5","seasonOU":"7-5","modelSu":{"games":12,"wins":10,"losses":2,"pushes":0,"hitRate":"83.3"},"modelAts":{"games":12,"wins":5,"losses":7,"pushes":0,"hitRate":"41.7"},"modelOu":{"games":12,"wins":7,"losses":5,"pushes":0,"hitRate":"58.3"}}};
 
+        // ==================== CLIENT-SIDE HELPER FUNCTIONS ====================
+
+        // Color scale for hit rate display
+        function getPerformanceColor(hitRate, type) {
+            if (type === 'su_underdog') {
+                if (hitRate >= 65) return '#10b981';
+                if (hitRate >= 50) return '#f59e0b';
+                return '#ef4444';
+            }
+            if (type === 'su') {
+                if (hitRate >= 72) return '#10b981';
+                if (hitRate >= 65) return '#22c55e';
+                if (hitRate >= 55) return '#f59e0b';
+                return '#ef4444';
+            }
+            // ATS/OU (50% baseline)
+            if (hitRate >= 57) return '#10b981';
+            if (hitRate >= 52) return '#f59e0b';
+            return '#ef4444';
+        }
+
+        // Format W-L-P record for display
+        function formatAccuracyRecord(rec) {
+            if (!rec) return '';
+            const wins = rec.wins ?? 0;
+            const losses = rec.losses ?? 0;
+            const pushes = rec.pushes ?? 0;
+            return pushes > 0 ? wins + '-' + losses + '-' + pushes : wins + '-' + losses;
+        }
+
+        // ==================== ACCURACY FILTER SYSTEM ====================
+
+        // Filter state
+        const accuracyFilterState = {
+            dimension: 'overall',
+            value: 'ALL'
+        };
+
+        // Store chart instance for updates
+        let accuracyChartInstance = null;
+
+        // Helper: Get available dimensions based on filter meta
+        function getAvailableDimensions() {
+            const meta = window.INSIGHTS_ACCURACY_FILTER_META;
+            if (!meta) return ['overall'];
+
+            const dims = ['overall'];
+
+            if (meta.su?.by_location?.length || meta.ats?.by_pick_location?.length) {
+                dims.push('location');
+            }
+            if (meta.su?.by_favored_status?.length || meta.ats?.by_pick_side?.length) {
+                dims.push('fav_status');
+            }
+            if (meta.ats?.by_spread_band?.length) {
+                dims.push('spread_band');
+            }
+            if (meta.ou?.by_total_band?.length) {
+                dims.push('total_band');
+            }
+            // NFL typically doesn't have useful conference data - check anyway
+            const confBuckets = meta.su?.by_pick_conference || meta.ats?.by_pick_conference || [];
+            const validConf = confBuckets.filter(c => c && c !== 'Unknown');
+            if (validConf.length > 0) {
+                dims.push('pick_conference');
+            }
+
+            return dims;
+        }
+
+        // Helper: Get buckets for current dimension
+        function getBucketsForDimension(dim) {
+            const meta = window.INSIGHTS_ACCURACY_FILTER_META;
+            if (!meta || dim === 'overall') return [];
+
+            switch (dim) {
+                case 'location':
+                    return meta.su?.by_location || meta.ats?.by_pick_location || [];
+                case 'fav_status':
+                    return meta.su?.by_favored_status || meta.ats?.by_pick_side || [];
+                case 'spread_band':
+                    return meta.ats?.by_spread_band || [];
+                case 'total_band':
+                    return meta.ou?.by_total_band || [];
+                case 'pick_conference':
+                    return (meta.su?.by_pick_conference || []).filter(c => c && c !== 'Unknown');
+                default:
+                    return [];
+            }
+        }
+
+        // Helper: Get dimension display label
+        function getDimensionLabel(dim) {
+            const labels = {
+                overall: 'Overall',
+                location: 'Location',
+                fav_status: 'Fav/Underdog',
+                spread_band: 'Spread Range',
+                total_band: 'Total Range',
+                pick_conference: 'Conference'
+            };
+            return labels[dim] || dim;
+        }
+
+        // Core: Get filtered accuracy view
+        function getAccuracyViewForFilter(state) {
+            const ACC = window.INSIGHTS_ACCURACY;
+            if (!ACC) return null;
+
+            const { dimension, value } = state;
+            const bd = ACC.breakdowns || {};
+
+            function getSuSeries() {
+                if (dimension === 'overall' || value === 'ALL') {
+                    return { pct: ACC.su.map(v => parseFloat(v)), records: ACC.suRecords };
+                }
+                let slice = null;
+                if (dimension === 'location') slice = bd.su?.by_location?.[value];
+                else if (dimension === 'fav_status') slice = bd.su?.by_favored_status?.[value];
+                else if (dimension === 'pick_conference') slice = bd.su?.by_pick_conference?.[value];
+
+                if (slice) return { pct: slice.pct, records: slice.records };
+                return { pct: ACC.su.map(v => parseFloat(v)), records: ACC.suRecords };
+            }
+
+            function getAtsSeries() {
+                if (dimension === 'overall' || value === 'ALL') {
+                    return { pct: ACC.ats.map(v => parseFloat(v)), records: ACC.atsRecords };
+                }
+                let slice = null;
+                if (dimension === 'location') slice = bd.ats?.by_pick_location?.[value];
+                else if (dimension === 'fav_status') slice = bd.ats?.by_pick_side?.[value];
+                else if (dimension === 'spread_band') slice = bd.ats?.by_spread_band?.[value];
+                else if (dimension === 'pick_conference') slice = bd.ats?.by_pick_conference?.[value];
+
+                if (slice) return { pct: slice.pct, records: slice.records };
+                return { pct: ACC.ats.map(v => parseFloat(v)), records: ACC.atsRecords };
+            }
+
+            function getOuSeries() {
+                if (dimension === 'overall' || value === 'ALL') {
+                    return { pct: ACC.ou.map(v => parseFloat(v)), records: ACC.ouRecords };
+                }
+                let slice = null;
+                if (dimension === 'total_band') slice = bd.ou?.by_total_band?.[value];
+
+                if (slice) return { pct: slice.pct, records: slice.records };
+                return { pct: ACC.ou.map(v => parseFloat(v)), records: ACC.ouRecords };
+            }
+
+            const su = getSuSeries();
+            const ats = getAtsSeries();
+            const ou = getOuSeries();
+
+            function computeSummary(records, pctArr) {
+                if (!records || records.length === 0) return null;
+
+                const lastIdx = records.length - 1;
+                const lastWeekRec = records[lastIdx];
+                const lastWeekPct = pctArr[lastIdx];
+
+                const last3Recs = records.slice(-3);
+                const last3Sum = last3Recs.reduce((acc, r) => ({
+                    wins: acc.wins + (r?.wins || 0),
+                    losses: acc.losses + (r?.losses || 0),
+                    pushes: acc.pushes + (r?.pushes || 0)
+                }), { wins: 0, losses: 0, pushes: 0 });
+                const last3Total = last3Sum.wins + last3Sum.losses;
+                const last3Pct = last3Total > 0 ? ((last3Sum.wins / last3Total) * 100).toFixed(1) : null;
+
+                const seasonSum = records.reduce((acc, r) => ({
+                    wins: acc.wins + (r?.wins || 0),
+                    losses: acc.losses + (r?.losses || 0),
+                    pushes: acc.pushes + (r?.pushes || 0)
+                }), { wins: 0, losses: 0, pushes: 0 });
+                const seasonTotal = seasonSum.wins + seasonSum.losses;
+                const seasonPct = seasonTotal > 0 ? ((seasonSum.wins / seasonTotal) * 100).toFixed(1) : null;
+
+                return {
+                    lastWeek: { pct: lastWeekPct != null && !isNaN(lastWeekPct) ? Number(lastWeekPct).toFixed(1) : null, record: lastWeekRec },
+                    last3Weeks: { pct: last3Pct, record: last3Sum },
+                    season: { pct: seasonPct, record: seasonSum }
+                };
+            }
+
+            const suSummary = computeSummary(su.records, su.pct);
+            const atsSummary = computeSummary(ats.records, ats.pct);
+            const ouSummary = computeSummary(ou.records, ou.pct);
+
+            return {
+                weeks: ACC.weeks,
+                suSeries: su.pct,
+                atsSeries: ats.pct,
+                ouSeries: ou.pct,
+                suRecordsByWeek: su.records,
+                atsRecordsByWeek: ats.records,
+                ouRecordsByWeek: ou.records,
+                summary: {
+                    lastWeek: {
+                        suPct: suSummary?.lastWeek?.pct, suRecord: suSummary?.lastWeek?.record,
+                        atsPct: atsSummary?.lastWeek?.pct, atsRecord: atsSummary?.lastWeek?.record,
+                        ouPct: ouSummary?.lastWeek?.pct, ouRecord: ouSummary?.lastWeek?.record
+                    },
+                    last3Weeks: {
+                        suPct: suSummary?.last3Weeks?.pct, suRecord: suSummary?.last3Weeks?.record,
+                        atsPct: atsSummary?.last3Weeks?.pct, atsRecord: atsSummary?.last3Weeks?.record,
+                        ouPct: ouSummary?.last3Weeks?.pct, ouRecord: ouSummary?.last3Weeks?.record
+                    },
+                    seasonToDate: {
+                        suPct: suSummary?.season?.pct, suRecord: suSummary?.season?.record,
+                        atsPct: atsSummary?.season?.pct, atsRecord: atsSummary?.season?.record,
+                        ouPct: ouSummary?.season?.pct, ouRecord: ouSummary?.season?.record
+                    }
+                }
+            };
+        }
+
+        // Render filter status text
+        function getFilterStatusText() {
+            const { dimension, value } = accuracyFilterState;
+            if (dimension === 'overall' || value === 'ALL') {
+                return 'All games';
+            }
+            return getDimensionLabel(dimension) + ': ' + value;
+        }
+
+        // Render dimension pills (desktop)
+        function renderDimensionPills() {
+            const container = document.getElementById('accuracy-dimension-pills');
+            if (!container) return;
+
+            const dims = getAvailableDimensions();
+            container.innerHTML = dims.map(dim => {
+                const isActive = accuracyFilterState.dimension === dim;
+                const cls = isActive
+                    ? 'px-3 py-1 text-xs font-medium rounded-full bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-sm'
+                    : 'px-3 py-1 text-xs font-medium rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 cursor-pointer';
+                return '<button class="' + cls + '" data-dimension="' + dim + '">' + getDimensionLabel(dim) + '</button>';
+            }).join('');
+
+            container.querySelectorAll('button').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const dim = btn.dataset.dimension;
+                    accuracyFilterState.dimension = dim;
+                    accuracyFilterState.value = 'ALL';
+                    onFilterChange();
+                });
+            });
+        }
+
+        // Render bucket chips
+        function renderBucketChips() {
+            const container = document.getElementById('accuracy-bucket-chips');
+            if (!container) return;
+
+            const { dimension, value } = accuracyFilterState;
+            if (dimension === 'overall') {
+                container.innerHTML = '';
+                container.classList.add('hidden');
+                return;
+            }
+
+            container.classList.remove('hidden');
+            const buckets = getBucketsForDimension(dimension);
+            const allBuckets = ['ALL', ...buckets];
+
+            container.innerHTML = allBuckets.map(bucket => {
+                const isActive = value === bucket;
+                const label = bucket === 'ALL' ? 'All' : bucket;
+                const cls = isActive
+                    ? 'px-2.5 py-1 text-[11px] font-medium rounded-full bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-sm flex-shrink-0'
+                    : 'px-2.5 py-1 text-[11px] font-medium rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 cursor-pointer flex-shrink-0';
+                return '<button class="' + cls + '" data-bucket="' + bucket + '">' + label + '</button>';
+            }).join('');
+
+            container.querySelectorAll('button').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const bucket = btn.dataset.bucket;
+                    if (bucket === accuracyFilterState.value && bucket !== 'ALL') {
+                        accuracyFilterState.value = 'ALL';
+                    } else {
+                        accuracyFilterState.value = bucket;
+                    }
+                    onFilterChange();
+                });
+            });
+        }
+
+        // Clear filters
+        function clearAccuracyFilters() {
+            accuracyFilterState.dimension = 'overall';
+            accuracyFilterState.value = 'ALL';
+            onFilterChange();
+        }
+
+        // Update filter UI
+        function updateFilterUI() {
+            const statusEl = document.getElementById('accuracy-filter-status');
+            if (statusEl) {
+                statusEl.textContent = 'Filtered: ' + getFilterStatusText();
+            }
+
+            const clearBtn = document.getElementById('accuracy-filter-clear');
+            if (clearBtn) {
+                clearBtn.classList.toggle('invisible', accuracyFilterState.dimension === 'overall');
+            }
+
+            renderDimensionPills();
+            renderBucketChips();
+
+            const mobileSelect = document.getElementById('accuracy-dimension-select');
+            if (mobileSelect) {
+                mobileSelect.value = accuracyFilterState.dimension;
+            }
+        }
+
+        // Update summary blocks with new data
+        function updateAccuracySummary(summary) {
+            const periods = [
+                { id: 'lastWeek', data: summary.lastWeek },
+                { id: 'last3Weeks', data: summary.last3Weeks },
+                { id: 'season', data: summary.seasonToDate }
+            ];
+
+            periods.forEach(({ id, data }) => {
+                const container = document.getElementById('accuracy-content-' + id);
+                if (!container || !data) return;
+
+                const suPctEl = container.querySelector('[data-metric="su-pct"]');
+                const suRecEl = container.querySelector('[data-metric="su-record"]');
+                if (suPctEl) {
+                    suPctEl.textContent = (data.suPct || '-') + '%';
+                    suPctEl.style.color = getPerformanceColor(parseFloat(data.suPct) || 0, 'su');
+                }
+                if (suRecEl) suRecEl.textContent = formatAccuracyRecord(data.suRecord);
+
+                const atsPctEl = container.querySelector('[data-metric="ats-pct"]');
+                const atsRecEl = container.querySelector('[data-metric="ats-record"]');
+                if (atsPctEl) {
+                    atsPctEl.textContent = (data.atsPct || '-') + '%';
+                    atsPctEl.style.color = getPerformanceColor(parseFloat(data.atsPct) || 0, 'ats');
+                }
+                if (atsRecEl) atsRecEl.textContent = formatAccuracyRecord(data.atsRecord);
+
+                const ouPctEl = container.querySelector('[data-metric="ou-pct"]');
+                const ouRecEl = container.querySelector('[data-metric="ou-record"]');
+                if (ouPctEl) {
+                    ouPctEl.textContent = (data.ouPct || '-') + '%';
+                    ouPctEl.style.color = getPerformanceColor(parseFloat(data.ouPct) || 0, 'ats');
+                }
+                if (ouRecEl) ouRecEl.textContent = formatAccuracyRecord(data.ouRecord);
+            });
+        }
+
+        // Update chart with new data
+        function updateAccuracyChart(view) {
+            if (!accuracyChartInstance || !view) return;
+
+            accuracyChartInstance.data.datasets[0].data = view.suSeries;
+            accuracyChartInstance.data.datasets[1].data = view.atsSeries;
+            accuracyChartInstance.data.datasets[2].data = view.ouSeries;
+
+            const allValues = [...view.suSeries, ...view.atsSeries, ...view.ouSeries]
+                .filter(v => v != null && !isNaN(v));
+            if (allValues.length > 0) {
+                const dataMin = Math.min(...allValues);
+                const dataMax = Math.max(...allValues);
+                accuracyChartInstance.options.scales.y.min = dataMin < 40 ? Math.floor(dataMin / 5) * 5 : 40;
+                accuracyChartInstance.options.scales.y.max = dataMax > 90 ? Math.ceil(dataMax / 5) * 5 : 90;
+            }
+
+            accuracyChartInstance.update();
+        }
+
+        // Main filter change handler
+        function onFilterChange() {
+            updateFilterUI();
+            const view = getAccuracyViewForFilter(accuracyFilterState);
+            if (view) {
+                updateAccuracySummary(view.summary);
+                updateAccuracyChart(view);
+            }
+        }
+
+        // ==================== END ACCURACY FILTER SYSTEM ====================
+
         // Parlay Builder State
         const selectedBets = new Map();
         const LEAGUE = 'nfl';
@@ -1616,6 +2028,16 @@
             if (parlayRoot && !parlayRoot.classList.contains('hidden')) {
                 initParlayBuilder();
             }
+
+            // Initialize mobile dimension select options
+            const mobileSelect = document.getElementById('accuracy-dimension-select');
+            if (mobileSelect) {
+                const dims = getAvailableDimensions();
+                mobileSelect.innerHTML = dims.map(dim =>
+                    '<option value="' + dim + '">' + getDimensionLabel(dim) + '</option>'
+                ).join('');
+            }
+
             initAccuracyChart();
             initTeamFormTable();
             initTeamStatsMobile();
@@ -2042,25 +2464,26 @@
         }
 
         function initAccuracyChart() {
-            const ACC = window.INSIGHTS_ACCURACY;
-            if (!ACC || !ACC.weeks.length) return;
+            const view = getAccuracyViewForFilter(accuracyFilterState);
+            if (!view || !view.weeks.length) return;
 
-            // Calculate dynamic Y-axis bounds
-            const allValues = [...ACC.su, ...ACC.ats, ...ACC.ou].map(v => parseFloat(v)).filter(v => !isNaN(v));
+            // Calculate dynamic Y-axis bounds from filtered data
+            const allValues = [...view.suSeries, ...view.atsSeries, ...view.ouSeries]
+                .filter(v => v != null && !isNaN(v));
             const dataMin = Math.min(...allValues);
             const dataMax = Math.max(...allValues);
             const yMin = dataMin < 40 ? Math.floor(dataMin / 5) * 5 : 40;
             const yMax = dataMax > 90 ? Math.ceil(dataMax / 5) * 5 : 90;
 
             const ctx = document.getElementById('accuracy-chart').getContext('2d');
-            new Chart(ctx, {
+            accuracyChartInstance = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: ACC.weeks.map(w => 'Wk ' + w),
+                    labels: view.weeks.map(w => 'Wk ' + w),
                     datasets: [
-                        { label: 'SU', data: ACC.su, borderColor: '#10b981', backgroundColor: '#10b981', tension: 0.3, fill: false, borderWidth: 3, pointBackgroundColor: '#10b981', pointBorderColor: '#10b981', pointRadius: 3 },
-                        { label: 'ATS', data: ACC.ats, borderColor: '#3b82f6', backgroundColor: '#3b82f6', tension: 0.3, fill: false, borderWidth: 3, pointBackgroundColor: '#3b82f6', pointBorderColor: '#3b82f6', pointRadius: 3 },
-                        { label: 'O/U', data: ACC.ou, borderColor: '#f97316', backgroundColor: '#f97316', tension: 0.3, fill: false, borderWidth: 3, pointBackgroundColor: '#f97316', pointBorderColor: '#f97316', pointRadius: 3 }
+                        { label: 'SU', data: view.suSeries, borderColor: '#10b981', backgroundColor: '#10b981', tension: 0.3, fill: false, borderWidth: 3, pointBackgroundColor: '#10b981', pointBorderColor: '#10b981', pointRadius: 3 },
+                        { label: 'ATS', data: view.atsSeries, borderColor: '#3b82f6', backgroundColor: '#3b82f6', tension: 0.3, fill: false, borderWidth: 3, pointBackgroundColor: '#3b82f6', pointBorderColor: '#3b82f6', pointRadius: 3 },
+                        { label: 'O/U', data: view.ouSeries, borderColor: '#f97316', backgroundColor: '#f97316', tension: 0.3, fill: false, borderWidth: 3, pointBackgroundColor: '#f97316', pointBorderColor: '#f97316', pointRadius: 3 }
                     ]
                 },
                 options: {
@@ -2091,6 +2514,9 @@
                     }
                 }
             });
+
+            // Initialize filter UI
+            updateFilterUI();
         }
     </script>
 </body>
