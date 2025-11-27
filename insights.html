@@ -319,86 +319,76 @@
             <h2 class="text-lg sm:text-xl font-bold text-slate-900 mb-1">Model Accuracy Overview</h2>
             <p class="text-xs sm:text-sm text-slate-500 mb-6">Weeks 1–14</p>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                <div class="accuracy-card accuracy-card--compact">
-                    <div class="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">Last Week</div>
-                    <div class="space-y-1.5">
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-slate-600">SU</span>
-                            <div class="flex items-center gap-2">
-                                <span class="text-base font-bold" style="color: #10b981">78.6%</span>
-                                <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">11-3</span>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-slate-600">ATS</span>
-                            <div class="flex items-center gap-2">
-                                <span class="text-base font-bold" style="color: #10b981">69.2%</span>
-                                <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">9-4-1</span>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-slate-600">O/U</span>
-                            <div class="flex items-center gap-2">
-                                <span class="text-base font-bold" style="color: #10b981">57.1%</span>
-                                <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">8-6</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- Accuracy Tabs -->
+            <div class="inline-flex rounded-full bg-slate-100 p-1 mb-4">
+                <button id="accuracy-tab-lastWeek" onclick="switchAccuracyTab('lastWeek')"
+                        class="px-3 py-1.5 text-xs sm:text-sm rounded-full font-semibold bg-white text-slate-900 shadow-sm">
+                    Last Week
+                </button>
+                <button id="accuracy-tab-last3Weeks" onclick="switchAccuracyTab('last3Weeks')"
+                        class="px-3 py-1.5 text-xs sm:text-sm rounded-full font-semibold text-slate-600 hover:text-slate-900">
+                    Last 3 Weeks
+                </button>
+                <button id="accuracy-tab-season" onclick="switchAccuracyTab('season')"
+                        class="px-3 py-1.5 text-xs sm:text-sm rounded-full font-semibold text-slate-600 hover:text-slate-900">
+                    Season
+                </button>
+            </div>
 
-                <div class="accuracy-card accuracy-card--compact">
-                    <div class="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">Last 3 Weeks</div>
-                    <div class="space-y-1.5">
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-slate-600">SU</span>
-                            <div class="flex items-center gap-2">
-                                <span class="text-base font-bold" style="color: #10b981">72.2%</span>
-                                <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">31-12</span>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-slate-600">ATS</span>
-                            <div class="flex items-center gap-2">
-                                <span class="text-base font-bold" style="color: #10b981">58.8%</span>
-                                <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">24-17-2</span>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-slate-600">O/U</span>
-                            <div class="flex items-center gap-2">
-                                <span class="text-base font-bold" style="color: #10b981">56.0%</span>
-                                <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">24-19</span>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Last Week Content -->
+            <div id="accuracy-content-lastWeek" class="space-y-1.5 mb-6">
+                <div class="flex items-center gap-3">
+                    <span class="text-sm text-slate-600 w-8">SU</span>
+                    <span class="text-base font-bold" style="color: #10b981">78.6%</span>
+                    <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">11-3</span>
                 </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-sm text-slate-600 w-8">ATS</span>
+                    <span class="text-base font-bold" style="color: #10b981">69.2%</span>
+                    <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">9-4-1</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-sm text-slate-600 w-8">O/U</span>
+                    <span class="text-base font-bold" style="color: #10b981">57.1%</span>
+                    <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">8-6</span>
+                </div>
+            </div>
 
-                <div class="accuracy-card accuracy-card--compact">
-                    <div class="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">Season to Date</div>
-                    <div class="space-y-1.5">
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-slate-600">SU</span>
-                            <div class="flex items-center gap-2">
-                                <span class="text-base font-bold" style="color: #f59e0b">66.9%</span>
-                                <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">119-59</span>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-slate-600">ATS</span>
-                            <div class="flex items-center gap-2">
-                                <span class="text-base font-bold" style="color: #10b981">58.3%</span>
-                                <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">102-73-3</span>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-slate-600">O/U</span>
-                            <div class="flex items-center gap-2">
-                                <span class="text-base font-bold" style="color: #f59e0b">52.2%</span>
-                                <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">93-85</span>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Last 3 Weeks Content -->
+            <div id="accuracy-content-last3Weeks" class="space-y-1.5 mb-6" style="display: none;">
+                <div class="flex items-center gap-3">
+                    <span class="text-sm text-slate-600 w-8">SU</span>
+                    <span class="text-base font-bold" style="color: #10b981">72.2%</span>
+                    <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">31-12</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-sm text-slate-600 w-8">ATS</span>
+                    <span class="text-base font-bold" style="color: #10b981">58.8%</span>
+                    <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">24-17-2</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-sm text-slate-600 w-8">O/U</span>
+                    <span class="text-base font-bold" style="color: #10b981">56.0%</span>
+                    <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">24-19</span>
+                </div>
+            </div>
+
+            <!-- Season to Date Content -->
+            <div id="accuracy-content-season" class="space-y-1.5 mb-6" style="display: none;">
+                <div class="flex items-center gap-3">
+                    <span class="text-sm text-slate-600 w-8">SU</span>
+                    <span class="text-base font-bold" style="color: #f59e0b">66.9%</span>
+                    <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">119-59</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-sm text-slate-600 w-8">ATS</span>
+                    <span class="text-base font-bold" style="color: #10b981">58.3%</span>
+                    <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">102-73-3</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-sm text-slate-600 w-8">O/U</span>
+                    <span class="text-base font-bold" style="color: #f59e0b">52.2%</span>
+                    <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">93-85</span>
                 </div>
             </div>
 
@@ -1578,6 +1568,25 @@
             initAccuracyChart();
             initTeamFormTable();
         });
+
+        // Accuracy Tab Switching
+        function switchAccuracyTab(period) {
+            const tabs = ['lastWeek', 'last3Weeks', 'season'];
+            const activeClass = 'px-3 py-1.5 text-xs sm:text-sm rounded-full font-semibold bg-white text-slate-900 shadow-sm';
+            const inactiveClass = 'px-3 py-1.5 text-xs sm:text-sm rounded-full font-semibold text-slate-600 hover:text-slate-900';
+
+            tabs.forEach(t => {
+                const btn = document.getElementById('accuracy-tab-' + t);
+                const content = document.getElementById('accuracy-content-' + t);
+                if (t === period) {
+                    btn.className = activeClass;
+                    content.style.display = '';
+                } else {
+                    btn.className = inactiveClass;
+                    content.style.display = 'none';
+                }
+            });
+        }
 
         // Team Form Tab Switching
         function switchTeamFormTab(tab) {
