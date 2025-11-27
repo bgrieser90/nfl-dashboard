@@ -472,7 +472,7 @@
             </div>
 
             <!-- Team Stats Tab -->
-            <div id="table-yardage" class="overflow-x-auto" style="display: none;">
+            <div id="table-yardage" class="hidden md:block overflow-x-auto" style="display: none;">
                 <table class="w-full text-xs sm:text-sm">
                     <thead>
                         <tr class="bg-slate-50 text-slate-500 text-xs uppercase">
@@ -1578,6 +1578,22 @@
                     </tbody>
                 </table>
             </div>
+
+            <!-- Team Stats Mobile (cards, < md) -->
+            <div id="team-stats-mobile" class="md:hidden" style="display: none;">
+                <div class="flex gap-2 mb-3">
+                    <button data-stats-sort="avgPF" class="flex-1 px-2 py-1.5 text-xs font-medium rounded-lg bg-slate-200 text-slate-900">
+                        Pts <span class="stats-sort-indicator">▼</span>
+                    </button>
+                    <button data-stats-sort="avgPassYdsFor" class="flex-1 px-2 py-1.5 text-xs font-medium rounded-lg bg-slate-100 text-slate-600">
+                        Pass Yds <span class="stats-sort-indicator"></span>
+                    </button>
+                    <button data-stats-sort="avgRushYdsFor" class="flex-1 px-2 py-1.5 text-xs font-medium rounded-lg bg-slate-100 text-slate-600">
+                        Rush Yds <span class="stats-sort-indicator"></span>
+                    </button>
+                </div>
+                <div id="team-stats-cards" class="space-y-2"></div>
+            </div>
         </div>
     </div>
 
@@ -1600,6 +1616,7 @@
             }
             initAccuracyChart();
             initTeamFormTable();
+            initTeamStatsMobile();
         });
 
         // Accuracy Tab Switching
@@ -1626,6 +1643,7 @@
             const perfTable = document.getElementById('table-performance');
             const yardTable = document.getElementById('table-yardage');
             const mobileCards = document.getElementById('team-form-mobile');
+            const teamStatsMobile = document.getElementById('team-stats-mobile');
             const perfTab = document.getElementById('tab-performance');
             const yardTab = document.getElementById('tab-yardage');
 
@@ -1635,13 +1653,17 @@
             if (tab === 'performance') {
                 perfTable.className = 'hidden md:block overflow-x-auto';
                 yardTable.style.display = 'none';
+                yardTable.className = 'hidden md:block overflow-x-auto';
                 if (mobileCards) mobileCards.style.display = '';
+                if (teamStatsMobile) teamStatsMobile.style.display = 'none';
                 perfTab.className = activeClass;
                 yardTab.className = inactiveClass;
             } else {
                 perfTable.className = 'hidden overflow-x-auto';
-                yardTable.style.display = 'block';
+                yardTable.style.display = '';
+                yardTable.className = 'hidden md:block overflow-x-auto';
                 if (mobileCards) mobileCards.style.display = 'none';
+                if (teamStatsMobile) teamStatsMobile.style.display = '';
                 perfTab.className = inactiveClass;
                 yardTab.className = activeClass;
             }
@@ -1803,6 +1825,98 @@
             });
 
             renderTable(); // Initial render with default sort
+        }
+
+        // Mobile Team Stats Cards
+        function initTeamStatsMobile() {
+            const data = window.INSIGHTS_TEAM_FORM;
+            if (!data || Object.keys(data).length === 0) return;
+
+            let statsSortKey = 'avgPF';
+            let statsSortDir = 'desc';
+
+            function renderStatsCards() {
+                const teamsArray = Object.values(data).map(t => ({
+                    ...t,
+                    avgPFNum: parseFloat(t.avgPF) || 0,
+                    avgPassYdsForNum: parseFloat(t.avgPassYdsFor) || 0,
+                    avgRushYdsForNum: parseFloat(t.avgRushYdsFor) || 0
+                }));
+
+                // Sort
+                const sorted = teamsArray.sort((a, b) => {
+                    let aVal, bVal;
+                    if (statsSortKey === 'avgPF') {
+                        aVal = a.avgPFNum; bVal = b.avgPFNum;
+                    } else if (statsSortKey === 'avgPassYdsFor') {
+                        aVal = a.avgPassYdsForNum; bVal = b.avgPassYdsForNum;
+                    } else if (statsSortKey === 'avgRushYdsFor') {
+                        aVal = a.avgRushYdsForNum; bVal = b.avgRushYdsForNum;
+                    } else {
+                        aVal = a.avgPFNum; bVal = b.avgPFNum;
+                    }
+                    return statsSortDir === 'desc' ? bVal - aVal : aVal - bVal;
+                });
+
+                const container = document.getElementById('team-stats-cards');
+                if (!container) return;
+
+                container.innerHTML = sorted.map(t => {
+                    const gp = t.gamesPlayed || 5;
+                    const passTDFor = ((t.totalPassTDFor || 0) / gp).toFixed(1);
+                    const passTDVs = ((t.totalPassTDAgainst || 0) / gp).toFixed(1);
+                    const rushTDFor = ((t.totalRushTDFor || 0) / gp).toFixed(1);
+                    const rushTDVs = ((t.totalRushTDAgainst || 0) / gp).toFixed(1);
+
+                    return '<div class="bg-white border border-slate-200 rounded-lg p-3">' +
+                        '<div class="flex items-center gap-2 mb-2">' +
+                            '<img src="' + (t.logoUrl || '') + '" class="w-7 h-7 object-contain flex-shrink-0" onerror="this.style.display=\'none\'">' +
+                            '<span class="font-semibold text-slate-800 text-sm truncate">' + (t.team || '') + '</span>' +
+                        '</div>' +
+                        '<div class="flex text-[10px] text-slate-400 uppercase tracking-wide mb-1">' +
+                            '<div class="flex-1"></div>' +
+                            '<div class="w-16 text-right">Team</div>' +
+                            '<div class="w-16 text-right">Opp</div>' +
+                        '</div>' +
+                        '<div class="space-y-1 text-xs">' +
+                            '<div class="flex"><span class="flex-1 text-slate-500">Points</span><span class="w-16 text-right text-slate-700">' + t.avgPF + '</span><span class="w-16 text-right text-slate-600">' + t.avgPA + '</span></div>' +
+                            '<div class="flex"><span class="flex-1 text-slate-500">Pass Yds</span><span class="w-16 text-right text-slate-700">' + t.avgPassYdsFor + '</span><span class="w-16 text-right text-slate-600">' + t.avgPassYdsAgainst + '</span></div>' +
+                            '<div class="flex"><span class="flex-1 text-slate-500">Pass TDs</span><span class="w-16 text-right text-slate-700">' + passTDFor + '</span><span class="w-16 text-right text-slate-600">' + passTDVs + '</span></div>' +
+                            '<div class="flex"><span class="flex-1 text-slate-500">Rush Yds</span><span class="w-16 text-right text-slate-700">' + t.avgRushYdsFor + '</span><span class="w-16 text-right text-slate-600">' + t.avgRushYdsAgainst + '</span></div>' +
+                            '<div class="flex"><span class="flex-1 text-slate-500">Rush TDs</span><span class="w-16 text-right text-slate-700">' + rushTDFor + '</span><span class="w-16 text-right text-slate-600">' + rushTDVs + '</span></div>' +
+                        '</div>' +
+                    '</div>';
+                }).join('');
+
+                // Update sort button states
+                document.querySelectorAll('[data-stats-sort]').forEach(btn => {
+                    const key = btn.dataset.statsSort;
+                    const indicator = btn.querySelector('.stats-sort-indicator');
+                    if (key === statsSortKey) {
+                        btn.className = 'flex-1 px-2 py-1.5 text-xs font-medium rounded-lg bg-slate-200 text-slate-900';
+                        if (indicator) indicator.textContent = statsSortDir === 'desc' ? '▼' : '▲';
+                    } else {
+                        btn.className = 'flex-1 px-2 py-1.5 text-xs font-medium rounded-lg bg-slate-100 text-slate-600';
+                        if (indicator) indicator.textContent = '';
+                    }
+                });
+            }
+
+            // Add click handlers to sort buttons
+            document.querySelectorAll('[data-stats-sort]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const key = btn.dataset.statsSort;
+                    if (statsSortKey === key) {
+                        statsSortDir = statsSortDir === 'asc' ? 'desc' : 'asc';
+                    } else {
+                        statsSortKey = key;
+                        statsSortDir = 'desc';
+                    }
+                    renderStatsCards();
+                });
+            });
+
+            renderStatsCards();
         }
 
         function initParlayBuilder() {
