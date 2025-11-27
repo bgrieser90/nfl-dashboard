@@ -1625,6 +1625,7 @@
         function switchTeamFormTab(tab) {
             const perfTable = document.getElementById('table-performance');
             const yardTable = document.getElementById('table-yardage');
+            const mobileCards = document.getElementById('team-form-mobile');
             const perfTab = document.getElementById('tab-performance');
             const yardTab = document.getElementById('tab-yardage');
 
@@ -1632,13 +1633,15 @@
             const inactiveClass = 'px-3 py-1.5 text-xs sm:text-sm rounded-full font-semibold text-slate-600 hover:text-slate-900';
 
             if (tab === 'performance') {
-                perfTable.style.display = 'block';
+                perfTable.className = 'hidden md:block overflow-x-auto';
                 yardTable.style.display = 'none';
+                if (mobileCards) mobileCards.style.display = '';
                 perfTab.className = activeClass;
                 yardTab.className = inactiveClass;
             } else {
-                perfTable.style.display = 'none';
+                perfTable.className = 'hidden overflow-x-auto';
                 yardTable.style.display = 'block';
+                if (mobileCards) mobileCards.style.display = 'none';
                 perfTab.className = inactiveClass;
                 yardTab.className = activeClass;
             }
