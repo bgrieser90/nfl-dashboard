@@ -446,6 +446,7 @@
                             <th class="hidden sm:table-cell px-3 py-2 text-center cursor-pointer hover:bg-slate-100" data-sort-key="last5OU">L5 O/U</th>
                             <th class="px-3 py-2 text-center cursor-pointer hover:bg-slate-100" data-sort-key="modelAtsHitRate">Model ATS</th>
                             <th class="px-3 py-2 text-center cursor-pointer hover:bg-slate-100" data-sort-key="modelOuHitRate">Model O/U</th>
+                            <th class="px-3 py-2 text-center cursor-pointer hover:bg-slate-100" data-sort-key="modelSuHitRate">Model SU</th>
                         </tr>
                     </thead>
                     <tbody id="team-form-tbody"></tbody>
@@ -1690,6 +1691,10 @@
                         ? '<div class="text-xs"><span class="font-semibold text-slate-700">' + t.modelOu.wins + '-' + t.modelOu.losses + (t.modelOu.pushes ? '-' + t.modelOu.pushes : '') + '</span><span class="ml-1" style="color: ' + getPercentGradientColor(parseFloat(t.modelOu.hitRate)) + '">' + t.modelOu.hitRate + '%</span></div>'
                         : '<span class="text-slate-400 text-xs">—</span>';
 
+                    const modelSuHtml = t.modelSu
+                        ? '<div class="text-xs"><span class="font-semibold text-slate-700">' + t.modelSu.wins + '-' + t.modelSu.losses + (t.modelSu.pushes ? '-' + t.modelSu.pushes : '') + '</span><span class="ml-1" style="color: ' + getPercentGradientColor(parseFloat(t.modelSu.hitRate)) + '">' + t.modelSu.hitRate + '%</span></div>'
+                        : '<span class="text-slate-400 text-xs">—</span>';
+
                     return '<tr class="border-b border-slate-100 hover:bg-slate-50">' +
                         '<td class="px-3 py-3"><div class="flex items-center gap-2"><img src="' + (t.logoUrl || '') + '" class="w-6 h-6 object-contain" onerror="this.style.display=\'none\'"><span class="font-semibold text-slate-800">' + escapeHtml(t.team) + '</span></div></td>' +
                         '<td class="hidden sm:table-cell px-3 py-3 text-center font-medium text-slate-700">' + (t.seasonRecord || '—') + '</td>' +
@@ -1699,6 +1704,7 @@
                         '<td class="hidden sm:table-cell px-3 py-3 text-center text-slate-600">' + (t.last5OU || '—') + '</td>' +
                         '<td class="px-3 py-3 text-center">' + modelAtsHtml + '</td>' +
                         '<td class="px-3 py-3 text-center">' + modelOuHtml + '</td>' +
+                        '<td class="px-3 py-3 text-center">' + modelSuHtml + '</td>' +
                         '</tr>';
                 }).join('');
 
