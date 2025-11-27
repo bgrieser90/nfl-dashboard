@@ -67,11 +67,11 @@
     <div class="sticky top-0 z-50" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid rgba(229, 231, 235, 0.5); box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Row 1: logo + title + timestamp -->
-            <div class="flex items-center justify-between py-4">
+            <div class="flex items-center justify-between py-3 sm:py-4">
                 <div class="flex items-center gap-3">
                     <img src="https://a.espncdn.com/i/teamlogos/leagues/500/nfl.png" alt="NFL logo" class="w-10 h-10 sm:w-12 sm:h-12 object-contain" onerror="this.style.display='none';">
                     <div class="flex flex-col justify-center">
-                        <h1 class="text-3xl sm:text-4xl font-black gradient-text" style="letter-spacing: -0.03em;">NFL Analytics Dashboard</h1>
+                        <h1 class="text-2xl sm:text-4xl font-black gradient-text" style="letter-spacing: -0.03em;">NFL Analytics Dashboard</h1>
                         <p class="text-sm text-gray-600 mt-1 font-medium">Last Model Run: <span style="color: #10b981;">11/26 2:22 PM</span></p>
                     </div>
                 </div>
@@ -102,16 +102,16 @@
             <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
                 <!-- Left: Top Bets Table -->
                 <div class="lg:col-span-3 overflow-x-auto">
-                    <table class="w-full text-sm">
+                    <table class="w-full text-xs sm:text-sm">
                         <thead>
                             <tr class="bg-slate-50 text-slate-500 text-xs uppercase">
-                                <th class="px-3 py-2 text-left">#</th>
+                                <th class="hidden sm:table-cell px-3 py-2 text-left">#</th>
                                 <th class="px-3 py-2 text-left">Matchup</th>
                                 <th class="px-3 py-2 text-left">Market</th>
                                 <th class="px-3 py-2 text-left">Pick</th>
-                                <th class="px-3 py-2 text-center">Tier</th>
-                                <th class="px-3 py-2 text-center">Model %</th>
-                                <th class="px-3 py-2 text-center">Edge</th>
+                                <th class="px-3 py-2 text-center whitespace-nowrap">Tier</th>
+                                <th class="px-3 py-2 text-center whitespace-nowrap">Model %</th>
+                                <th class="px-3 py-2 text-center whitespace-nowrap">Edge</th>
                                 <th class="px-3 py-2 text-center">Add</th>
                             </tr>
                         </thead>
@@ -124,7 +124,7 @@
                                 data-pick="Washington +16.5 (-458)"
                                 data-model-prob="0.85"
                                 data-american-price="-110">
-                                <td class="px-3 py-3 text-slate-400 font-medium">1</td>
+                                <td class="hidden sm:table-cell px-3 py-3 text-slate-400 font-medium">1</td>
                                 <td class="px-3 py-3">
                                     <div class="font-semibold text-slate-800">Denver @ Washington</div>
                                     <div class="text-xs text-slate-400">8:20 PM ET</div>
@@ -149,7 +149,7 @@
                                 data-pick="Seattle -1.5 (-547)"
                                 data-model-prob="0.83"
                                 data-american-price="-110">
-                                <td class="px-3 py-3 text-slate-400 font-medium">2</td>
+                                <td class="hidden sm:table-cell px-3 py-3 text-slate-400 font-medium">2</td>
                                 <td class="px-3 py-3">
                                     <div class="font-semibold text-slate-800">Minnesota @ Seattle</div>
                                     <div class="text-xs text-slate-400">4:05 PM ET</div>
@@ -174,7 +174,7 @@
                                 data-pick="Cincinnati +15 (-319)"
                                 data-model-prob="0.81"
                                 data-american-price="-110">
-                                <td class="px-3 py-3 text-slate-400 font-medium">3</td>
+                                <td class="hidden sm:table-cell px-3 py-3 text-slate-400 font-medium">3</td>
                                 <td class="px-3 py-3">
                                     <div class="font-semibold text-slate-800">Cincinnati @ Baltimore</div>
                                     <div class="text-xs text-slate-400">8:20 PM ET</div>
@@ -199,7 +199,7 @@
                                 data-pick="Chicago +13.5 (-249)"
                                 data-model-prob="0.78"
                                 data-american-price="-115">
-                                <td class="px-3 py-3 text-slate-400 font-medium">4</td>
+                                <td class="hidden sm:table-cell px-3 py-3 text-slate-400 font-medium">4</td>
                                 <td class="px-3 py-3">
                                     <div class="font-semibold text-slate-800">Chicago @ Philadelphia</div>
                                     <div class="text-xs text-slate-400">3:00 PM ET</div>
@@ -224,7 +224,7 @@
                                 data-pick="OVER 31.5 (-477)"
                                 data-model-prob="0.78"
                                 data-american-price="-105">
-                                <td class="px-3 py-3 text-slate-400 font-medium">5</td>
+                                <td class="hidden sm:table-cell px-3 py-3 text-slate-400 font-medium">5</td>
                                 <td class="px-3 py-3">
                                     <div class="font-semibold text-slate-800">Minnesota @ Seattle</div>
                                     <div class="text-xs text-slate-400">4:05 PM ET</div>
@@ -249,7 +249,7 @@
                                 data-pick="Atlanta +5.5 (-314)"
                                 data-model-prob="0.67"
                                 data-american-price="-110">
-                                <td class="px-3 py-3 text-slate-400 font-medium">6</td>
+                                <td class="hidden sm:table-cell px-3 py-3 text-slate-400 font-medium">6</td>
                                 <td class="px-3 py-3">
                                     <div class="font-semibold text-slate-800">Atlanta @ NY Jets</div>
                                     <div class="text-xs text-slate-400">1:00 PM ET</div>
@@ -408,7 +408,9 @@
 
             <div class="bg-white border border-slate-200 rounded-xl p-4 sm:p-5">
                 <h3 class="text-sm font-semibold text-slate-800 mb-3">Weekly Hit Rate (SU / ATS / O/U)</h3>
-                <canvas id="accuracy-chart" height="120"></canvas>
+                <div class="relative h-56 sm:h-72">
+                    <canvas id="accuracy-chart" class="w-full h-full"></canvas>
+                </div>
             </div>
         </div>
     </div>
@@ -433,9 +435,25 @@
                 </div>
             </div>
 
-            <!-- Performance Tab -->
-            <div id="table-performance" class="overflow-x-auto">
-                <table class="w-full text-sm">
+            <!-- Mobile Card View -->
+            <div id="team-form-mobile" class="md:hidden">
+                <div class="flex gap-2 mb-3">
+                    <button data-mobile-sort="modelAtsHitRate" class="flex-1 px-2 py-1.5 text-xs font-medium rounded-lg bg-slate-200 text-slate-900">
+                        ATS <span class="sort-indicator">▼</span>
+                    </button>
+                    <button data-mobile-sort="modelOuHitRate" class="flex-1 px-2 py-1.5 text-xs font-medium rounded-lg bg-slate-100 text-slate-600">
+                        O/U <span class="sort-indicator"></span>
+                    </button>
+                    <button data-mobile-sort="modelSuHitRate" class="flex-1 px-2 py-1.5 text-xs font-medium rounded-lg bg-slate-100 text-slate-600">
+                        SU <span class="sort-indicator"></span>
+                    </button>
+                </div>
+                <div id="team-form-cards" class="space-y-2"></div>
+            </div>
+
+            <!-- Performance Tab (Desktop) -->
+            <div id="table-performance" class="hidden md:block overflow-x-auto">
+                <table class="w-full text-xs sm:text-sm">
                     <thead>
                         <tr class="bg-slate-50 text-slate-500 text-xs uppercase">
                             <th class="px-3 py-2 text-left cursor-pointer hover:bg-slate-100" data-sort-key="team">Team</th>
@@ -444,9 +462,9 @@
                             <th class="hidden sm:table-cell px-3 py-2 text-center cursor-pointer hover:bg-slate-100" data-sort-key="seasonOU">O/U</th>
                             <th class="hidden sm:table-cell px-3 py-2 text-center cursor-pointer hover:bg-slate-100" data-sort-key="last5ATS">L5 ATS</th>
                             <th class="hidden sm:table-cell px-3 py-2 text-center cursor-pointer hover:bg-slate-100" data-sort-key="last5OU">L5 O/U</th>
-                            <th class="px-3 py-2 text-center cursor-pointer hover:bg-slate-100" data-sort-key="modelAtsHitRate">Model ATS</th>
-                            <th class="px-3 py-2 text-center cursor-pointer hover:bg-slate-100" data-sort-key="modelOuHitRate">Model O/U</th>
-                            <th class="px-3 py-2 text-center cursor-pointer hover:bg-slate-100" data-sort-key="modelSuHitRate">Model SU</th>
+                            <th class="px-3 py-2 text-center cursor-pointer hover:bg-slate-100 whitespace-nowrap" data-sort-key="modelAtsHitRate">Model ATS</th>
+                            <th class="px-3 py-2 text-center cursor-pointer hover:bg-slate-100 whitespace-nowrap" data-sort-key="modelOuHitRate">Model O/U</th>
+                            <th class="px-3 py-2 text-center cursor-pointer hover:bg-slate-100 whitespace-nowrap" data-sort-key="modelSuHitRate">Model SU</th>
                         </tr>
                     </thead>
                     <tbody id="team-form-tbody"></tbody>
@@ -455,16 +473,16 @@
 
             <!-- Team Stats Tab -->
             <div id="table-yardage" class="overflow-x-auto" style="display: none;">
-                <table class="w-full text-sm">
+                <table class="w-full text-xs sm:text-sm">
                     <thead>
                         <tr class="bg-slate-50 text-slate-500 text-xs uppercase">
                             <th class="px-3 py-2 text-left">Team</th>
-                            <th class="px-3 py-2 text-center">Points (For/Vs)</th>
+                            <th class="px-3 py-2 text-center whitespace-nowrap">Points (For/Vs)</th>
                             <th class="px-3 py-2 text-center">Margin</th>
-                            <th class="px-3 py-2 text-center">Pass Yds (For/Vs)</th>
-                            <th class="px-3 py-2 text-center">Rush Yds (For/Vs)</th>
-                            <th class="px-3 py-2 text-center">Pass TDs (For/Vs)</th>
-                            <th class="px-3 py-2 text-center">Rush TDs (For/Vs)</th>
+                            <th class="px-3 py-2 text-center whitespace-nowrap">Pass Yds (For/Vs)</th>
+                            <th class="px-3 py-2 text-center whitespace-nowrap">Rush Yds (For/Vs)</th>
+                            <th class="hidden md:table-cell px-3 py-2 text-center whitespace-nowrap">Pass TDs (For/Vs)</th>
+                            <th class="hidden md:table-cell px-3 py-2 text-center whitespace-nowrap">Rush TDs (For/Vs)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -492,12 +510,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">128.8</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.8</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">2.0</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">0.8</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.0</span>
@@ -526,12 +544,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">144.0</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.4</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">2.2</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.0</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">0.6</span>
@@ -560,12 +578,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">97.4</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.2</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">0.4</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.4</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">0.4</span>
@@ -594,12 +612,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">140.0</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.6</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.4</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">2.0</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.2</span>
@@ -628,12 +646,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">148.6</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">0.8</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">0.8</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">0.8</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.8</span>
@@ -662,12 +680,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">138.6</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.6</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.4</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.4</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.4</span>
@@ -696,12 +714,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">180.4</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">2.2</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">2.8</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">0.6</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">0.6</span>
@@ -730,12 +748,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">129.4</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.0</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.0</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.0</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">0.4</span>
@@ -764,12 +782,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">104.8</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">2.2</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">2.0</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">0.8</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.2</span>
@@ -798,12 +816,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">88.0</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">2.2</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.2</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">0.6</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.0</span>
@@ -832,12 +850,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">109.2</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.8</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.6</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.4</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">0.6</span>
@@ -866,12 +884,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">120.4</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.4</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">0.6</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.0</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.0</span>
@@ -900,12 +918,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">88.6</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.4</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.4</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">0.4</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">0.2</span>
@@ -934,12 +952,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">98.6</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">2.2</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.6</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.4</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">0.8</span>
@@ -968,12 +986,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">74.6</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.4</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">2.4</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.4</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">0.6</span>
@@ -1002,12 +1020,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">71.8</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.8</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">0.8</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">0.8</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">0.8</span>
@@ -1036,12 +1054,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">101.4</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.8</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.2</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">0.6</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.2</span>
@@ -1070,12 +1088,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">96.6</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">3.6</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.2</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">0.8</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">0.4</span>
@@ -1104,12 +1122,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">113.0</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.2</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.8</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">0.2</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.2</span>
@@ -1138,12 +1156,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">111.6</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.2</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.4</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">0.6</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">0.8</span>
@@ -1172,12 +1190,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">142.0</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.0</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.2</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">0.6</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.2</span>
@@ -1206,12 +1224,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">102.4</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.8</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">2.0</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.0</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">0.2</span>
@@ -1240,12 +1258,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">135.0</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.0</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.2</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">0.0</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.0</span>
@@ -1274,12 +1292,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">194.2</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.2</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">2.4</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.4</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.6</span>
@@ -1308,12 +1326,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">125.4</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.2</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.2</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">0.4</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.4</span>
@@ -1342,12 +1360,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">92.0</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.8</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">0.8</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">0.8</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">0.8</span>
@@ -1376,12 +1394,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">93.6</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.4</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">2.0</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">0.8</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">0.6</span>
@@ -1410,12 +1428,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">101.0</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">2.4</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">2.2</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.0</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">0.8</span>
@@ -1444,12 +1462,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">105.0</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.6</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.2</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.4</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.0</span>
@@ -1478,12 +1496,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">109.0</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.4</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">2.0</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">0.6</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.2</span>
@@ -1512,12 +1530,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">131.8</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">0.8</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">2.0</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">0.4</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.0</span>
@@ -1546,12 +1564,12 @@
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">156.6</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.0</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">2.6</span>
                             </td>
-                            <td class="px-3 py-3 text-center">
+                            <td class="hidden md:table-cell px-3 py-3 text-center">
                                 <span class="text-emerald-600 font-medium">1.0</span>
                                 <span class="text-slate-400 mx-1">/</span>
                                 <span class="text-slate-600">1.2</span>
@@ -1703,21 +1721,57 @@
                         '<td class="hidden sm:table-cell px-3 py-3 text-center text-slate-600">' + (t.seasonOU || '—') + '</td>' +
                         '<td class="hidden sm:table-cell px-3 py-3 text-center text-slate-600">' + (t.last5ATS || '—') + '</td>' +
                         '<td class="hidden sm:table-cell px-3 py-3 text-center text-slate-600">' + (t.last5OU || '—') + '</td>' +
-                        '<td class="px-3 py-3 text-center">' + modelAtsHtml + '</td>' +
-                        '<td class="px-3 py-3 text-center">' + modelOuHtml + '</td>' +
-                        '<td class="px-3 py-3 text-center">' + modelSuHtml + '</td>' +
+                        '<td class="px-3 py-3 text-center whitespace-nowrap">' + modelAtsHtml + '</td>' +
+                        '<td class="px-3 py-3 text-center whitespace-nowrap">' + modelOuHtml + '</td>' +
+                        '<td class="px-3 py-3 text-center whitespace-nowrap">' + modelSuHtml + '</td>' +
                         '</tr>';
                 }).join('');
 
-                // Update sort indicators
+                // Update sort indicators for desktop table
                 document.querySelectorAll('#table-performance th[data-sort-key]').forEach(th => {
                     const key = th.dataset.sortKey;
                     const indicator = key === sortKey ? (sortDir === 'asc' ? ' ▲' : ' ▼') : '';
                     th.textContent = th.textContent.replace(/ [▲▼]$/, '') + indicator;
                 });
+
+                // Render mobile cards
+                const cardsContainer = document.getElementById('team-form-cards');
+                if (cardsContainer) {
+                    cardsContainer.innerHTML = sorted.map(t => {
+                        const atsRate = t.modelAts?.hitRate || '—';
+                        const ouRate = t.modelOu?.hitRate || '—';
+                        const suRate = t.modelSu?.hitRate || '—';
+                        return '<div class="bg-white border border-slate-200 rounded-lg p-3 flex items-center gap-3">' +
+                            '<img src="' + (t.logoUrl || '') + '" class="w-8 h-8 object-contain" onerror="this.style.display=\'none\'">' +
+                            '<div class="flex-1 min-w-0">' +
+                                '<div class="font-semibold text-slate-800 text-sm truncate">' + escapeHtml(t.team) + '</div>' +
+                                '<div class="flex gap-4 mt-1 text-xs">' +
+                                    '<span>ATS: <span style="color: ' + getPercentGradientColor(parseFloat(atsRate)) + '">' + atsRate + '%</span></span>' +
+                                    '<span>O/U: <span style="color: ' + getPercentGradientColor(parseFloat(ouRate)) + '">' + ouRate + '%</span></span>' +
+                                    '<span>SU: <span style="color: ' + getPercentGradientColor(parseFloat(suRate)) + '">' + suRate + '%</span></span>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>';
+                    }).join('');
+                }
+
+                // Update mobile sort button indicators
+                document.querySelectorAll('[data-mobile-sort]').forEach(btn => {
+                    const key = btn.dataset.mobileSort;
+                    const indicator = btn.querySelector('.sort-indicator');
+                    if (key === sortKey) {
+                        btn.classList.add('bg-slate-200', 'text-slate-900');
+                        btn.classList.remove('bg-slate-100', 'text-slate-600');
+                        if (indicator) indicator.textContent = sortDir === 'asc' ? '▲' : '▼';
+                    } else {
+                        btn.classList.remove('bg-slate-200', 'text-slate-900');
+                        btn.classList.add('bg-slate-100', 'text-slate-600');
+                        if (indicator) indicator.textContent = '';
+                    }
+                });
             }
 
-            // Add click handlers to headers
+            // Add click handlers to desktop table headers
             document.querySelectorAll('#table-performance th[data-sort-key]').forEach(th => {
                 th.addEventListener('click', () => {
                     const key = th.dataset.sortKey;
@@ -1726,6 +1780,20 @@
                     } else {
                         sortKey = key;
                         sortDir = key === 'team' ? 'asc' : 'desc';
+                    }
+                    renderTable();
+                });
+            });
+
+            // Add click handlers to mobile sort buttons
+            document.querySelectorAll('[data-mobile-sort]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const key = btn.dataset.mobileSort;
+                    if (sortKey === key) {
+                        sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+                    } else {
+                        sortKey = key;
+                        sortDir = 'desc';
                     }
                     renderTable();
                 });
@@ -1878,6 +1946,7 @@
                 },
                 options: {
                     responsive: true,
+                    maintainAspectRatio: false,
                     plugins: {
                         legend: {
                             position: 'bottom',
