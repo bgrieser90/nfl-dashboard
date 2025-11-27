@@ -1661,6 +1661,7 @@
                     case 'last5OU': return parseRecord(t.last5OU);
                     case 'modelAtsHitRate': return parseFloat(t.modelAts?.hitRate) || 0;
                     case 'modelOuHitRate': return parseFloat(t.modelOu?.hitRate) || 0;
+                    case 'modelSuHitRate': return parseFloat(t.modelSu?.hitRate) || 0;
                     default: return t[key] || '';
                 }
             }
