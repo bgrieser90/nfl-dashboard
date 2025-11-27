@@ -2472,7 +2472,7 @@
                 .filter(v => v != null && !isNaN(v));
             const dataMin = Math.min(...allValues);
             const dataMax = Math.max(...allValues);
-            const yMin = dataMin < 40 ? Math.floor(dataMin / 5) * 5 : 40;
+            const yMin = 30;
             const yMax = dataMax > 90 ? Math.ceil(dataMax / 5) * 5 : 90;
 
             const ctx = document.getElementById('accuracy-chart').getContext('2d');
