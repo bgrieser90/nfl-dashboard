@@ -319,8 +319,16 @@
             <h2 class="text-lg sm:text-xl font-bold text-slate-900 mb-1">Model Accuracy Overview</h2>
             <p class="text-xs sm:text-sm text-slate-500 mb-6">Weeks 1–14</p>
 
-            <!-- Accuracy Tabs -->
-            <div class="inline-flex rounded-full bg-slate-100 p-1 mb-4">
+            <style>
+                @media (min-width: 768px) {
+                    #accuracy-content-lastWeek,
+                    #accuracy-content-last3Weeks,
+                    #accuracy-content-season { display: block !important; }
+                }
+            </style>
+
+            <!-- Accuracy Tabs - Mobile Only -->
+            <div class="inline-flex rounded-full bg-slate-100 p-1 mb-4 md:hidden">
                 <button id="accuracy-tab-lastWeek" onclick="switchAccuracyTab('lastWeek')"
                         class="px-3 py-1.5 text-xs sm:text-sm rounded-full font-semibold bg-white text-slate-900 shadow-sm">
                     Last Week
@@ -335,60 +343,66 @@
                 </button>
             </div>
 
-            <!-- Last Week Content -->
-            <div id="accuracy-content-lastWeek" class="space-y-1.5 mb-6">
-                <div class="flex items-center gap-3">
-                    <span class="text-sm text-slate-600 w-8">SU</span>
-                    <span class="text-base font-bold" style="color: #10b981">78.6%</span>
-                    <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">11-3</span>
+            <!-- Accuracy Grid (3-col on desktop, stacked with tabs on mobile) -->
+            <div class="md:grid md:grid-cols-3 md:gap-8 mb-6">
+                <!-- Last Week -->
+                <div id="accuracy-content-lastWeek" class="space-y-1.5 mb-4 md:mb-0">
+                    <div class="hidden md:block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">Last Week</div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-sm text-slate-600 w-8">SU</span>
+                        <span class="text-base font-bold" style="color: #10b981">78.6%</span>
+                        <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">11-3</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-sm text-slate-600 w-8">ATS</span>
+                        <span class="text-base font-bold" style="color: #10b981">69.2%</span>
+                        <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">9-4-1</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-sm text-slate-600 w-8">O/U</span>
+                        <span class="text-base font-bold" style="color: #10b981">57.1%</span>
+                        <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">8-6</span>
+                    </div>
                 </div>
-                <div class="flex items-center gap-3">
-                    <span class="text-sm text-slate-600 w-8">ATS</span>
-                    <span class="text-base font-bold" style="color: #10b981">69.2%</span>
-                    <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">9-4-1</span>
-                </div>
-                <div class="flex items-center gap-3">
-                    <span class="text-sm text-slate-600 w-8">O/U</span>
-                    <span class="text-base font-bold" style="color: #10b981">57.1%</span>
-                    <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">8-6</span>
-                </div>
-            </div>
 
-            <!-- Last 3 Weeks Content -->
-            <div id="accuracy-content-last3Weeks" class="space-y-1.5 mb-6" style="display: none;">
-                <div class="flex items-center gap-3">
-                    <span class="text-sm text-slate-600 w-8">SU</span>
-                    <span class="text-base font-bold" style="color: #10b981">72.2%</span>
-                    <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">31-12</span>
+                <!-- Last 3 Weeks -->
+                <div id="accuracy-content-last3Weeks" class="space-y-1.5 mb-4 md:mb-0" style="display: none;">
+                    <div class="hidden md:block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">Last 3 Weeks</div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-sm text-slate-600 w-8">SU</span>
+                        <span class="text-base font-bold" style="color: #10b981">72.2%</span>
+                        <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">31-12</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-sm text-slate-600 w-8">ATS</span>
+                        <span class="text-base font-bold" style="color: #10b981">58.8%</span>
+                        <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">24-17-2</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-sm text-slate-600 w-8">O/U</span>
+                        <span class="text-base font-bold" style="color: #10b981">56.0%</span>
+                        <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">24-19</span>
+                    </div>
                 </div>
-                <div class="flex items-center gap-3">
-                    <span class="text-sm text-slate-600 w-8">ATS</span>
-                    <span class="text-base font-bold" style="color: #10b981">58.8%</span>
-                    <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">24-17-2</span>
-                </div>
-                <div class="flex items-center gap-3">
-                    <span class="text-sm text-slate-600 w-8">O/U</span>
-                    <span class="text-base font-bold" style="color: #10b981">56.0%</span>
-                    <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">24-19</span>
-                </div>
-            </div>
 
-            <!-- Season to Date Content -->
-            <div id="accuracy-content-season" class="space-y-1.5 mb-6" style="display: none;">
-                <div class="flex items-center gap-3">
-                    <span class="text-sm text-slate-600 w-8">SU</span>
-                    <span class="text-base font-bold" style="color: #f59e0b">66.9%</span>
-                    <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">119-59</span>
-                </div>
-                <div class="flex items-center gap-3">
-                    <span class="text-sm text-slate-600 w-8">ATS</span>
-                    <span class="text-base font-bold" style="color: #10b981">58.3%</span>
-                    <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">102-73-3</span>
-                </div>
-                <div class="flex items-center gap-3">
-                    <span class="text-sm text-slate-600 w-8">O/U</span>
-                    <span class="text-base font-bold" style="color: #f59e0b">52.2%</span>
-                    <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">93-85</span>
+                <!-- Season to Date -->
+                <div id="accuracy-content-season" class="space-y-1.5 mb-4 md:mb-0" style="display: none;">
+                    <div class="hidden md:block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2">Season</div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-sm text-slate-600 w-8">SU</span>
+                        <span class="text-base font-bold" style="color: #f59e0b">66.9%</span>
+                        <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">119-59</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-sm text-slate-600 w-8">ATS</span>
+                        <span class="text-base font-bold" style="color: #10b981">58.3%</span>
+                        <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">102-73-3</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-sm text-slate-600 w-8">O/U</span>
+                        <span class="text-base font-bold" style="color: #f59e0b">52.2%</span>
+                        <span class="px-2 py-0.5 text-[10px] font-medium text-slate-600 bg-slate-100 rounded-full">93-85</span>
+                    </div>
                 </div>
             </div>
 
@@ -425,11 +439,11 @@
                     <thead>
                         <tr class="bg-slate-50 text-slate-500 text-xs uppercase">
                             <th class="px-3 py-2 text-left cursor-pointer hover:bg-slate-100" data-sort-key="team">Team</th>
-                            <th class="px-3 py-2 text-center cursor-pointer hover:bg-slate-100" data-sort-key="seasonRecord">Record</th>
-                            <th class="px-3 py-2 text-center cursor-pointer hover:bg-slate-100" data-sort-key="seasonATS">ATS</th>
-                            <th class="px-3 py-2 text-center cursor-pointer hover:bg-slate-100" data-sort-key="seasonOU">O/U</th>
-                            <th class="px-3 py-2 text-center cursor-pointer hover:bg-slate-100" data-sort-key="last5ATS">L5 ATS</th>
-                            <th class="px-3 py-2 text-center cursor-pointer hover:bg-slate-100" data-sort-key="last5OU">L5 O/U</th>
+                            <th class="hidden sm:table-cell px-3 py-2 text-center cursor-pointer hover:bg-slate-100" data-sort-key="seasonRecord">Record</th>
+                            <th class="hidden sm:table-cell px-3 py-2 text-center cursor-pointer hover:bg-slate-100" data-sort-key="seasonATS">ATS</th>
+                            <th class="hidden sm:table-cell px-3 py-2 text-center cursor-pointer hover:bg-slate-100" data-sort-key="seasonOU">O/U</th>
+                            <th class="hidden sm:table-cell px-3 py-2 text-center cursor-pointer hover:bg-slate-100" data-sort-key="last5ATS">L5 ATS</th>
+                            <th class="hidden sm:table-cell px-3 py-2 text-center cursor-pointer hover:bg-slate-100" data-sort-key="last5OU">L5 O/U</th>
                             <th class="px-3 py-2 text-center cursor-pointer hover:bg-slate-100" data-sort-key="modelAtsHitRate">Model ATS</th>
                             <th class="px-3 py-2 text-center cursor-pointer hover:bg-slate-100" data-sort-key="modelOuHitRate">Model O/U</th>
                         </tr>
@@ -1678,11 +1692,11 @@
 
                     return '<tr class="border-b border-slate-100 hover:bg-slate-50">' +
                         '<td class="px-3 py-3"><div class="flex items-center gap-2"><img src="' + (t.logoUrl || '') + '" class="w-6 h-6 object-contain" onerror="this.style.display=\'none\'"><span class="font-semibold text-slate-800">' + escapeHtml(t.team) + '</span></div></td>' +
-                        '<td class="px-3 py-3 text-center font-medium text-slate-700">' + (t.seasonRecord || '—') + '</td>' +
-                        '<td class="px-3 py-3 text-center text-slate-600">' + (t.seasonATS || '—') + '</td>' +
-                        '<td class="px-3 py-3 text-center text-slate-600">' + (t.seasonOU || '—') + '</td>' +
-                        '<td class="px-3 py-3 text-center text-slate-600">' + (t.last5ATS || '—') + '</td>' +
-                        '<td class="px-3 py-3 text-center text-slate-600">' + (t.last5OU || '—') + '</td>' +
+                        '<td class="hidden sm:table-cell px-3 py-3 text-center font-medium text-slate-700">' + (t.seasonRecord || '—') + '</td>' +
+                        '<td class="hidden sm:table-cell px-3 py-3 text-center text-slate-600">' + (t.seasonATS || '—') + '</td>' +
+                        '<td class="hidden sm:table-cell px-3 py-3 text-center text-slate-600">' + (t.seasonOU || '—') + '</td>' +
+                        '<td class="hidden sm:table-cell px-3 py-3 text-center text-slate-600">' + (t.last5ATS || '—') + '</td>' +
+                        '<td class="hidden sm:table-cell px-3 py-3 text-center text-slate-600">' + (t.last5OU || '—') + '</td>' +
                         '<td class="px-3 py-3 text-center">' + modelAtsHtml + '</td>' +
                         '<td class="px-3 py-3 text-center">' + modelOuHtml + '</td>' +
                         '</tr>';
