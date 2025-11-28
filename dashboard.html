@@ -651,9 +651,10 @@
             .filter-strip__inner {
                 min-width: 0;
                 flex-wrap: wrap !important;
+                justify-content: center;
             }
             .filter-strip__inner .filter-btn {
-                flex: 1 0 calc(25% - 0.5rem);
+                flex: 0 0 calc(25% - 0.5rem);
                 justify-content: center;
                 flex-shrink: 1;
             }
@@ -754,6 +755,8 @@
             }
             .model-performance-header {
                 margin-bottom: 0.5rem !important;
+                font-size: 1rem !important;
+                line-height: 1.25 !important;
             }
             .model-performance-mobile {
                 margin-bottom: 0.5rem !important;
@@ -1322,7 +1325,8 @@
 
             const countDisplay = document.getElementById('filtered-count');
             if (countDisplay) {
-                countDisplay.textContent = 'Showing ' + visibleCount + ' game' + (visibleCount === 1 ? '' : 's');
+                const suffix = visibleCount === 1 ? ' game' : ' games';
+                countDisplay.textContent = visibleCount + ' out of ' + TOTAL_GAMES + suffix;
             }
         }
 
@@ -1413,6 +1417,7 @@
         });
 
         // Filter functionality
+        const TOTAL_GAMES = 13;
         const gameData = [{"index":0,"away":"Chicago","home":"Philadelphia","awayRecord":{"wins":8,"losses":3,"ties":0,"atsWins":6,"atsLosses":4,"atsPushes":1,"overWins":6,"overLosses":5,"overPushes":0},"homeRecord":{"wins":8,"losses":3,"ties":0,"atsWins":7,"atsLosses":4,"atsPushes":0,"overWins":5,"overLosses":6,"overPushes":0},"atsSegment":"AwayDog"},{"index":1,"away":"Arizona","home":"Tampa Bay","awayRecord":{"wins":3,"losses":8,"ties":0,"atsWins":5,"atsLosses":6,"atsPushes":0,"overWins":7,"overLosses":4,"overPushes":0},"homeRecord":{"wins":6,"losses":5,"ties":0,"atsWins":5,"atsLosses":6,"atsPushes":0,"overWins":6,"overLosses":5,"overPushes":0},"atsSegment":"AwayDog"},{"index":2,"away":"Houston","home":"Indianapolis","awayRecord":{"wins":6,"losses":5,"ties":0,"atsWins":5,"atsLosses":6,"atsPushes":0,"overWins":3,"overLosses":8,"overPushes":0},"homeRecord":{"wins":8,"losses":3,"ties":0,"atsWins":7,"atsLosses":4,"atsPushes":0,"overWins":6,"overLosses":5,"overPushes":0},"atsSegment":"HomeFav"},{"index":3,"away":"New Orleans","home":"Miami","awayRecord":{"wins":2,"losses":9,"ties":0,"atsWins":3,"atsLosses":8,"atsPushes":0,"overWins":3,"overLosses":8,"overPushes":0},"homeRecord":{"wins":4,"losses":7,"ties":0,"atsWins":6,"atsLosses":5,"atsPushes":0,"overWins":6,"overLosses":5,"overPushes":0},"atsSegment":"AwayDog"},{"index":4,"away":"Jacksonville","home":"Tennessee","awayRecord":{"wins":7,"losses":4,"ties":0,"atsWins":6,"atsLosses":5,"atsPushes":0,"overWins":6,"overLosses":5,"overPushes":0},"homeRecord":{"wins":1,"losses":10,"ties":0,"atsWins":5,"atsLosses":6,"atsPushes":0,"overWins":7,"overLosses":4,"overPushes":0},"atsSegment":"HomeDog"},{"index":5,"away":"Atlanta","home":"NY Jets","awayRecord":{"wins":4,"losses":7,"ties":0,"atsWins":6,"atsLosses":5,"atsPushes":0,"overWins":4,"overLosses":7,"overPushes":0},"homeRecord":{"wins":2,"losses":9,"ties":0,"atsWins":6,"atsLosses":5,"atsPushes":0,"overWins":6,"overLosses":5,"overPushes":0},"atsSegment":"AwayFav"},{"index":6,"away":"LA Rams","home":"Carolina","awayRecord":{"wins":9,"losses":2,"ties":0,"atsWins":8,"atsLosses":3,"atsPushes":0,"overWins":4,"overLosses":7,"overPushes":0},"homeRecord":{"wins":6,"losses":6,"ties":0,"atsWins":7,"atsLosses":5,"atsPushes":0,"overWins":6,"overLosses":6,"overPushes":0},"atsSegment":"AwayFav"},{"index":7,"away":"San Francisco","home":"Cleveland","awayRecord":{"wins":8,"losses":4,"ties":0,"atsWins":7,"atsLosses":5,"atsPushes":0,"overWins":7,"overLosses":5,"overPushes":0},"homeRecord":{"wins":3,"losses":8,"ties":0,"atsWins":5,"atsLosses":6,"atsPushes":0,"overWins":6,"overLosses":5,"overPushes":0},"atsSegment":"AwayFav"},{"index":8,"away":"Minnesota","home":"Seattle","awayRecord":{"wins":4,"losses":7,"ties":0,"atsWins":4,"atsLosses":7,"atsPushes":0,"overWins":7,"overLosses":4,"overPushes":0},"homeRecord":{"wins":8,"losses":3,"ties":0,"atsWins":8,"atsLosses":3,"atsPushes":0,"overWins":7,"overLosses":4,"overPushes":0},"atsSegment":"HomeFav"},{"index":9,"away":"Las Vegas","home":"LA Chargers","awayRecord":{"wins":2,"losses":9,"ties":0,"atsWins":4,"atsLosses":7,"atsPushes":0,"overWins":4,"overLosses":7,"overPushes":0},"homeRecord":{"wins":7,"losses":4,"ties":0,"atsWins":5,"atsLosses":6,"atsPushes":0,"overWins":5,"overLosses":6,"overPushes":0},"atsSegment":"AwayDog"},{"index":10,"away":"Buffalo","home":"Pittsburgh","awayRecord":{"wins":7,"losses":4,"ties":0,"atsWins":5,"atsLosses":6,"atsPushes":0,"overWins":5,"overLosses":6,"overPushes":0},"homeRecord":{"wins":6,"losses":5,"ties":0,"atsWins":5,"atsLosses":5,"atsPushes":1,"overWins":6,"overLosses":5,"overPushes":0},"atsSegment":"AwayFav"},{"index":11,"away":"Denver","home":"Washington","awayRecord":{"wins":9,"losses":2,"ties":0,"atsWins":5,"atsLosses":6,"atsPushes":0,"overWins":3,"overLosses":8,"overPushes":0},"homeRecord":{"wins":3,"losses":8,"ties":0,"atsWins":3,"atsLosses":8,"atsPushes":0,"overWins":5,"overLosses":6,"overPushes":0},"atsSegment":"HomeDog"},{"index":12,"away":"NY Giants","home":"New England","awayRecord":{"wins":2,"losses":10,"ties":0,"atsWins":7,"atsLosses":5,"atsPushes":0,"overWins":7,"overLosses":5,"overPushes":0},"homeRecord":{"wins":10,"losses":2,"ties":0,"atsWins":8,"atsLosses":4,"atsPushes":0,"overWins":6,"overLosses":6,"overPushes":0},"atsSegment":"HomeFav"}];
 
         function calculateWinPct(record) {
@@ -2139,13 +2144,7 @@
         <div class="mb-6" id="filter-controls">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div class="filter-strip w-full sm:w-auto">
-                    <div class="flex w-full items-center justify-between mb-2 sm:hidden">
-                        <button onclick="clearAllFilters(this)" class="inline-flex items-center text-xs font-medium text-gray-500 hover:text-gray-700 underline underline-offset-2">
-                            Clear All
-                        </button>
-                    </div>
                     <div class="filter-strip__inner flex flex-wrap gap-2">
-                        <button onclick="clearAllFilters(this)" class="filter-btn hidden sm:inline-flex" aria-pressed="false" aria-label="Clear All Filters"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg><span class="filter-label">Clear All</span></button>
                         <!-- Star filters temporarily disabled -->
                         <!--
                         <button onclick="filterByStars('all', this)" data-filter="all" class="filter-btn filter-btn--active" aria-pressed="true"><span class="filter-label">All Picks</span></button>
@@ -2174,10 +2173,17 @@
                     <button onclick="setMatchupSegment('AwayDog')" class="filter-btn matchup-filter-btn" data-segment="AwayDog" aria-pressed="false">
                         Away Dog
                     </button>
+                    <!-- Clear all filters pill -->
+                    <button onclick="clearAllFilters(this)" class="filter-btn clear-all-filter-btn" aria-pressed="false" aria-label="Clear All Filters">
+                        <span class="filter-label">Clear All Filters</span>
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
                     </div>
                 </div>
-                <div id="filtered-count" class="text-sm text-gray-600 font-medium">
-                    Showing 13 games
+                <div id="filtered-count" class="text-xs text-gray-500 font-medium">
+                    13 out of 13 games
                 </div>
             </div>
         </div>
