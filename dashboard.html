@@ -272,6 +272,39 @@
                 white-space: nowrap;
             }
 
+            /* Model Performance: single-card layout on mobile */
+            .model-metric-card {
+                display: none;
+            }
+
+            .model-metric-card.is-active {
+                display: block;
+            }
+
+            .model-metric-toggle-row {
+                box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+                padding: 0.15rem 0.2rem !important;
+            }
+
+            .model-metric-toggle {
+                flex: 1 1 0;
+                border-radius: 9999px;
+                font-size: 0.7rem;
+                font-weight: 600;
+                padding: 0.2rem 0.6rem !important;
+                min-height: 30px !important;
+                line-height: 1.2 !important;
+                text-align: center;
+                color: #4b5563;
+                background: transparent;
+            }
+
+            .model-metric-toggle--active {
+                background: #ffffff;
+                color: #111827;
+                box-shadow: 0 1px 3px rgba(15, 23, 42, 0.18);
+            }
+
             .filter-strip {
                 margin-left: -0.75rem;
                 margin-right: -0.75rem;
@@ -307,6 +340,11 @@
             .max-w-7xl {
                 padding-left: 0.75rem !important;
                 padding-right: 0.75rem !important;
+            }
+
+            .main-content {
+                padding-top: 1.5rem !important;
+                padding-bottom: 2rem !important;
             }
 
             /* Team logos sizing */
@@ -508,7 +546,7 @@
             .record-filter-content.hidden { display: none; }
             .record-filter-content.is-open { display: block; }
             #filtered-count { width: 100%; text-align: center; align-self: center; margin-top: 0.25rem !important; }
-            #filter-controls { margin-bottom: 0.75rem !important; }
+            #filter-controls { margin-top: 0.5rem !important; margin-bottom: 0.5rem !important; }
         }
 
         @media (max-width: 480px) {
@@ -605,6 +643,22 @@
             min-width: max-content;
         }
 
+        @media (max-width: 639px) {
+            .filter-strip {
+                overflow-x: hidden;
+                padding-bottom: 0.1rem;
+            }
+            .filter-strip__inner {
+                min-width: 0;
+                flex-wrap: wrap !important;
+            }
+            .filter-strip__inner .filter-btn {
+                flex: 1 0 calc(25% - 0.5rem);
+                justify-content: center;
+                flex-shrink: 1;
+            }
+        }
+
         /* Enhanced Hover States */
         button {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -624,7 +678,7 @@
             border: 1px solid rgba(226, 232, 240, 1);
             background: rgba(255, 255, 255, 0.92);
             color: #1f2937;
-            padding: 0.6rem 1.35rem;
+            padding: 0.45rem 1rem;
             font-weight: 600;
             font-size: 0.9rem;
             box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
@@ -692,6 +746,22 @@
 
         .accuracy-card--compact {
             padding: 0.9rem 1.1rem;
+        }
+        @media (max-width: 768px) {
+            .model-performance-section {
+                padding: 1rem 1rem 0.75rem 1rem !important;
+                margin-bottom: 1.25rem !important;
+            }
+            .model-performance-header {
+                margin-bottom: 0.5rem !important;
+            }
+            .model-performance-mobile {
+                margin-bottom: 0.5rem !important;
+            }
+            .model-performance-cards {
+                gap: 0.75rem !important;
+                margin-bottom: 0.75rem !important;
+            }
         }
 
         .accuracy-card-primary {
@@ -1139,6 +1209,41 @@
             const chev = document.getElementById(chevronId);
             if (chev) chev.classList.toggle('rotate-180');
         }
+
+        function setActiveModelMetric(metric) {
+            const target = metric || 'su';
+            const cards = document.querySelectorAll('.model-metric-card');
+            const toggles = document.querySelectorAll('.model-metric-toggle');
+
+            cards.forEach(card => {
+                const m = card.dataset.metric || '';
+                card.classList.toggle('is-active', m === target);
+            });
+
+            toggles.forEach(btn => {
+                const m = btn.dataset.metricTarget || '';
+                const isActive = m === target;
+                btn.classList.toggle('model-metric-toggle--active', isActive);
+                btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            });
+        }
+
+        function setupModelMetricToggles() {
+            const toggles = document.querySelectorAll('.model-metric-toggle');
+            if (!toggles.length) return;
+
+            toggles.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const metric = btn.dataset.metricTarget || 'su';
+                    setActiveModelMetric(metric);
+                });
+            });
+
+            // Initialize default state
+            setActiveModelMetric('su');
+        }
+
+        document.addEventListener('DOMContentLoaded', setupModelMetricToggles);
 
         function showTab(gameIndex, tabName) {
             // Hide all tabs for this game
@@ -1614,19 +1719,38 @@
     </div>
 
     <!-- Main Content -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 main-content">
 
         
         <!-- Model Performance Section -->
-        <div class="bg-white rounded-xl shadow-md p-6 mb-6">
-            <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-                Model Performance (178 games, Through Week 12)
+        <div class="bg-white rounded-xl shadow-md p-6 mb-6 model-performance-section">
+            <h3 class="text-xl font-bold mb-4 flex items-center gap-2 model-performance-header">
+                Model Performance, Through Wk 12
             </h3>
 
+            <!-- Mobile summary + metric toggle -->
+            <div class="sm:hidden mb-4 model-performance-mobile">
+                <div class="text-xs text-gray-600 mb-2">
+                    <div class="flex flex-wrap gap-x-2 gap-y-1">
+                        <span><span class="font-semibold" style="color: #f59e0b">66.9%</span> SU</span>
+                        <span><span class="font-semibold" style="color: #10b981">58.3%</span> ATS</span>
+                        <span><span class="font-semibold" style="color: #f59e0b">52.2%</span> O/U</span>
+                    </div>
+                    <div class="mt-1 text-[11px] text-gray-400">
+                        178 games • Wk1–12
+                    </div>
+                </div>
+                <div class="inline-flex w-full rounded-full bg-slate-100 p-1 model-metric-toggle-row">
+                    <button type="button" class="model-metric-toggle model-metric-toggle--active" data-metric-target="su" aria-pressed="true">SU</button>
+                    <button type="button" class="model-metric-toggle" data-metric-target="ats" aria-pressed="false">ATS</button>
+                    <button type="button" class="model-metric-toggle" data-metric-target="ou" aria-pressed="false">O/U</button>
+                </div>
+            </div>
+
             <!-- Overall Performance Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 model-performance-cards">
                 <!-- Straight Up Card -->
-                <div class="accuracy-card">
+                <div class="accuracy-card model-metric-card" data-metric="su">
                     <div class="flex justify-between items-start mb-2">
                         <h4 class="text-sm font-semibold text-gray-600">Straight Up</h4>
                         <span class="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600">178 picks</span>
@@ -1641,7 +1765,7 @@
                 </div>
 
                 <!-- Against Spread Card -->
-                <div class="accuracy-card">
+                <div class="accuracy-card model-metric-card" data-metric="ats">
                     <div class="flex justify-between items-start mb-2">
                         <h4 class="text-sm font-semibold text-gray-600">Against the Spread</h4>
                         <span class="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600">178 picks</span>
@@ -1662,7 +1786,7 @@
                 </div>
 
                 <!-- Over/Under Card -->
-                <div class="accuracy-card">
+                <div class="accuracy-card model-metric-card" data-metric="ou">
                     <div class="flex justify-between items-start mb-2">
                         <h4 class="text-sm font-semibold text-gray-600">Over/Under</h4>
                         <span class="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600">178 picks</span>
@@ -1953,7 +2077,7 @@
         
 
         <!-- Filters Section -->
-        <div class="bg-white rounded-xl shadow-md p-4 mb-6">
+        <div class="bg-white rounded-xl shadow-md p-4 mb-6 hidden sm:block">
             <div class="flex items-center justify-between">
                 <h3 class="text-lg font-bold">Filter Games by Team Records</h3>
                 <button type="button" class="sm:hidden inline-flex items-center text-gray-600 hover:text-gray-800"
@@ -2015,8 +2139,13 @@
         <div class="mb-6" id="filter-controls">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div class="filter-strip w-full sm:w-auto">
-                    <div class="filter-strip__inner flex flex-nowrap sm:flex-wrap gap-2">
-                        <button onclick="clearAllFilters(this)" class="filter-btn" aria-pressed="false" aria-label="Clear All Filters"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg><span class="filter-label">Clear All</span></button>
+                    <div class="flex w-full items-center justify-between mb-2 sm:hidden">
+                        <button onclick="clearAllFilters(this)" class="inline-flex items-center text-xs font-medium text-gray-500 hover:text-gray-700 underline underline-offset-2">
+                            Clear All
+                        </button>
+                    </div>
+                    <div class="filter-strip__inner flex flex-wrap gap-2">
+                        <button onclick="clearAllFilters(this)" class="filter-btn hidden sm:inline-flex" aria-pressed="false" aria-label="Clear All Filters"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg><span class="filter-label">Clear All</span></button>
                         <!-- Star filters temporarily disabled -->
                         <!--
                         <button onclick="filterByStars('all', this)" data-filter="all" class="filter-btn filter-btn--active" aria-pressed="true"><span class="filter-label">All Picks</span></button>
