@@ -746,7 +746,148 @@
                 min-width: unset;
             }
         }
-        
+
+        /* ===== Segmented Control Filter Styling ===== */
+        #filter-controls {
+            background: transparent;
+            border: none;
+            padding: 0;
+        }
+        .filter-section {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .filter-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .filter-segment-group {
+            display: inline-flex;
+            background: rgba(59, 130, 246, 0.06);
+            border-radius: 9999px;
+            padding: 3px;
+            gap: 2px;
+            border: 1px solid rgba(59, 130, 246, 0.12);
+        }
+        .filter-segment {
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #4b5563;
+            border-radius: 9999px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .filter-segment:hover {
+            background: rgba(255, 255, 255, 0.8);
+            color: #1f2937;
+        }
+        .filter-segment--active {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: #fff;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3);
+        }
+        .filter-label-inline {
+            font-size: 0.625rem;
+            font-weight: 600;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-right: 2px;
+            align-self: center;
+        }
+        .filter-clear-btn {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            color: #9ca3af;
+            padding: 4px 10px;
+            background: transparent;
+            border: 1px solid rgba(156, 163, 175, 0.3);
+            border-radius: 9999px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .filter-clear-btn:hover {
+            color: #dc2626;
+            background: rgba(220, 38, 38, 0.08);
+            border-color: rgba(220, 38, 38, 0.3);
+        }
+        .filter-count {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #6b7280;
+            white-space: nowrap;
+            font-variant-numeric: tabular-nums;
+        }
+        .filter-star-btn {
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #92400e;
+            background: rgba(251, 191, 36, 0.12);
+            border-radius: 9999px;
+            border: 1px solid rgba(251, 191, 36, 0.25);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .filter-star-btn:hover {
+            background: rgba(251, 191, 36, 0.2);
+            border-color: rgba(251, 191, 36, 0.4);
+        }
+        .filter-star-btn--active {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 2px 4px rgba(245, 158, 11, 0.35);
+        }
+        /* Mobile: compact for 2-row layout */
+        @media (max-width: 639px) {
+            .filter-section { gap: 5px; }
+            .filter-row { gap: 4px; }
+            .filter-segment-group { padding: 2px; }
+            .filter-segment {
+                padding: 3px 9px;
+                font-size: 0.625rem;
+            }
+            .filter-label-inline {
+                font-size: 0.5625rem;
+                margin-right: 1px;
+            }
+            .filter-star-btn {
+                padding: 3px 9px;
+                font-size: 0.625rem;
+                gap: 1px;
+            }
+            .filter-clear-btn {
+                padding: 3px 8px;
+                font-size: 0.5625rem;
+            }
+            .filter-count {
+                font-size: 0.625rem;
+            }
+        }
+        @media (min-width: 640px) {
+            .filter-section {
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 10px;
+            }
+            .filter-row { flex-wrap: nowrap; }
+            .filter-row:last-child { margin-left: auto; }
+        }
+        /* ===== END Segmented Control Filter Styling ===== */
+
         /* Premium Number Formatting */
         .metric-value {
             font-variant-numeric: tabular-nums;
@@ -1306,6 +1447,7 @@
         let currentAtsConference = 'all';  // not used for NFL, placeholder
         let currentSpreadBand = null;      // {min, max} or null
         let currentTotalBand = null;       // {min, max} or null
+        let fiveStarOnly = false;          // Filter for games with at least one 5-star pick
 
         function applyGameFilters() {
             const cards = document.querySelectorAll('.game-card');
@@ -1339,9 +1481,11 @@
                 const spreadPass = !currentSpreadBand || (!Number.isNaN(marketSpread) && marketSpread >= currentSpreadBand.min && marketSpread <= currentSpreadBand.max);
                 const vegasTotal = Number(card.dataset.vegasTotal);
                 const totalPass = !currentTotalBand || (!Number.isNaN(vegasTotal) && vegasTotal >= currentTotalBand.min && vegasTotal <= currentTotalBand.max);
+                // Five-star filter: only show games with at least one 5-star pick
+                const fiveStarPass = !fiveStarOnly || card.dataset.hasFiveStar === 'true';
 
                 const shouldShow = recordVisible && starPass && segmentPass && suPass && ouPass &&
-                                   suLocPass && atsLocPass && atsSidePass && spreadPass && totalPass;
+                                   suLocPass && atsLocPass && atsSidePass && spreadPass && totalPass && fiveStarPass;
                 card.style.display = shouldShow ? '' : 'none';
                 if (shouldShow) visibleCount++;
             });
@@ -1357,12 +1501,12 @@
             currentStarFilter = mode;
 
             document.querySelectorAll('[data-filter]').forEach(btn => {
-                btn.classList.remove('filter-btn--active');
+                btn.classList.remove('filter-segment--active');
                 btn.setAttribute('aria-pressed', 'false');
             });
 
             if (btnEl) {
-                btnEl.classList.add('filter-btn--active');
+                btnEl.classList.add('filter-segment--active');
                 btnEl.setAttribute('aria-pressed', 'true');
             }
 
@@ -1371,14 +1515,14 @@
 
         function filterByMoneyline(mode, btnEl) {
             let nextMode = mode;
-            if (mode !== 'all' && btnEl && btnEl.classList.contains('filter-btn--active')) {
+            if (mode !== 'all' && btnEl && btnEl.classList.contains('filter-segment--active')) {
                 nextMode = 'all';
             }
             currentSuFilter = nextMode;
             document.querySelectorAll('[data-su-filter]').forEach(btn => {
                 const filterValue = btn.dataset.suFilter || 'all';
                 const isActive = currentSuFilter !== 'all' && filterValue === currentSuFilter;
-                btn.classList.toggle('filter-btn--active', isActive);
+                btn.classList.toggle('filter-segment--active', isActive);
                 btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
             });
             // Clear SU pick-location and combo highlights to avoid conflicting filters
@@ -1393,14 +1537,14 @@
 
         function filterByTotals(mode, btnEl) {
             let nextMode = mode;
-            if (mode !== 'all' && btnEl && btnEl.classList.contains('filter-btn--active')) {
+            if (mode !== 'all' && btnEl && btnEl.classList.contains('filter-segment--active')) {
                 nextMode = 'all';
             }
             currentOuFilter = nextMode;
             document.querySelectorAll('[data-ou-filter]').forEach(btn => {
                 const filterValue = btn.dataset.ouFilter || 'all';
                 const isActive = currentOuFilter !== 'all' && filterValue === currentOuFilter;
-                btn.classList.toggle('filter-btn--active', isActive);
+                btn.classList.toggle('filter-segment--active', isActive);
                 btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
             });
             // Clear Total Range and Pick Direction highlights to avoid conflicting filters
@@ -1423,9 +1567,18 @@
             buttons.forEach(btn => {
                 const seg = btn.dataset.segment || 'all';
                 const isActive = seg === currentMatchupSegment;
-                btn.classList.toggle('filter-btn--active', isActive);
+                btn.classList.toggle('filter-segment--active', isActive);
                 btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
             });
+            applyGameFilters();
+        }
+
+        function toggleFiveStarOnly(btnEl) {
+            fiveStarOnly = !fiveStarOnly;
+            if (btnEl) {
+                btnEl.classList.toggle('filter-star-btn--active', fiveStarOnly);
+                btnEl.setAttribute('aria-pressed', fiveStarOnly ? 'true' : 'false');
+            }
             applyGameFilters();
         }
 
@@ -1559,7 +1712,7 @@
                     document.querySelectorAll('button[data-su-filter]').forEach(btn => {
                         const filterValue = btn.dataset.suFilter || 'all';
                         const isActive = !same && filterValue === nextFav;
-                        btn.classList.toggle('filter-btn--active', isActive);
+                        btn.classList.toggle('filter-segment--active', isActive);
                         btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
                     });
                     applyGameFilters();
@@ -1605,7 +1758,7 @@
                     document.querySelectorAll('button[data-su-filter]').forEach(btn => {
                         const filterValue = btn.dataset.suFilter || 'all';
                         const isActive = next !== 'all' && filterValue === currentSuFilter;
-                        btn.classList.toggle('filter-btn--active', isActive);
+                        btn.classList.toggle('filter-segment--active', isActive);
                         btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
                     });
                     setSelection('[data-su-filter-row]', next === 'all' ? null : el);
@@ -1621,7 +1774,7 @@
                     document.querySelectorAll('button[data-ou-filter]').forEach(btn => {
                         const filterValue = btn.dataset.ouFilter || 'all';
                         const isActive = next !== 'all' && filterValue === currentOuFilter;
-                        btn.classList.toggle('filter-btn--active', isActive);
+                        btn.classList.toggle('filter-segment--active', isActive);
                         btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
                     });
                     setSelection('[data-ou-filter-row]', next === 'all' ? null : el);
@@ -1692,16 +1845,18 @@
             currentAtsSide = 'all';
             currentSpreadBand = null;
             currentTotalBand = null;
+            fiveStarOnly = false;
 
             // Reset top-row filter buttons
             document.querySelectorAll('[data-filter], [data-ou-filter], [data-su-filter], .matchup-filter-btn').forEach(b => {
-                b.classList.remove('filter-btn--active');
+                b.classList.remove('filter-segment--active');
                 b.setAttribute('aria-pressed', 'false');
             });
-            const allBtn = document.querySelector('button[data-filter="all"]');
-            if (allBtn) {
-                allBtn.classList.add('filter-btn--active');
-                allBtn.setAttribute('aria-pressed', 'true');
+            // Reset 5-star filter button
+            const fiveStarBtn = document.querySelector('.five-star-filter-btn');
+            if (fiveStarBtn) {
+                fiveStarBtn.classList.remove('filter-star-btn--active');
+                fiveStarBtn.setAttribute('aria-pressed', 'false');
             }
             setMatchupSegment('all');
             // Clear highlights on breakdown rows/chips and remove inline visuals
@@ -2104,11 +2259,11 @@
 
         
 
-        <!-- Filters Section -->
-        <div class="bg-white rounded-xl shadow-md p-4 mb-6 hidden sm:block">
+        <!-- Filters Section (hidden) -->
+        <div class="bg-white rounded-xl shadow-md p-4 mb-6 hidden sm:block" style="display: none !important;" aria-hidden="true">
             <div class="flex items-center justify-between">
                 <h3 class="text-lg font-bold">Filter Games by Team Records</h3>
-                <button type="button" class="sm:hidden inline-flex items-center text-gray-600 hover:text-gray-800"
+                <button type="button" class="sm:hidden inline-flex items-center text-gray-600 hover-text-gray-800"
                         aria-controls="record-filter-content" aria-expanded="false"
                         onclick="toggleRecordFilters('record-filter-content','record-filter-chevron', this)">
                     <svg id="record-filter-chevron" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2163,50 +2318,34 @@
             </div>
         </div>
 
-        <!-- Filter Controls -->
+        <!-- Filter Controls - Segmented Controls -->
         <div class="mb-6" id="filter-controls">
-            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                <div class="filter-strip w-full sm:w-auto">
-                    <div class="filter-strip__inner flex flex-wrap gap-2">
-                        <!-- Star filters temporarily disabled -->
-                        <!--
-                        <button onclick="filterByStars('all', this)" data-filter="all" class="filter-btn filter-btn--active" aria-pressed="true"><span class="filter-label">All Picks</span></button>
-                        <button onclick="filterByStars('3plus', this)" data-filter="3plus" class="filter-btn" aria-pressed="false" aria-label="3+ Stars">...</button>
-                        <button onclick="filterByStars('4plus', this)" data-filter="4plus" class="filter-btn" aria-pressed="false" aria-label="4+ Stars">...</button>
-                        <button onclick="filterByStars('5', this)" data-filter="5" class="filter-btn" aria-pressed="false" aria-label="5 Stars Only">...</button>
-                        -->
-                        <!-- New Totals filters -->
-                        <button onclick="filterByTotals('over', this)" data-ou-filter="over" class="filter-btn" aria-pressed="false" aria-label="Overs"><span class="filter-label">Overs</span></button>
-                        <button onclick="filterByTotals('under', this)" data-ou-filter="under" class="filter-btn" aria-pressed="false" aria-label="Unders"><span class="filter-label">Unders</span></button>
-                    <button onclick="filterByMoneyline('favorite', this)" data-su-filter="favorite" class="filter-btn su-filter-btn" aria-pressed="false">
-                        <span class="filter-label">Favorites</span>
-                    </button>
-                    <button onclick="filterByMoneyline('upset', this)" data-su-filter="upset" class="filter-btn su-filter-btn" aria-pressed="false">
-                        <span class="filter-label">Upsets</span>
-                    </button>
-                    <button onclick="setMatchupSegment('HomeFav')" class="filter-btn matchup-filter-btn" data-segment="HomeFav" aria-pressed="false">
-                        Home Fav
-                    </button>
-                    <button onclick="setMatchupSegment('HomeDog')" class="filter-btn matchup-filter-btn" data-segment="HomeDog" aria-pressed="false">
-                        Home Dog
-                    </button>
-                    <button onclick="setMatchupSegment('AwayFav')" class="filter-btn matchup-filter-btn" data-segment="AwayFav" aria-pressed="false">
-                        Away Fav
-                    </button>
-                    <button onclick="setMatchupSegment('AwayDog')" class="filter-btn matchup-filter-btn" data-segment="AwayDog" aria-pressed="false">
-                        Away Dog
-                    </button>
-                    <!-- Clear all filters pill -->
-                    <button onclick="clearAllFilters(this)" class="filter-btn clear-all-filter-btn" aria-pressed="false" aria-label="Clear All Filters">
-                        <span class="filter-label">Clear All Filters</span>
-                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                        </svg>
-                    </button>
+            <div class="filter-section">
+                <!-- Row 1: O/U + ML + 5-Star + Clear -->
+                <div class="filter-row">
+                    <span class="filter-label-inline">O/U</span>
+                    <div class="filter-segment-group">
+                        <button onclick="filterByTotals('over', this)" data-ou-filter="over" class="filter-segment" aria-pressed="false">Over</button>
+                        <button onclick="filterByTotals('under', this)" data-ou-filter="under" class="filter-segment" aria-pressed="false">Under</button>
                     </div>
+                    <span class="filter-label-inline" style="margin-left: 4px;">ML</span>
+                    <div class="filter-segment-group">
+                        <button onclick="filterByMoneyline('favorite', this)" data-su-filter="favorite" class="filter-segment su-filter-btn" aria-pressed="false">Fav</button>
+                        <button onclick="filterByMoneyline('upset', this)" data-su-filter="upset" class="filter-segment su-filter-btn" aria-pressed="false">Upset</button>
+                    </div>
+                    <button onclick="toggleFiveStarOnly(this)" class="filter-star-btn five-star-filter-btn" aria-pressed="false">5★</button>
+                    <button onclick="clearAllFilters(this)" class="filter-clear-btn" aria-label="Clear All Filters">×</button>
                 </div>
-                <div id="filtered-count" class="text-xs text-gray-500 font-medium">
-                    13 out of 13 games
+                <!-- Row 2: ATS segments + count -->
+                <div class="filter-row">
+                    <span class="filter-label-inline">ATS</span>
+                    <div class="filter-segment-group">
+                        <button onclick="setMatchupSegment('HomeFav')" class="filter-segment matchup-filter-btn" data-segment="HomeFav" aria-pressed="false">Home Fav</button>
+                        <button onclick="setMatchupSegment('HomeDog')" class="filter-segment matchup-filter-btn" data-segment="HomeDog" aria-pressed="false">Home Dog</button>
+                        <button onclick="setMatchupSegment('AwayFav')" class="filter-segment matchup-filter-btn" data-segment="AwayFav" aria-pressed="false">Away Fav</button>
+                        <button onclick="setMatchupSegment('AwayDog')" class="filter-segment matchup-filter-btn" data-segment="AwayDog" aria-pressed="false">Away Dog</button>
+                    </div>
+                    <span id="filtered-count" class="filter-count" style="margin-left: auto;">13/13</span>
                 </div>
             </div>
         </div>
@@ -2214,7 +2353,7 @@
         <!-- Games Grid -->
         <div class="space-y-6">
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="AwayDog" data-su-category="favorite" data-ou-pick="under" data-record-visible="true" data-vegas-total="44.5" data-market-spread="7" data-pick-location="away" data-pick-side="underdog" data-su-pick-location="home">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="AwayDog" data-su-category="favorite" data-ou-pick="under" data-record-visible="true" data-vegas-total="44.5" data-market-spread="7" data-pick-location="away" data-pick-side="underdog" data-su-pick-location="home" data-has-five-star="false">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -2443,7 +2582,7 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>Bears +7 (-108)</span>
+                                                                <span>CHI +7 (-108)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                                 <span class="prob-badge ml-1.5 prob-62-70">68% Probability</span>
                                                             </span>
@@ -2482,7 +2621,7 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>Bears +13.5 (-241)</span>
+                                                                <span>CHI +13.5 (-241)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                                 <span class="prob-badge ml-1.5 prob-80-plus">83% Probability</span>
                                                             </span>
@@ -3034,7 +3173,7 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="AwayDog" data-su-category="favorite" data-ou-pick="under" data-record-visible="true" data-vegas-total="44.5" data-market-spread="3" data-pick-location="away" data-pick-side="underdog" data-su-pick-location="home">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="AwayDog" data-su-category="favorite" data-ou-pick="under" data-record-visible="true" data-vegas-total="44.5" data-market-spread="3" data-pick-location="away" data-pick-side="underdog" data-su-pick-location="home" data-has-five-star="false">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -3263,7 +3402,7 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>Cardinals +3 (-115)</span>
+                                                                <span>ARI +3 (-115)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                                 <span class="prob-badge ml-1.5 prob-55-62">56% Probability</span>
                                                             </span>
@@ -3302,7 +3441,7 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>Cardinals +12.5 (-401)</span>
+                                                                <span>ARI +12.5 (-401)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                                 <span class="prob-badge ml-1.5 prob-80-plus">81% Probability</span>
                                                             </span>
@@ -3854,7 +3993,7 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="HomeFav" data-su-category="favorite" data-ou-pick="under" data-record-visible="true" data-vegas-total="44" data-market-spread="4.5" data-pick-location="home" data-pick-side="favorite" data-su-pick-location="home">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="HomeFav" data-su-category="favorite" data-ou-pick="under" data-record-visible="true" data-vegas-total="44" data-market-spread="4.5" data-pick-location="home" data-pick-side="favorite" data-su-pick-location="home" data-has-five-star="false">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -4083,7 +4222,7 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>Colts -4.5 (-110)</span>
+                                                                <span>IND -4.5 (-110)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                                 <span class="prob-badge ml-1.5 prob-50-55">53% Probability</span>
                                                             </span>
@@ -4674,7 +4813,7 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="AwayDog" data-su-category="favorite" data-ou-pick="under" data-record-visible="true" data-vegas-total="41.5" data-market-spread="6" data-pick-location="away" data-pick-side="underdog" data-su-pick-location="home">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="AwayDog" data-su-category="favorite" data-ou-pick="under" data-record-visible="true" data-vegas-total="41.5" data-market-spread="6" data-pick-location="away" data-pick-side="underdog" data-su-pick-location="home" data-has-five-star="true">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -4903,7 +5042,7 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>Saints +6 (-105)</span>
+                                                                <span>NO +6 (-105)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                                 <span class="prob-badge ml-1.5 prob-55-62">57% Probability</span>
                                                             </span>
@@ -4942,7 +5081,7 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>Saints +16 (-417)</span>
+                                                                <span>NO +16 (-417)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                                 <span class="prob-badge ml-1.5 prob-80-plus">80% Probability</span>
                                                             </span>
@@ -5494,7 +5633,7 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="HomeDog" data-su-category="favorite" data-ou-pick="under" data-record-visible="true" data-vegas-total="41.5" data-market-spread="6.5" data-pick-location="home" data-pick-side="underdog" data-su-pick-location="away">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="HomeDog" data-su-category="favorite" data-ou-pick="under" data-record-visible="true" data-vegas-total="41.5" data-market-spread="6.5" data-pick-location="home" data-pick-side="underdog" data-su-pick-location="away" data-has-five-star="true">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -5723,7 +5862,7 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>Titans +6.5 (-108)</span>
+                                                                <span>TEN +6.5 (-108)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                                 <span class="prob-badge ml-1.5 prob-55-62">59% Probability</span>
                                                             </span>
@@ -5762,7 +5901,7 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>Titans +15 (-378)</span>
+                                                                <span>TEN +15 (-378)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                                 <span class="prob-badge ml-1.5 prob-80-plus">80% Probability</span>
                                                             </span>
@@ -6314,7 +6453,7 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="4" data-stars-cal="4" data-ats-segment="AwayFav" data-su-category="favorite" data-ou-pick="under" data-record-visible="true" data-vegas-total="40" data-market-spread="2.5" data-pick-location="away" data-pick-side="favorite" data-su-pick-location="away">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="4" data-stars-cal="4" data-ats-segment="AwayFav" data-su-category="favorite" data-ou-pick="under" data-record-visible="true" data-vegas-total="40" data-market-spread="2.5" data-pick-location="away" data-pick-side="favorite" data-su-pick-location="away" data-has-five-star="false">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -6543,7 +6682,7 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>Falcons -2.5 (-118)</span>
+                                                                <span>ATL -2.5 (-118)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                                 <span class="prob-badge ml-1.5 prob-55-62">60% Probability</span>
                                                             </span>
@@ -6582,7 +6721,7 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>Falcons +5.5 (-321)</span>
+                                                                <span>ATL +5.5 (-321)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                                 <span class="prob-badge ml-1.5 prob-80-plus">80% Probability</span>
                                                             </span>
@@ -7134,7 +7273,7 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="AwayFav" data-su-category="favorite" data-ou-pick="under" data-record-visible="true" data-vegas-total="45.5" data-market-spread="10.5" data-pick-location="away" data-pick-side="favorite" data-su-pick-location="away">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="AwayFav" data-su-category="favorite" data-ou-pick="under" data-record-visible="true" data-vegas-total="45.5" data-market-spread="10.5" data-pick-location="away" data-pick-side="favorite" data-su-pick-location="away" data-has-five-star="true">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -7363,7 +7502,7 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>Rams -10.5 (-115)</span>
+                                                                <span>LAR -10.5 (-115)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                                 <span class="prob-badge ml-1.5 prob-55-62">58% Probability</span>
                                                             </span>
@@ -7402,7 +7541,7 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>Rams -2 (-500)</span>
+                                                                <span>LAR -2 (-500)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                                 <span class="prob-badge ml-1.5 prob-80-plus">80% Probability</span>
                                                             </span>
@@ -7954,7 +8093,7 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="3" data-stars-cal="3" data-ats-segment="AwayFav" data-su-category="favorite" data-ou-pick="over" data-record-visible="true" data-vegas-total="39.5" data-market-spread="6" data-pick-location="away" data-pick-side="favorite" data-su-pick-location="away">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="3" data-stars-cal="3" data-ats-segment="AwayFav" data-su-category="favorite" data-ou-pick="over" data-record-visible="true" data-vegas-total="39.5" data-market-spread="6" data-pick-location="away" data-pick-side="favorite" data-su-pick-location="away" data-has-five-star="false">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -8183,7 +8322,7 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>49ers -6 (-115)</span>
+                                                                <span>SF -6 (-115)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                                 <span class="prob-badge ml-1.5 prob-55-62">59% Probability</span>
                                                             </span>
@@ -8222,7 +8361,7 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>49ers +1 (-293)</span>
+                                                                <span>SF +1 (-293)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                                 <span class="prob-badge ml-1.5 prob-80-plus">80% Probability</span>
                                                             </span>
@@ -8774,7 +8913,7 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="HomeFav" data-su-category="favorite" data-ou-pick="over" data-record-visible="true" data-vegas-total="41.5" data-market-spread="10.5" data-pick-location="home" data-pick-side="favorite" data-su-pick-location="home">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="HomeFav" data-su-category="favorite" data-ou-pick="over" data-record-visible="true" data-vegas-total="41.5" data-market-spread="10.5" data-pick-location="home" data-pick-side="favorite" data-su-pick-location="home" data-has-five-star="true">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -9003,7 +9142,7 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>Seahawks -10.5 (-115)</span>
+                                                                <span>SEA -10.5 (-115)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                                 <span class="prob-badge ml-1.5 prob-62-70">68% Probability</span>
                                                             </span>
@@ -9042,7 +9181,7 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>Seahawks -0.5 (-650)</span>
+                                                                <span>SEA -0.5 (-650)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                                 <span class="prob-badge ml-1.5 prob-80-plus">85% Probability</span>
                                                             </span>
@@ -9594,7 +9733,7 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="AwayDog" data-su-category="favorite" data-ou-pick="under" data-record-visible="true" data-vegas-total="41" data-market-spread="9.5" data-pick-location="away" data-pick-side="underdog" data-su-pick-location="home">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="AwayDog" data-su-category="favorite" data-ou-pick="under" data-record-visible="true" data-vegas-total="41" data-market-spread="9.5" data-pick-location="away" data-pick-side="underdog" data-su-pick-location="home" data-has-five-star="true">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -9823,7 +9962,7 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>Raiders +9.5 (-112)</span>
+                                                                <span>LV +9.5 (-112)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                                 <span class="prob-badge ml-1.5 prob-50-55">53% Probability</span>
                                                             </span>
@@ -9862,7 +10001,7 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>Raiders +19.5 (-419)</span>
+                                                                <span>LV +19.5 (-419)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                                 <span class="prob-badge ml-1.5 prob-70-80">76% Probability</span>
                                                             </span>
@@ -10414,7 +10553,7 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="4" data-stars-cal="4" data-ats-segment="AwayFav" data-su-category="favorite" data-ou-pick="under" data-record-visible="true" data-vegas-total="47.5" data-market-spread="3.5" data-pick-location="away" data-pick-side="favorite" data-su-pick-location="away">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="4" data-stars-cal="4" data-ats-segment="AwayFav" data-su-category="favorite" data-ou-pick="under" data-record-visible="true" data-vegas-total="47.5" data-market-spread="3.5" data-pick-location="away" data-pick-side="favorite" data-su-pick-location="away" data-has-five-star="false">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -10643,7 +10782,7 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>Bills -3.5 (-102)</span>
+                                                                <span>BUF -3.5 (-102)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                                 <span class="prob-badge ml-1.5 prob-50-55">51% Probability</span>
                                                             </span>
@@ -10682,7 +10821,7 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>Bills +6.5 (-499)</span>
+                                                                <span>BUF +6.5 (-499)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                                 <span class="prob-badge ml-1.5 prob-70-80">76% Probability</span>
                                                             </span>
@@ -11234,7 +11373,7 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="HomeDog" data-su-category="favorite" data-ou-pick="under" data-record-visible="true" data-vegas-total="43.5" data-market-spread="6.5" data-pick-location="home" data-pick-side="underdog" data-su-pick-location="away">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="HomeDog" data-su-category="favorite" data-ou-pick="under" data-record-visible="true" data-vegas-total="43.5" data-market-spread="6.5" data-pick-location="home" data-pick-side="underdog" data-su-pick-location="away" data-has-five-star="true">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -11463,7 +11602,7 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>Commanders +6.5 (-102)</span>
+                                                                <span>WAS +6.5 (-102)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                                 <span class="prob-badge ml-1.5 prob-62-70">62% Probability</span>
                                                             </span>
@@ -11502,7 +11641,7 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>Commanders +16.5 (-529)</span>
+                                                                <span>WAS +16.5 (-529)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                                 <span class="prob-badge ml-1.5 prob-80-plus">82% Probability</span>
                                                             </span>
@@ -12054,7 +12193,7 @@
                 </div>
             </div>
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="HomeFav" data-su-category="favorite" data-ou-pick="over" data-record-visible="true" data-vegas-total="46.5" data-market-spread="7.5" data-pick-location="home" data-pick-side="favorite" data-su-pick-location="home">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="HomeFav" data-su-category="favorite" data-ou-pick="over" data-record-visible="true" data-vegas-total="46.5" data-market-spread="7.5" data-pick-location="home" data-pick-side="favorite" data-su-pick-location="home" data-has-five-star="true">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -12283,7 +12422,7 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>Patriots -7.5 (-105)</span>
+                                                                <span>NE -7.5 (-105)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                                 <span class="prob-badge ml-1.5 prob-55-62">56% Probability</span>
                                                             </span>
@@ -12322,7 +12461,7 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>Patriots +2.5 (-559)</span>
+                                                                <span>NE +2.5 (-559)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                                 <span class="prob-badge ml-1.5 prob-70-80">79% Probability</span>
                                                             </span>
