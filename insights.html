@@ -1965,9 +1965,11 @@
             function getPercentGradientColor(pct) {
                 const value = Number(pct);
                 if (!Number.isFinite(value)) return '#6b7280';
-                const clamped = Math.max(0, Math.min(100, value)) / 100;
-                const hue = 0 + (120 * clamped);
-                return 'hsl(' + hue.toFixed(0) + ', 75%, 45%)';
+                if (value >= 70) return '#047857';
+                if (value >= 60) return '#0d9488';
+                if (value >= 50) return '#0891b2';
+                if (value >= 40) return '#d97706';
+                return '#dc2626';
             }
 
             function parseRecord(rec) {
@@ -2209,9 +2211,11 @@
         function getMatchupPercentColor(pct) {
             const value = Number(pct);
             if (!Number.isFinite(value)) return '#6b7280';
-            const clamped = Math.max(0, Math.min(100, value)) / 100;
-            const hue = 0 + (120 * clamped);
-            return 'hsl(' + hue.toFixed(0) + ', 75%, 45%)';
+            if (value >= 70) return '#047857';
+            if (value >= 60) return '#0d9488';
+            if (value >= 50) return '#0891b2';
+            if (value >= 40) return '#d97706';
+            return '#dc2626';
         }
 
         // Render Performance Matchup Cards
