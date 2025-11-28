@@ -774,20 +774,17 @@
             box-shadow: 0 1px 2px rgba(0,0,0,0.04);
         }
         .filter-segment {
-            padding: 4px 12px;
+            padding: 2px 10px;
             font-size: 0.75rem;
             font-weight: 600;
             color: #4b5563;
             border-radius: 9999px;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.15s ease;
             background: transparent;
             border: none;
             cursor: pointer;
             white-space: nowrap;
-        }
-        .filter-segment:hover {
-            background: rgba(255, 255, 255, 0.8);
-            color: #1f2937;
+            line-height: 1.4;
         }
         .filter-segment--active {
             background: linear-gradient(135deg, #3b82f6, #2563eb);
@@ -804,21 +801,17 @@
             align-self: center;
         }
         .filter-clear-btn {
-            font-size: 0.6875rem;
+            font-size: 0.75rem;
             font-weight: 600;
             color: #9ca3af;
-            padding: 4px 10px;
+            padding: 2px 8px;
             background: transparent;
-            border: 1px solid rgba(156, 163, 175, 0.3);
+            border: 1px solid #e5e7eb;
             border-radius: 9999px;
             cursor: pointer;
             white-space: nowrap;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .filter-clear-btn:hover {
-            color: #dc2626;
-            background: rgba(220, 38, 38, 0.08);
-            border-color: rgba(220, 38, 38, 0.3);
+            transition: all 0.15s ease;
+            line-height: 1.4;
         }
         .filter-count {
             font-size: 0.75rem;
@@ -826,54 +819,57 @@
             color: #6b7280;
             white-space: nowrap;
             font-variant-numeric: tabular-nums;
+            min-width: 115px;
+            text-align: right;
         }
         .filter-star-btn {
-            padding: 4px 12px;
+            padding: 2px 10px;
             font-size: 0.75rem;
             font-weight: 600;
-            color: #92400e;
-            background: rgba(251, 191, 36, 0.12);
+            color: #4b5563;
+            background: transparent;
             border-radius: 9999px;
-            border: 1px solid rgba(251, 191, 36, 0.25);
+            border: none;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 2px;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .filter-star-btn:hover {
-            background: rgba(251, 191, 36, 0.2);
-            border-color: rgba(251, 191, 36, 0.4);
+            white-space: nowrap;
+            line-height: 1.4;
         }
         .filter-star-btn--active {
-            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
             color: #fff;
-            border-color: transparent;
-            box-shadow: 0 2px 4px rgba(245, 158, 11, 0.35);
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3);
         }
         /* Mobile: compact for 2-row layout */
         @media (max-width: 639px) {
-            .filter-section { gap: 4px; }
-            .filter-row { gap: 3px; }
-            .filter-segment-group { padding: 2px; }
+            .filter-section { gap: 3px; }
+            .filter-row { gap: 2px; }
+            .filter-segment-group { padding: 1px; }
             .filter-segment {
-                padding: 2px 8px;
-                font-size: 0.6875rem;
+                padding: 1px 6px;
+                font-size: 0.625rem;
+                line-height: 1;
             }
             .filter-label-inline {
-                font-size: 0.5625rem;
+                font-size: 0.5rem;
                 margin-right: 1px;
+                line-height: 1;
             }
             .filter-star-btn {
-                padding: 2px 8px;
-                font-size: 0.6875rem;
+                padding: 1px 6px;
+                font-size: 0.625rem;
+                line-height: 1;
             }
             .filter-clear-btn {
-                padding: 2px 6px;
+                padding: 1px 5px;
                 font-size: 0.625rem;
+                line-height: 1;
             }
             .filter-count {
-                font-size: 0.6875rem;
+                font-size: 0.625rem;
+                line-height: 1;
             }
         }
         @media (min-width: 640px) {
