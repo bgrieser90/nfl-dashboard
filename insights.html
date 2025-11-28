@@ -2532,9 +2532,6 @@
                 const home = Object.values(teamForm).find(t => t.team === m.home);
                 if (!away || !home) return '';
 
-                const awayGp = away.gamesPlayed || 1;
-                const homeGp = home.gamesPlayed || 1;
-
                 return '<div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow">' +
                     // Header: Team logos and names
                     '<div class="flex items-center justify-between mb-4">' +
@@ -2550,41 +2547,51 @@
                     '</div>' +
                     // Stats comparison - column headers
                     '<div class="flex items-center text-[10px] text-slate-400 uppercase tracking-wider mb-2">' +
-                        '<span class="w-16 text-center">For</span>' +
-                        '<span class="w-16 text-center">Vs</span>' +
+                        '<span class="w-16 text-center">TEAM</span>' +
+                        '<span class="w-16 text-center">OPP</span>' +
                         '<span class="flex-1 text-center"></span>' +
-                        '<span class="w-16 text-center">For</span>' +
-                        '<span class="w-16 text-center">Vs</span>' +
+                        '<span class="w-16 text-center">TEAM</span>' +
+                        '<span class="w-16 text-center">OPP</span>' +
                     '</div>' +
-                    // Points row
+                    // Points row (averages)
                     '<div class="flex items-center text-xs mb-1">' +
-                        '<span class="w-16 text-center text-emerald-600 font-medium">' + (away.avgPF || '—') + '</span>' +
+                        '<span class="w-16 text-center text-slate-800 font-semibold">' + (away.avgPF || '—') + '</span>' +
                         '<span class="w-16 text-center text-slate-500">' + (away.avgPA || '—') + '</span>' +
                         '<span class="flex-1 text-center text-slate-400 text-[10px] uppercase">Pts</span>' +
-                        '<span class="w-16 text-center text-emerald-600 font-medium">' + (home.avgPF || '—') + '</span>' +
+                        '<span class="w-16 text-center text-slate-800 font-semibold">' + (home.avgPF || '—') + '</span>' +
                         '<span class="w-16 text-center text-slate-500">' + (home.avgPA || '—') + '</span>' +
                     '</div>' +
-                    // Pass Yds row
+                    // Pass Yds row (averages)
                     '<div class="flex items-center text-xs mb-1">' +
-                        '<span class="w-16 text-center text-emerald-600 font-medium">' + (away.avgPassYdsFor || '—') + '</span>' +
+                        '<span class="w-16 text-center text-slate-800 font-semibold">' + (away.avgPassYdsFor || '—') + '</span>' +
                         '<span class="w-16 text-center text-slate-500">' + (away.avgPassYdsAgainst || '—') + '</span>' +
                         '<span class="flex-1 text-center text-slate-400 text-[10px] uppercase">Pass</span>' +
-                        '<span class="w-16 text-center text-emerald-600 font-medium">' + (home.avgPassYdsFor || '—') + '</span>' +
+                        '<span class="w-16 text-center text-slate-800 font-semibold">' + (home.avgPassYdsFor || '—') + '</span>' +
                         '<span class="w-16 text-center text-slate-500">' + (home.avgPassYdsAgainst || '—') + '</span>' +
                     '</div>' +
-                    // Rush Yds row
+                    // Pass TDs row (totals)
+                    '<div class="flex items-center text-[11px] mb-1">' +
+                        '<span class="w-16 text-center text-slate-800 font-semibold">' + ((away.totalPassTDFor ?? '—')) + '</span>' +
+                        '<span class="w-16 text-center text-slate-500">' + ((away.totalPassTDAgainst ?? '—')) + '</span>' +
+                        '<span class="flex-1 text-center text-slate-400 text-[10px] uppercase">TDs</span>' +
+                        '<span class="w-16 text-center text-slate-800 font-semibold">' + ((home.totalPassTDFor ?? '—')) + '</span>' +
+                        '<span class="w-16 text-center text-slate-500">' + ((home.totalPassTDAgainst ?? '—')) + '</span>' +
+                    '</div>' +
+                    // Rush Yds row (averages)
                     '<div class="flex items-center text-xs mb-1">' +
-                        '<span class="w-16 text-center text-emerald-600 font-medium">' + (away.avgRushYdsFor || '—') + '</span>' +
+                        '<span class="w-16 text-center text-slate-800 font-semibold">' + (away.avgRushYdsFor || '—') + '</span>' +
                         '<span class="w-16 text-center text-slate-500">' + (away.avgRushYdsAgainst || '—') + '</span>' +
                         '<span class="flex-1 text-center text-slate-400 text-[10px] uppercase">Rush</span>' +
-                        '<span class="w-16 text-center text-emerald-600 font-medium">' + (home.avgRushYdsFor || '—') + '</span>' +
+                        '<span class="w-16 text-center text-slate-800 font-semibold">' + (home.avgRushYdsFor || '—') + '</span>' +
                         '<span class="w-16 text-center text-slate-500">' + (home.avgRushYdsAgainst || '—') + '</span>' +
                     '</div>' +
-                    // Margin row
-                    '<div class="flex items-center text-xs mt-2 pt-2 border-t border-slate-100">' +
-                        '<span class="flex-1 text-center font-semibold" style="color: ' + (parseFloat(away.avgMargin) >= 0 ? '#10b981' : '#ef4444') + '">' + (parseFloat(away.avgMargin) >= 0 ? '+' : '') + (away.avgMargin || '0') + '</span>' +
-                        '<span class="text-slate-400 text-[10px] uppercase px-4">Margin</span>' +
-                        '<span class="flex-1 text-center font-semibold" style="color: ' + (parseFloat(home.avgMargin) >= 0 ? '#10b981' : '#ef4444') + '">' + (parseFloat(home.avgMargin) >= 0 ? '+' : '') + (home.avgMargin || '0') + '</span>' +
+                    // Rush TDs row (totals)
+                    '<div class="flex items-center text-[11px]">' +
+                        '<span class="w-16 text-center text-slate-800 font-semibold">' + ((away.totalRushTDFor ?? '—')) + '</span>' +
+                        '<span class="w-16 text-center text-slate-500">' + ((away.totalRushTDAgainst ?? '—')) + '</span>' +
+                        '<span class="flex-1 text-center text-slate-400 text-[10px] uppercase">TDs</span>' +
+                        '<span class="w-16 text-center text-slate-800 font-semibold">' + ((home.totalRushTDFor ?? '—')) + '</span>' +
+                        '<span class="w-16 text-center text-slate-500">' + ((home.totalRushTDAgainst ?? '—')) + '</span>' +
                     '</div>' +
                 '</div>';
             }).filter(Boolean).join('');
