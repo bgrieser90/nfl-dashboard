@@ -545,7 +545,7 @@
             .record-filter-content { display: none; }
             .record-filter-content.hidden { display: none; }
             .record-filter-content.is-open { display: block; }
-            #filtered-count { width: 100%; text-align: center; align-self: center; margin-top: 0.25rem !important; }
+            #filtered-count { width: auto; margin-left: auto; text-align: right; align-self: center; margin-top: 0 !important; }
             #filter-controls { margin-top: 0.5rem !important; margin-bottom: 0.5rem !important; }
         }
 
@@ -668,18 +668,17 @@
 
         @media (max-width: 639px) {
             .filter-strip {
-                overflow-x: hidden;
+                overflow-x: auto;
                 padding-bottom: 0.1rem;
             }
             .filter-strip__inner {
-                min-width: 0;
-                flex-wrap: wrap !important;
-                justify-content: center;
+                min-width: max-content;
+                flex-wrap: nowrap;
+                justify-content: flex-start;
             }
             .filter-strip__inner .filter-btn {
-                flex: 0 0 calc(25% - 0.5rem);
+                flex: 0 0 auto;
                 justify-content: center;
-                flex-shrink: 1;
             }
         }
 
