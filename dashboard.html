@@ -254,8 +254,8 @@
                 font-size: 0.9375rem !important;
             }
 
-            /* Touch-friendly buttons and tabs */
-            button {
+            /* Touch-friendly buttons and tabs (exclude compact filter controls) */
+            button:not(.filter-segment):not(.filter-star-btn):not(.filter-ranked-btn):not(.filter-clear-btn) {
                 min-height: 44px;
                 padding: 0.75rem 1rem !important;
             }
