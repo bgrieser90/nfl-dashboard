@@ -766,11 +766,12 @@
         }
         .filter-segment-group {
             display: inline-flex;
-            background: rgba(59, 130, 246, 0.06);
+            background: #fff;
             border-radius: 9999px;
-            padding: 3px;
-            gap: 2px;
-            border: 1px solid rgba(59, 130, 246, 0.12);
+            padding: 2px;
+            gap: 1px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
         }
         .filter-segment {
             padding: 4px 12px;
@@ -852,28 +853,27 @@
         }
         /* Mobile: compact for 2-row layout */
         @media (max-width: 639px) {
-            .filter-section { gap: 5px; }
-            .filter-row { gap: 4px; }
+            .filter-section { gap: 4px; }
+            .filter-row { gap: 3px; }
             .filter-segment-group { padding: 2px; }
             .filter-segment {
-                padding: 3px 9px;
-                font-size: 0.625rem;
+                padding: 2px 8px;
+                font-size: 0.6875rem;
             }
             .filter-label-inline {
                 font-size: 0.5625rem;
                 margin-right: 1px;
             }
             .filter-star-btn {
-                padding: 3px 9px;
-                font-size: 0.625rem;
-                gap: 1px;
+                padding: 2px 8px;
+                font-size: 0.6875rem;
             }
             .filter-clear-btn {
-                padding: 3px 8px;
-                font-size: 0.5625rem;
+                padding: 2px 6px;
+                font-size: 0.625rem;
             }
             .filter-count {
-                font-size: 0.625rem;
+                font-size: 0.6875rem;
             }
         }
         @media (min-width: 640px) {
