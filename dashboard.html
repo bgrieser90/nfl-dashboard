@@ -305,6 +305,35 @@
                 box-shadow: 0 1px 3px rgba(15, 23, 42, 0.18);
             }
 
+            /* Mobile advanced stats - tap on logo/score to toggle */
+            .mobile-adv-trigger {
+                cursor: pointer;
+                -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+            }
+            .mobile-adv-content {
+                display: none;
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+                padding: 4px 8px 8px;
+                font-size: 10px;
+                color: #6b7280;
+            }
+            .mobile-adv-content.is-open {
+                display: grid;
+            }
+            .mobile-adv-team {
+                text-align: center;
+            }
+            .mobile-adv-team p {
+                margin: 0;
+                line-height: 1.4;
+            }
+            @media (min-width: 768px) {
+                .mobile-adv-content {
+                    display: none !important;
+                }
+            }
+
             .filter-strip {
                 margin-left: -0.75rem;
                 margin-right: -0.75rem;
@@ -1385,6 +1414,12 @@
             if (chev) chev.classList.toggle('rotate-180');
         }
 
+        // Mobile advanced stats toggle - tap logo/score to expand
+        function toggleMobileAdv(index) {
+            const content = document.getElementById('game-' + index + '-adv-content');
+            if (content) content.classList.toggle('is-open');
+        }
+
         function setActiveModelMetric(metric) {
             const target = metric || 'su';
             const cards = document.querySelectorAll('.model-metric-card');
@@ -2401,10 +2436,10 @@
                                     <!-- Away team (left) -->
                                     <div class="flex items-center justify-start gap-2">
                                         
-                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/sf.png" alt="San Francisco" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
+                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/sf.png" alt="San Francisco" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(0)" onerror="this.style.display='none'">
                                                 <div class="flex flex-col items-start leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">SF</span>
-                                                    <span class="text-2xl font-bold" style="color: #AA0000">24.5</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(0)" style="color: #AA0000">24.5</span>
                                                 </div>
                                             
                                     </div>
@@ -2421,10 +2456,21 @@
                                         
                                                 <div class="flex flex-col items-end leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">CLE</span>
-                                                    <span class="text-2xl font-bold" style="color: #374151">15.6</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(0)" style="color: #374151">15.6</span>
                                                 </div>
-                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/cle.png" alt="Cleveland" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
+                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/cle.png" alt="Cleveland" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(0)" onerror="this.style.display='none'">
                                             
+                                    </div>
+                                </div>
+                                <!-- Mobile Advanced Stats Content -->
+                                <div class="mobile-adv-content" id="game-0-adv-content">
+                                    <div class="mobile-adv-team">
+                                        <p>8-4 • ATS: 7-5 • O/U: 7-5</p>
+                                        <p>Raw: 25.6 • Adj: 24.5 • Mode: 23</p>
+                                    </div>
+                                    <div class="mobile-adv-team">
+                                        <p>3-8 • ATS: 5-6 • O/U: 6-5</p>
+                                        <p>Raw: 14.1 • Adj: 15.6 • Mode: 13</p>
                                     </div>
                                 </div>
                             </div>
@@ -3221,10 +3267,10 @@
                                     <!-- Away team (left) -->
                                     <div class="flex items-center justify-start gap-2">
                                         
-                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/no.png" alt="New Orleans" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
+                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/no.png" alt="New Orleans" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(1)" onerror="this.style.display='none'">
                                                 <div class="flex flex-col items-start leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">NO</span>
-                                                    <span class="text-2xl font-bold" style="color: #374151">17.2</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(1)" style="color: #374151">17.2</span>
                                                 </div>
                                             
                                     </div>
@@ -3241,10 +3287,21 @@
                                         
                                                 <div class="flex flex-col items-end leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">MIA</span>
-                                                    <span class="text-2xl font-bold" style="color: #008E97">20.9</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(1)" style="color: #008E97">20.9</span>
                                                 </div>
-                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/mia.png" alt="Miami" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
+                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/mia.png" alt="Miami" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(1)" onerror="this.style.display='none'">
                                             
+                                    </div>
+                                </div>
+                                <!-- Mobile Advanced Stats Content -->
+                                <div class="mobile-adv-content" id="game-1-adv-content">
+                                    <div class="mobile-adv-team">
+                                        <p>2-9 • ATS: 3-8 • O/U: 3-8</p>
+                                        <p>Raw: 16.7 • Adj: 17.2 • Mode: 10</p>
+                                    </div>
+                                    <div class="mobile-adv-team">
+                                        <p>4-7 • ATS: 6-5 • O/U: 6-5</p>
+                                        <p>Raw: 18.1 • Adj: 20.9 • Mode: 20</p>
                                     </div>
                                 </div>
                             </div>
@@ -4041,10 +4098,10 @@
                                     <!-- Away team (left) -->
                                     <div class="flex items-center justify-start gap-2">
                                         
-                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/atl.png" alt="Atlanta" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
+                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/atl.png" alt="Atlanta" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(2)" onerror="this.style.display='none'">
                                                 <div class="flex flex-col items-start leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">ATL</span>
-                                                    <span class="text-2xl font-bold" style="color: #A71930">22.3</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(2)" style="color: #A71930">22.3</span>
                                                 </div>
                                             
                                     </div>
@@ -4061,10 +4118,21 @@
                                         
                                                 <div class="flex flex-col items-end leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">NYJ</span>
-                                                    <span class="text-2xl font-bold" style="color: #374151">16.4</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(2)" style="color: #374151">16.4</span>
                                                 </div>
-                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png" alt="NY Jets" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
+                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png" alt="NY Jets" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(2)" onerror="this.style.display='none'">
                                             
+                                    </div>
+                                </div>
+                                <!-- Mobile Advanced Stats Content -->
+                                <div class="mobile-adv-content" id="game-2-adv-content">
+                                    <div class="mobile-adv-team">
+                                        <p>4-7 • ATS: 6-5 • O/U: 4-7</p>
+                                        <p>Raw: 22.5 • Adj: 22.3 • Mode: 20</p>
+                                    </div>
+                                    <div class="mobile-adv-team">
+                                        <p>2-9 • ATS: 6-5 • O/U: 6-5</p>
+                                        <p>Raw: 13.8 • Adj: 16.4 • Mode: 13</p>
                                     </div>
                                 </div>
                             </div>
@@ -4861,10 +4929,10 @@
                                     <!-- Away team (left) -->
                                     <div class="flex items-center justify-start gap-2">
                                         
-                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/lar.png" alt="LA Rams" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
+                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/lar.png" alt="LA Rams" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(3)" onerror="this.style.display='none'">
                                                 <div class="flex flex-col items-start leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">LAR</span>
-                                                    <span class="text-2xl font-bold" style="color: #003594">29.3</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(3)" style="color: #003594">29.3</span>
                                                 </div>
                                             
                                     </div>
@@ -4881,10 +4949,21 @@
                                         
                                                 <div class="flex flex-col items-end leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">CAR</span>
-                                                    <span class="text-2xl font-bold" style="color: #374151">16.0</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(3)" style="color: #374151">16.0</span>
                                                 </div>
-                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500-dark/car.png" alt="Carolina" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
+                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500-dark/car.png" alt="Carolina" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(3)" onerror="this.style.display='none'">
                                             
+                                    </div>
+                                </div>
+                                <!-- Mobile Advanced Stats Content -->
+                                <div class="mobile-adv-content" id="game-3-adv-content">
+                                    <div class="mobile-adv-team">
+                                        <p>9-2 • ATS: 8-3 • O/U: 4-7</p>
+                                        <p>Raw: 30.8 • Adj: 29.3 • Mode: 27</p>
+                                    </div>
+                                    <div class="mobile-adv-team">
+                                        <p>6-6 • ATS: 7-5 • O/U: 6-6</p>
+                                        <p>Raw: 15.7 • Adj: 16.0 • Mode: 17</p>
                                     </div>
                                 </div>
                             </div>
@@ -5681,10 +5760,10 @@
                                     <!-- Away team (left) -->
                                     <div class="flex items-center justify-start gap-2">
                                         
-                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/jax.png" alt="Jacksonville" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
+                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/jax.png" alt="Jacksonville" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(4)" onerror="this.style.display='none'">
                                                 <div class="flex flex-col items-start leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">JAX</span>
-                                                    <span class="text-2xl font-bold" style="color: #006778">21.5</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(4)" style="color: #006778">21.5</span>
                                                 </div>
                                             
                                     </div>
@@ -5701,10 +5780,21 @@
                                         
                                                 <div class="flex flex-col items-end leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">TEN</span>
-                                                    <span class="text-2xl font-bold" style="color: #374151">17.7</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(4)" style="color: #374151">17.7</span>
                                                 </div>
-                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ten.png" alt="Tennessee" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
+                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ten.png" alt="Tennessee" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(4)" onerror="this.style.display='none'">
                                             
+                                    </div>
+                                </div>
+                                <!-- Mobile Advanced Stats Content -->
+                                <div class="mobile-adv-content" id="game-4-adv-content">
+                                    <div class="mobile-adv-team">
+                                        <p>7-4 • ATS: 6-5 • O/U: 6-5</p>
+                                        <p>Raw: 18.0 • Adj: 21.5 • Mode: 20</p>
+                                    </div>
+                                    <div class="mobile-adv-team">
+                                        <p>1-10 • ATS: 5-6 • O/U: 7-4</p>
+                                        <p>Raw: 16.7 • Adj: 17.7 • Mode: 13</p>
                                     </div>
                                 </div>
                             </div>
@@ -6501,10 +6591,10 @@
                                     <!-- Away team (left) -->
                                     <div class="flex items-center justify-start gap-2">
                                         
-                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/hou.png" alt="Houston" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
+                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/hou.png" alt="Houston" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(5)" onerror="this.style.display='none'">
                                                 <div class="flex flex-col items-start leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">HOU</span>
-                                                    <span class="text-2xl font-bold" style="color: #374151">18.3</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(5)" style="color: #374151">18.3</span>
                                                 </div>
                                             
                                     </div>
@@ -6521,10 +6611,21 @@
                                         
                                                 <div class="flex flex-col items-end leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">IND</span>
-                                                    <span class="text-2xl font-bold" style="color: #00428f">23.5</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(5)" style="color: #00428f">23.5</span>
                                                 </div>
-                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ind.png" alt="Indianapolis" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
+                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ind.png" alt="Indianapolis" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(5)" onerror="this.style.display='none'">
                                             
+                                    </div>
+                                </div>
+                                <!-- Mobile Advanced Stats Content -->
+                                <div class="mobile-adv-content" id="game-5-adv-content">
+                                    <div class="mobile-adv-team">
+                                        <p>6-5 • ATS: 5-6 • O/U: 3-8</p>
+                                        <p>Raw: 16.0 • Adj: 18.3 • Mode: 13</p>
+                                    </div>
+                                    <div class="mobile-adv-team">
+                                        <p>8-3 • ATS: 7-4 • O/U: 6-5</p>
+                                        <p>Raw: 21.5 • Adj: 23.5 • Mode: 17</p>
                                     </div>
                                 </div>
                             </div>
@@ -7321,10 +7422,10 @@
                                     <!-- Away team (left) -->
                                     <div class="flex items-center justify-start gap-2">
                                         
-                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ari.png" alt="Arizona" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
+                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ari.png" alt="Arizona" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(6)" onerror="this.style.display='none'">
                                                 <div class="flex flex-col items-start leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">ARI</span>
-                                                    <span class="text-2xl font-bold" style="color: #374151">20.4</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(6)" style="color: #374151">20.4</span>
                                                 </div>
                                             
                                     </div>
@@ -7341,10 +7442,21 @@
                                         
                                                 <div class="flex flex-col items-end leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">TB</span>
-                                                    <span class="text-2xl font-bold" style="color: #A71930">21.4</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(6)" style="color: #A71930">21.4</span>
                                                 </div>
-                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/tb.png" alt="Tampa Bay" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
+                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/tb.png" alt="Tampa Bay" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(6)" onerror="this.style.display='none'">
                                             
+                                    </div>
+                                </div>
+                                <!-- Mobile Advanced Stats Content -->
+                                <div class="mobile-adv-content" id="game-6-adv-content">
+                                    <div class="mobile-adv-team">
+                                        <p>3-8 • ATS: 5-6 • O/U: 7-4</p>
+                                        <p>Raw: 16.7 • Adj: 20.4 • Mode: 13</p>
+                                    </div>
+                                    <div class="mobile-adv-team">
+                                        <p>6-5 • ATS: 5-6 • O/U: 6-5</p>
+                                        <p>Raw: 17.7 • Adj: 21.4 • Mode: 14</p>
                                     </div>
                                 </div>
                             </div>
@@ -8141,10 +8253,10 @@
                                     <!-- Away team (left) -->
                                     <div class="flex items-center justify-start gap-2">
                                         
-                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/min.png" alt="Minnesota" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
+                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/min.png" alt="Minnesota" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(7)" onerror="this.style.display='none'">
                                                 <div class="flex flex-col items-start leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">MIN</span>
-                                                    <span class="text-2xl font-bold" style="color: #374151">13.8</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(7)" style="color: #374151">13.8</span>
                                                 </div>
                                             
                                     </div>
@@ -8161,10 +8273,21 @@
                                         
                                                 <div class="flex flex-col items-end leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">SEA</span>
-                                                    <span class="text-2xl font-bold" style="color: #003366">30.9</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(7)" style="color: #003366">30.9</span>
                                                 </div>
-                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/sea.png" alt="Seattle" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
+                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/sea.png" alt="Seattle" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(7)" onerror="this.style.display='none'">
                                             
+                                    </div>
+                                </div>
+                                <!-- Mobile Advanced Stats Content -->
+                                <div class="mobile-adv-content" id="game-7-adv-content">
+                                    <div class="mobile-adv-team">
+                                        <p>4-7 • ATS: 4-7 • O/U: 7-4</p>
+                                        <p>Raw: 11.4 • Adj: 13.8 • Mode: 10</p>
+                                    </div>
+                                    <div class="mobile-adv-team">
+                                        <p>8-3 • ATS: 8-3 • O/U: 7-4</p>
+                                        <p>Raw: 36.9 • Adj: 30.9 • Mode: 30</p>
                                     </div>
                                 </div>
                             </div>
@@ -8961,10 +9084,10 @@
                                     <!-- Away team (left) -->
                                     <div class="flex items-center justify-start gap-2">
                                         
-                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/lv.png" alt="Las Vegas" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
+                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/lv.png" alt="Las Vegas" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(8)" onerror="this.style.display='none'">
                                                 <div class="flex flex-col items-start leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">LV</span>
-                                                    <span class="text-2xl font-bold" style="color: #374151">16.0</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(8)" style="color: #374151">16.0</span>
                                                 </div>
                                             
                                     </div>
@@ -8981,10 +9104,21 @@
                                         
                                                 <div class="flex flex-col items-end leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">LAC</span>
-                                                    <span class="text-2xl font-bold" style="color: #007BC7">24.4</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(8)" style="color: #007BC7">24.4</span>
                                                 </div>
-                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/lac.png" alt="LA Chargers" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
+                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/lac.png" alt="LA Chargers" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(8)" onerror="this.style.display='none'">
                                             
+                                    </div>
+                                </div>
+                                <!-- Mobile Advanced Stats Content -->
+                                <div class="mobile-adv-content" id="game-8-adv-content">
+                                    <div class="mobile-adv-team">
+                                        <p>2-9 • ATS: 4-7 • O/U: 4-7</p>
+                                        <p>Raw: 17.2 • Adj: 16.0 • Mode: 17</p>
+                                    </div>
+                                    <div class="mobile-adv-team">
+                                        <p>7-4 • ATS: 5-6 • O/U: 5-6</p>
+                                        <p>Raw: 24.1 • Adj: 24.4 • Mode: 23</p>
                                     </div>
                                 </div>
                             </div>
@@ -9781,10 +9915,10 @@
                                     <!-- Away team (left) -->
                                     <div class="flex items-center justify-start gap-2">
                                         
-                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/buf.png" alt="Buffalo" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
+                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/buf.png" alt="Buffalo" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(9)" onerror="this.style.display='none'">
                                                 <div class="flex flex-col items-start leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">BUF</span>
-                                                    <span class="text-2xl font-bold" style="color: #004dd4">25.1</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(9)" style="color: #004dd4">25.1</span>
                                                 </div>
                                             
                                     </div>
@@ -9801,10 +9935,21 @@
                                         
                                                 <div class="flex flex-col items-end leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">PIT</span>
-                                                    <span class="text-2xl font-bold" style="color: #374151">21.1</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(9)" style="color: #374151">21.1</span>
                                                 </div>
-                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/pit.png" alt="Pittsburgh" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
+                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/pit.png" alt="Pittsburgh" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(9)" onerror="this.style.display='none'">
                                             
+                                    </div>
+                                </div>
+                                <!-- Mobile Advanced Stats Content -->
+                                <div class="mobile-adv-content" id="game-9-adv-content">
+                                    <div class="mobile-adv-team">
+                                        <p>7-4 • ATS: 5-6 • O/U: 5-6</p>
+                                        <p>Raw: 24.4 • Adj: 25.1 • Mode: 21</p>
+                                    </div>
+                                    <div class="mobile-adv-team">
+                                        <p>6-5 • ATS: 5-5-1 • O/U: 6-5</p>
+                                        <p>Raw: 19.1 • Adj: 21.1 • Mode: 20</p>
                                     </div>
                                 </div>
                             </div>
@@ -10601,10 +10746,10 @@
                                     <!-- Away team (left) -->
                                     <div class="flex items-center justify-start gap-2">
                                         
-                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/den.png" alt="Denver" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
+                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/den.png" alt="Denver" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(10)" onerror="this.style.display='none'">
                                                 <div class="flex flex-col items-start leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">DEN</span>
-                                                    <span class="text-2xl font-bold" style="color: #003366">22.8</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(10)" style="color: #003366">22.8</span>
                                                 </div>
                                             
                                     </div>
@@ -10621,10 +10766,21 @@
                                         
                                                 <div class="flex flex-col items-end leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">WAS</span>
-                                                    <span class="text-2xl font-bold" style="color: #374151">20.6</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(10)" style="color: #374151">20.6</span>
                                                 </div>
-                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png" alt="Washington" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
+                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png" alt="Washington" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(10)" onerror="this.style.display='none'">
                                             
+                                    </div>
+                                </div>
+                                <!-- Mobile Advanced Stats Content -->
+                                <div class="mobile-adv-content" id="game-10-adv-content">
+                                    <div class="mobile-adv-team">
+                                        <p>9-2 • ATS: 5-6 • O/U: 3-8</p>
+                                        <p>Raw: 20.8 • Adj: 22.8 • Mode: 23</p>
+                                    </div>
+                                    <div class="mobile-adv-team">
+                                        <p>3-8 • ATS: 3-8 • O/U: 5-6</p>
+                                        <p>Raw: 23.7 • Adj: 20.6 • Mode: 17</p>
                                     </div>
                                 </div>
                             </div>
@@ -11421,10 +11577,10 @@
                                     <!-- Away team (left) -->
                                     <div class="flex items-center justify-start gap-2">
                                         
-                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/nyg.png" alt="NY Giants" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
+                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/nyg.png" alt="NY Giants" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(11)" onerror="this.style.display='none'">
                                                 <div class="flex flex-col items-start leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">NYG</span>
-                                                    <span class="text-2xl font-bold" style="color: #374151">19.1</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(11)" style="color: #374151">19.1</span>
                                                 </div>
                                             
                                     </div>
@@ -11441,10 +11597,21 @@
                                         
                                                 <div class="flex flex-col items-end leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">NE</span>
-                                                    <span class="text-2xl font-bold" style="color: #003366">28.8</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(11)" style="color: #003366">28.8</span>
                                                 </div>
-                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ne.png" alt="New England" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
+                                                <img src="https://a.espncdn.com/i/teamlogos/nfl/500/ne.png" alt="New England" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(11)" onerror="this.style.display='none'">
                                             
+                                    </div>
+                                </div>
+                                <!-- Mobile Advanced Stats Content -->
+                                <div class="mobile-adv-content" id="game-11-adv-content">
+                                    <div class="mobile-adv-team">
+                                        <p>2-10 • ATS: 7-5 • O/U: 7-5</p>
+                                        <p>Raw: 17.8 • Adj: 19.1 • Mode: 17</p>
+                                    </div>
+                                    <div class="mobile-adv-team">
+                                        <p>10-2 • ATS: 8-4 • O/U: 6-6</p>
+                                        <p>Raw: 29.8 • Adj: 28.8 • Mode: 34</p>
                                     </div>
                                 </div>
                             </div>
