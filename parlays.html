@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Late Slate Parlays | Week 16</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #0c0c0f;
+            --bg-elevated: #141418;
+            --bg-card: #1a1a1f;
+            --bg-hover: #222228;
+            --bg-accent: #2a2a32;
+            --border: #2d2d35;
+            --border-bright: #3d3d48;
+            --text-primary: #f4f4f6;
+            --text-secondary: #a0a0aa;
+            --text-muted: #606068;
+            --accent-cyan: #22d3ee;
+            --accent-cyan-dim: rgba(34, 211, 238, 0.12);
+            --accent-lime: #a3e635;
+            --accent-lime-dim: rgba(163, 230, 53, 0.12);
+            --accent-orange: #fb923c;
+            --accent-orange-dim: rgba(251, 146, 60, 0.1);
+            --accent-violet: #a78bfa;
+            --accent-violet-dim: rgba(167, 139, 250, 0.12);
+            --accent-rose: #fb7185;
+            --accent-rose-dim: rgba(251, 113, 133, 0.1);
+            --conf-elite: #22d3ee;
+            --conf-high: #a3e635;
+            --conf-mid: #fbbf24;
+            --conf-low: #fb923c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-base);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.55;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem;
+        }
+
+        /* Header */
+        .header {
+            margin-bottom: 2rem;
+        }
+
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .title-section h1 {
+            font-family: 'Newsreader', serif;
+            font-size: 2.5rem;
+            font-weight: 500;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .time-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.3rem 0.7rem;
+            background: var(--accent-cyan-dim);
+            border: 1px solid rgba(34, 211, 238, 0.25);
+            border-radius: 100px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .source-badge {
+            padding: 0.3rem 0.7rem;
+            background: var(--bg-accent);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Games Grid */
+        .games-strip {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            padding: 1rem 1.25rem;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .game-chip {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.4rem 0.75rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-secondary);
+            transition: all 0.15s ease;
+        }
+
+        .game-chip:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        /* Stats Row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 0.35rem;
+        }
+
+        .stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .stat-value.cyan { color: var(--accent-cyan); }
+        .stat-value.lime { color: var(--accent-lime); }
+        .stat-value.orange { color: var(--accent-orange); }
+
+        /* Controls */
+        .controls-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-pills {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-pill {
+            padding: 0.5rem 1rem;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .filter-pill:hover {
+            border-color: var(--border-bright);
+            color: var(--text-primary);
+        }
+
+        .filter-pill.active {
+            background: var(--accent-cyan-dim);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        .expand-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .expand-btn:hover {
+            border-color: var(--border-bright);
+            color: var(--text-primary);
+        }
+
+        /* Parlay Grid */
+        .parlays-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        /* Parlay Card */
+        .parlay-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        .parlay-card:hover {
+            border-color: var(--border-bright);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .parlay-card.expanded {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 0 1px var(--accent-cyan), 0 12px 32px rgba(34, 211, 238, 0.1);
+        }
+
+        /* Card Header */
+        .card-header {
+            display: grid;
+            grid-template-columns: 48px 1fr auto auto;
+            gap: 1.25rem;
+            align-items: center;
+            padding: 1rem 1.25rem;
+            cursor: pointer;
+        }
+
+        .rank-badge {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--bg-accent) 0%, var(--bg-hover) 100%);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .rank-badge.top-5 {
+            background: linear-gradient(135deg, var(--accent-cyan-dim) 0%, rgba(34, 211, 238, 0.05) 100%);
+            border-color: rgba(34, 211, 238, 0.4);
+            color: var(--accent-cyan);
+        }
+
+        .card-main {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            min-width: 0;
+        }
+
+        .card-tags {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .tag.legs {
+            background: var(--bg-accent);
+            color: var(--text-secondary);
+        }
+
+        .tag.spread { background: var(--accent-violet-dim); color: var(--accent-violet); }
+        .tag.total { background: var(--accent-orange-dim); color: var(--accent-orange); }
+        .tag.prop { background: var(--accent-cyan-dim); color: var(--accent-cyan); }
+        .tag.ml { background: var(--accent-rose-dim); color: var(--accent-rose); }
+        .tag.attd { background: var(--accent-lime-dim); color: var(--accent-lime); }
+
+        .legs-inline {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        .legs-inline .leg-text {
+            color: var(--text-secondary);
+        }
+
+        .legs-inline .leg-model {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--accent-lime);
+            margin-left: 0.15rem;
+        }
+
+        .legs-inline .plus {
+            color: var(--text-muted);
+            margin: 0 0.35rem;
+        }
+
+        /* Odds Section */
+        .card-odds {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.4rem;
+            padding-right: 0.5rem;
+        }
+
+        .odds-main {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-orange);
+        }
+
+        .implied-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.65rem;
+            background: var(--accent-lime-dim);
+            border-radius: 6px;
+        }
+
+        .implied-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+        }
+
+        .implied-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent-lime);
+        }
+
+        .expand-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-accent);
+            border-radius: 8px;
+            color: var(--text-muted);
+            transition: all 0.2s ease;
+        }
+
+        .parlay-card:hover .expand-icon {
+            color: var(--text-secondary);
+        }
+
+        .parlay-card.expanded .expand-icon {
+            background: var(--accent-cyan);
+            color: var(--bg-base);
+            transform: rotate(180deg);
+        }
+
+        /* Card Body */
+        .card-body {
+            display: none;
+            border-top: 1px solid var(--border);
+        }
+
+        .parlay-card.expanded .card-body {
+            display: block;
+        }
+
+        .rationale-box {
+            padding: 1rem 1.25rem;
+            background: linear-gradient(90deg, var(--accent-cyan-dim) 0%, transparent 100%);
+            border-left: 3px solid var(--accent-cyan);
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .rationale-box strong {
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+
+        .legs-detail-grid {
+            padding: 1rem 1.25rem;
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .leg-detail {
+            display: grid;
+            grid-template-columns: auto 1fr auto auto;
+            gap: 1rem;
+            align-items: center;
+            padding: 0.65rem 0.85rem;
+            background: var(--bg-elevated);
+            border-radius: 8px;
+            transition: background 0.15s ease;
+        }
+
+        .leg-detail:hover {
+            background: var(--bg-accent);
+        }
+
+        .leg-type-badge {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        .leg-type-badge.spread { background: var(--accent-violet-dim); color: var(--accent-violet); }
+        .leg-type-badge.total { background: var(--accent-orange-dim); color: var(--accent-orange); }
+        .leg-type-badge.prop { background: var(--accent-cyan-dim); color: var(--accent-cyan); }
+        .leg-type-badge.ml { background: var(--accent-rose-dim); color: var(--accent-rose); }
+        .leg-type-badge.attd { background: var(--accent-lime-dim); color: var(--accent-lime); }
+
+        .leg-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+        }
+
+        .leg-pick-text {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .leg-game-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .leg-odds-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .leg-model-display {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            min-width: 80px;
+        }
+
+        .model-bar-track {
+            flex: 1;
+            height: 5px;
+            background: var(--bg-accent);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .model-bar-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        .model-bar-fill.elite { background: var(--conf-elite); }
+        .model-bar-fill.high { background: var(--conf-high); }
+        .model-bar-fill.mid { background: var(--conf-mid); }
+        .model-bar-fill.low { background: var(--conf-low); }
+
+        .model-pct-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 600;
+            min-width: 36px;
+            text-align: right;
+        }
+
+        .model-pct-text.elite { color: var(--conf-elite); }
+        .model-pct-text.high { color: var(--conf-high); }
+        .model-pct-text.mid { color: var(--conf-mid); }
+        .model-pct-text.low { color: var(--conf-low); }
+
+        /* Mobile Responsive */
+        @media (max-width: 800px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+
+            .title-section h1 {
+                font-size: 1.8rem;
+            }
+
+            .card-header {
+                grid-template-columns: 40px 1fr;
+                gap: 1rem;
+            }
+
+            .rank-badge {
+                width: 40px;
+                height: 40px;
+                font-size: 0.9rem;
+            }
+
+            .card-odds {
+                display: none;
+            }
+
+            .leg-detail {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .leg-type-badge {
+                display: none;
+            }
+        }
+
+        /* Mobile Stats */
+        .mobile-odds-bar {
+            display: none;
+            padding: 0.75rem 1rem;
+            background: var(--bg-elevated);
+            border-top: 1px solid var(--border);
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 800px) {
+            .mobile-odds-bar {
+                display: flex;
+            }
+        }
+
+        .mobile-stat {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+        }
+
+        .mobile-stat-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+        }
+
+        .mobile-stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .mobile-stat-value.orange { color: var(--accent-orange); }
+        .mobile-stat-value.lime { color: var(--accent-lime); }
+
+        /* Footer */
+        .footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .footer a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-row">
+                <div class="title-section">
+                    <h1>Late Slate Parlays</h1>
+                    <div class="subtitle">
+                        <span class="time-badge">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            4:25 PM ET+
+                        </span>
+                        <span>Week 16 NFL</span>
+                        <span class="source-badge">DraftKings Odds</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="games-strip">
+            <div class="game-chip">TEN @ SF</div>
+            <div class="game-chip">IND @ SEA</div>
+            <div class="game-chip">CAR @ NO</div>
+            <div class="game-chip">DET @ LAR</div>
+            <div class="game-chip">GB @ DEN</div>
+            <div class="game-chip">MIN @ DAL</div>
+            <div class="game-chip">MIA @ PIT</div>
+        </div>
+
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-label">Total Parlays</div>
+                <div class="stat-value">20</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Best Implied</div>
+                <div class="stat-value lime">38.5%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Max Payout</div>
+                <div class="stat-value orange">+8990</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Games</div>
+                <div class="stat-value cyan">7</div>
+            </div>
+        </div>
+
+        <div class="controls-bar">
+            <div class="filter-pills">
+                <button class="filter-pill active" data-filter="all">All</button>
+                <button class="filter-pill" data-filter="spread">Spreads</button>
+                <button class="filter-pill" data-filter="total">Totals</button>
+                <button class="filter-pill" data-filter="prop">Props</button>
+                <button class="filter-pill" data-filter="attd">TDs</button>
+            </div>
+            <button class="expand-btn" id="expandAll">
+                <span>Expand All</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+        </div>
+
+        <div class="parlays-grid" id="parlaysGrid"></div>
+
+        <footer class="footer">
+            <p>No QB pass attempts/completions props used. Model probabilities from simulation.</p>
+        </footer>
+    </div>
+
+    <script>
+        const parlaysData = [
+            {
+                rank: 1,
+                odds: "+242",
+                implied: "29.2%",
+                rationale: "Big model cushions + CAR/NO projects low (model total 37.5; NO last-5 PF 15.6).",
+                legs: [
+                    { pick: "SF -2.5", game: "TEN @ SF", odds: "-600", model: 84, type: "spread" },
+                    { pick: "IND +23.5", game: "IND @ SEA", odds: "-418", model: 84, type: "spread" },
+                    { pick: "DET +15.5", game: "DET @ LAR", odds: "-383", model: 84, type: "spread" },
+                    { pick: "Chris Olave U61.5 rec yds", game: "CAR @ NO", odds: "-114", model: 86, type: "prop" }
+                ]
+            },
+            {
+                rank: 2,
+                odds: "+271",
+                implied: "27.0%",
+                rationale: "Spread cushions + Atwell under is one of the strongest prop edges.",
+                legs: [
+                    { pick: "GB +6.5", game: "GB @ DEN", odds: "-311", model: 73, type: "spread" },
+                    { pick: "DAL +3.5", game: "MIN @ DAL", odds: "-508", model: 65, type: "spread" },
+                    { pick: "PIT +6.5", game: "MIA @ PIT", odds: "-448", model: 68, type: "spread" },
+                    { pick: "Tutu Atwell U9.5 rec yds", game: "DET @ LAR", odds: "-109", model: 96, type: "prop" }
+                ]
+            },
+            {
+                rank: 3,
+                odds: "+263",
+                implied: "27.6%",
+                rationale: "Totals all sit well above model totals (44.0/37.5/40.5) + Mims under is a top edge.",
+                legs: [
+                    { pick: "TEN/SF U54.5", game: "TEN @ SF", odds: "-416", model: 79, type: "total" },
+                    { pick: "CAR/NO U51.5", game: "CAR @ NO", odds: "-438", model: 83, type: "total" },
+                    { pick: "MIA/PIT U52.5", game: "MIA @ PIT", odds: "-413", model: 79, type: "total" },
+                    { pick: "Marvin Mims Jr. U17.5 rec yds", game: "GB @ DEN", odds: "-109", model: 92, type: "prop" }
+                ]
+            },
+            {
+                rank: 4,
+                odds: "+256",
+                implied: "28.1%",
+                rationale: "'Floor' overs + Waller under in a game projecting 40.5 total.",
+                legs: [
+                    { pick: "IND/SEA O31.5", game: "IND @ SEA", odds: "-499", model: 79, type: "total" },
+                    { pick: "DET/LAR O44.5", game: "DET @ LAR", odds: "-386", model: 78, type: "total" },
+                    { pick: "GB/DEN O32.5", game: "GB @ DEN", odds: "-451", model: 79, type: "total" },
+                    { pick: "Darren Waller U2.5 rec", game: "MIA @ PIT", odds: "-108", model: 78, type: "prop" }
+                ]
+            },
+            {
+                rank: 5,
+                odds: "+590",
+                implied: "14.5%",
+                rationale: "3 of the highest model-prob props on the late slate.",
+                legs: [
+                    { pick: "Ricky Pearsall U37.5 rec yds", game: "TEN @ SF", odds: "-111", model: 94, type: "prop" },
+                    { pick: "Sam Darnold O230.5 pass yds", game: "MIN @ DAL", odds: "-112", model: 93, type: "prop" },
+                    { pick: "Tutu Atwell U9.5 rec yds", game: "DET @ LAR", odds: "-109", model: 96, type: "prop" }
+                ]
+            },
+            {
+                rank: 6,
+                odds: "+576",
+                implied: "14.8%",
+                rationale: "Unders match low/leaning-low passing profiles (MIA last-5 pass yds 162.6; NO last-5 PF 15.6).",
+                legs: [
+                    { pick: "Marvin Mims Jr. U17.5 rec yds", game: "GB @ DEN", odds: "-109", model: 92, type: "prop" },
+                    { pick: "Chris Olave U61.5 rec yds", game: "CAR @ NO", odds: "-114", model: 86, type: "prop" },
+                    { pick: "Jaylen Waddle U63.5 rec yds", game: "MIA @ PIT", odds: "-114", model: 78, type: "prop" }
+                ]
+            },
+            {
+                rank: 7,
+                odds: "+593",
+                implied: "14.4%",
+                rationale: "Model expects suppressed outputs/usage in each spot.",
+                legs: [
+                    { pick: "Jalen Coker U32.5 rec yds", game: "CAR @ NO", odds: "-113", model: 80, type: "prop" },
+                    { pick: "J.J. McCarthy U13.5 rush yds", game: "MIN @ DAL", odds: "-107", model: 77, type: "prop" },
+                    { pick: "DK Metcalf U54.5 rec yds", game: "IND @ SEA", odds: "-111", model: 73, type: "prop" }
+                ]
+            },
+            {
+                rank: 8,
+                odds: "+526",
+                implied: "16.0%",
+                rationale: "Highest-prob TD RBs (DAL last-5 PF 27.0; LAR last-5 PF 34.0).",
+                legs: [
+                    { pick: "Jonathan Taylor ATTD", game: "IND @ SEA", odds: "-115", model: 67, type: "attd" },
+                    { pick: "Kyren Williams ATTD", game: "DET @ LAR", odds: "-105", model: 63, type: "attd" },
+                    { pick: "Javonte Williams ATTD", game: "GB @ DEN", odds: "-140", model: 70, type: "attd" }
+                ]
+            },
+            {
+                rank: 9,
+                odds: "+1340",
+                implied: "7.0%",
+                rationale: "JSN is the 'safer' TD anchor; Jennings/Jameson add plus-money ceiling.",
+                legs: [
+                    { pick: "Jaxon Smith-Njigba ATTD", game: "IND @ SEA", odds: "-115", model: 64, type: "attd" },
+                    { pick: "Jameson Williams ATTD", game: "DET @ LAR", odds: "+180", model: 48, type: "attd" },
+                    { pick: "Jauan Jennings ATTD", game: "TEN @ SF", odds: "+175", model: 40, type: "attd" }
+                ]
+            },
+            {
+                rank: 10,
+                odds: "+2892",
+                implied: "3.3%",
+                rationale: "Pure ceiling ticket with 3 plus-money TD legs.",
+                legs: [
+                    { pick: "Rico Dowdle ATTD", game: "MIN @ DAL", odds: "+135", model: 48, type: "attd" },
+                    { pick: "Tony Pollard ATTD", game: "TEN @ SF", odds: "+280", model: 30, type: "attd" },
+                    { pick: "Romeo Doubs ATTD", game: "GB @ DEN", odds: "+235", model: 30, type: "attd" }
+                ]
+            },
+            {
+                rank: 11,
+                odds: "+757",
+                implied: "11.7%",
+                rationale: "TD parlay anchored by the slate's top TD-prob backs.",
+                legs: [
+                    { pick: "Christian McCaffrey ATTD", game: "TEN @ SF", odds: "-270", model: 64, type: "attd" },
+                    { pick: "Jonathan Taylor ATTD", game: "IND @ SEA", odds: "-115", model: 67, type: "attd" },
+                    { pick: "Kyren Williams ATTD", game: "DET @ LAR", odds: "-105", model: 63, type: "attd" },
+                    { pick: "Javonte Williams ATTD", game: "GB @ DEN", odds: "-140", model: 70, type: "attd" }
+                ]
+            },
+            {
+                rank: 12,
+                odds: "+1915",
+                implied: "5.0%",
+                rationale: "4 anchors + 1 plus-money booster.",
+                legs: [
+                    { pick: "Christian McCaffrey ATTD", game: "TEN @ SF", odds: "-270", model: 64, type: "attd" },
+                    { pick: "Jonathan Taylor ATTD", game: "IND @ SEA", odds: "-115", model: 67, type: "attd" },
+                    { pick: "Kyren Williams ATTD", game: "DET @ LAR", odds: "-105", model: 63, type: "attd" },
+                    { pick: "Javonte Williams ATTD", game: "GB @ DEN", odds: "-140", model: 70, type: "attd" },
+                    { pick: "Rico Dowdle ATTD", game: "MIN @ DAL", odds: "+135", model: 48, type: "attd" }
+                ]
+            },
+            {
+                rank: 13,
+                odds: "+183",
+                implied: "35.3%",
+                rationale: "SF modeled ~+13; MIA/PIT projects 40.5 total; Kyren TD leverages LAR's strong scoring form.",
+                legs: [
+                    { pick: "SF -2.5", game: "TEN @ SF", odds: "-600", model: 84, type: "spread" },
+                    { pick: "MIA/PIT U52.5", game: "MIA @ PIT", odds: "-413", model: 79, type: "total" },
+                    { pick: "Kyren Williams ATTD", game: "DET @ LAR", odds: "-105", model: 63, type: "attd" }
+                ]
+            },
+            {
+                rank: 14,
+                odds: "+160",
+                implied: "38.5%",
+                rationale: "IND cushion + very low points bar in GB/DEN + top TD-prob leg.",
+                legs: [
+                    { pick: "IND +23.5", game: "IND @ SEA", odds: "-418", model: 84, type: "spread" },
+                    { pick: "GB/DEN O32.5", game: "GB @ DEN", odds: "-451", model: 79, type: "total" },
+                    { pick: "Javonte Williams ATTD", game: "GB @ DEN", odds: "-140", model: 70, type: "attd" }
+                ]
+            },
+            {
+                rank: 15,
+                odds: "+463",
+                implied: "17.8%",
+                rationale: "DET gets a huge number in the highest-total game; SF under is a big cushion; Taylor TD is elite; Waller under aligns with run-lean MIA (171.2 rush yds last-5).",
+                legs: [
+                    { pick: "DET +15.5", game: "DET @ LAR", odds: "-383", model: 84, type: "spread" },
+                    { pick: "TEN/SF U54.5", game: "TEN @ SF", odds: "-416", model: 79, type: "total" },
+                    { pick: "Jonathan Taylor ATTD", game: "IND @ SEA", odds: "-115", model: 67, type: "attd" },
+                    { pick: "Darren Waller U2.5 rec", game: "MIA @ PIT", odds: "-108", model: 78, type: "prop" }
+                ]
+            },
+            {
+                rank: 16,
+                odds: "+439",
+                implied: "18.6%",
+                rationale: "CAR/NO is lowest projected total (37.5) + Reed under is a top edge + JSN TD anchor.",
+                legs: [
+                    { pick: "PIT +6.5", game: "MIA @ PIT", odds: "-448", model: 68, type: "spread" },
+                    { pick: "CAR/NO U51.5", game: "CAR @ NO", odds: "-438", model: 83, type: "total" },
+                    { pick: "Jayden Reed U35.5 rec yds", game: "GB @ DEN", odds: "-109", model: 89, type: "prop" },
+                    { pick: "Jaxon Smith-Njigba ATTD", game: "IND @ SEA", odds: "-115", model: 64, type: "attd" }
+                ]
+            },
+            {
+                rank: 17,
+                odds: "+1208",
+                implied: "7.7%",
+                rationale: "All align with model totals (44.0/46.5/44.0/58.0).",
+                legs: [
+                    { pick: "TEN/SF U44.5", game: "TEN @ SF", odds: "-112", model: null, type: "total" },
+                    { pick: "IND/SEA O41.5", game: "IND @ SEA", odds: "-112", model: null, type: "total" },
+                    { pick: "GB/DEN O42.5", game: "GB @ DEN", odds: "-105", model: null, type: "total" },
+                    { pick: "DET/LAR O54.5", game: "DET @ LAR", odds: "-115", model: null, type: "total" }
+                ]
+            },
+            {
+                rank: 18,
+                odds: "+1138",
+                implied: "8.1%",
+                rationale: "Supported by model margins (SF +13.0, LAR +7.1, DAL +11.6, CAR +3.1).",
+                legs: [
+                    { pick: "SF -12.5", game: "TEN @ SF", odds: "-112", model: null, type: "spread" },
+                    { pick: "LAR -5.5", game: "DET @ LAR", odds: "-115", model: null, type: "spread" },
+                    { pick: "DAL -5.5", game: "MIN @ DAL", odds: "-112", model: null, type: "spread" },
+                    { pick: "CAR +2.5", game: "CAR @ NO", odds: "-118", model: null, type: "spread" }
+                ]
+            },
+            {
+                rank: 19,
+                odds: "+2151",
+                implied: "4.4%",
+                rationale: "Favorite ML that isn't extreme + two strong spread leans + under matches model 40.5 + Taylor TD anchor.",
+                legs: [
+                    { pick: "GB ML", game: "GB @ DEN", odds: "-122", model: null, type: "ml" },
+                    { pick: "SF -12.5", game: "TEN @ SF", odds: "-112", model: null, type: "spread" },
+                    { pick: "LAR -5.5", game: "DET @ LAR", odds: "-115", model: null, type: "spread" },
+                    { pick: "MIA/PIT U42.5", game: "MIA @ PIT", odds: "-115", model: null, type: "total" },
+                    { pick: "Jonathan Taylor ATTD", game: "IND @ SEA", odds: "-115", model: null, type: "attd" }
+                ]
+            },
+            {
+                rank: 20,
+                odds: "+8990",
+                implied: "1.1%",
+                rationale: "'Model edge' prop board across every late game (high payout, lots of fail points).",
+                legs: [
+                    { pick: "Ricky Pearsall U37.5 rec yds", game: "TEN @ SF", odds: "-111", model: 94, type: "prop" },
+                    { pick: "Sam Darnold O230.5 pass yds", game: "MIN @ DAL", odds: "-112", model: 93, type: "prop" },
+                    { pick: "Mason Tipton U13.5 rec yds", game: "CAR @ NO", odds: "-108", model: 84, type: "prop" },
+                    { pick: "Tutu Atwell U9.5 rec yds", game: "DET @ LAR", odds: "-109", model: 96, type: "prop" },
+                    { pick: "Marvin Mims Jr. U17.5 rec yds", game: "GB @ DEN", odds: "-109", model: 92, type: "prop" },
+                    { pick: "Dak Prescott O264.5 pass yds", game: "MIN @ DAL", odds: "-113", model: 74, type: "prop" },
+                    { pick: "Tua Tagovailoa U195.5 pass yds", game: "MIA @ PIT", odds: "-112", model: 74, type: "prop" }
+                ]
+            }
+        ];
+
+        function getModelClass(model) {
+            if (model === null) return 'mid';
+            if (model >= 90) return 'elite';
+            if (model >= 75) return 'high';
+            if (model >= 55) return 'mid';
+            return 'low';
+        }
+
+        function getBetTypes(legs) {
+            return [...new Set(legs.map(l => l.type))];
+        }
+
+        function getTypeLabel(type) {
+            const labels = { spread: 'SPR', total: 'O/U', prop: 'PROP', ml: 'ML', attd: 'TD' };
+            return labels[type] || type.toUpperCase();
+        }
+
+        function getTypeIcon(type) {
+            const icons = { spread: '±', total: '∑', prop: '◈', ml: 'W', attd: '⚑' };
+            return icons[type] || '•';
+        }
+
+        function renderParlays(filter = 'all') {
+            const grid = document.getElementById('parlaysGrid');
+            const filtered = filter === 'all'
+                ? parlaysData
+                : parlaysData.filter(p => p.legs.some(l => l.type === filter));
+
+            grid.innerHTML = filtered.map(parlay => {
+                const betTypes = getBetTypes(parlay.legs);
+
+                return `
+                    <div class="parlay-card" data-types="${betTypes.join(',')}">
+                        <div class="card-header" onclick="this.parentElement.classList.toggle('expanded')">
+                            <div class="rank-badge ${parlay.rank <= 5 ? 'top-5' : ''}">${parlay.rank}</div>
+                            <div class="card-main">
+                                <div class="card-tags">
+                                    <span class="tag legs">${parlay.legs.length} legs</span>
+                                    ${betTypes.map(t => `<span class="tag ${t}">${getTypeLabel(t)}</span>`).join('')}
+                                </div>
+                                <div class="legs-inline">
+                                    ${parlay.legs.map((leg, i) => `<span class="leg-text">${leg.pick}</span>${leg.model ? `<span class="leg-model">${leg.model}%</span>` : ''}${i < parlay.legs.length - 1 ? '<span class="plus">+</span>' : ''}`).join('')}
+                                </div>
+                            </div>
+                            <div class="card-odds">
+                                <div class="odds-main">${parlay.odds}</div>
+                                <div class="implied-badge">
+                                    <span class="implied-label">Implied</span>
+                                    <span class="implied-value">${parlay.implied}</span>
+                                </div>
+                            </div>
+                            <div class="expand-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                            </div>
+                        </div>
+                        <div class="mobile-odds-bar">
+                            <div class="mobile-stat">
+                                <span class="mobile-stat-label">Est. Odds</span>
+                                <span class="mobile-stat-value orange">${parlay.odds}</span>
+                            </div>
+                            <div class="mobile-stat">
+                                <span class="mobile-stat-label">Implied Hit</span>
+                                <span class="mobile-stat-value lime">${parlay.implied}</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="rationale-box">
+                                <strong>Why:</strong> ${parlay.rationale}
+                            </div>
+                            <div class="legs-detail-grid">
+                                ${parlay.legs.map(leg => `
+                                    <div class="leg-detail">
+                                        <div class="leg-type-badge ${leg.type}">${getTypeIcon(leg.type)}</div>
+                                        <div class="leg-info">
+                                            <span class="leg-pick-text">${leg.pick}</span>
+                                            <span class="leg-game-text">${leg.game}</span>
+                                        </div>
+                                        <div class="leg-odds-text">${leg.odds}</div>
+                                        <div class="leg-model-display">
+                                            ${leg.model !== null ? `
+                                                <div class="model-bar-track">
+                                                    <div class="model-bar-fill ${getModelClass(leg.model)}" style="width: ${leg.model}%"></div>
+                                                </div>
+                                                <span class="model-pct-text ${getModelClass(leg.model)}">${leg.model}%</span>
+                                            ` : '<span class="model-pct-text" style="color: var(--text-muted);">—</span>'}
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Filter pills
+        document.querySelectorAll('.filter-pill').forEach(pill => {
+            pill.addEventListener('click', () => {
+                document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+                renderParlays(pill.dataset.filter);
+            });
+        });
+
+        // Expand all
+        let allExpanded = false;
+        document.getElementById('expandAll').addEventListener('click', () => {
+            allExpanded = !allExpanded;
+            document.querySelectorAll('.parlay-card').forEach(card => {
+                if (allExpanded) {
+                    card.classList.add('expanded');
+                } else {
+                    card.classList.remove('expanded');
+                }
+            });
+            document.getElementById('expandAll').querySelector('span').textContent =
+                allExpanded ? 'Collapse All' : 'Expand All';
+        });
+
+        // Init
+        renderParlays();
+    </script>
+</body>
+</html>
