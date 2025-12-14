@@ -671,8 +671,8 @@
                 font-size: 0.9375rem !important;
             }
 
-            /* Touch-friendly buttons and tabs (exclude compact filter controls) */
-            button:not(.filter-segment):not(.filter-star-btn):not(.filter-ranked-btn):not(.filter-clear-btn):not(.pp-filter) {
+            /* Touch-friendly buttons and tabs (exclude compact filter controls and game card tabs) */
+            button:not(.filter-segment):not(.filter-star-btn):not(.filter-ranked-btn):not(.filter-clear-btn):not(.pp-filter):not([id^="tab-"]) {
                 min-height: 44px;
                 padding: 0.75rem 1rem !important;
             }
@@ -900,15 +900,16 @@
                 font-size: 0.875rem !important;
             }
 
-            /* -------- Mobile-only: tighter tabs bar (Overview/Analytics/Betting) -------- */
+            /* -------- Mobile-only: tighter tabs bar (Overview/Props/Team Stats/Betting) -------- */
             .game-card .border-b.border-gray-200.bg-gray-50 nav {
                 padding-top: 0.25rem !important;
                 padding-bottom: 0 !important;
             }
             .game-card nav button[id^="tab-"] {
-                padding-top: 0.35rem !important;
-                padding-bottom: 0.35rem !important;
+                padding: 0.35rem 0.75rem !important;
+                font-size: 0.75rem !important;
                 line-height: 1.2 !important;
+                min-height: auto !important;
             }
 
             /* FALLBACK: Old overview-section grid nth-child hacks - no longer needed with dual mobile/desktop layouts
