@@ -436,13 +436,13 @@
                                 <span id="parlay-prob" class="font-bold text-emerald-600">-</span>
                             </div>
                             <div class="flex justify-between text-sm">
-                                <span class="text-slate-500">EV on $10:</span>
+                                <span class="text-slate-500">EV on Stake:</span>
                                 <span id="parlay-ev" class="font-bold">-</span>
                             </div>
                         </div>
 
                         <div class="mt-4 flex gap-2">
-                            <input type="number" id="parlay-stake" value="10" min="1"
+                            <input type="number" id="parlay-stake" value="5" min="1"
                                    class="w-20 px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                             <button id="copy-parlay-btn"
                                     class="flex-1 px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
@@ -2749,7 +2749,7 @@
                 });
 
                 const combinedAmerican = decimalToAmerican(combinedDecimal);
-                const stake = parseFloat(document.getElementById('parlay-stake').value) || 10;
+                const stake = parseFloat(document.getElementById('parlay-stake').value) || 5;
                 const ev = combinedProb * (combinedDecimal - 1) * stake - (1 - combinedProb) * stake;
 
                 document.getElementById('parlay-odds').textContent = combinedAmerican >= 0 ? '+' + combinedAmerican : combinedAmerican;
@@ -2781,7 +2781,7 @@
 
         function copyParlay() {
             const bets = Array.from(selectedBets.values());
-            const stake = parseFloat(document.getElementById('parlay-stake').value) || 10;
+            const stake = parseFloat(document.getElementById('parlay-stake').value) || 5;
 
             let combinedDecimal = 1;
             let combinedProb = 1;

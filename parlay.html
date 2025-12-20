@@ -250,6 +250,41 @@
         .parlay-builder-toggle {
             display: none;
             touch-action: manipulation;
+            cursor: pointer;
+        }
+        .parlay-toggle-label {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.15rem;
+            flex: 1 1 auto;
+            min-width: 0;
+        }
+        .parlay-toggle-title {
+            line-height: 1.1;
+        }
+        .parlay-toggle-hint {
+            font-size: 0.6rem;
+            font-weight: 600;
+            color: #64748b;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .parlay-toggle-hint--expand,
+        .parlay-toggle-hint--collapse {
+            display: none;
+        }
+        .parlay-builder.is-collapsed .parlay-toggle-hint--expand {
+            display: inline;
+        }
+        .parlay-builder:not(.is-collapsed) .parlay-toggle-hint--collapse {
+            display: inline;
+        }
+        .parlay-toggle-right {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            white-space: nowrap;
         }
         .parlay-leg-list {
             display: flex;
@@ -636,6 +671,7 @@
                 align-items: center;
                 justify-content: space-between;
                 width: 100%;
+                gap: 0.75rem;
                 padding: 0.6rem 0.75rem;
                 font-size: 0.8rem;
                 font-weight: 700;
@@ -643,6 +679,7 @@
                 background: #e2e8f0;
                 border-radius: 0.75rem;
                 margin-bottom: 0.5rem;
+                text-align: left;
             }
             .parlay-market-list {
                 max-height: 55vh;
@@ -771,8 +808,12 @@
 
             <aside class="parlay-panel parlay-builder parlay-builder-panel is-collapsed" id="parlay-builder">
                 <button class="parlay-builder-toggle" id="parlay-builder-toggle" type="button" onclick="toggleParlayBuilder(event)">
-                    <span>Your Parlay</span>
-                    <span class="text-xs text-slate-500"><span id="parlay-type-label-mobile">Regular Parlay</span> · <span id="parlay-legs-count">0</span> legs</span>
+                    <span class="parlay-toggle-label">
+                        <span class="parlay-toggle-title">Your Parlay</span>
+                        <span class="parlay-toggle-hint parlay-toggle-hint--expand">Tap to expand</span>
+                        <span class="parlay-toggle-hint parlay-toggle-hint--collapse">Tap to collapse</span>
+                    </span>
+                    <span class="parlay-toggle-right text-xs text-slate-500"><span id="parlay-type-label-mobile">Regular Parlay</span> · <span id="parlay-legs-count">0</span> legs</span>
                 </button>
                 <div class="parlay-builder-stack">
                     <div class="parlay-panel-header">
@@ -791,7 +832,7 @@
                             <div class="parlay-wager">
                                 <div class="parlay-wager-input">
                                     <label class="text-xs text-slate-500">Wager</label>
-                                    <input id="parlay-stake" type="number" min="1" value="10">
+                                    <input id="parlay-stake" type="number" min="1" value="5">
                                 </div>
                                 <div class="parlay-wager-metrics">
                                     <div class="parlay-wager-card">
