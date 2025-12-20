@@ -535,9 +535,17 @@
         }
         .parlay-rec-leg-right {
             display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 0.6rem;
             flex: 0 0 auto;
+        }
+        .parlay-rec-metric {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.15rem;
+            text-align: right;
         }
         .parlay-rec-leg strong { color: #0f172a; }
         .parlay-swipe-hint { display: none; }
@@ -1787,17 +1795,23 @@
                                     projectionHtml +
                                 '</div>')
                                 : '';
-                            return '<div class="parlay-rec-leg">' +
-                                (leg.teamLogo ? '<img src="' + escapeHtml(leg.teamLogo) + '" class="parlay-logo" onerror="this.style.display=\'none\'">' : '') +
-                                '<div class="parlay-rec-leg-body">' +
-                                    '<span class="parlay-rec-leg-text">' + nameHtml + '</span>' +
-                                    subLine +
-                                '</div>' +
-                                '<span class="parlay-rec-leg-right">' +
-                                    '<span class="parlay-leg-odds">' + price + '</span>' +
-                                    '<span class="parlay-prob-chip ' + probClass + '">' + probText + '</span>' +
-                                '</span>' +
-                            '</div>';
+            return '<div class="parlay-rec-leg">' +
+                (leg.teamLogo ? '<img src="' + escapeHtml(leg.teamLogo) + '" class="parlay-logo" onerror="this.style.display=\'none\'">' : '') +
+                '<div class="parlay-rec-leg-body">' +
+                    '<span class="parlay-rec-leg-text">' + nameHtml + '</span>' +
+                    subLine +
+                '</div>' +
+                '<span class="parlay-rec-leg-right">' +
+                    '<span class="parlay-rec-metric">' +
+                        '<span class="parlay-metric-label">Odds</span>' +
+                        '<span class="parlay-leg-odds">' + price + '</span>' +
+                    '</span>' +
+                    '<span class="parlay-rec-metric">' +
+                        '<span class="parlay-metric-label">Model</span>' +
+                        '<span class="parlay-prob-chip ' + probClass + '">' + probText + '</span>' +
+                    '</span>' +
+                '</span>' +
+            '</div>';
                         }).join('') +
                     '</div>' +
                     '<div class="mt-2 flex items-center justify-between text-xs text-slate-600">' +
