@@ -483,6 +483,9 @@
             align-items: center;
             justify-content: space-between;
             gap: 0.5rem;
+            padding: 0.4rem 0.55rem;
+            border-radius: 0.7rem;
+            border: 1px solid rgba(226, 232, 240, 0.9);
             font-size: 0.75rem;
             color: #475569;
             min-width: 0;
@@ -495,29 +498,40 @@
         .parlay-rec-leg-body {
             display: flex;
             flex-direction: column;
-            gap: 0.15rem;
+            align-items: flex-start;
+            gap: 0.2rem;
             flex: 1 1 auto;
             min-width: 0;
         }
         .parlay-rec-leg-text {
             min-width: 0;
-            display: flex;
-            align-items: baseline;
-            gap: 0.35rem;
+            display: block;
         }
         .parlay-rec-name {
-            max-width: 9rem;
+            max-width: 100%;
             min-width: 0;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
-        .parlay-rec-label {
+        .parlay-rec-leg-sub {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            min-width: 0;
+            font-size: 0.68rem;
+            line-height: 1.2;
+            color: #64748b;
+        }
+        .parlay-rec-leg-sub-label {
             flex: 1 1 auto;
             min-width: 0;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+        }
+        .parlay-rec-leg-sep {
+            flex: 0 0 auto;
         }
         .parlay-rec-leg-right {
             display: inline-flex;
@@ -1748,12 +1762,12 @@
                             const probText = leg.modelProb == null ? '—' : Math.round(leg.modelProb * 100) + '%';
                             const probClass = getProbChipClass(leg.modelProb);
                             const projectionText = getPropProjectionText(leg);
-            const projectionHtml = projectionText ? '<div class="parlay-rec-proj">Proj ' + projectionText + '</div>' : '';
-            const primary = leg.playerName || leg.team || '';
-            let label = leg.marketLabel || '';
-            if (leg.type === 'moneyline') label = 'Moneyline';
-            if (leg.marketGroup === 'Anytime TD' && leg.side === 'yes') label = 'ATTD';
-            if (/anytime tds*·s*yes/i.test(label)) label = 'ATTD';
+                            const projectionHtml = projectionText ? '<span class="parlay-rec-proj">Proj ' + projectionText + '</span>' : '';
+                            const primary = leg.playerName || leg.team || '';
+                            let label = leg.marketLabel || '';
+                            if (leg.type === 'moneyline') label = 'Moneyline';
+                            if (leg.marketGroup === 'Anytime TD' && leg.side === 'yes') label = 'ATTD';
+                            if (/anytime tds*·s*yes/i.test(label)) label = 'ATTD';
                             if (leg.type === 'spread' && primary && label) {
                                 const lowerLabel = label.toLowerCase();
                                 const lowerPrimary = primary.toLowerCase();
@@ -1764,20 +1778,26 @@
                             }
                             label = abbreviatePropLabel(label);
                             if (label && primary && label.toLowerCase() === primary.toLowerCase()) label = '';
-            const nameHtml = '<strong class="parlay-rec-name">' + escapeHtml(primary) + '</strong>';
-            const labelHtml = label ? ('<span class="parlay-rec-label">' + escapeHtml(label) + '</span>') : '';
-            const text = nameHtml + labelHtml;
-            return '<div class="parlay-rec-leg">' +
-                (leg.teamLogo ? '<img src="' + escapeHtml(leg.teamLogo) + '" class="parlay-logo" onerror="this.style.display=\'none\'">' : '') +
-                '<div class="parlay-rec-leg-body">' +
-                    '<span class="parlay-rec-leg-text">' + text + '</span>' +
-                    projectionHtml +
-                '</div>' +
-                '<span class="parlay-rec-leg-right">' +
-                    '<span class="parlay-leg-odds">' + price + '</span>' +
-                    '<span class="parlay-prob-chip ' + probClass + '">' + probText + '</span>' +
-                '</span>' +
-            '</div>';
+                            const nameHtml = '<strong class="parlay-rec-name">' + escapeHtml(primary) + '</strong>';
+                            const labelHtml = label ? ('<span class="parlay-rec-leg-sub-label">' + escapeHtml(label) + '</span>') : '';
+                            const subLine = (labelHtml || projectionHtml)
+                                ? ('<div class="parlay-rec-leg-sub">' +
+                                    labelHtml +
+                                    (labelHtml && projectionHtml ? '<span class="parlay-rec-leg-sep">·</span>' : '') +
+                                    projectionHtml +
+                                '</div>')
+                                : '';
+                            return '<div class="parlay-rec-leg">' +
+                                (leg.teamLogo ? '<img src="' + escapeHtml(leg.teamLogo) + '" class="parlay-logo" onerror="this.style.display=\'none\'">' : '') +
+                                '<div class="parlay-rec-leg-body">' +
+                                    '<span class="parlay-rec-leg-text">' + nameHtml + '</span>' +
+                                    subLine +
+                                '</div>' +
+                                '<span class="parlay-rec-leg-right">' +
+                                    '<span class="parlay-leg-odds">' + price + '</span>' +
+                                    '<span class="parlay-prob-chip ' + probClass + '">' + probText + '</span>' +
+                                '</span>' +
+                            '</div>';
                         }).join('') +
                     '</div>' +
                     '<div class="mt-2 flex items-center justify-between text-xs text-slate-600">' +
