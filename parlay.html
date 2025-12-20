@@ -909,39 +909,39 @@
                 -webkit-mask-repeat: no-repeat;
                 mask-repeat: no-repeat;
             }
-            .parlay-rec-card {
+            .parlay-rec-list .parlay-rec-card {
                 flex: 0 0 92%;
                 max-width: 92%;
                 min-width: 92%;
                 scroll-snap-align: start;
             }
-            #parlay-game-rec .parlay-rec-card {
-                flex: 0 0 100%;
-                max-width: 100%;
-                min-width: 100%;
-            }
             .parlay-rec-leg-body {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 0.2rem;
-                overflow: visible;
+                gap: 0.35rem;
             }
             .parlay-rec-leg-text {
                 width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: baseline;
+                gap: 0.35rem;
             }
             .parlay-rec-name {
-                flex: 0 1 7.5rem;
-                max-width: 7.5rem;
+                flex: 0 1 auto;
+                max-width: 45%;
             }
             .parlay-rec-label {
                 flex: 1 1 auto;
                 min-width: 0;
-                overflow: hidden;
-                text-overflow: ellipsis;
+                white-space: normal;
+                line-height: 1.15;
             }
             .parlay-rec-leg-metrics {
                 width: 100%;
+                display: flex;
                 flex-wrap: wrap;
+                gap: 0.35rem;
                 justify-content: flex-start;
             }
             .parlay-swipe-hint {
