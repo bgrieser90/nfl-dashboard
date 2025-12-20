@@ -1387,13 +1387,30 @@
                     fill(legsArr);
                 }
                 if (sgpLegs.length < 5) return null;
+                const kickoffSort = (() => {
+                    const times = legsArr
+                        .map(l => Number(l.kickoffSort))
+                        .filter(t => Number.isFinite(t));
+                    if (times.length) return Math.min(...times);
+                    return null;
+                })();
                 return {
                     id: gameId,
                     label: legsArr[0]?.gameLabel || gameId,
                     type: 'SGP',
-                    legs: sgpLegs
+                    legs: sgpLegs,
+                    kickoffSort
                 };
-            }).filter(Boolean).sort((a, b) => String(a.label).localeCompare(String(b.label)));
+            }).filter(Boolean).sort((a, b) => {
+                const aTime = Number(a.kickoffSort);
+                const bTime = Number(b.kickoffSort);
+                const aHas = Number.isFinite(aTime);
+                const bHas = Number.isFinite(bTime);
+                if (aHas && bHas && aTime !== bTime) return aTime - bTime;
+                if (aHas) return -1;
+                if (bHas) return 1;
+                return String(a.label).localeCompare(String(b.label));
+            });
 
             const categories = [];
             const anytimeTd = buildCategoryParlay('Anytime TD Parlay', leg => leg.type === 'prop' && leg.marketGroup === 'Anytime TD' && leg.side === 'yes', 5, 5, {
