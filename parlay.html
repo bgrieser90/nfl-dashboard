@@ -481,6 +481,7 @@
         .parlay-rec-leg {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: 0.5rem;
             font-size: 0.75rem;
             color: #475569;
@@ -493,35 +494,32 @@
         }
         .parlay-rec-leg-body {
             display: flex;
-            align-items: center;
-            gap: 0.35rem;
-            flex-wrap: nowrap;
-            overflow: hidden;
+            flex-direction: column;
+            gap: 0.15rem;
             flex: 1 1 auto;
             min-width: 0;
-        }
-        .parlay-rec-leg-body > :not(.parlay-rec-leg-text) {
-            flex: 0 0 auto;
         }
         .parlay-rec-leg-text {
-            flex: 1 1 auto;
             min-width: 0;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.25rem;
-            overflow: hidden;
+            display: flex;
+            align-items: baseline;
+            gap: 0.35rem;
         }
         .parlay-rec-name {
+            max-width: 9rem;
             min-width: 0;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
         .parlay-rec-label {
-            flex: 0 0 auto;
+            flex: 1 1 auto;
+            min-width: 0;
             white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
-        .parlay-rec-leg-metrics {
+        .parlay-rec-leg-right {
             display: inline-flex;
             align-items: center;
             gap: 0.35rem;
@@ -921,39 +919,19 @@
                 min-width: 100%;
             }
             .parlay-rec-leg {
-                align-items: flex-start;
+                align-items: center;
             }
             .parlay-rec-leg-body {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.25rem;
+                gap: 0.2rem;
             }
             .parlay-rec-leg-text {
                 width: 100%;
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.1rem;
             }
             .parlay-rec-name {
-                max-width: 100%;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
+                max-width: 7.5rem;
             }
             .parlay-rec-label {
                 max-width: 100%;
-                font-size: 0.68rem;
-                color: #64748b;
-                line-height: 1.2;
-            }
-            .parlay-rec-leg-metrics {
-                width: 100%;
-                display: flex;
-                flex-wrap: wrap;
-                align-items: center;
-                gap: 0.35rem;
-                justify-content: flex-start;
             }
             .parlay-swipe-hint {
                 display: none;
@@ -1770,12 +1748,12 @@
                             const probText = leg.modelProb == null ? '—' : Math.round(leg.modelProb * 100) + '%';
                             const probClass = getProbChipClass(leg.modelProb);
                             const projectionText = getPropProjectionText(leg);
-                            const projectionHtml = projectionText ? '<span class="parlay-rec-proj">Proj ' + projectionText + '</span>' : '';
-                            const primary = leg.playerName || leg.team || '';
-                            let label = leg.marketLabel || '';
-                            if (leg.type === 'moneyline') label = 'Moneyline';
-                            if (leg.marketGroup === 'Anytime TD' && leg.side === 'yes') label = 'ATTD';
-                            if (/anytime tds*·s*yes/i.test(label)) label = 'ATTD';
+            const projectionHtml = projectionText ? '<div class="parlay-rec-proj">Proj ' + projectionText + '</div>' : '';
+            const primary = leg.playerName || leg.team || '';
+            let label = leg.marketLabel || '';
+            if (leg.type === 'moneyline') label = 'Moneyline';
+            if (leg.marketGroup === 'Anytime TD' && leg.side === 'yes') label = 'ATTD';
+            if (/anytime tds*·s*yes/i.test(label)) label = 'ATTD';
                             if (leg.type === 'spread' && primary && label) {
                                 const lowerLabel = label.toLowerCase();
                                 const lowerPrimary = primary.toLowerCase();
@@ -1786,20 +1764,20 @@
                             }
                             label = abbreviatePropLabel(label);
                             if (label && primary && label.toLowerCase() === primary.toLowerCase()) label = '';
-                            const nameHtml = '<strong class="parlay-rec-name">' + escapeHtml(primary) + '</strong>';
-                            const labelHtml = label ? ('<span class="parlay-rec-label">' + escapeHtml(label) + '</span>') : '';
-                            const text = nameHtml + labelHtml;
-                            return '<div class="parlay-rec-leg">' +
-                                (leg.teamLogo ? '<img src="' + escapeHtml(leg.teamLogo) + '" class="parlay-logo" onerror="this.style.display=\'none\'">' : '') +
-                                '<div class="parlay-rec-leg-body">' +
-                                    '<span class="parlay-rec-leg-text">' + text + '</span>' +
-                                    '<span class="parlay-rec-leg-metrics">' +
-                                        '<span class="parlay-leg-odds">' + price + '</span>' +
-                                        projectionHtml +
-                                        '<span class="parlay-prob-chip ' + probClass + '">' + probText + '</span>' +
-                                    '</span>' +
-                                '</div>' +
-                            '</div>';
+            const nameHtml = '<strong class="parlay-rec-name">' + escapeHtml(primary) + '</strong>';
+            const labelHtml = label ? ('<span class="parlay-rec-label">' + escapeHtml(label) + '</span>') : '';
+            const text = nameHtml + labelHtml;
+            return '<div class="parlay-rec-leg">' +
+                (leg.teamLogo ? '<img src="' + escapeHtml(leg.teamLogo) + '" class="parlay-logo" onerror="this.style.display=\'none\'">' : '') +
+                '<div class="parlay-rec-leg-body">' +
+                    '<span class="parlay-rec-leg-text">' + text + '</span>' +
+                    projectionHtml +
+                '</div>' +
+                '<span class="parlay-rec-leg-right">' +
+                    '<span class="parlay-leg-odds">' + price + '</span>' +
+                    '<span class="parlay-prob-chip ' + probClass + '">' + probText + '</span>' +
+                '</span>' +
+            '</div>';
                         }).join('') +
                     '</div>' +
                     '<div class="mt-2 flex items-center justify-between text-xs text-slate-600">' +
