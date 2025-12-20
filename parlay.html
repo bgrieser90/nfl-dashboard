@@ -484,6 +484,7 @@
             gap: 0.5rem;
             font-size: 0.75rem;
             color: #475569;
+            min-width: 0;
         }
         .parlay-rec-proj {
             font-size: 0.65rem;
@@ -493,11 +494,17 @@
         .parlay-rec-leg-body {
             display: flex;
             align-items: center;
-            gap: 0.4rem;
-            flex-wrap: wrap;
+            gap: 0.35rem;
+            flex-wrap: nowrap;
+            overflow: hidden;
+            flex: 1 1 auto;
             min-width: 0;
         }
+        .parlay-rec-leg-body > :not(.parlay-rec-leg-text) {
+            flex: 0 0 auto;
+        }
         .parlay-rec-leg-text {
+            flex: 1 1 auto;
             min-width: 0;
             white-space: nowrap;
             overflow: hidden;
@@ -1439,7 +1446,7 @@
                 gamePoolSize = 8
             } = options;
             const rng = randomize ? mulberry32(randomSeed || 1) : null;
-            const shuffledGamePoolSize = Math.max(gamePoolSize, 14);
+            const shuffledGamePoolSize = Math.max(gamePoolSize, 18);
             const edgeFloor = 0.02;
             const minProb = 0.5;
             const maxProb = 0.9;
@@ -1454,6 +1461,16 @@
             }
             for (const key of Object.keys(byGame)) {
                 byGame[key].sort(compareLegsByModelThenEdge);
+            }
+            const sgpEligible = legs.filter(l => isRecommendedCandidate(l, sgpMinProb, sgpMaxProb, sgpEdgeFloor));
+            const sgpByGame = {};
+            for (const leg of sgpEligible) {
+                if (!leg.gameId) continue;
+                if (!sgpByGame[leg.gameId]) sgpByGame[leg.gameId] = [];
+                sgpByGame[leg.gameId].push(leg);
+            }
+            for (const key of Object.keys(sgpByGame)) {
+                sgpByGame[key].sort(compareLegsByModelThenEdge);
             }
             const sgpBoostByGame = {};
             const isSgpBoostLeg = (leg) => {
@@ -1474,11 +1491,14 @@
 
             const gameRecs = Object.entries(byGame).map(([gameId, legsArr]) => {
                 const sgpLegs = [];
+                const basePool = randomize && rng && sgpByGame[gameId]?.length
+                    ? sgpByGame[gameId]
+                    : legsArr;
                 const candidateLimit = randomize && rng
-                    ? Math.min(legsArr.length, shuffledGamePoolSize)
+                    ? Math.min(basePool.length, shuffledGamePoolSize)
                     : legsArr.length;
                 let candidates = randomize && rng
-                    ? shuffleArray(legsArr.slice(0, candidateLimit), rng)
+                    ? shuffleArray(basePool.slice(0, candidateLimit), rng)
                     : legsArr;
                 const sgpBoost = sgpBoostByGame[gameId] || [];
                 if (randomize && rng && sgpBoost.length) {
@@ -1495,7 +1515,11 @@
                     }
                 };
                 fill(candidates);
-                if (randomize && rng && sgpLegs.length < 5 && candidates !== legsArr) {
+                if (randomize && rng && sgpLegs.length < 5) {
+                    sgpLegs.length = 0;
+                    fill(basePool);
+                }
+                if (randomize && rng && sgpLegs.length < 5 && basePool !== legsArr) {
                     sgpLegs.length = 0;
                     fill(legsArr);
                 }
@@ -1578,6 +1602,14 @@
                             if (leg.type === 'moneyline') label = 'Moneyline';
                             if (leg.marketGroup === 'Anytime TD' && leg.side === 'yes') label = 'ATTD';
                             if (/anytime tds*·s*yes/i.test(label)) label = 'ATTD';
+                            if (leg.type === 'spread' && primary && label) {
+                                const lowerLabel = label.toLowerCase();
+                                const lowerPrimary = primary.toLowerCase();
+                                if (lowerLabel.startsWith(lowerPrimary)) {
+                                    const abbr = getTeamAbbreviation(primary);
+                                    label = abbr + label.slice(primary.length);
+                                }
+                            }
                             if (label && primary && label.toLowerCase() === primary.toLowerCase()) label = '';
                             const text = label
                                 ? ('<strong>' + escapeHtml(primary) + '</strong> ' + escapeHtml(label))
