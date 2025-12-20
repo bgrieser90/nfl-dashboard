@@ -500,6 +500,7 @@
                 flex-direction: column;
                 flex: 1 1 auto;
                 min-height: 0;
+                overflow: hidden;
             }
             .parlay-filter-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -582,6 +583,7 @@
             .parlay-leg-list {
                 flex: 1 1 auto;
                 max-height: none;
+                min-height: 0;
                 overflow-y: auto;
                 padding-right: 0.25rem;
             }
@@ -605,7 +607,7 @@
             }
             .parlay-summary-grid {
                 display: grid;
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+                grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
                 gap: 0.75rem;
             }
             .parlay-summary-grid .parlay-summary,
