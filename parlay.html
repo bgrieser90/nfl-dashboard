@@ -576,6 +576,13 @@
             .parlay-builder-panel { order: 1; }
             .parlay-market-panel { order: 2; }
             .parlay-rec-panel { order: 3; }
+            .parlay-filter-grid > div {
+                min-width: 0;
+            }
+            .parlay-filter-grid select {
+                width: 100%;
+                min-width: 0;
+            }
             .parlay-builder {
                 position: sticky;
                 top: var(--parlay-sticky-offset, 140px);
@@ -584,6 +591,18 @@
                 bottom: auto;
                 z-index: 20;
                 box-shadow: 0 10px 24px -18px rgba(15, 23, 42, 0.35);
+                max-height: calc(100vh - var(--parlay-sticky-offset, 140px) - 12px);
+                overflow: hidden;
+            }
+            .parlay-builder-stack {
+                flex: 1 1 auto;
+                min-height: 0;
+            }
+            .parlay-builder-body {
+                flex: 1 1 auto;
+                min-height: 0;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
             }
             .parlay-builder.is-sticky-compact {
                 padding: 0.6rem;
@@ -849,6 +868,15 @@
 
         const MIN_MARKET_PROB = 0.2;
         const MIN_PROP_PRICE = -500;
+        const PROP_PARLAY_GROUP_ALLOWLIST = new Set([
+            'Pass TDs',
+            'Pass Yds',
+            'Receptions',
+            'Rush Yds',
+            'Rec Yds',
+            'INTs',
+            'Completions'
+        ]);
         const rawLegs = Array.isArray(window.PARLAY_LEGS) ? window.PARLAY_LEGS : [];
         const legs = rawLegs.map(leg => ({
             ...leg,
@@ -1187,7 +1215,7 @@
         }
 
         function buildCategoryParlay(label, filterFn, minLegs = 5, maxLegs = 5, options = {}) {
-            const { rng = null, randomize = false, poolSize = 12 } = options;
+            const { rng = null, randomize = false, poolSize = 12, fallbackPoolSize = null } = options;
             const fullPool = legs.filter(filterFn).sort(compareLegsByModelThenEdge);
             let pool = fullPool;
             if (randomize && rng) {
@@ -1205,10 +1233,12 @@
                 }
             };
             fill(pool);
-            if (randomize && rng && chosen.length < minLegs && pool !== fullPool) {
+            if (randomize && rng && chosen.length < minLegs) {
                 chosen.length = 0;
                 usedGames.clear();
-                fill(fullPool);
+                const fallbackLimit = Number.isFinite(fallbackPoolSize) ? fallbackPoolSize : fullPool.length;
+                const fallbackPool = shuffleArray(fullPool.slice(0, Math.min(fullPool.length, fallbackLimit)), rng);
+                fill(fallbackPool);
             }
             if (chosen.length < minLegs) return null;
             return { type: label, legs: chosen };
@@ -1222,6 +1252,7 @@
                 gamePoolSize = 8
             } = options;
             const rng = randomize ? mulberry32(randomSeed || 1) : null;
+            const shuffledGamePoolSize = Math.max(gamePoolSize, 12);
             const edgeFloor = 0.02;
             const minProb = 0.5;
             const maxProb = 0.9;
@@ -1237,8 +1268,11 @@
 
             const gameRecs = Object.entries(byGame).map(([gameId, legsArr]) => {
                 const sgpLegs = [];
+                const candidateLimit = randomize && rng
+                    ? Math.min(legsArr.length, shuffledGamePoolSize)
+                    : legsArr.length;
                 const candidates = randomize && rng
-                    ? shuffleArray(legsArr.slice(0, gamePoolSize), rng)
+                    ? shuffleArray(legsArr.slice(0, candidateLimit), rng)
                     : legsArr;
                 const fill = (candidatePool) => {
                     for (const leg of candidatePool) {
@@ -1280,10 +1314,13 @@
                 poolSize: categoryPoolSize
             });
             if (spread) categories.push(spread);
-            const propsOnly = buildCategoryParlay('Prop Parlay', leg => leg.type === 'prop' && leg.marketGroup !== 'Anytime TD' && leg.side === 'over', 5, 5, {
+            const propPoolSize = Math.max(categoryPoolSize * 2, 24);
+            const propFallbackPoolSize = Math.max(categoryPoolSize * 3, 36);
+            const propsOnly = buildCategoryParlay('Prop Parlay', leg => leg.type === 'prop' && leg.marketGroup !== 'Anytime TD' && leg.side === 'over' && PROP_PARLAY_GROUP_ALLOWLIST.has(leg.marketGroup), 5, 5, {
                 rng,
                 randomize,
-                poolSize: categoryPoolSize
+                poolSize: propPoolSize,
+                fallbackPoolSize: propFallbackPoolSize
             });
             if (propsOnly) categories.push(propsOnly);
 
