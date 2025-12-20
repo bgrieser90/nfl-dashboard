@@ -423,6 +423,11 @@
             gap: 0.35rem;
             margin-bottom: 0.75rem;
         }
+        .parlay-rec-actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
         .parlay-rec-controls select {
             border: 1px solid rgba(226, 232, 240, 0.9);
             border-radius: 0.6rem;
@@ -443,6 +448,20 @@
         }
         .parlay-rec-randomize:hover {
             background: #cbd5f5;
+        }
+        .parlay-rec-reset {
+            align-self: flex-start;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.35rem 0.6rem;
+            border-radius: 0.6rem;
+            background: #f1f5f9;
+            color: #0f172a;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            transition: background 0.2s ease;
+        }
+        .parlay-rec-reset:hover {
+            background: #e2e8f0;
         }
         .parlay-rec-list {
             display: flex;
@@ -903,7 +922,10 @@
                 <div class="parlay-rec-controls">
                     <label class="text-xs text-slate-500">Game SGP</label>
                     <select id="parlay-game-select"></select>
-                    <button class="parlay-rec-randomize" id="parlay-rec-randomize" type="button">Shuffle Legs</button>
+                    <div class="parlay-rec-actions">
+                        <button class="parlay-rec-randomize" id="parlay-rec-randomize" type="button">Shuffle Legs</button>
+                        <button class="parlay-rec-reset" id="parlay-rec-reset" type="button">Reset Legs</button>
+                    </div>
                 </div>
                 <div id="parlay-game-rec" class="mb-4"></div>
                 <div class="parlay-rec-list" id="parlay-rec-list"></div>
@@ -1651,6 +1673,7 @@
             const recPanel = document.getElementById('parlay-rec-panel');
             const gameSelect = document.getElementById('parlay-game-select');
             const randomizeBtn = document.getElementById('parlay-rec-randomize');
+            const resetBtn = document.getElementById('parlay-rec-reset');
             if (gameSelect) {
                 gameSelect.addEventListener('change', () => {
                     selectedGameId = gameSelect.value || null;
@@ -1660,6 +1683,13 @@
             if (randomizeBtn) {
                 randomizeBtn.addEventListener('click', () => {
                     recShuffleSeed = (recShuffleSeed + 1) % 100000;
+                    renderRecommended();
+                });
+            }
+            if (resetBtn) {
+                resetBtn.addEventListener('click', () => {
+                    recShuffleSeed = 0;
+                    selectedGameId = null;
                     renderRecommended();
                 });
             }
