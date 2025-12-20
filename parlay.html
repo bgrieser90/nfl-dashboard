@@ -381,7 +381,7 @@
         }
         .parlay-wager-metrics {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
             gap: 0.5rem;
         }
         .parlay-wager-card {
@@ -488,6 +488,7 @@
                 align-items: start;
             }
             .parlay-builder {
+                height: calc(100vh - var(--parlay-sticky-offset, 140px) - 12px);
                 max-height: calc(100vh - var(--parlay-sticky-offset, 140px) - 12px);
                 overflow: hidden;
             }
@@ -607,8 +608,12 @@
             }
             .parlay-summary-grid {
                 display: grid;
-                grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+                grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
                 gap: 0.75rem;
+            }
+            .parlay-summary-grid,
+            .parlay-action-row {
+                flex: 0 0 auto;
             }
             .parlay-summary-grid .parlay-summary,
             .parlay-summary-grid .parlay-wager {
@@ -638,7 +643,7 @@
                 gap: 1rem;
             }
             .parlay-page {
-                padding-bottom: calc(2.5rem + env(safe-area-inset-bottom));
+                padding-bottom: calc(6rem + env(safe-area-inset-bottom));
             }
             .parlay-builder-panel { order: 1; }
             .parlay-market-panel { order: 2; }
@@ -660,6 +665,11 @@
                 box-shadow: 0 10px 24px -18px rgba(15, 23, 42, 0.35);
                 max-height: calc(100vh - var(--parlay-sticky-offset, 140px) - 12px);
                 overflow: hidden;
+            }
+            @supports (height: 100dvh) {
+                .parlay-builder {
+                    max-height: calc(100dvh - var(--parlay-sticky-offset, 140px) - 12px);
+                }
             }
             .parlay-builder-stack {
                 flex: 1 1 auto;
