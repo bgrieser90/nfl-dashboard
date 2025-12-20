@@ -511,8 +511,8 @@
                 align-items: start;
             }
             .parlay-builder {
-                height: calc(100vh - var(--parlay-sticky-offset, 140px) - 12px);
                 max-height: calc(100vh - var(--parlay-sticky-offset, 140px) - 12px);
+                height: auto;
                 overflow: hidden;
             }
             .parlay-builder.is-empty {
@@ -529,6 +529,7 @@
                 flex: 1 1 auto;
                 min-height: 0;
                 overflow: hidden;
+                gap: 0.65rem;
             }
             .parlay-builder.is-empty .parlay-builder-body {
                 overflow: visible;
@@ -627,6 +628,15 @@
                 max-width: 100%;
                 overflow: hidden;
                 flex: 0 0 auto;
+                padding: 0.6rem 0.7rem;
+            }
+            .parlay-leg-title {
+                font-size: 0.8rem;
+                line-height: 1.2;
+            }
+            .parlay-leg-sub {
+                font-size: 0.66rem;
+                line-height: 1.2;
             }
             .parlay-summary-grid {
                 width: 100%;
@@ -654,6 +664,7 @@
                 grid-template-columns: minmax(0, 1fr) auto;
                 align-items: center;
                 gap: 0.5rem;
+                line-height: 1.2;
             }
             .parlay-summary-row span {
                 white-space: normal;
@@ -669,18 +680,22 @@
                 margin-bottom: 0.25rem;
             }
             .parlay-wager-metrics {
-                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 0.6rem;
             }
             .parlay-wager-card {
-                padding: 0.45rem 0.55rem;
+                padding: 0.55rem 0.65rem;
             }
             .parlay-wager-value {
-                font-size: 0.85rem;
+                font-size: 0.85rem !important;
+                line-height: 1.25;
+                word-break: break-word;
+                font-variant-numeric: tabular-nums;
             }
             .parlay-summary-grid {
                 display: grid;
-                grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-                gap: 0.75rem;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 0.65rem;
             }
             .parlay-summary-grid,
             .parlay-action-row {
@@ -1424,10 +1439,13 @@
                 gamePoolSize = 8
             } = options;
             const rng = randomize ? mulberry32(randomSeed || 1) : null;
-            const shuffledGamePoolSize = Math.max(gamePoolSize, 12);
+            const shuffledGamePoolSize = Math.max(gamePoolSize, 14);
             const edgeFloor = 0.02;
             const minProb = 0.5;
             const maxProb = 0.9;
+            const sgpEdgeFloor = 0.01;
+            const sgpMinProb = 0.45;
+            const sgpMaxProb = 0.95;
             const eligible = legs.filter(l => isRecommendedCandidate(l, minProb, maxProb, edgeFloor));
             const byGame = {};
             for (const leg of eligible) {
@@ -1437,15 +1455,38 @@
             for (const key of Object.keys(byGame)) {
                 byGame[key].sort(compareLegsByModelThenEdge);
             }
+            const sgpBoostByGame = {};
+            const isSgpBoostLeg = (leg) => {
+                if (!leg || !leg.gameId) return false;
+                const isMoneyline = leg.type === 'moneyline';
+                const isAnytimeTd = leg.type === 'prop' && leg.marketGroup === 'Anytime TD' && leg.side === 'yes';
+                if (!isMoneyline && !isAnytimeTd) return false;
+                return isRecommendedCandidate(leg, sgpMinProb, sgpMaxProb, sgpEdgeFloor);
+            };
+            legs.forEach(leg => {
+                if (!isSgpBoostLeg(leg)) return;
+                if (!sgpBoostByGame[leg.gameId]) sgpBoostByGame[leg.gameId] = [];
+                sgpBoostByGame[leg.gameId].push(leg);
+            });
+            for (const key of Object.keys(sgpBoostByGame)) {
+                sgpBoostByGame[key].sort(compareLegsByModelThenEdge);
+            }
 
             const gameRecs = Object.entries(byGame).map(([gameId, legsArr]) => {
                 const sgpLegs = [];
                 const candidateLimit = randomize && rng
                     ? Math.min(legsArr.length, shuffledGamePoolSize)
                     : legsArr.length;
-                const candidates = randomize && rng
+                let candidates = randomize && rng
                     ? shuffleArray(legsArr.slice(0, candidateLimit), rng)
                     : legsArr;
+                const sgpBoost = sgpBoostByGame[gameId] || [];
+                if (randomize && rng && sgpBoost.length) {
+                    const boostSample = shuffleArray(sgpBoost, rng).slice(0, 3);
+                    const existingIds = new Set(candidates.map(leg => leg.id));
+                    const combined = candidates.concat(boostSample.filter(leg => !existingIds.has(leg.id)));
+                    candidates = shuffleArray(combined, rng);
+                }
                 const fill = (candidatePool) => {
                     for (const leg of candidatePool) {
                         if (!canAddLeg(sgpLegs, leg)) continue;
@@ -1535,6 +1576,8 @@
                             const primary = leg.playerName || leg.team || '';
                             let label = leg.marketLabel || '';
                             if (leg.type === 'moneyline') label = 'Moneyline';
+                            if (leg.marketGroup === 'Anytime TD' && leg.side === 'yes') label = 'ATTD';
+                            if (/anytime tds*·s*yes/i.test(label)) label = 'ATTD';
                             if (label && primary && label.toLowerCase() === primary.toLowerCase()) label = '';
                             const text = label
                                 ? ('<strong>' + escapeHtml(primary) + '</strong> ' + escapeHtml(label))
@@ -1742,7 +1785,6 @@
             if (resetBtn) {
                 resetBtn.addEventListener('click', () => {
                     recShuffleSeed = 0;
-                    selectedGameId = null;
                     renderRecommended();
                 });
             }
