@@ -908,9 +908,9 @@
                 mask-repeat: no-repeat;
             }
             .parlay-rec-list .parlay-rec-card {
-                flex: 0 0 92%;
-                max-width: 92%;
-                min-width: 92%;
+                flex: 0 0 100%;
+                max-width: 100%;
+                min-width: 100%;
                 scroll-snap-align: start;
             }
             #parlay-game-rec .parlay-rec-card {
@@ -1781,9 +1781,9 @@
                         }).join('') +
                     '</div>' +
                     '<div class="mt-2 flex items-center justify-between text-xs text-slate-600">' +
-                        '<span>Odds: ' + (summary && summary.american != null ? (summary.american > 0 ? '+' + summary.american : summary.american) : '—') + '</span>' +
-                        '<span>Model: ' + (summary && summary.modelProb != null ? (summary.modelProb * 100).toFixed(1) + '%' : '—') + '</span>' +
-                        '<span class="' + (edge != null && edge >= 0 ? 'text-emerald-600' : 'text-red-500') + '">' + (edge != null ? (edge >= 0 ? '+' : '') + (edge * 100).toFixed(1) + '%' : '—') + '</span>' +
+                        '<span><strong>Odds:</strong> <strong>' + (summary && summary.american != null ? (summary.american > 0 ? '+' + summary.american : summary.american) : '—') + '</strong></span>' +
+                        '<span><strong>Model:</strong> <strong>' + (summary && summary.modelProb != null ? (summary.modelProb * 100).toFixed(1) + '%' : '—') + '</strong></span>' +
+                        '<span class="' + (edge != null && edge >= 0 ? 'text-emerald-600' : 'text-red-500') + '"><strong>Edge:</strong> <strong>' + (edge != null ? (edge >= 0 ? '+' : '') + (edge * 100).toFixed(1) + '%' : '—') + '</strong></span>' +
                     '</div>' +
                 '</div>';
         }
