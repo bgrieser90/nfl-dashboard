@@ -10,6 +10,23 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         * { font-family: 'Inter', sans-serif; }
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden;
+            overscroll-behavior-y: none;
+        }
+        .nav-tab {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            cursor: pointer;
+            position: relative;
+            z-index: 5;
+            text-decoration: none;
+        }
 
         body::before {
             content: '';
@@ -72,15 +89,16 @@
                     <img src="https://a.espncdn.com/i/teamlogos/leagues/500/nfl.png" alt="NFL logo" class="w-10 h-10 sm:w-12 sm:h-12 object-contain" onerror="this.style.display='none';">
                     <div class="flex flex-col justify-center">
                         <h1 class="text-2xl sm:text-4xl font-black gradient-text" style="letter-spacing: -0.03em;">NFL Analytics Dashboard</h1>
-                        <p class="text-sm text-gray-600 mt-1 font-medium">Last Model Run: <span style="color: #10b981;">12/19 12:36 PM</span></p>
+                        <p class="text-sm text-gray-600 mt-1 font-medium">Last Model Run: <span style="color: #10b981;">12/19 3:54 PM</span></p>
                     </div>
                 </div>
             </div>
             <!-- Row 2: page tabs -->
             <div class="pb-3">
                 <div class="inline-flex rounded-full bg-slate-100 p-1">
-                    <a href="dashboard.html" class="px-3 py-1.5 text-xs sm:text-sm rounded-full font-semibold text-slate-600 hover:text-slate-900">Weekly Board</a>
-                    <a href="insights.html" class="px-3 py-1.5 text-xs sm:text-sm rounded-full font-semibold bg-white text-slate-900 shadow-sm">Insights</a>
+                    <a href="dashboard.html" class="nav-tab px-3 py-1.5 text-xs sm:text-sm rounded-full font-semibold text-slate-600 hover:text-slate-900">Weekly Board</a>
+                    <a href="insights.html" class="nav-tab px-3 py-1.5 text-xs sm:text-sm rounded-full font-semibold bg-white text-slate-900 shadow-sm">Insights</a>
+                    <a href="parlay.html" class="nav-tab px-3 py-1.5 text-xs sm:text-sm rounded-full font-semibold text-slate-600 hover:text-slate-900">Parlay Builder</a>
                 </div>
             </div>
         </div>
@@ -136,7 +154,7 @@
                                     <span class="text-amber-400 text-xs">★★★★</span>
                                 </td>
                                 <td class="px-3 py-3 text-center font-semibold" style="color: #10b981">74%</td>
-                                <td class="px-3 py-3 text-center text-emerald-600 font-medium">+3.7</td>
+                                <td class="px-3 py-3 text-center text-emerald-600 font-medium">+3.9</td>
                                 <td class="px-3 py-3 text-center">
                                     <input type="checkbox" class="parlay-checkbox w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500">
                                 </td>
@@ -161,7 +179,7 @@
                                     <span class="text-amber-400 text-xs">★★★★</span>
                                 </td>
                                 <td class="px-3 py-3 text-center font-semibold" style="color: #10b981">74%</td>
-                                <td class="px-3 py-3 text-center text-emerald-600 font-medium">+3.3</td>
+                                <td class="px-3 py-3 text-center text-emerald-600 font-medium">+3.5</td>
                                 <td class="px-3 py-3 text-center">
                                     <input type="checkbox" class="parlay-checkbox w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500">
                                 </td>
@@ -197,7 +215,7 @@
                                 data-game-label="Pittsburgh @ Detroit"
                                 data-market-type="TOTAL"
                                 data-pick="OVER 41.5 (-439)"
-                                data-model-prob="0.86"
+                                data-model-prob="0.87"
                                 data-american-price="-115">
                                 <td class="hidden sm:table-cell px-3 py-3 text-slate-400 font-medium">4</td>
                                 <td class="px-3 py-3">
@@ -210,8 +228,8 @@
                                     <span class="text-xs font-bold" style="color: #6b7280">LEAN</span>
                                     <span class="text-amber-400 text-xs"></span>
                                 </td>
-                                <td class="px-3 py-3 text-center font-semibold" style="color: #10b981">86%</td>
-                                <td class="px-3 py-3 text-center text-emerald-600 font-medium">+17.3</td>
+                                <td class="px-3 py-3 text-center font-semibold" style="color: #10b981">87%</td>
+                                <td class="px-3 py-3 text-center text-emerald-600 font-medium">+17.7</td>
                                 <td class="px-3 py-3 text-center">
                                     <input type="checkbox" class="parlay-checkbox w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500">
                                 </td>
@@ -222,7 +240,7 @@
                                 data-game-label="Jacksonville @ Denver"
                                 data-market-type="TOTAL"
                                 data-pick="OVER 36.5 (-419)"
-                                data-model-prob="0.85"
+                                data-model-prob="0.86"
                                 data-american-price="-110">
                                 <td class="hidden sm:table-cell px-3 py-3 text-slate-400 font-medium">5</td>
                                 <td class="px-3 py-3">
@@ -235,8 +253,8 @@
                                     <span class="text-xs font-bold" style="color: #6b7280">LEAN</span>
                                     <span class="text-amber-400 text-xs"></span>
                                 </td>
-                                <td class="px-3 py-3 text-center font-semibold" style="color: #10b981">85%</td>
-                                <td class="px-3 py-3 text-center text-emerald-600 font-medium">+16.6</td>
+                                <td class="px-3 py-3 text-center font-semibold" style="color: #10b981">86%</td>
+                                <td class="px-3 py-3 text-center text-emerald-600 font-medium">+17.5</td>
                                 <td class="px-3 py-3 text-center">
                                     <input type="checkbox" class="parlay-checkbox w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500">
                                 </td>
@@ -261,7 +279,7 @@
                                     <span class="text-amber-400 text-xs"></span>
                                 </td>
                                 <td class="px-3 py-3 text-center font-semibold" style="color: #10b981">70%</td>
-                                <td class="px-3 py-3 text-center text-emerald-600 font-medium">+4.7</td>
+                                <td class="px-3 py-3 text-center text-emerald-600 font-medium">+4.8</td>
                                 <td class="px-3 py-3 text-center">
                                     <input type="checkbox" class="parlay-checkbox w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500">
                                 </td>
@@ -286,7 +304,7 @@
                                     <span class="text-amber-400 text-xs"></span>
                                 </td>
                                 <td class="px-3 py-3 text-center font-semibold" style="color: #10b981">68%</td>
-                                <td class="px-3 py-3 text-center text-emerald-600 font-medium">+8.2</td>
+                                <td class="px-3 py-3 text-center text-emerald-600 font-medium">+8.3</td>
                                 <td class="px-3 py-3 text-center">
                                     <input type="checkbox" class="parlay-checkbox w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500">
                                 </td>
@@ -311,7 +329,7 @@
                                     <span class="text-amber-400 text-xs"></span>
                                 </td>
                                 <td class="px-3 py-3 text-center font-semibold" style="color: #10b981">66%</td>
-                                <td class="px-3 py-3 text-center text-emerald-600 font-medium">+16.3</td>
+                                <td class="px-3 py-3 text-center text-emerald-600 font-medium">+16.1</td>
                                 <td class="px-3 py-3 text-center">
                                     <input type="checkbox" class="parlay-checkbox w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500">
                                 </td>
@@ -336,7 +354,7 @@
                                     <span class="text-amber-400 text-xs"></span>
                                 </td>
                                 <td class="px-3 py-3 text-center font-semibold" style="color: #10b981">65%</td>
-                                <td class="px-3 py-3 text-center text-emerald-600 font-medium">+11.6</td>
+                                <td class="px-3 py-3 text-center text-emerald-600 font-medium">+11.1</td>
                                 <td class="px-3 py-3 text-center">
                                     <input type="checkbox" class="parlay-checkbox w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500">
                                 </td>
@@ -361,7 +379,7 @@
                                     <span class="text-amber-400 text-xs"></span>
                                 </td>
                                 <td class="px-3 py-3 text-center font-semibold" style="color: #10b981">65%</td>
-                                <td class="px-3 py-3 text-center text-emerald-600 font-medium">+3.0</td>
+                                <td class="px-3 py-3 text-center text-emerald-600 font-medium">+2.9</td>
                                 <td class="px-3 py-3 text-center">
                                     <input type="checkbox" class="parlay-checkbox w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500">
                                 </td>
@@ -386,7 +404,7 @@
                                     <span class="text-amber-400 text-xs"></span>
                                 </td>
                                 <td class="px-3 py-3 text-center font-semibold" style="color: #10b981">56%</td>
-                                <td class="px-3 py-3 text-center text-emerald-600 font-medium">+16.5</td>
+                                <td class="px-3 py-3 text-center text-emerald-600 font-medium">+16.3</td>
                                 <td class="px-3 py-3 text-center">
                                     <input type="checkbox" class="parlay-checkbox w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500">
                                 </td>
