@@ -839,18 +839,29 @@
                 scroll-snap-type: x mandatory;
                 padding-bottom: 6px;
                 gap: 0.75rem;
+                padding-right: 12px;
+                overscroll-behavior-x: contain;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: thin;
+                scrollbar-color: rgba(148, 163, 184, 0.45) transparent;
+                -webkit-mask-image: linear-gradient(to right, #000 0%, #000 88%, transparent 100%);
+                mask-image: linear-gradient(to right, #000 0%, #000 88%, transparent 100%);
+                -webkit-mask-size: 100% 100%;
+                mask-size: 100% 100%;
+                -webkit-mask-repeat: no-repeat;
+                mask-repeat: no-repeat;
             }
             .parlay-rec-card {
-                min-width: 80%;
+                flex: 0 0 92%;
+                max-width: 92%;
+                min-width: 92%;
                 scroll-snap-align: start;
             }
             .parlay-swipe-hint {
-                display: inline-flex;
-                font-size: 0.65rem;
-                font-weight: 600;
-                letter-spacing: 0.12em;
-                text-transform: uppercase;
-                color: #94a3b8;
+                display: none;
+            }
+            .parlay-rec-panel .parlay-panel-sub {
+                display: none;
             }
             .parlay-updated {
                 display: none;
@@ -1624,6 +1635,28 @@
             return { gameRecs, categories };
         }
 
+        function abbreviatePropLabel(label) {
+            if (!label) return label;
+            let text = String(label);
+            const replacements = [
+                { re: /Pass Attempts/gi, value: 'Pass Att' },
+                { re: /Passing Attempts/gi, value: 'Pass Att' },
+                { re: /Rush Attempts/gi, value: 'Rush Att' },
+                { re: /Rushing Attempts/gi, value: 'Rush Att' },
+                { re: /Receptions/gi, value: 'Rec' },
+                { re: /Completions/gi, value: 'Comp' },
+                { re: /Receiving Yards/gi, value: 'Rec Yds' },
+                { re: /Rushing Yards/gi, value: 'Rush Yds' },
+                { re: /Passing Yards/gi, value: 'Pass Yds' },
+                { re: /Passing TDs/gi, value: 'Pass TDs' },
+                { re: /Interceptions/gi, value: 'INTs' }
+            ];
+            replacements.forEach(({ re, value }) => {
+                text = text.replace(re, value);
+            });
+            return text;
+        }
+
         function renderRecCard(rec, group, id) {
             const summary = computeParlaySummary(rec.legs);
             const edge = summary && summary.modelProb != null && summary.implied != null ? summary.modelProb - summary.implied : null;
@@ -1653,6 +1686,7 @@
                                     label = abbr + label.slice(primary.length);
                                 }
                             }
+                            label = abbreviatePropLabel(label);
                             if (label && primary && label.toLowerCase() === primary.toLowerCase()) label = '';
                             const nameHtml = '<strong class="parlay-rec-name">' + escapeHtml(primary) + '</strong>';
                             const labelHtml = label ? ('<span class="parlay-rec-label">' + escapeHtml(label) + '</span>') : '';
