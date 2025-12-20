@@ -308,11 +308,15 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 0.6rem;
-            padding: 0.5rem 0.65rem;
-            border-radius: 0.7rem;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            border-radius: 0.85rem;
             border: 1px solid rgba(226, 232, 240, 0.9);
-            background: #f8fafc;
+            background: #ffffff;
+        }
+        .parlay-leg-item.parlay-market-card:hover {
+            transform: none;
+            box-shadow: none;
         }
         .parlay-leg-main {
             display: flex;
@@ -353,6 +357,22 @@
             font-weight: 700;
             font-size: 0.85rem;
         }
+        .parlay-remove-btn {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.25rem 0.55rem;
+            border-radius: 0.6rem;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #ef4444;
+            background: #ffffff;
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+        .parlay-remove-btn:hover {
+            background: #fee2e2;
+            border-color: rgba(239, 68, 68, 0.5);
+            color: #b91c1c;
+        }
         .parlay-summary {
             margin-top: 0.75rem;
             padding: 0.75rem;
@@ -375,6 +395,35 @@
             display: flex;
             flex-direction: column;
             gap: 0.6rem;
+        }
+        .parlay-wager-stepper {
+            display: flex;
+            align-items: stretch;
+            gap: 0.45rem;
+        }
+        .parlay-wager-stepper input {
+            flex: 1;
+        }
+        .parlay-stepper-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        .parlay-step-btn {
+            width: 2rem;
+            height: 1.4rem;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            border-radius: 0.45rem;
+            background: #f8fafc;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: #475569;
+            line-height: 1;
+            padding: 0;
+            cursor: pointer;
+        }
+        .parlay-step-btn:active {
+            transform: translateY(1px);
         }
         .parlay-wager-input input {
             width: 100%;
@@ -672,7 +721,8 @@
                 max-width: 100%;
                 overflow: hidden;
                 flex: 0 0 auto;
-                padding: 0.6rem 0.7rem;
+                padding: 0.45rem 0.55rem;
+                gap: 0.5rem;
             }
             .parlay-leg-title {
                 font-size: 0.8rem;
@@ -738,8 +788,8 @@
             }
             .parlay-summary-grid {
                 display: grid;
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 0.65rem;
+                grid-template-columns: minmax(0, 1fr);
+                gap: 0.75rem;
             }
             .parlay-summary-grid,
             .parlay-action-row {
@@ -1085,7 +1135,13 @@
                             <div class="parlay-wager">
                                 <div class="parlay-wager-input">
                                     <label class="text-xs text-slate-500">Wager</label>
-                                    <input id="parlay-stake" type="number" min="1" value="5">
+                                    <div class="parlay-wager-stepper">
+                                        <input id="parlay-stake" type="number" min="1" step="1" value="5">
+                                        <div class="parlay-stepper-buttons">
+                                            <button class="parlay-step-btn" type="button" data-step="1" aria-label="Increase wager">&#9650;</button>
+                                            <button class="parlay-step-btn" type="button" data-step="-1" aria-label="Decrease wager">&#9660;</button>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="parlay-wager-metrics">
                                     <div class="parlay-wager-card">
@@ -1381,25 +1437,41 @@
         }
 
         function renderSelectedLeg(leg) {
+            const edge = getLegEdge(leg);
+            const edgeText = edge == null ? '—' : (edge >= 0 ? '+' : '') + (edge * 100).toFixed(1) + '%';
             const probText = leg.modelProb == null ? '—' : Math.round(leg.modelProb * 100) + '%';
             const probClass = getProbChipClass(leg.modelProb);
+            const projectionText = getPropProjectionText(leg);
+            const projectionLine = projectionText ? '<div class="parlay-market-sub parlay-proj">Proj ' + projectionText + '</div>' : '';
             const title = leg.playerName || leg.team || leg.gameLabel || '';
             const marketLabel = leg.marketLabel || getLegTypeLabel(leg);
-            const titleLine = marketLabel ? (title + ' · ' + marketLabel) : title;
-            const gameLine = leg.gameLabel || '';
+            const marketLine = marketLabel ? '<div class="parlay-market-sub">' + escapeHtml(marketLabel) + '</div>' : '';
+            const gameLine = leg.gameLabel ? '<div class="parlay-market-sub">' + escapeHtml(leg.gameLabel) + '</div>' : '';
             return '' +
-                '<div class="parlay-leg-item">' +
-                    '<div class="parlay-leg-main">' +
+                '<div class="parlay-market-card parlay-leg-item">' +
+                    '<div class="parlay-market-left">' +
                         (leg.teamLogo ? '<img src="' + escapeHtml(leg.teamLogo) + '" class="parlay-logo" onerror="this.style.display=\'none\'">' : '') +
-                        '<div class="parlay-leg-text">' +
-                            '<div class="parlay-leg-title">' + escapeHtml(titleLine) + '</div>' +
-                            '<div class="parlay-leg-sub">' + escapeHtml(gameLine) + '</div>' +
+                        '<div>' +
+                            '<div class="parlay-market-title">' + escapeHtml(title) + '</div>' +
+                            marketLine +
+                            projectionLine +
+                            gameLine +
                         '</div>' +
                     '</div>' +
-                    '<div class="parlay-leg-meta">' +
-                        '<div class="parlay-leg-odds">' + formatAmericanOdds(leg.price) + '</div>' +
-                        '<div class="parlay-prob-chip ' + probClass + '">' + probText + '</div>' +
-                        '<button class="parlay-leg-remove" data-remove-leg="' + escapeHtml(leg.id) + '">×</button>' +
+                    '<div class="parlay-market-right">' +
+                        '<div class="parlay-market-metric">' +
+                            '<span class="parlay-metric-label">Odds</span>' +
+                            '<div class="parlay-price">' + formatAmericanOdds(leg.price) + '</div>' +
+                        '</div>' +
+                        '<div class="parlay-market-metric">' +
+                            '<span class="parlay-metric-label">Model</span>' +
+                            '<div class="parlay-prob-chip ' + probClass + '">' + probText + '</div>' +
+                        '</div>' +
+                        '<div class="parlay-market-metric">' +
+                            '<span class="parlay-metric-label">Edge</span>' +
+                            '<div class="parlay-edge ' + (edge == null ? '' : (edge >= 0 ? 'pos' : 'neg')) + '">' + edgeText + '</div>' +
+                        '</div>' +
+                        '<button class="parlay-remove-btn" data-remove-leg="' + escapeHtml(leg.id) + '">Remove</button>' +
                     '</div>' +
                 '</div>';
         }
@@ -1973,7 +2045,17 @@
                 renderMarketList();
                 renderBuilder();
             });
-            document.getElementById('parlay-stake').addEventListener('input', renderBuilder);
+            const stakeInput = document.getElementById('parlay-stake');
+            stakeInput.addEventListener('input', renderBuilder);
+            document.querySelectorAll('.parlay-step-btn').forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    const step = Number(btn.dataset.step) || 0;
+                    const current = Number(stakeInput.value);
+                    const next = Math.max(1, Math.round((Number.isFinite(current) ? current : 0) + step));
+                    stakeInput.value = String(next);
+                    renderBuilder();
+                });
+            });
             document.getElementById('parlay-clear-btn').addEventListener('click', () => {
                 selectedLegs.clear();
                 renderMarketList();
