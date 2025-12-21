@@ -213,7 +213,10 @@
             background: #f8fafc;
             border: 1px solid #e2e8f0;
             border-radius: 12px;
-            padding: 8px 10px;
+            padding: 10px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
         }
 
         .preview-angles-grid {
@@ -269,6 +272,31 @@
             background: #e2e8f0;
             padding: 2px 8px;
             border-radius: 9999px;
+        }
+
+        .preview-angle-lines {
+            display: grid;
+            gap: 6px;
+        }
+
+        .preview-angle-line {
+            font-size: 12px;
+            font-weight: 600;
+            color: #1f2937;
+            line-height: 1.35;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .preview-angle-line--muted {
+            color: #475569;
+            font-weight: 500;
+        }
+
+        .preview-angle-text {
+            font-size: 12px;
+            color: #1f2937;
+            line-height: 1.4;
+            font-variant-numeric: tabular-nums;
         }
 
         .preview-sev {
@@ -3750,7 +3778,7 @@
         <div class="preview-card p-3 sm:p-4">
             <div class="flex items-center justify-between">
                 <h4 class="preview-title">Key Angles Edge</h4>
-                <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">EDGE: Miami</span>
+                <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">EDGE MIA</span>
             </div>
             <div class="mt-3 space-y-2">
                 <div class="preview-edge-bar">
@@ -3778,73 +3806,108 @@
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
-                <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">ADV: Miami</span>
+                <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">ADV MIA</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Miami — Miami #1 Explosive Run Rate vs Cincinnati #29 Opp 10+ Rush Rate.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">MIA #1 Explosive Run Rate</div>
+                            <div class="preview-angle-line preview-angle-line--muted">CIN #29 Opp 10+ Rush Rate</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Discipline</span>
-                <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">ADV: Miami</span>
+                <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">ADV MIA</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Miami — Miami #1 Penalties / G vs Cincinnati #31 Opp Penalties / G.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">MIA #1 Penalties / G</div>
+                            <div class="preview-angle-line preview-angle-line--muted">CIN #31 Opp Penalties / G</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Trend</span>
-                <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">ADV: Miami</span>
+                <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">ADV MIA</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Miami — Last 5 avg diff: Cincinnati -7.8, Miami +7.0.</div>
+            <div class="preview-angle-text">Last 5 avg diff: CIN -7.8, MIA +7.0</div>
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Run</span>
-                <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">ADV: Miami</span>
+                <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">ADV MIA</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Miami — Miami #6 Yards/Rush vs Cincinnati #31 Opp Yards/Rush.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">MIA #6 Yards/Rush</div>
+                            <div class="preview-angle-line preview-angle-line--muted">CIN #31 Opp Yards/Rush</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Run</span>
-                <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">ADV: Miami</span>
+                <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">ADV MIA</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Miami — Miami #14 Rush YPG vs Cincinnati #32 Opp Rush YPG.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">MIA #14 Rush YPG</div>
+                            <div class="preview-angle-line preview-angle-line--muted">CIN #32 Opp Rush YPG</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
-                <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">ADV: Miami</span>
+                <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">ADV MIA</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Miami — Miami #20 Explosive Pass Rate vs Cincinnati #30 Opp 20+ Pass Rate.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">MIA #20 Explosive Pass Rate</div>
+                            <div class="preview-angle-line preview-angle-line--muted">CIN #30 Opp 20+ Pass Rate</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pass</span>
-                <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">ADV: Miami</span>
+                <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">ADV MIA</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Miami — Miami #22 Yards/Att vs Cincinnati #31 Opp Yards/Att.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">MIA #22 Yards/Att</div>
+                            <div class="preview-angle-line preview-angle-line--muted">CIN #31 Opp Yards/Att</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Red Zone</span>
-                <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">ADV: Miami</span>
+                <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">ADV MIA</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Miami — Miami #19 RZ TD % vs Cincinnati #28 Opp RZ TD %.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">MIA #19 RZ TD %</div>
+                            <div class="preview-angle-line preview-angle-line--muted">CIN #28 Opp RZ TD %</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pace</span>
-                <span class="preview-chip" style="background: #FB4F14; color: #FFFFFF; border-color: #c93f10;">ADV: Cincinnati</span>
+                <span class="preview-chip" style="background: #FB4F14; color: #FFFFFF; border-color: #c93f10;">ADV CIN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Cincinnati — Tempo (lower faster): Cincinnati #11, Miami #32.</div>
+            <div class="preview-angle-text">Tempo (lower faster): CIN #11, MIA #32</div>
         </li>
     </ul>
         </div>
@@ -5729,7 +5792,7 @@
         <div class="preview-card p-3 sm:p-4">
             <div class="flex items-center justify-between">
                 <h4 class="preview-title">Key Angles Edge</h4>
-                <span class="preview-chip preview-chip--neutral">BALANCED</span>
+                <span class="preview-chip preview-chip--neutral">EVEN</span>
             </div>
             <div class="mt-3 space-y-2">
                 <div class="preview-edge-bar">
@@ -5757,73 +5820,108 @@
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
-                <span class="preview-chip" style="background: #4F2683; color: #FFFFFF; border-color: #3f1e69;">ADV: Minnesota</span>
+                <span class="preview-chip" style="background: #4F2683; color: #FFFFFF; border-color: #3f1e69;">ADV MIN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Minnesota — Minnesota #11 Explosive Run Rate vs NY Giants #32 Opp 10+ Rush Rate.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">MIN #11 Explosive Run Rate</div>
+                            <div class="preview-angle-line preview-angle-line--muted">NYG #32 Opp 10+ Rush Rate</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Turnovers</span>
-                <span class="preview-chip" style="background: #0B2265; color: #FFFFFF; border-color: #091b51;">ADV: NY Giants</span>
+                <span class="preview-chip" style="background: #0B2265; color: #FFFFFF; border-color: #091b51;">ADV NYG</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: NY Giants — NY Giants #14 INTs / G vs Minnesota #29 Opp INTs / G.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">NYG #14 INTs / G</div>
+                            <div class="preview-angle-line preview-angle-line--muted">MIN #29 Opp INTs / G</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Trend</span>
-                <span class="preview-chip" style="background: #4F2683; color: #FFFFFF; border-color: #3f1e69;">ADV: Minnesota</span>
+                <span class="preview-chip" style="background: #4F2683; color: #FFFFFF; border-color: #3f1e69;">ADV MIN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Minnesota — Last 5 avg diff: Minnesota -1.2, NY Giants -8.8.</div>
+            <div class="preview-angle-text">Last 5 avg diff: MIN -1.2, NYG -8.8</div>
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Run</span>
-                <span class="preview-chip" style="background: #4F2683; color: #FFFFFF; border-color: #3f1e69;">ADV: Minnesota</span>
+                <span class="preview-chip" style="background: #4F2683; color: #FFFFFF; border-color: #3f1e69;">ADV MIN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Minnesota — Minnesota #11 Yards/Rush vs NY Giants #32 Opp Yards/Rush.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">MIN #11 Yards/Rush</div>
+                            <div class="preview-angle-line preview-angle-line--muted">NYG #32 Opp Yards/Rush</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Red Zone</span>
-                <span class="preview-chip" style="background: #4F2683; color: #FFFFFF; border-color: #3f1e69;">ADV: Minnesota</span>
+                <span class="preview-chip" style="background: #4F2683; color: #FFFFFF; border-color: #3f1e69;">ADV MIN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Minnesota — Minnesota #2 RZ TD % vs NY Giants #26 Opp RZ TD %.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">MIN #2 RZ TD %</div>
+                            <div class="preview-angle-line preview-angle-line--muted">NYG #26 Opp RZ TD %</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pace</span>
-                <span class="preview-chip" style="background: #0B2265; color: #FFFFFF; border-color: #091b51;">ADV: NY Giants</span>
+                <span class="preview-chip" style="background: #0B2265; color: #FFFFFF; border-color: #091b51;">ADV NYG</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: NY Giants — Tempo (lower faster): Minnesota #31, NY Giants #4.</div>
+            <div class="preview-angle-text">Tempo (lower faster): MIN #31, NYG #4</div>
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Run</span>
-                <span class="preview-chip" style="background: #0B2265; color: #FFFFFF; border-color: #091b51;">ADV: NY Giants</span>
+                <span class="preview-chip" style="background: #0B2265; color: #FFFFFF; border-color: #091b51;">ADV NYG</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: NY Giants — NY Giants #10 Rush YPG vs Minnesota #24 Opp Rush YPG.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">NYG #10 Rush YPG</div>
+                            <div class="preview-angle-line preview-angle-line--muted">MIN #24 Opp Rush YPG</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Turnovers</span>
-                <span class="preview-chip" style="background: #4F2683; color: #FFFFFF; border-color: #3f1e69;">ADV: Minnesota</span>
+                <span class="preview-chip" style="background: #4F2683; color: #FFFFFF; border-color: #3f1e69;">ADV MIN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Minnesota — Minnesota #18 Fumbles / G vs NY Giants #27 Opp Fumbles / G.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">MIN #18 Fumbles / G</div>
+                            <div class="preview-angle-line preview-angle-line--muted">NYG #27 Opp Fumbles / G</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
-                <span class="preview-chip preview-chip--neutral">BALANCED</span>
+                <span class="preview-chip preview-chip--neutral">EVEN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Balance — NY Giants #8 Explosive Pass Rate vs Minnesota #11 Opp 20+ Pass Rate.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">NYG #8 Explosive Pass Rate</div>
+                            <div class="preview-angle-line preview-angle-line--muted">MIN #11 Opp 20+ Pass Rate</div>
+                        </div>
+                    
         </li>
     </ul>
         </div>
@@ -7590,7 +7688,7 @@
         <div class="preview-card p-3 sm:p-4">
             <div class="flex items-center justify-between">
                 <h4 class="preview-title">Key Angles Edge</h4>
-                <span class="preview-chip preview-chip--neutral">BALANCED</span>
+                <span class="preview-chip preview-chip--neutral">EVEN</span>
             </div>
             <div class="mt-3 space-y-2">
                 <div class="preview-edge-bar">
@@ -7618,73 +7716,113 @@
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
-                <span class="preview-chip preview-chip--neutral">BALANCED</span>
+                <span class="preview-chip preview-chip--neutral">EVEN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Balance — Carolina #16 Explosive Pass Rate vs Tampa Bay #19 Opp 20+ Pass Rate.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">CAR #16 Explosive Pass Rate</div>
+                            <div class="preview-angle-line preview-angle-line--muted">TB #19 Opp 20+ Pass Rate</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Turnovers</span>
-                <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV: Tampa Bay</span>
+                <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV TB</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Tampa Bay — Tampa Bay #12 Fumbles / G vs Carolina #21 Opp Fumbles / G.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">TB #12 Fumbles / G</div>
+                            <div class="preview-angle-line preview-angle-line--muted">CAR #21 Opp Fumbles / G</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Trend</span>
-                <span class="preview-chip" style="background: #0085CA; color: #FFFFFF; border-color: #006aa2;">ADV: Carolina</span>
+                <span class="preview-chip" style="background: #0085CA; color: #FFFFFF; border-color: #006aa2;">ADV CAR</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Carolina — Last 5 avg diff: Tampa Bay -8.2, Carolina -3.6.</div>
+            <div class="preview-angle-text">Last 5 avg diff: TB -8.2, CAR -3.6</div>
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pass</span>
-                <span class="preview-chip" style="background: #0085CA; color: #FFFFFF; border-color: #006aa2;">ADV: Carolina</span>
+                <span class="preview-chip" style="background: #0085CA; color: #FFFFFF; border-color: #006aa2;">ADV CAR</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Carolina — Carolina #25 Pass YPG vs Tampa Bay #30 Opp Pass YPG.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">CAR #25 Pass YPG</div>
+                            <div class="preview-angle-line preview-angle-line--muted">TB #30 Opp Pass YPG</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">3rd Down</span>
-                <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV: Tampa Bay</span>
+                <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV TB</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Tampa Bay — Tampa Bay #15 3rd Down % vs Carolina #29 Opp 3rd Down %.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">TB #15 3rd Down %</div>
+                            <div class="preview-angle-line preview-angle-line--muted">CAR #29 Opp 3rd Down %</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pass</span>
-                <span class="preview-chip preview-chip--neutral">BALANCED</span>
+                <span class="preview-chip preview-chip--neutral">EVEN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Balance — Carolina #25 Yards/Att vs Tampa Bay #28 Opp Yards/Att.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">CAR #25 Yards/Att</div>
+                            <div class="preview-angle-line preview-angle-line--muted">TB #28 Opp Yards/Att</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
-                <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV: Tampa Bay</span>
+                <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV TB</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Tampa Bay — Tampa Bay #10 Explosive Pass Rate vs Carolina #16 Opp 20+ Pass Rate.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">TB #10 Explosive Pass Rate</div>
+                            <div class="preview-angle-line preview-angle-line--muted">CAR #16 Opp 20+ Pass Rate</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Discipline</span>
-                <span class="preview-chip preview-chip--neutral">BALANCED</span>
+                <span class="preview-chip preview-chip--neutral">EVEN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Balance — Carolina #18 Penalties / G vs Tampa Bay #20 Opp Penalties / G.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">CAR #18 Penalties / G</div>
+                            <div class="preview-angle-line preview-angle-line--muted">TB #20 Opp Penalties / G</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Run</span>
-                <span class="preview-chip preview-chip--neutral">BALANCED</span>
+                <span class="preview-chip preview-chip--neutral">EVEN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Balance — Carolina #9 Rush YPG vs Tampa Bay #10 Opp Rush YPG.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">CAR #9 Rush YPG</div>
+                            <div class="preview-angle-line preview-angle-line--muted">TB #10 Opp Rush YPG</div>
+                        </div>
+                    
         </li>
     </ul>
         </div>
@@ -9613,7 +9751,7 @@
         <div class="preview-card p-3 sm:p-4">
             <div class="flex items-center justify-between">
                 <h4 class="preview-title">Key Angles Edge</h4>
-                <span class="preview-chip" style="background: #007BC7; color: #FFFFFF; border-color: #00629f;">EDGE: LA Chargers</span>
+                <span class="preview-chip" style="background: #007BC7; color: #FFFFFF; border-color: #00629f;">EDGE LAC</span>
             </div>
             <div class="mt-3 space-y-2">
                 <div class="preview-edge-bar">
@@ -9641,73 +9779,113 @@
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
-                <span class="preview-chip" style="background: #007BC7; color: #FFFFFF; border-color: #00629f;">ADV: LA Chargers</span>
+                <span class="preview-chip" style="background: #007BC7; color: #FFFFFF; border-color: #00629f;">ADV LAC</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: LA Chargers — LA Chargers #5 Explosive Run Rate vs Dallas #30 Opp 10+ Rush Rate.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">LAC #5 Explosive Run Rate</div>
+                            <div class="preview-angle-line preview-angle-line--muted">DAL #30 Opp 10+ Rush Rate</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Turnovers</span>
-                <span class="preview-chip" style="background: #007BC7; color: #FFFFFF; border-color: #00629f;">ADV: LA Chargers</span>
+                <span class="preview-chip" style="background: #007BC7; color: #FFFFFF; border-color: #00629f;">ADV LAC</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: LA Chargers — LA Chargers #18 Fumbles / G vs Dallas #27 Opp Fumbles / G.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">LAC #18 Fumbles / G</div>
+                            <div class="preview-angle-line preview-angle-line--muted">DAL #27 Opp Fumbles / G</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Trend</span>
-                <span class="preview-chip" style="background: #007BC7; color: #FFFFFF; border-color: #00629f;">ADV: LA Chargers</span>
+                <span class="preview-chip" style="background: #007BC7; color: #FFFFFF; border-color: #00629f;">ADV LAC</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: LA Chargers — Last 5 avg diff: LA Chargers +1.8, Dallas +0.2.</div>
+            <div class="preview-angle-text">Last 5 avg diff: LAC +1.8, DAL +0.2</div>
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pass</span>
-                <span class="preview-chip" style="background: #007BC7; color: #FFFFFF; border-color: #00629f;">ADV: LA Chargers</span>
+                <span class="preview-chip" style="background: #007BC7; color: #FFFFFF; border-color: #00629f;">ADV LAC</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: LA Chargers — LA Chargers #19 Pass YPG vs Dallas #32 Opp Pass YPG.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">LAC #19 Pass YPG</div>
+                            <div class="preview-angle-line preview-angle-line--muted">DAL #32 Opp Pass YPG</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">3rd Down</span>
-                <span class="preview-chip" style="background: #007BC7; color: #FFFFFF; border-color: #00629f;">ADV: LA Chargers</span>
+                <span class="preview-chip" style="background: #007BC7; color: #FFFFFF; border-color: #00629f;">ADV LAC</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: LA Chargers — LA Chargers #4 3rd Down % vs Dallas #30 Opp 3rd Down %.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">LAC #4 3rd Down %</div>
+                            <div class="preview-angle-line preview-angle-line--muted">DAL #30 Opp 3rd Down %</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pass</span>
-                <span class="preview-chip" style="background: #007BC7; color: #FFFFFF; border-color: #00629f;">ADV: LA Chargers</span>
+                <span class="preview-chip" style="background: #007BC7; color: #FFFFFF; border-color: #00629f;">ADV LAC</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: LA Chargers — LA Chargers #21 Yards/Att vs Dallas #30 Opp Yards/Att.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">LAC #21 Yards/Att</div>
+                            <div class="preview-angle-line preview-angle-line--muted">DAL #30 Opp Yards/Att</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Run</span>
-                <span class="preview-chip" style="background: #007BC7; color: #FFFFFF; border-color: #00629f;">ADV: LA Chargers</span>
+                <span class="preview-chip" style="background: #007BC7; color: #FFFFFF; border-color: #00629f;">ADV LAC</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: LA Chargers — LA Chargers #15 Yards/Rush vs Dallas #25 Opp Yards/Rush.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">LAC #15 Yards/Rush</div>
+                            <div class="preview-angle-line preview-angle-line--muted">DAL #25 Opp Yards/Rush</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Red Zone</span>
-                <span class="preview-chip" style="background: #007BC7; color: #FFFFFF; border-color: #00629f;">ADV: LA Chargers</span>
+                <span class="preview-chip" style="background: #007BC7; color: #FFFFFF; border-color: #00629f;">ADV LAC</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: LA Chargers — LA Chargers #24 RZ TD % vs Dallas #32 Opp RZ TD %.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">LAC #24 RZ TD %</div>
+                            <div class="preview-angle-line preview-angle-line--muted">DAL #32 Opp RZ TD %</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
-                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: Dallas</span>
+                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV DAL</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Dallas — Dallas #17 Explosive Run Rate vs LA Chargers #27 Opp 10+ Rush Rate.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">DAL #17 Explosive Run Rate</div>
+                            <div class="preview-angle-line preview-angle-line--muted">LAC #27 Opp 10+ Rush Rate</div>
+                        </div>
+                    
         </li>
     </ul>
         </div>
@@ -11602,7 +11780,7 @@
         <div class="preview-card p-3 sm:p-4">
             <div class="flex items-center justify-between">
                 <h4 class="preview-title">Key Angles Edge</h4>
-                <span class="preview-chip preview-chip--neutral">BALANCED</span>
+                <span class="preview-chip preview-chip--neutral">EVEN</span>
             </div>
             <div class="mt-3 space-y-2">
                 <div class="preview-edge-bar">
@@ -11630,73 +11808,113 @@
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
-                <span class="preview-chip" style="background: #003F2D; color: #FFFFFF; border-color: #003224;">ADV: NY Jets</span>
+                <span class="preview-chip" style="background: #003F2D; color: #FFFFFF; border-color: #003224;">ADV NYJ</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: NY Jets — NY Jets #3 Explosive Run Rate vs New Orleans #13 Opp 10+ Rush Rate.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">NYJ #3 Explosive Run Rate</div>
+                            <div class="preview-angle-line preview-angle-line--muted">NO #13 Opp 10+ Rush Rate</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Turnovers</span>
-                <span class="preview-chip" style="background: #D3BC8D; color: #000000; border-color: #a99671;">ADV: New Orleans</span>
+                <span class="preview-chip" style="background: #D3BC8D; color: #000000; border-color: #a99671;">ADV NO</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: New Orleans — New Orleans #23 INTs / G vs NY Jets #32 Opp INTs / G.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">NO #23 INTs / G</div>
+                            <div class="preview-angle-line preview-angle-line--muted">NYJ #32 Opp INTs / G</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Trend</span>
-                <span class="preview-chip" style="background: #D3BC8D; color: #000000; border-color: #a99671;">ADV: New Orleans</span>
+                <span class="preview-chip" style="background: #D3BC8D; color: #000000; border-color: #a99671;">ADV NO</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: New Orleans — Last 5 avg diff: NY Jets -15.0, New Orleans -0.2.</div>
+            <div class="preview-angle-text">Last 5 avg diff: NYJ -15.0, NO -0.2</div>
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Run</span>
-                <span class="preview-chip" style="background: #003F2D; color: #FFFFFF; border-color: #003224;">ADV: NY Jets</span>
+                <span class="preview-chip" style="background: #003F2D; color: #FFFFFF; border-color: #003224;">ADV NYJ</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: NY Jets — NY Jets #7 Rush YPG vs New Orleans #26 Opp Rush YPG.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">NYJ #7 Rush YPG</div>
+                            <div class="preview-angle-line preview-angle-line--muted">NO #26 Opp Rush YPG</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Turnovers</span>
-                <span class="preview-chip" style="background: #D3BC8D; color: #000000; border-color: #a99671;">ADV: New Orleans</span>
+                <span class="preview-chip" style="background: #D3BC8D; color: #000000; border-color: #a99671;">ADV NO</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: New Orleans — New Orleans #25 Fumbles / G vs NY Jets #30 Opp Fumbles / G.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">NO #25 Fumbles / G</div>
+                            <div class="preview-angle-line preview-angle-line--muted">NYJ #30 Opp Fumbles / G</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Run</span>
-                <span class="preview-chip preview-chip--neutral">BALANCED</span>
+                <span class="preview-chip preview-chip--neutral">EVEN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Balance — New Orleans #27 Rush YPG vs NY Jets #29 Opp Rush YPG.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">NO #27 Rush YPG</div>
+                            <div class="preview-angle-line preview-angle-line--muted">NYJ #29 Opp Rush YPG</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Red Zone</span>
-                <span class="preview-chip preview-chip--neutral">BALANCED</span>
+                <span class="preview-chip preview-chip--neutral">EVEN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Balance — New Orleans #30 RZ TD % vs NY Jets #27 Opp RZ TD %.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">NO #30 RZ TD %</div>
+                            <div class="preview-angle-line preview-angle-line--muted">NYJ #27 Opp RZ TD %</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
-                <span class="preview-chip preview-chip--neutral">BALANCED</span>
+                <span class="preview-chip preview-chip--neutral">EVEN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Balance — New Orleans #32 Explosive Pass Rate vs NY Jets #29 Opp 20+ Pass Rate.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">NO #32 Explosive Pass Rate</div>
+                            <div class="preview-angle-line preview-angle-line--muted">NYJ #29 Opp 20+ Pass Rate</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pass</span>
-                <span class="preview-chip" style="background: #003F2D; color: #FFFFFF; border-color: #003224;">ADV: NY Jets</span>
+                <span class="preview-chip" style="background: #003F2D; color: #FFFFFF; border-color: #003224;">ADV NYJ</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: NY Jets — NY Jets #23 Opp Yards/Att vs New Orleans #27 Yards/Att.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">NYJ #23 Opp Yards/Att</div>
+                            <div class="preview-angle-line preview-angle-line--muted">NO #27 Yards/Att</div>
+                        </div>
+                    
         </li>
     </ul>
         </div>
@@ -13513,7 +13731,7 @@
         <div class="preview-card p-3 sm:p-4">
             <div class="flex items-center justify-between">
                 <h4 class="preview-title">Key Angles Edge</h4>
-                <span class="preview-chip" style="background: #E31837; color: #FFFFFF; border-color: #b6132c;">EDGE: Kansas City</span>
+                <span class="preview-chip" style="background: #E31837; color: #FFFFFF; border-color: #b6132c;">EDGE KC</span>
             </div>
             <div class="mt-3 space-y-2">
                 <div class="preview-edge-bar">
@@ -13541,73 +13759,108 @@
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
-                <span class="preview-chip" style="background: #E31837; color: #FFFFFF; border-color: #b6132c;">ADV: Kansas City</span>
+                <span class="preview-chip" style="background: #E31837; color: #FFFFFF; border-color: #b6132c;">ADV KC</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Kansas City — Kansas City #11 Explosive Pass Rate vs Tennessee #25 Opp 20+ Pass Rate.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">KC #11 Explosive Pass Rate</div>
+                            <div class="preview-angle-line preview-angle-line--muted">TEN #25 Opp 20+ Pass Rate</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Turnovers</span>
-                <span class="preview-chip" style="background: #E31837; color: #FFFFFF; border-color: #b6132c;">ADV: Kansas City</span>
+                <span class="preview-chip" style="background: #E31837; color: #FFFFFF; border-color: #b6132c;">ADV KC</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Kansas City — Kansas City #1 Fumbles / G vs Tennessee #21 Opp Fumbles / G.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">KC #1 Fumbles / G</div>
+                            <div class="preview-angle-line preview-angle-line--muted">TEN #21 Opp Fumbles / G</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Trend</span>
-                <span class="preview-chip" style="background: #E31837; color: #FFFFFF; border-color: #b6132c;">ADV: Kansas City</span>
+                <span class="preview-chip" style="background: #E31837; color: #FFFFFF; border-color: #b6132c;">ADV KC</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Kansas City — Last 5 avg diff: Kansas City -3.2, Tennessee -8.4.</div>
+            <div class="preview-angle-text">Last 5 avg diff: KC -3.2, TEN -8.4</div>
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pass</span>
-                <span class="preview-chip" style="background: #E31837; color: #FFFFFF; border-color: #b6132c;">ADV: Kansas City</span>
+                <span class="preview-chip" style="background: #E31837; color: #FFFFFF; border-color: #b6132c;">ADV KC</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Kansas City — Kansas City #5 Pass YPG vs Tennessee #25 Opp Pass YPG.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">KC #5 Pass YPG</div>
+                            <div class="preview-angle-line preview-angle-line--muted">TEN #25 Opp Pass YPG</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pass</span>
-                <span class="preview-chip" style="background: #E31837; color: #FFFFFF; border-color: #b6132c;">ADV: Kansas City</span>
+                <span class="preview-chip" style="background: #E31837; color: #FFFFFF; border-color: #b6132c;">ADV KC</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Kansas City — Kansas City #12 Yards/Att vs Tennessee #29 Opp Yards/Att.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">KC #12 Yards/Att</div>
+                            <div class="preview-angle-line preview-angle-line--muted">TEN #29 Opp Yards/Att</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Red Zone</span>
-                <span class="preview-chip" style="background: #E31837; color: #FFFFFF; border-color: #b6132c;">ADV: Kansas City</span>
+                <span class="preview-chip" style="background: #E31837; color: #FFFFFF; border-color: #b6132c;">ADV KC</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Kansas City — Kansas City #10 RZ TD % vs Tennessee #24 Opp RZ TD %.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">KC #10 RZ TD %</div>
+                            <div class="preview-angle-line preview-angle-line--muted">TEN #24 Opp RZ TD %</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pace</span>
-                <span class="preview-chip" style="background: #E31837; color: #FFFFFF; border-color: #b6132c;">ADV: Kansas City</span>
+                <span class="preview-chip" style="background: #E31837; color: #FFFFFF; border-color: #b6132c;">ADV KC</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Kansas City — Tempo (lower faster): Kansas City #2, Tennessee #25.</div>
+            <div class="preview-angle-text">Tempo (lower faster): KC #2, TEN #25</div>
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">3rd Down</span>
-                <span class="preview-chip" style="background: #E31837; color: #FFFFFF; border-color: #b6132c;">ADV: Kansas City</span>
+                <span class="preview-chip" style="background: #E31837; color: #FFFFFF; border-color: #b6132c;">ADV KC</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Kansas City — Kansas City #13 3rd Down % vs Tennessee #23 Opp 3rd Down %.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">KC #13 3rd Down %</div>
+                            <div class="preview-angle-line preview-angle-line--muted">TEN #23 Opp 3rd Down %</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Turnovers</span>
-                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: Tennessee</span>
+                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV TEN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Tennessee — Tennessee #10 INTs / G vs Kansas City #20 Opp INTs / G.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">TEN #10 INTs / G</div>
+                            <div class="preview-angle-line preview-angle-line--muted">KC #20 Opp INTs / G</div>
+                        </div>
+                    
         </li>
     </ul>
         </div>
@@ -15468,7 +15721,7 @@
         <div class="preview-card p-3 sm:p-4">
             <div class="flex items-center justify-between">
                 <h4 class="preview-title">Key Angles Edge</h4>
-                <span class="preview-chip" style="background: #00338D; color: #FFFFFF; border-color: #002971;">EDGE: Buffalo</span>
+                <span class="preview-chip" style="background: #00338D; color: #FFFFFF; border-color: #002971;">EDGE BUF</span>
             </div>
             <div class="mt-3 space-y-2">
                 <div class="preview-edge-bar">
@@ -15496,73 +15749,113 @@
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
-                <span class="preview-chip" style="background: #00338D; color: #FFFFFF; border-color: #002971;">ADV: Buffalo</span>
+                <span class="preview-chip" style="background: #00338D; color: #FFFFFF; border-color: #002971;">ADV BUF</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Buffalo — Buffalo #3 Explosive Pass Rate vs Cleveland #26 Opp 20+ Pass Rate.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">BUF #3 Explosive Pass Rate</div>
+                            <div class="preview-angle-line preview-angle-line--muted">CLE #26 Opp 20+ Pass Rate</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Discipline</span>
-                <span class="preview-chip preview-chip--neutral">BALANCED</span>
+                <span class="preview-chip preview-chip--neutral">EVEN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Balance — Cleveland #29 Penalties / G vs Buffalo #32 Opp Penalties / G.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">CLE #29 Penalties / G</div>
+                            <div class="preview-angle-line preview-angle-line--muted">BUF #32 Opp Penalties / G</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Trend</span>
-                <span class="preview-chip" style="background: #00338D; color: #FFFFFF; border-color: #002971;">ADV: Buffalo</span>
+                <span class="preview-chip" style="background: #00338D; color: #FFFFFF; border-color: #002971;">ADV BUF</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Buffalo — Last 5 avg diff: Buffalo +7.2, Cleveland -8.2.</div>
+            <div class="preview-angle-text">Last 5 avg diff: BUF +7.2, CLE -8.2</div>
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Run</span>
-                <span class="preview-chip" style="background: #00338D; color: #FFFFFF; border-color: #002971;">ADV: Buffalo</span>
+                <span class="preview-chip" style="background: #00338D; color: #FFFFFF; border-color: #002971;">ADV BUF</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Buffalo — Buffalo #1 Rush YPG vs Cleveland #14 Opp Rush YPG.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">BUF #1 Rush YPG</div>
+                            <div class="preview-angle-line preview-angle-line--muted">CLE #14 Opp Rush YPG</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
-                <span class="preview-chip" style="background: #FF3C00; color: #FFFFFF; border-color: #cc3000;">ADV: Cleveland</span>
+                <span class="preview-chip" style="background: #FF3C00; color: #FFFFFF; border-color: #cc3000;">ADV CLE</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Cleveland — Cleveland #20 Explosive Run Rate vs Buffalo #31 Opp 10+ Rush Rate.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">CLE #20 Explosive Run Rate</div>
+                            <div class="preview-angle-line preview-angle-line--muted">BUF #31 Opp 10+ Rush Rate</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Run</span>
-                <span class="preview-chip" style="background: #00338D; color: #FFFFFF; border-color: #002971;">ADV: Buffalo</span>
+                <span class="preview-chip" style="background: #00338D; color: #FFFFFF; border-color: #002971;">ADV BUF</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Buffalo — Buffalo #2 Yards/Rush vs Cleveland #9 Opp Yards/Rush.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">BUF #2 Yards/Rush</div>
+                            <div class="preview-angle-line preview-angle-line--muted">CLE #9 Opp Yards/Rush</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">3rd Down</span>
-                <span class="preview-chip" style="background: #00338D; color: #FFFFFF; border-color: #002971;">ADV: Buffalo</span>
+                <span class="preview-chip" style="background: #00338D; color: #FFFFFF; border-color: #002971;">ADV BUF</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Buffalo — Buffalo #3 3rd Down % vs Cleveland #8 Opp 3rd Down %.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">BUF #3 3rd Down %</div>
+                            <div class="preview-angle-line preview-angle-line--muted">CLE #8 Opp 3rd Down %</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pass</span>
-                <span class="preview-chip preview-chip--neutral">BALANCED</span>
+                <span class="preview-chip preview-chip--neutral">EVEN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Balance — Buffalo #7 Yards/Att vs Cleveland #5 Opp Yards/Att.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">BUF #7 Yards/Att</div>
+                            <div class="preview-angle-line preview-angle-line--muted">CLE #5 Opp Yards/Att</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Turnovers</span>
-                <span class="preview-chip" style="background: #FF3C00; color: #FFFFFF; border-color: #cc3000;">ADV: Cleveland</span>
+                <span class="preview-chip" style="background: #FF3C00; color: #FFFFFF; border-color: #cc3000;">ADV CLE</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Cleveland — Cleveland #15 Opp INTs / G vs Buffalo #19 INTs / G.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">CLE #15 Opp INTs / G</div>
+                            <div class="preview-angle-line preview-angle-line--muted">BUF #19 INTs / G</div>
+                        </div>
+                    
         </li>
     </ul>
         </div>
@@ -17372,7 +17665,7 @@
         <div class="preview-card p-3 sm:p-4">
             <div class="flex items-center justify-between">
                 <h4 class="preview-title">Key Angles Edge</h4>
-                <span class="preview-chip preview-chip--neutral">BALANCED</span>
+                <span class="preview-chip preview-chip--neutral">EVEN</span>
             </div>
             <div class="mt-3 space-y-2">
                 <div class="preview-edge-bar">
@@ -17400,73 +17693,113 @@
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
-                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: Denver</span>
+                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV DEN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Denver — Denver #6 Explosive Run Rate vs Jacksonville #10 Opp 10+ Rush Rate.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">DEN #6 Explosive Run Rate</div>
+                            <div class="preview-angle-line preview-angle-line--muted">JAX #10 Opp 10+ Rush Rate</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Turnovers</span>
-                <span class="preview-chip" style="background: #006778; color: #FFFFFF; border-color: #005260;">ADV: Jacksonville</span>
+                <span class="preview-chip" style="background: #006778; color: #FFFFFF; border-color: #005260;">ADV JAX</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Jacksonville — Jacksonville #12 Fumbles / G vs Denver #21 Opp Fumbles / G.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">JAX #12 Fumbles / G</div>
+                            <div class="preview-angle-line preview-angle-line--muted">DEN #21 Opp Fumbles / G</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Trend</span>
-                <span class="preview-chip" style="background: #006778; color: #FFFFFF; border-color: #005260;">ADV: Jacksonville</span>
+                <span class="preview-chip" style="background: #006778; color: #FFFFFF; border-color: #005260;">ADV JAX</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Jacksonville — Last 5 avg diff: Jacksonville +19.8, Denver +4.4.</div>
+            <div class="preview-angle-text">Last 5 avg diff: JAX +19.8, DEN +4.4</div>
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pass</span>
-                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: Denver</span>
+                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV DEN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Denver — Denver #11 Pass YPG vs Jacksonville #20 Opp Pass YPG.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">DEN #11 Pass YPG</div>
+                            <div class="preview-angle-line preview-angle-line--muted">JAX #20 Opp Pass YPG</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">3rd Down</span>
-                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: Denver</span>
+                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV DEN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Denver — Denver #8 3rd Down % vs Jacksonville #26 Opp 3rd Down %.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">DEN #8 3rd Down %</div>
+                            <div class="preview-angle-line preview-angle-line--muted">JAX #26 Opp 3rd Down %</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Red Zone</span>
-                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: Denver</span>
+                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV DEN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Denver — Denver #13 RZ TD % vs Jacksonville #21 Opp RZ TD %.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">DEN #13 RZ TD %</div>
+                            <div class="preview-angle-line preview-angle-line--muted">JAX #21 Opp RZ TD %</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Turnovers</span>
-                <span class="preview-chip preview-chip--neutral">BALANCED</span>
+                <span class="preview-chip preview-chip--neutral">EVEN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Balance — Denver #4 Fumbles / G vs Jacksonville #6 Opp Fumbles / G.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">DEN #4 Fumbles / G</div>
+                            <div class="preview-angle-line preview-angle-line--muted">JAX #6 Opp Fumbles / G</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
-                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: Denver</span>
+                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV DEN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Denver — Denver #9 Opp 20+ Pass Rate vs Jacksonville #14 Explosive Pass Rate.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">DEN #9 Opp 20+ Pass Rate</div>
+                            <div class="preview-angle-line preview-angle-line--muted">JAX #14 Explosive Pass Rate</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pass</span>
-                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: Denver</span>
+                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV DEN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Denver — Denver #11 Opp Pass YPG vs Jacksonville #18 Pass YPG.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">DEN #11 Opp Pass YPG</div>
+                            <div class="preview-angle-line preview-angle-line--muted">JAX #18 Pass YPG</div>
+                        </div>
+                    
         </li>
     </ul>
         </div>
@@ -19293,7 +19626,7 @@
         <div class="preview-card p-3 sm:p-4">
             <div class="flex items-center justify-between">
                 <h4 class="preview-title">Key Angles Edge</h4>
-                <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">EDGE: Atlanta</span>
+                <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">EDGE ATL</span>
             </div>
             <div class="mt-3 space-y-2">
                 <div class="preview-edge-bar">
@@ -19321,73 +19654,113 @@
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
-                <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV: Atlanta</span>
+                <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV ATL</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Atlanta — Atlanta #15 Explosive Run Rate vs Arizona #23 Opp 10+ Rush Rate.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">ATL #15 Explosive Run Rate</div>
+                            <div class="preview-angle-line preview-angle-line--muted">ARI #23 Opp 10+ Rush Rate</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Turnovers</span>
-                <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV: Atlanta</span>
+                <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV ATL</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Atlanta — Atlanta #6 INTs / G vs Arizona #17 Opp INTs / G.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">ATL #6 INTs / G</div>
+                            <div class="preview-angle-line preview-angle-line--muted">ARI #17 Opp INTs / G</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Trend</span>
-                <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV: Atlanta</span>
+                <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV ATL</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Atlanta — Last 5 avg diff: Atlanta -3.8, Arizona -14.6.</div>
+            <div class="preview-angle-text">Last 5 avg diff: ATL -3.8, ARI -14.6</div>
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Run</span>
-                <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV: Atlanta</span>
+                <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV ATL</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Atlanta — Atlanta #13 Yards/Rush vs Arizona #28 Opp Yards/Rush.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">ATL #13 Yards/Rush</div>
+                            <div class="preview-angle-line preview-angle-line--muted">ARI #28 Opp Yards/Rush</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Red Zone</span>
-                <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV: Atlanta</span>
+                <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV ATL</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Atlanta — Atlanta #7 RZ TD % vs Arizona #24 Opp RZ TD %.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">ATL #7 RZ TD %</div>
+                            <div class="preview-angle-line preview-angle-line--muted">ARI #24 Opp RZ TD %</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pass</span>
-                <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV: Atlanta</span>
+                <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV ATL</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Atlanta — Atlanta #11 Yards/Att vs Arizona #25 Opp Yards/Att.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">ATL #11 Yards/Att</div>
+                            <div class="preview-angle-line preview-angle-line--muted">ARI #25 Opp Yards/Att</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">3rd Down</span>
-                <span class="preview-chip" style="background: #97233F; color: #FFFFFF; border-color: #791c32;">ADV: Arizona</span>
+                <span class="preview-chip" style="background: #97233F; color: #FFFFFF; border-color: #791c32;">ADV ARI</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Arizona — Arizona #7 3rd Down % vs Atlanta #20 Opp 3rd Down %.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">ARI #7 3rd Down %</div>
+                            <div class="preview-angle-line preview-angle-line--muted">ATL #20 Opp 3rd Down %</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Run</span>
-                <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV: Atlanta</span>
+                <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV ATL</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Atlanta — Atlanta #13 Rush YPG vs Arizona #22 Opp Rush YPG.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">ATL #13 Rush YPG</div>
+                            <div class="preview-angle-line preview-angle-line--muted">ARI #22 Opp Rush YPG</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Discipline</span>
-                <span class="preview-chip" style="background: #97233F; color: #FFFFFF; border-color: #791c32;">ADV: Arizona</span>
+                <span class="preview-chip" style="background: #97233F; color: #FFFFFF; border-color: #791c32;">ADV ARI</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Arizona — Arizona #20 Penalties / G vs Atlanta #29 Opp Penalties / G.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">ARI #20 Penalties / G</div>
+                            <div class="preview-angle-line preview-angle-line--muted">ATL #29 Opp Penalties / G</div>
+                        </div>
+                    
         </li>
     </ul>
         </div>
@@ -21205,7 +21578,7 @@
         <div class="preview-card p-3 sm:p-4">
             <div class="flex items-center justify-between">
                 <h4 class="preview-title">Key Angles Edge</h4>
-                <span class="preview-chip preview-chip--neutral">BALANCED</span>
+                <span class="preview-chip preview-chip--neutral">EVEN</span>
             </div>
             <div class="mt-3 space-y-2">
                 <div class="preview-edge-bar">
@@ -21233,73 +21606,113 @@
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
-                <span class="preview-chip" style="background: #000000; color: #FFFFFF; border-color: #000000;">ADV: Pittsburgh</span>
+                <span class="preview-chip" style="background: #000000; color: #FFFFFF; border-color: #000000;">ADV PIT</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Pittsburgh — Pittsburgh #23 Explosive Pass Rate vs Detroit #32 Opp 20+ Pass Rate.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">PIT #23 Explosive Pass Rate</div>
+                            <div class="preview-angle-line preview-angle-line--muted">DET #32 Opp 20+ Pass Rate</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Discipline</span>
-                <span class="preview-chip" style="background: #0076B6; color: #FFFFFF; border-color: #005e92;">ADV: Detroit</span>
+                <span class="preview-chip" style="background: #0076B6; color: #FFFFFF; border-color: #005e92;">ADV DET</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Detroit — Detroit #3 Penalties / G vs Pittsburgh #24 Opp Penalties / G.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">DET #3 Penalties / G</div>
+                            <div class="preview-angle-line preview-angle-line--muted">PIT #24 Opp Penalties / G</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Trend</span>
-                <span class="preview-chip" style="background: #000000; color: #FFFFFF; border-color: #000000;">ADV: Pittsburgh</span>
+                <span class="preview-chip" style="background: #000000; color: #FFFFFF; border-color: #000000;">ADV PIT</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Pittsburgh — Last 5 avg diff: Pittsburgh +3.6, Detroit +0.0.</div>
+            <div class="preview-angle-text">Last 5 avg diff: PIT +3.6, DET +0.0</div>
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pass</span>
-                <span class="preview-chip" style="background: #0076B6; color: #FFFFFF; border-color: #005e92;">ADV: Detroit</span>
+                <span class="preview-chip" style="background: #0076B6; color: #FFFFFF; border-color: #005e92;">ADV DET</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Detroit — Detroit #3 Pass YPG vs Pittsburgh #27 Opp Pass YPG.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">DET #3 Pass YPG</div>
+                            <div class="preview-angle-line preview-angle-line--muted">PIT #27 Opp Pass YPG</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Discipline</span>
-                <span class="preview-chip" style="background: #000000; color: #FFFFFF; border-color: #000000;">ADV: Pittsburgh</span>
+                <span class="preview-chip" style="background: #000000; color: #FFFFFF; border-color: #000000;">ADV PIT</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Pittsburgh — Pittsburgh #7 Penalties / G vs Detroit #20 Opp Penalties / G.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">PIT #7 Penalties / G</div>
+                            <div class="preview-angle-line preview-angle-line--muted">DET #20 Opp Penalties / G</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Run</span>
-                <span class="preview-chip" style="background: #0076B6; color: #FFFFFF; border-color: #005e92;">ADV: Detroit</span>
+                <span class="preview-chip" style="background: #0076B6; color: #FFFFFF; border-color: #005e92;">ADV DET</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Detroit — Detroit #4 Yards/Rush vs Pittsburgh #18 Opp Yards/Rush.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">DET #4 Yards/Rush</div>
+                            <div class="preview-angle-line preview-angle-line--muted">PIT #18 Opp Yards/Rush</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Run</span>
-                <span class="preview-chip" style="background: #0076B6; color: #FFFFFF; border-color: #005e92;">ADV: Detroit</span>
+                <span class="preview-chip" style="background: #0076B6; color: #FFFFFF; border-color: #005e92;">ADV DET</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Detroit — Detroit #5 Rush YPG vs Pittsburgh #19 Opp Rush YPG.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">DET #5 Rush YPG</div>
+                            <div class="preview-angle-line preview-angle-line--muted">PIT #19 Opp Rush YPG</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Red Zone</span>
-                <span class="preview-chip" style="background: #000000; color: #FFFFFF; border-color: #000000;">ADV: Pittsburgh</span>
+                <span class="preview-chip" style="background: #000000; color: #FFFFFF; border-color: #000000;">ADV PIT</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Pittsburgh — Pittsburgh #9 RZ TD % vs Detroit #18 Opp RZ TD %.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">PIT #9 RZ TD %</div>
+                            <div class="preview-angle-line preview-angle-line--muted">DET #18 Opp RZ TD %</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
-                <span class="preview-chip" style="background: #0076B6; color: #FFFFFF; border-color: #005e92;">ADV: Detroit</span>
+                <span class="preview-chip" style="background: #0076B6; color: #FFFFFF; border-color: #005e92;">ADV DET</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Detroit — Detroit #10 Explosive Run Rate vs Pittsburgh #22 Opp 10+ Rush Rate.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">DET #10 Explosive Run Rate</div>
+                            <div class="preview-angle-line preview-angle-line--muted">PIT #22 Opp 10+ Rush Rate</div>
+                        </div>
+                    
         </li>
     </ul>
         </div>
@@ -23186,7 +23599,7 @@
         <div class="preview-card p-3 sm:p-4">
             <div class="flex items-center justify-between">
                 <h4 class="preview-title">Key Angles Edge</h4>
-                <span class="preview-chip" style="background: #03202F; color: #FFFFFF; border-color: #021a26;">EDGE: Houston</span>
+                <span class="preview-chip" style="background: #03202F; color: #FFFFFF; border-color: #021a26;">EDGE HOU</span>
             </div>
             <div class="mt-3 space-y-2">
                 <div class="preview-edge-bar">
@@ -23214,73 +23627,108 @@
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
-                <span class="preview-chip preview-chip--neutral">BALANCED</span>
+                <span class="preview-chip preview-chip--neutral">EVEN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Balance — Las Vegas #26 Explosive Pass Rate vs Houston #23 Opp 20+ Pass Rate.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">LV #26 Explosive Pass Rate</div>
+                            <div class="preview-angle-line preview-angle-line--muted">HOU #23 Opp 20+ Pass Rate</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Turnovers</span>
-                <span class="preview-chip" style="background: #03202F; color: #FFFFFF; border-color: #021a26;">ADV: Houston</span>
+                <span class="preview-chip" style="background: #03202F; color: #FFFFFF; border-color: #021a26;">ADV HOU</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Houston — Houston #6 Fumbles / G vs Las Vegas #17 Opp Fumbles / G.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">HOU #6 Fumbles / G</div>
+                            <div class="preview-angle-line preview-angle-line--muted">LV #17 Opp Fumbles / G</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Trend</span>
-                <span class="preview-chip" style="background: #03202F; color: #FFFFFF; border-color: #021a26;">ADV: Houston</span>
+                <span class="preview-chip" style="background: #03202F; color: #FFFFFF; border-color: #021a26;">ADV HOU</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Houston — Last 5 avg diff: Las Vegas -17.2, Houston +8.2.</div>
+            <div class="preview-angle-text">Last 5 avg diff: LV -17.2, HOU +8.2</div>
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pass</span>
-                <span class="preview-chip" style="background: #03202F; color: #FFFFFF; border-color: #021a26;">ADV: Houston</span>
+                <span class="preview-chip" style="background: #03202F; color: #FFFFFF; border-color: #021a26;">ADV HOU</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Houston — Houston #20 Yards/Att vs Las Vegas #24 Opp Yards/Att.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">HOU #20 Yards/Att</div>
+                            <div class="preview-angle-line preview-angle-line--muted">LV #24 Opp Yards/Att</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">3rd Down</span>
-                <span class="preview-chip" style="background: #03202F; color: #FFFFFF; border-color: #021a26;">ADV: Houston</span>
+                <span class="preview-chip" style="background: #03202F; color: #FFFFFF; border-color: #021a26;">ADV HOU</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Houston — Houston #18 3rd Down % vs Las Vegas #32 Opp 3rd Down %.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">HOU #18 3rd Down %</div>
+                            <div class="preview-angle-line preview-angle-line--muted">LV #32 Opp 3rd Down %</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Turnovers</span>
-                <span class="preview-chip" style="background: #03202F; color: #FFFFFF; border-color: #021a26;">ADV: Houston</span>
+                <span class="preview-chip" style="background: #03202F; color: #FFFFFF; border-color: #021a26;">ADV HOU</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Houston — Houston #10 INTs / G vs Las Vegas #20 Opp INTs / G.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">HOU #10 INTs / G</div>
+                            <div class="preview-angle-line preview-angle-line--muted">LV #20 Opp INTs / G</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pass</span>
-                <span class="preview-chip preview-chip--neutral">BALANCED</span>
+                <span class="preview-chip preview-chip--neutral">EVEN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Balance — Houston #14 Pass YPG vs Las Vegas #16 Opp Pass YPG.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">HOU #14 Pass YPG</div>
+                            <div class="preview-angle-line preview-angle-line--muted">LV #16 Opp Pass YPG</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Red Zone</span>
-                <span class="preview-chip preview-chip--neutral">BALANCED</span>
+                <span class="preview-chip preview-chip--neutral">EVEN</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Balance — Las Vegas #23 RZ TD % vs Houston #25 Opp RZ TD %.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">LV #23 RZ TD %</div>
+                            <div class="preview-angle-line preview-angle-line--muted">HOU #25 Opp RZ TD %</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pace</span>
-                <span class="preview-chip" style="background: #03202F; color: #FFFFFF; border-color: #021a26;">ADV: Houston</span>
+                <span class="preview-chip" style="background: #03202F; color: #FFFFFF; border-color: #021a26;">ADV HOU</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Houston — Tempo (lower faster): Las Vegas #30, Houston #15.</div>
+            <div class="preview-angle-text">Tempo (lower faster): LV #30, HOU #15</div>
         </li>
     </ul>
         </div>
@@ -25118,7 +25566,7 @@
         <div class="preview-card p-3 sm:p-4">
             <div class="flex items-center justify-between">
                 <h4 class="preview-title">Key Angles Edge</h4>
-                <span class="preview-chip preview-chip--neutral">BALANCED</span>
+                <span class="preview-chip preview-chip--neutral">EVEN</span>
             </div>
             <div class="mt-3 space-y-2">
                 <div class="preview-edge-bar">
@@ -25146,73 +25594,113 @@
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
-                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: New England</span>
+                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV NE</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: New England — New England #4 Explosive Pass Rate vs Baltimore #21 Opp 20+ Pass Rate.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">NE #4 Explosive Pass Rate</div>
+                            <div class="preview-angle-line preview-angle-line--muted">BAL #21 Opp 20+ Pass Rate</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Discipline</span>
-                <span class="preview-chip" style="background: #241773; color: #FFFFFF; border-color: #1d125c;">ADV: Baltimore</span>
+                <span class="preview-chip" style="background: #241773; color: #FFFFFF; border-color: #1d125c;">ADV BAL</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Baltimore — Baltimore #4 Penalties / G vs New England #15 Opp Penalties / G.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">BAL #4 Penalties / G</div>
+                            <div class="preview-angle-line preview-angle-line--muted">NE #15 Opp Penalties / G</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Trend</span>
-                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: New England</span>
+                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV NE</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: New England — Last 5 avg diff: New England +7.6, Baltimore +4.2.</div>
+            <div class="preview-angle-text">Last 5 avg diff: NE +7.6, BAL +4.2</div>
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pass</span>
-                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: New England</span>
+                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV NE</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: New England — New England #6 Pass YPG vs Baltimore #26 Opp Pass YPG.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">NE #6 Pass YPG</div>
+                            <div class="preview-angle-line preview-angle-line--muted">BAL #26 Opp Pass YPG</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pass</span>
-                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: New England</span>
+                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV NE</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: New England — New England #2 Yards/Att vs Baltimore #15 Opp Yards/Att.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">NE #2 Yards/Att</div>
+                            <div class="preview-angle-line preview-angle-line--muted">BAL #15 Opp Yards/Att</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
-                <span class="preview-chip" style="background: #241773; color: #FFFFFF; border-color: #1d125c;">ADV: Baltimore</span>
+                <span class="preview-chip" style="background: #241773; color: #FFFFFF; border-color: #1d125c;">ADV BAL</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Baltimore — Baltimore #2 Explosive Run Rate vs New England #17 Opp 10+ Rush Rate.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">BAL #2 Explosive Run Rate</div>
+                            <div class="preview-angle-line preview-angle-line--muted">NE #17 Opp 10+ Rush Rate</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Run</span>
-                <span class="preview-chip" style="background: #241773; color: #FFFFFF; border-color: #1d125c;">ADV: Baltimore</span>
+                <span class="preview-chip" style="background: #241773; color: #FFFFFF; border-color: #1d125c;">ADV BAL</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Baltimore — Baltimore #1 Yards/Rush vs New England #10 Opp Yards/Rush.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">BAL #1 Yards/Rush</div>
+                            <div class="preview-angle-line preview-angle-line--muted">NE #10 Opp Yards/Rush</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Turnovers</span>
-                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: New England</span>
+                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV NE</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: New England — New England #10 INTs / G vs Baltimore #17 Opp INTs / G.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">NE #10 INTs / G</div>
+                            <div class="preview-angle-line preview-angle-line--muted">BAL #17 Opp INTs / G</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Run</span>
-                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: New England</span>
+                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV NE</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: New England — New England #11 Rush YPG vs Baltimore #15 Opp Rush YPG.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">NE #11 Rush YPG</div>
+                            <div class="preview-angle-line preview-angle-line--muted">BAL #15 Opp Rush YPG</div>
+                        </div>
+                    
         </li>
     </ul>
         </div>
@@ -27133,7 +27621,7 @@
         <div class="preview-card p-3 sm:p-4">
             <div class="flex items-center justify-between">
                 <h4 class="preview-title">Key Angles Edge</h4>
-                <span class="preview-chip" style="background: #AA0000; color: #FFFFFF; border-color: #880000;">EDGE: San Francisco</span>
+                <span class="preview-chip" style="background: #AA0000; color: #FFFFFF; border-color: #880000;">EDGE SF</span>
             </div>
             <div class="mt-3 space-y-2">
                 <div class="preview-edge-bar">
@@ -27161,73 +27649,113 @@
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
-                <span class="preview-chip" style="background: #AA0000; color: #FFFFFF; border-color: #880000;">ADV: San Francisco</span>
+                <span class="preview-chip" style="background: #AA0000; color: #FFFFFF; border-color: #880000;">ADV SF</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: San Francisco — San Francisco #18 Explosive Pass Rate vs Indianapolis #22 Opp 20+ Pass Rate.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">SF #18 Explosive Pass Rate</div>
+                            <div class="preview-angle-line preview-angle-line--muted">IND #22 Opp 20+ Pass Rate</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Discipline</span>
-                <span class="preview-chip" style="background: #AA0000; color: #FFFFFF; border-color: #880000;">ADV: San Francisco</span>
+                <span class="preview-chip" style="background: #AA0000; color: #FFFFFF; border-color: #880000;">ADV SF</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: San Francisco — San Francisco #3 Penalties / G vs Indianapolis #17 Opp Penalties / G.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">SF #3 Penalties / G</div>
+                            <div class="preview-angle-line preview-angle-line--muted">IND #17 Opp Penalties / G</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Trend</span>
-                <span class="preview-chip" style="background: #AA0000; color: #FFFFFF; border-color: #880000;">ADV: San Francisco</span>
+                <span class="preview-chip" style="background: #AA0000; color: #FFFFFF; border-color: #880000;">ADV SF</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: San Francisco — Last 5 avg diff: San Francisco +9.0, Indianapolis -4.0.</div>
+            <div class="preview-angle-text">Last 5 avg diff: SF +9.0, IND -4.0</div>
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pass</span>
-                <span class="preview-chip" style="background: #AA0000; color: #FFFFFF; border-color: #880000;">ADV: San Francisco</span>
+                <span class="preview-chip" style="background: #AA0000; color: #FFFFFF; border-color: #880000;">ADV SF</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: San Francisco — San Francisco #4 Pass YPG vs Indianapolis #31 Opp Pass YPG.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">SF #4 Pass YPG</div>
+                            <div class="preview-angle-line preview-angle-line--muted">IND #31 Opp Pass YPG</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">3rd Down</span>
-                <span class="preview-chip" style="background: #AA0000; color: #FFFFFF; border-color: #880000;">ADV: San Francisco</span>
+                <span class="preview-chip" style="background: #AA0000; color: #FFFFFF; border-color: #880000;">ADV SF</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: San Francisco — San Francisco #2 3rd Down % vs Indianapolis #22 Opp 3rd Down %.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">SF #2 3rd Down %</div>
+                            <div class="preview-angle-line preview-angle-line--muted">IND #22 Opp 3rd Down %</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Red Zone</span>
-                <span class="preview-chip" style="background: #AA0000; color: #FFFFFF; border-color: #880000;">ADV: San Francisco</span>
+                <span class="preview-chip" style="background: #AA0000; color: #FFFFFF; border-color: #880000;">ADV SF</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: San Francisco — San Francisco #1 RZ TD % vs Indianapolis #17 Opp RZ TD %.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">SF #1 RZ TD %</div>
+                            <div class="preview-angle-line preview-angle-line--muted">IND #17 Opp RZ TD %</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Discipline</span>
-                <span class="preview-chip" style="background: #002C5F; color: #FFFFFF; border-color: #00234c;">ADV: Indianapolis</span>
+                <span class="preview-chip" style="background: #002C5F; color: #FFFFFF; border-color: #00234c;">ADV IND</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Indianapolis — Indianapolis #6 Penalties / G vs San Francisco #20 Opp Penalties / G.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">IND #6 Penalties / G</div>
+                            <div class="preview-angle-line preview-angle-line--muted">SF #20 Opp Penalties / G</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pass</span>
-                <span class="preview-chip" style="background: #002C5F; color: #FFFFFF; border-color: #00234c;">ADV: Indianapolis</span>
+                <span class="preview-chip" style="background: #002C5F; color: #FFFFFF; border-color: #00234c;">ADV IND</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Indianapolis — Indianapolis #9 Pass YPG vs San Francisco #22 Opp Pass YPG.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">IND #9 Pass YPG</div>
+                            <div class="preview-angle-line preview-angle-line--muted">SF #22 Opp Pass YPG</div>
+                        </div>
+                    
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Run</span>
-                <span class="preview-chip" style="background: #002C5F; color: #FFFFFF; border-color: #00234c;">ADV: Indianapolis</span>
+                <span class="preview-chip" style="background: #002C5F; color: #FFFFFF; border-color: #00234c;">ADV IND</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Edge: Indianapolis — Indianapolis #5 Yards/Rush vs San Francisco #17 Opp Yards/Rush.</div>
+            
+                        <div class="preview-angle-lines">
+                            <div class="preview-angle-line">IND #5 Yards/Rush</div>
+                            <div class="preview-angle-line preview-angle-line--muted">SF #17 Opp Yards/Rush</div>
+                        </div>
+                    
         </li>
     </ul>
         </div>
