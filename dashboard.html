@@ -216,6 +216,57 @@
             padding: 8px 10px;
         }
 
+        .preview-angles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
+        }
+
+        .preview-swipe-hint {
+            display: none;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #94a3b8;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        @media (max-width: 900px) {
+            .preview-angles-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .preview-angles-grid {
+                grid-template-columns: none;
+                grid-auto-flow: column;
+                grid-auto-columns: minmax(240px, 80%);
+                overflow-x: auto;
+                overscroll-behavior-x: contain;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 6px;
+                padding-right: 12px;
+                scrollbar-width: thin;
+                scrollbar-color: rgba(148, 163, 184, 0.45) transparent;
+                -webkit-mask-image: linear-gradient(to right, #000 0%, #000 82%, transparent 100%);
+                mask-image: linear-gradient(to right, #000 0%, #000 82%, transparent 100%);
+                -webkit-mask-size: 100% 100%;
+                mask-size: 100% 100%;
+                -webkit-mask-repeat: no-repeat;
+                mask-repeat: no-repeat;
+            }
+            .preview-angle {
+                scroll-snap-align: start;
+            }
+            .preview-swipe-hint {
+                display: inline-flex;
+            }
+        }
+
         .preview-angle-tag {
             font-size: 10px;
             text-transform: uppercase;
@@ -3724,9 +3775,12 @@
         <div class="preview-card p-3 sm:p-4 lg:col-span-2">
             <div class="flex items-center justify-between mb-3">
                 <h4 class="preview-title">Key Angles</h4>
-                <span class="preview-meta">9 angles</span>
+                <div class="flex items-center gap-2">
+                    <span class="preview-meta">9 angles</span>
+                    <span class="preview-swipe-hint">Swipe ></span>
+                </div>
             </div>
-            <ul class="grid grid-cols-1 gap-2">
+            <ul class="preview-angles-grid">
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
@@ -3841,7 +3895,7 @@
                 <div>
                     <div class="font-semibold text-slate-700">Miami</div>
                     <div>Rest: 5 days</div>
-                    <div>Travel: 0.0 mi</div>
+                    <div>Travel: 1001.9 mi</div>
                 </div>
             </div>
         </div>
@@ -5700,9 +5754,12 @@
         <div class="preview-card p-3 sm:p-4 lg:col-span-2">
             <div class="flex items-center justify-between mb-3">
                 <h4 class="preview-title">Key Angles</h4>
-                <span class="preview-meta">9 angles</span>
+                <div class="flex items-center gap-2">
+                    <span class="preview-meta">9 angles</span>
+                    <span class="preview-swipe-hint">Swipe ></span>
+                </div>
             </div>
-            <ul class="grid grid-cols-1 gap-2">
+            <ul class="preview-angles-grid">
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
@@ -7558,9 +7615,12 @@
         <div class="preview-card p-3 sm:p-4 lg:col-span-2">
             <div class="flex items-center justify-between mb-3">
                 <h4 class="preview-title">Key Angles</h4>
-                <span class="preview-meta">9 angles</span>
+                <div class="flex items-center gap-2">
+                    <span class="preview-meta">9 angles</span>
+                    <span class="preview-swipe-hint">Swipe ></span>
+                </div>
             </div>
-            <ul class="grid grid-cols-1 gap-2">
+            <ul class="preview-angles-grid">
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
@@ -7675,7 +7735,7 @@
                 <div>
                     <div class="font-semibold text-slate-700">Carolina</div>
                     <div>Rest: 6 days</div>
-                    <div>Travel: 0.0 mi</div>
+                    <div>Travel: 648.8 mi</div>
                 </div>
             </div>
         </div>
@@ -9578,9 +9638,12 @@
         <div class="preview-card p-3 sm:p-4 lg:col-span-2">
             <div class="flex items-center justify-between mb-3">
                 <h4 class="preview-title">Key Angles</h4>
-                <span class="preview-meta">9 angles</span>
+                <div class="flex items-center gap-2">
+                    <span class="preview-meta">9 angles</span>
+                    <span class="preview-swipe-hint">Swipe ></span>
+                </div>
             </div>
-            <ul class="grid grid-cols-1 gap-2">
+            <ul class="preview-angles-grid">
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
@@ -11564,9 +11627,12 @@
         <div class="preview-card p-3 sm:p-4 lg:col-span-2">
             <div class="flex items-center justify-between mb-3">
                 <h4 class="preview-title">Key Angles</h4>
-                <span class="preview-meta">9 angles</span>
+                <div class="flex items-center gap-2">
+                    <span class="preview-meta">9 angles</span>
+                    <span class="preview-swipe-hint">Swipe ></span>
+                </div>
             </div>
-            <ul class="grid grid-cols-1 gap-2">
+            <ul class="preview-angles-grid">
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
@@ -13472,9 +13538,12 @@
         <div class="preview-card p-3 sm:p-4 lg:col-span-2">
             <div class="flex items-center justify-between mb-3">
                 <h4 class="preview-title">Key Angles</h4>
-                <span class="preview-meta">9 angles</span>
+                <div class="flex items-center gap-2">
+                    <span class="preview-meta">9 angles</span>
+                    <span class="preview-swipe-hint">Swipe ></span>
+                </div>
             </div>
-            <ul class="grid grid-cols-1 gap-2">
+            <ul class="preview-angles-grid">
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
@@ -13589,7 +13658,7 @@
                 <div>
                     <div class="font-semibold text-slate-700">Tennessee</div>
                     <div>Rest: 6 days</div>
-                    <div>Travel: 0.0 mi</div>
+                    <div>Travel: 1958.4 mi</div>
                 </div>
             </div>
         </div>
@@ -15424,9 +15493,12 @@
         <div class="preview-card p-3 sm:p-4 lg:col-span-2">
             <div class="flex items-center justify-between mb-3">
                 <h4 class="preview-title">Key Angles</h4>
-                <span class="preview-meta">9 angles</span>
+                <div class="flex items-center gap-2">
+                    <span class="preview-meta">9 angles</span>
+                    <span class="preview-swipe-hint">Swipe ></span>
+                </div>
             </div>
-            <ul class="grid grid-cols-1 gap-2">
+            <ul class="preview-angles-grid">
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
@@ -15541,7 +15613,7 @@
                 <div>
                     <div class="font-semibold text-slate-700">Cleveland</div>
                     <div>Rest: 7 days</div>
-                    <div>Travel: 0.0 mi</div>
+                    <div>Travel: 1780.1 mi</div>
                 </div>
             </div>
         </div>
@@ -17325,9 +17397,12 @@
         <div class="preview-card p-3 sm:p-4 lg:col-span-2">
             <div class="flex items-center justify-between mb-3">
                 <h4 class="preview-title">Key Angles</h4>
-                <span class="preview-meta">9 angles</span>
+                <div class="flex items-center gap-2">
+                    <span class="preview-meta">9 angles</span>
+                    <span class="preview-swipe-hint">Swipe ></span>
+                </div>
             </div>
-            <ul class="grid grid-cols-1 gap-2">
+            <ul class="preview-angles-grid">
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
@@ -19243,9 +19318,12 @@
         <div class="preview-card p-3 sm:p-4 lg:col-span-2">
             <div class="flex items-center justify-between mb-3">
                 <h4 class="preview-title">Key Angles</h4>
-                <span class="preview-meta">9 angles</span>
+                <div class="flex items-center gap-2">
+                    <span class="preview-meta">9 angles</span>
+                    <span class="preview-swipe-hint">Swipe ></span>
+                </div>
             </div>
-            <ul class="grid grid-cols-1 gap-2">
+            <ul class="preview-angles-grid">
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
@@ -19360,7 +19438,7 @@
                 <div>
                     <div class="font-semibold text-slate-700">Arizona</div>
                     <div>Rest: 7 days</div>
-                    <div>Travel: 0.0 mi</div>
+                    <div>Travel: 1021.9 mi</div>
                 </div>
             </div>
         </div>
@@ -21152,9 +21230,12 @@
         <div class="preview-card p-3 sm:p-4 lg:col-span-2">
             <div class="flex items-center justify-between mb-3">
                 <h4 class="preview-title">Key Angles</h4>
-                <span class="preview-meta">9 angles</span>
+                <div class="flex items-center gap-2">
+                    <span class="preview-meta">9 angles</span>
+                    <span class="preview-swipe-hint">Swipe ></span>
+                </div>
             </div>
-            <ul class="grid grid-cols-1 gap-2">
+            <ul class="preview-angles-grid">
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
@@ -21269,7 +21350,7 @@
                 <div>
                     <div class="font-semibold text-slate-700">Detroit</div>
                     <div>Rest: 7 days</div>
-                    <div>Travel: 0.0 mi</div>
+                    <div>Travel: 1969.0 mi</div>
                 </div>
             </div>
         </div>
@@ -23130,9 +23211,12 @@
         <div class="preview-card p-3 sm:p-4 lg:col-span-2">
             <div class="flex items-center justify-between mb-3">
                 <h4 class="preview-title">Key Angles</h4>
-                <span class="preview-meta">9 angles</span>
+                <div class="flex items-center gap-2">
+                    <span class="preview-meta">9 angles</span>
+                    <span class="preview-swipe-hint">Swipe ></span>
+                </div>
             </div>
-            <ul class="grid grid-cols-1 gap-2">
+            <ul class="preview-angles-grid">
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
@@ -25059,9 +25143,12 @@
         <div class="preview-card p-3 sm:p-4 lg:col-span-2">
             <div class="flex items-center justify-between mb-3">
                 <h4 class="preview-title">Key Angles</h4>
-                <span class="preview-meta">9 angles</span>
+                <div class="flex items-center gap-2">
+                    <span class="preview-meta">9 angles</span>
+                    <span class="preview-swipe-hint">Swipe ></span>
+                </div>
             </div>
-            <ul class="grid grid-cols-1 gap-2">
+            <ul class="preview-angles-grid">
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
@@ -25176,7 +25263,7 @@
                 <div>
                     <div class="font-semibold text-slate-700">Baltimore</div>
                     <div>Rest: 7 days</div>
-                    <div>Travel: 0.0 mi</div>
+                    <div>Travel: 423.1 mi</div>
                 </div>
             </div>
         </div>
@@ -27071,9 +27158,12 @@
         <div class="preview-card p-3 sm:p-4 lg:col-span-2">
             <div class="flex items-center justify-between mb-3">
                 <h4 class="preview-title">Key Angles</h4>
-                <span class="preview-meta">9 angles</span>
+                <div class="flex items-center gap-2">
+                    <span class="preview-meta">9 angles</span>
+                    <span class="preview-swipe-hint">Swipe ></span>
+                </div>
             </div>
-            <ul class="grid grid-cols-1 gap-2">
+            <ul class="preview-angles-grid">
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Explosives</span>
@@ -27188,7 +27278,7 @@
                 <div>
                     <div class="font-semibold text-slate-700">Indianapolis</div>
                     <div>Rest: 8 days</div>
-                    <div>Travel: 0.0 mi</div>
+                    <div>Travel: 1867.7 mi</div>
                 </div>
             </div>
         </div>
