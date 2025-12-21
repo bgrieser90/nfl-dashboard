@@ -218,7 +218,7 @@
 
         .preview-angles-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: minmax(0, 1fr);
             gap: 8px;
         }
 
@@ -231,12 +231,6 @@
             color: #94a3b8;
             opacity: 0.8;
             pointer-events: none;
-        }
-
-        @media (max-width: 900px) {
-            .preview-angles-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
         }
 
         @media (max-width: 640px) {
@@ -3760,12 +3754,12 @@
             </div>
             <div class="mt-3 space-y-2">
                 <div class="preview-edge-bar">
-                    <div class="preview-edge-fill" style="width: 0%; background: #FB4F14;"></div>
-                    <div class="preview-edge-fill" style="width: 100%; background: #008E97;"></div>
+                    <div class="preview-edge-fill" style="width: 10.720729275472415%; background: #FB4F14;"></div>
+                    <div class="preview-edge-fill" style="width: 89.27927072452758%; background: #008E97;"></div>
                 </div>
                 <div class="flex items-center justify-between text-[11px] text-slate-500">
-                    <span>Cincinnati 0.00</span>
-                    <span>Miami 6.32</span>
+                    <span>Cincinnati 0.68</span>
+                    <span>Miami 5.64</span>
                 </div>
                 <div class="text-[11px] text-slate-400">9 of 9 angles show an edge</div>
             </div>
@@ -3786,7 +3780,7 @@
                 <span class="preview-angle-tag">Explosives</span>
                 <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">ADV: Miami</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Miami #1 Explosive Run Rate vs Cincinnati #4 Opp 10+ Rush Rate.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Miami — Miami #1 Explosive Run Rate vs Cincinnati #29 Opp 10+ Rush Rate.</div>
         </li>
     
         <li class="preview-angle">
@@ -3794,7 +3788,7 @@
                 <span class="preview-angle-tag">Discipline</span>
                 <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">ADV: Miami</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Miami #32 Penalties / G vs Cincinnati #31 Opp Penalties / G.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Miami — Miami #1 Penalties / G vs Cincinnati #31 Opp Penalties / G.</div>
         </li>
     
         <li class="preview-angle">
@@ -3802,7 +3796,7 @@
                 <span class="preview-angle-tag">Trend</span>
                 <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">ADV: Miami</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Last 5 avg diff: Cincinnati -7.8, Miami +7.0.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Miami — Last 5 avg diff: Cincinnati -7.8, Miami +7.0.</div>
         </li>
     
         <li class="preview-angle">
@@ -3810,7 +3804,7 @@
                 <span class="preview-angle-tag">Run</span>
                 <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">ADV: Miami</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Miami #6 Yards/Rush vs Cincinnati #2 Opp Yards/Rush.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Miami — Miami #6 Yards/Rush vs Cincinnati #31 Opp Yards/Rush.</div>
         </li>
     
         <li class="preview-angle">
@@ -3818,7 +3812,7 @@
                 <span class="preview-angle-tag">Run</span>
                 <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">ADV: Miami</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Miami #14 Rush YPG vs Cincinnati #1 Opp Rush YPG.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Miami — Miami #14 Rush YPG vs Cincinnati #32 Opp Rush YPG.</div>
         </li>
     
         <li class="preview-angle">
@@ -3826,7 +3820,7 @@
                 <span class="preview-angle-tag">Explosives</span>
                 <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">ADV: Miami</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Miami #20 Explosive Pass Rate vs Cincinnati #3 Opp 20+ Pass Rate.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Miami — Miami #20 Explosive Pass Rate vs Cincinnati #30 Opp 20+ Pass Rate.</div>
         </li>
     
         <li class="preview-angle">
@@ -3834,7 +3828,7 @@
                 <span class="preview-angle-tag">Pass</span>
                 <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">ADV: Miami</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Miami #22 Yards/Att vs Cincinnati #2 Opp Yards/Att.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Miami — Miami #22 Yards/Att vs Cincinnati #31 Opp Yards/Att.</div>
         </li>
     
         <li class="preview-angle">
@@ -3842,15 +3836,15 @@
                 <span class="preview-angle-tag">Red Zone</span>
                 <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">ADV: Miami</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Miami #19 RZ TD % vs Cincinnati #5 Opp RZ TD %.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Miami — Miami #19 RZ TD % vs Cincinnati #28 Opp RZ TD %.</div>
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pace</span>
-                <span class="preview-chip" style="background: #008E97; color: #FFFFFF; border-color: #007279;">ADV: Miami</span>
+                <span class="preview-chip" style="background: #FB4F14; color: #FFFFFF; border-color: #c93f10;">ADV: Cincinnati</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Tempo: Cincinnati #22 Seconds/Play, Miami #1.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Cincinnati — Tempo (lower faster): Cincinnati #11, Miami #32.</div>
         </li>
     </ul>
         </div>
@@ -3953,7 +3947,7 @@
                 <h4 class="preview-title">Weather</h4>
                 <span class="preview-meta">Kickoff → +3h</span>
             </div>
-            <div class="flex flex-wrap gap-2 text-sm text-slate-700"><span class="preview-chip preview-chip--neutral">Temp 25.9F, Wind 12.7 mph, Precip 22%</span><span class="preview-chip preview-chip--neutral">Temp 25.9F</span><span class="preview-chip preview-chip--neutral">Wind 12.7 mph</span><span class="preview-chip preview-chip--neutral">Precip 22%</span></div>
+            <div class="flex flex-wrap gap-2 text-sm text-slate-700"><span class="preview-chip preview-chip--neutral">Temp 78.6F, Wind 7.9 mph, Precip 22%</span><span class="preview-chip preview-chip--neutral">Temp 78.6F</span><span class="preview-chip preview-chip--neutral">Wind 7.9 mph</span><span class="preview-chip preview-chip--neutral">Precip 22%</span></div>
         </div>
     </div>
         </div>
@@ -5735,16 +5729,16 @@
         <div class="preview-card p-3 sm:p-4">
             <div class="flex items-center justify-between">
                 <h4 class="preview-title">Key Angles Edge</h4>
-                <span class="preview-chip" style="background: #4F2683; color: #FFFFFF; border-color: #3f1e69;">EDGE: Minnesota</span>
+                <span class="preview-chip preview-chip--neutral">BALANCED</span>
             </div>
             <div class="mt-3 space-y-2">
                 <div class="preview-edge-bar">
-                    <div class="preview-edge-fill" style="width: 81.23671226282643%; background: #4F2683;"></div>
-                    <div class="preview-edge-fill" style="width: 18.763287737173574%; background: #0B2265;"></div>
+                    <div class="preview-edge-fill" style="width: 63.76709855991014%; background: #4F2683;"></div>
+                    <div class="preview-edge-fill" style="width: 36.23290144008986%; background: #0B2265;"></div>
                 </div>
                 <div class="flex items-center justify-between text-[11px] text-slate-500">
-                    <span>Minnesota 4.05</span>
-                    <span>NY Giants 0.94</span>
+                    <span>Minnesota 3.18</span>
+                    <span>NY Giants 1.81</span>
                 </div>
                 <div class="text-[11px] text-slate-400">8 of 9 angles show an edge</div>
             </div>
@@ -5765,7 +5759,7 @@
                 <span class="preview-angle-tag">Explosives</span>
                 <span class="preview-chip" style="background: #4F2683; color: #FFFFFF; border-color: #3f1e69;">ADV: Minnesota</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Minnesota #11 Explosive Run Rate vs NY Giants #1 Opp 10+ Rush Rate.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Minnesota — Minnesota #11 Explosive Run Rate vs NY Giants #32 Opp 10+ Rush Rate.</div>
         </li>
     
         <li class="preview-angle">
@@ -5773,7 +5767,7 @@
                 <span class="preview-angle-tag">Turnovers</span>
                 <span class="preview-chip" style="background: #0B2265; color: #FFFFFF; border-color: #091b51;">ADV: NY Giants</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">NY Giants #19 INTs / G vs Minnesota #29 Opp INTs / G.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: NY Giants — NY Giants #14 INTs / G vs Minnesota #29 Opp INTs / G.</div>
         </li>
     
         <li class="preview-angle">
@@ -5781,7 +5775,7 @@
                 <span class="preview-angle-tag">Trend</span>
                 <span class="preview-chip" style="background: #4F2683; color: #FFFFFF; border-color: #3f1e69;">ADV: Minnesota</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Last 5 avg diff: Minnesota -1.2, NY Giants -8.8.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Minnesota — Last 5 avg diff: Minnesota -1.2, NY Giants -8.8.</div>
         </li>
     
         <li class="preview-angle">
@@ -5789,7 +5783,7 @@
                 <span class="preview-angle-tag">Run</span>
                 <span class="preview-chip" style="background: #4F2683; color: #FFFFFF; border-color: #3f1e69;">ADV: Minnesota</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Minnesota #11 Yards/Rush vs NY Giants #1 Opp Yards/Rush.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Minnesota — Minnesota #11 Yards/Rush vs NY Giants #32 Opp Yards/Rush.</div>
         </li>
     
         <li class="preview-angle">
@@ -5797,15 +5791,15 @@
                 <span class="preview-angle-tag">Red Zone</span>
                 <span class="preview-chip" style="background: #4F2683; color: #FFFFFF; border-color: #3f1e69;">ADV: Minnesota</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Minnesota #2 RZ TD % vs NY Giants #7 Opp RZ TD %.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Minnesota — Minnesota #2 RZ TD % vs NY Giants #26 Opp RZ TD %.</div>
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pace</span>
-                <span class="preview-chip" style="background: #4F2683; color: #FFFFFF; border-color: #3f1e69;">ADV: Minnesota</span>
+                <span class="preview-chip" style="background: #0B2265; color: #FFFFFF; border-color: #091b51;">ADV: NY Giants</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Tempo: Minnesota #2 Seconds/Play, NY Giants #29.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: NY Giants — Tempo (lower faster): Minnesota #31, NY Giants #4.</div>
         </li>
     
         <li class="preview-angle">
@@ -5813,7 +5807,7 @@
                 <span class="preview-angle-tag">Run</span>
                 <span class="preview-chip" style="background: #0B2265; color: #FFFFFF; border-color: #091b51;">ADV: NY Giants</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">NY Giants #10 Rush YPG vs Minnesota #9 Opp Rush YPG.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: NY Giants — NY Giants #10 Rush YPG vs Minnesota #24 Opp Rush YPG.</div>
         </li>
     
         <li class="preview-angle">
@@ -5821,7 +5815,7 @@
                 <span class="preview-angle-tag">Turnovers</span>
                 <span class="preview-chip" style="background: #4F2683; color: #FFFFFF; border-color: #3f1e69;">ADV: Minnesota</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Minnesota #15 Fumbles / G vs NY Giants #27 Opp Fumbles / G.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Minnesota — Minnesota #18 Fumbles / G vs NY Giants #27 Opp Fumbles / G.</div>
         </li>
     
         <li class="preview-angle">
@@ -5829,7 +5823,7 @@
                 <span class="preview-angle-tag">Explosives</span>
                 <span class="preview-chip preview-chip--neutral">BALANCED</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">NY Giants #8 Explosive Pass Rate vs Minnesota #22 Opp 20+ Pass Rate.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Balance — NY Giants #8 Explosive Pass Rate vs Minnesota #11 Opp 20+ Pass Rate.</div>
         </li>
     </ul>
         </div>
@@ -5940,7 +5934,7 @@
                 <h4 class="preview-title">Weather</h4>
                 <span class="preview-meta">Kickoff → +3h</span>
             </div>
-            <div class="flex flex-wrap gap-2 text-sm text-slate-700"><span class="preview-chip preview-chip--neutral">Temp 4.1F, Wind 26.9 mph, Precip 0%</span><span class="preview-chip preview-chip--neutral">Temp 4.1F</span><span class="preview-chip preview-chip--neutral">Wind 26.9 mph</span><span class="preview-chip preview-chip--neutral">Precip 0%</span></div>
+            <div class="flex flex-wrap gap-2 text-sm text-slate-700"><span class="preview-chip preview-chip--neutral">Temp 39.4F, Wind 16.7 mph, Precip 0%</span><span class="preview-chip preview-chip--neutral">Temp 39.4F</span><span class="preview-chip preview-chip--neutral">Wind 16.7 mph</span><span class="preview-chip preview-chip--neutral">Precip 0%</span></div>
         </div>
     </div>
         </div>
@@ -7626,7 +7620,7 @@
                 <span class="preview-angle-tag">Explosives</span>
                 <span class="preview-chip preview-chip--neutral">BALANCED</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Carolina #16 Explosive Pass Rate vs Tampa Bay #14 Opp 20+ Pass Rate.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Balance — Carolina #16 Explosive Pass Rate vs Tampa Bay #19 Opp 20+ Pass Rate.</div>
         </li>
     
         <li class="preview-angle">
@@ -7634,7 +7628,7 @@
                 <span class="preview-angle-tag">Turnovers</span>
                 <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV: Tampa Bay</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Tampa Bay #21 Fumbles / G vs Carolina #21 Opp Fumbles / G.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Tampa Bay — Tampa Bay #12 Fumbles / G vs Carolina #21 Opp Fumbles / G.</div>
         </li>
     
         <li class="preview-angle">
@@ -7642,7 +7636,7 @@
                 <span class="preview-angle-tag">Trend</span>
                 <span class="preview-chip" style="background: #0085CA; color: #FFFFFF; border-color: #006aa2;">ADV: Carolina</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Last 5 avg diff: Tampa Bay -8.2, Carolina -3.6.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Carolina — Last 5 avg diff: Tampa Bay -8.2, Carolina -3.6.</div>
         </li>
     
         <li class="preview-angle">
@@ -7650,7 +7644,7 @@
                 <span class="preview-angle-tag">Pass</span>
                 <span class="preview-chip" style="background: #0085CA; color: #FFFFFF; border-color: #006aa2;">ADV: Carolina</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Carolina #25 Pass YPG vs Tampa Bay #3 Opp Pass YPG.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Carolina — Carolina #25 Pass YPG vs Tampa Bay #30 Opp Pass YPG.</div>
         </li>
     
         <li class="preview-angle">
@@ -7658,7 +7652,7 @@
                 <span class="preview-angle-tag">3rd Down</span>
                 <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV: Tampa Bay</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Tampa Bay #15 3rd Down % vs Carolina #4 Opp 3rd Down %.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Tampa Bay — Tampa Bay #15 3rd Down % vs Carolina #29 Opp 3rd Down %.</div>
         </li>
     
         <li class="preview-angle">
@@ -7666,7 +7660,7 @@
                 <span class="preview-angle-tag">Pass</span>
                 <span class="preview-chip preview-chip--neutral">BALANCED</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Carolina #25 Yards/Att vs Tampa Bay #5 Opp Yards/Att.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Balance — Carolina #25 Yards/Att vs Tampa Bay #28 Opp Yards/Att.</div>
         </li>
     
         <li class="preview-angle">
@@ -7674,7 +7668,7 @@
                 <span class="preview-angle-tag">Explosives</span>
                 <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV: Tampa Bay</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Tampa Bay #10 Explosive Pass Rate vs Carolina #17 Opp 20+ Pass Rate.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Tampa Bay — Tampa Bay #10 Explosive Pass Rate vs Carolina #16 Opp 20+ Pass Rate.</div>
         </li>
     
         <li class="preview-angle">
@@ -7682,7 +7676,7 @@
                 <span class="preview-angle-tag">Discipline</span>
                 <span class="preview-chip preview-chip--neutral">BALANCED</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Carolina #15 Penalties / G vs Tampa Bay #20 Opp Penalties / G.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Balance — Carolina #18 Penalties / G vs Tampa Bay #20 Opp Penalties / G.</div>
         </li>
     
         <li class="preview-angle">
@@ -7690,7 +7684,7 @@
                 <span class="preview-angle-tag">Run</span>
                 <span class="preview-chip preview-chip--neutral">BALANCED</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Carolina #9 Rush YPG vs Tampa Bay #23 Opp Rush YPG.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Balance — Carolina #9 Rush YPG vs Tampa Bay #10 Opp Rush YPG.</div>
         </li>
     </ul>
         </div>
@@ -7793,7 +7787,7 @@
                 <h4 class="preview-title">Weather</h4>
                 <span class="preview-meta">Kickoff → +3h</span>
             </div>
-            <div class="flex flex-wrap gap-2 text-sm text-slate-700"><span class="preview-chip preview-chip--neutral">Temp 14.7F, Wind 15.2 mph, Precip 0%</span><span class="preview-chip preview-chip--neutral">Temp 14.7F</span><span class="preview-chip preview-chip--neutral">Wind 15.3 mph</span><span class="preview-chip preview-chip--neutral">Precip 0%</span></div>
+            <div class="flex flex-wrap gap-2 text-sm text-slate-700"><span class="preview-chip preview-chip--neutral">Temp 58.5F, Wind 9.5 mph, Precip 0%</span><span class="preview-chip preview-chip--neutral">Temp 58.5F</span><span class="preview-chip preview-chip--neutral">Wind 9.5 mph</span><span class="preview-chip preview-chip--neutral">Precip 0%</span></div>
         </div>
     </div>
         </div>
@@ -9649,7 +9643,7 @@
                 <span class="preview-angle-tag">Explosives</span>
                 <span class="preview-chip" style="background: #007BC7; color: #FFFFFF; border-color: #00629f;">ADV: LA Chargers</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">LA Chargers #5 Explosive Run Rate vs Dallas #3 Opp 10+ Rush Rate.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: LA Chargers — LA Chargers #5 Explosive Run Rate vs Dallas #30 Opp 10+ Rush Rate.</div>
         </li>
     
         <li class="preview-angle">
@@ -9657,7 +9651,7 @@
                 <span class="preview-angle-tag">Turnovers</span>
                 <span class="preview-chip" style="background: #007BC7; color: #FFFFFF; border-color: #00629f;">ADV: LA Chargers</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">LA Chargers #15 Fumbles / G vs Dallas #27 Opp Fumbles / G.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: LA Chargers — LA Chargers #18 Fumbles / G vs Dallas #27 Opp Fumbles / G.</div>
         </li>
     
         <li class="preview-angle">
@@ -9665,7 +9659,7 @@
                 <span class="preview-angle-tag">Trend</span>
                 <span class="preview-chip" style="background: #007BC7; color: #FFFFFF; border-color: #00629f;">ADV: LA Chargers</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Last 5 avg diff: LA Chargers +1.8, Dallas +0.2.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: LA Chargers — Last 5 avg diff: LA Chargers +1.8, Dallas +0.2.</div>
         </li>
     
         <li class="preview-angle">
@@ -9673,7 +9667,7 @@
                 <span class="preview-angle-tag">Pass</span>
                 <span class="preview-chip" style="background: #007BC7; color: #FFFFFF; border-color: #00629f;">ADV: LA Chargers</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">LA Chargers #19 Pass YPG vs Dallas #1 Opp Pass YPG.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: LA Chargers — LA Chargers #19 Pass YPG vs Dallas #32 Opp Pass YPG.</div>
         </li>
     
         <li class="preview-angle">
@@ -9681,7 +9675,7 @@
                 <span class="preview-angle-tag">3rd Down</span>
                 <span class="preview-chip" style="background: #007BC7; color: #FFFFFF; border-color: #00629f;">ADV: LA Chargers</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">LA Chargers #4 3rd Down % vs Dallas #3 Opp 3rd Down %.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: LA Chargers — LA Chargers #4 3rd Down % vs Dallas #30 Opp 3rd Down %.</div>
         </li>
     
         <li class="preview-angle">
@@ -9689,7 +9683,7 @@
                 <span class="preview-angle-tag">Pass</span>
                 <span class="preview-chip" style="background: #007BC7; color: #FFFFFF; border-color: #00629f;">ADV: LA Chargers</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">LA Chargers #21 Yards/Att vs Dallas #3 Opp Yards/Att.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: LA Chargers — LA Chargers #21 Yards/Att vs Dallas #30 Opp Yards/Att.</div>
         </li>
     
         <li class="preview-angle">
@@ -9697,7 +9691,7 @@
                 <span class="preview-angle-tag">Run</span>
                 <span class="preview-chip" style="background: #007BC7; color: #FFFFFF; border-color: #00629f;">ADV: LA Chargers</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">LA Chargers #15 Yards/Rush vs Dallas #8 Opp Yards/Rush.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: LA Chargers — LA Chargers #15 Yards/Rush vs Dallas #25 Opp Yards/Rush.</div>
         </li>
     
         <li class="preview-angle">
@@ -9705,7 +9699,7 @@
                 <span class="preview-angle-tag">Red Zone</span>
                 <span class="preview-chip" style="background: #007BC7; color: #FFFFFF; border-color: #00629f;">ADV: LA Chargers</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">LA Chargers #24 RZ TD % vs Dallas #1 Opp RZ TD %.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: LA Chargers — LA Chargers #24 RZ TD % vs Dallas #32 Opp RZ TD %.</div>
         </li>
     
         <li class="preview-angle">
@@ -9713,7 +9707,7 @@
                 <span class="preview-angle-tag">Explosives</span>
                 <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: Dallas</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Dallas #17 Explosive Run Rate vs LA Chargers #6 Opp 10+ Rush Rate.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Dallas — Dallas #17 Explosive Run Rate vs LA Chargers #27 Opp 10+ Rush Rate.</div>
         </li>
     </ul>
         </div>
@@ -9824,7 +9818,7 @@
                 <h4 class="preview-title">Weather</h4>
                 <span class="preview-meta">Kickoff → +3h</span>
             </div>
-            <div class="flex flex-wrap gap-2 text-sm text-slate-700"><span class="preview-chip preview-chip--neutral">Temp 14.1F, Wind 11.2 mph, Precip 2%</span><span class="preview-chip preview-chip--neutral">Temp 14.1F</span><span class="preview-chip preview-chip--neutral">Wind 11.3 mph</span><span class="preview-chip preview-chip--neutral">Precip 2%</span></div>
+            <div class="flex flex-wrap gap-2 text-sm text-slate-700"><span class="preview-chip preview-chip--neutral">Temp 57.3F, Wind 7.0 mph, Precip 2%</span><span class="preview-chip preview-chip--neutral">Temp 57.3F</span><span class="preview-chip preview-chip--neutral">Wind 7.0 mph</span><span class="preview-chip preview-chip--neutral">Precip 2%</span></div>
         </div>
     </div>
         </div>
@@ -11638,7 +11632,7 @@
                 <span class="preview-angle-tag">Explosives</span>
                 <span class="preview-chip" style="background: #003F2D; color: #FFFFFF; border-color: #003224;">ADV: NY Jets</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">NY Jets #3 Explosive Run Rate vs New Orleans #20 Opp 10+ Rush Rate.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: NY Jets — NY Jets #3 Explosive Run Rate vs New Orleans #13 Opp 10+ Rush Rate.</div>
         </li>
     
         <li class="preview-angle">
@@ -11646,7 +11640,7 @@
                 <span class="preview-angle-tag">Turnovers</span>
                 <span class="preview-chip" style="background: #D3BC8D; color: #000000; border-color: #a99671;">ADV: New Orleans</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">New Orleans #10 INTs / G vs NY Jets #32 Opp INTs / G.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: New Orleans — New Orleans #23 INTs / G vs NY Jets #32 Opp INTs / G.</div>
         </li>
     
         <li class="preview-angle">
@@ -11654,7 +11648,7 @@
                 <span class="preview-angle-tag">Trend</span>
                 <span class="preview-chip" style="background: #D3BC8D; color: #000000; border-color: #a99671;">ADV: New Orleans</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Last 5 avg diff: NY Jets -15.0, New Orleans -0.2.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: New Orleans — Last 5 avg diff: NY Jets -15.0, New Orleans -0.2.</div>
         </li>
     
         <li class="preview-angle">
@@ -11662,7 +11656,7 @@
                 <span class="preview-angle-tag">Run</span>
                 <span class="preview-chip" style="background: #003F2D; color: #FFFFFF; border-color: #003224;">ADV: NY Jets</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">NY Jets #7 Rush YPG vs New Orleans #7 Opp Rush YPG.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: NY Jets — NY Jets #7 Rush YPG vs New Orleans #26 Opp Rush YPG.</div>
         </li>
     
         <li class="preview-angle">
@@ -11670,7 +11664,7 @@
                 <span class="preview-angle-tag">Turnovers</span>
                 <span class="preview-chip" style="background: #D3BC8D; color: #000000; border-color: #a99671;">ADV: New Orleans</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">New Orleans #8 Fumbles / G vs NY Jets #30 Opp Fumbles / G.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: New Orleans — New Orleans #25 Fumbles / G vs NY Jets #30 Opp Fumbles / G.</div>
         </li>
     
         <li class="preview-angle">
@@ -11678,7 +11672,7 @@
                 <span class="preview-angle-tag">Run</span>
                 <span class="preview-chip preview-chip--neutral">BALANCED</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">New Orleans #27 Rush YPG vs NY Jets #4 Opp Rush YPG.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Balance — New Orleans #27 Rush YPG vs NY Jets #29 Opp Rush YPG.</div>
         </li>
     
         <li class="preview-angle">
@@ -11686,7 +11680,7 @@
                 <span class="preview-angle-tag">Red Zone</span>
                 <span class="preview-chip preview-chip--neutral">BALANCED</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">New Orleans #30 RZ TD % vs NY Jets #6 Opp RZ TD %.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Balance — New Orleans #30 RZ TD % vs NY Jets #27 Opp RZ TD %.</div>
         </li>
     
         <li class="preview-angle">
@@ -11694,7 +11688,7 @@
                 <span class="preview-angle-tag">Explosives</span>
                 <span class="preview-chip preview-chip--neutral">BALANCED</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">New Orleans #32 Explosive Pass Rate vs NY Jets #4 Opp 20+ Pass Rate.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Balance — New Orleans #32 Explosive Pass Rate vs NY Jets #29 Opp 20+ Pass Rate.</div>
         </li>
     
         <li class="preview-angle">
@@ -11702,7 +11696,7 @@
                 <span class="preview-angle-tag">Pass</span>
                 <span class="preview-chip" style="background: #003F2D; color: #FFFFFF; border-color: #003224;">ADV: NY Jets</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">NY Jets #10 Opp Yards/Att vs New Orleans #27 Yards/Att.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: NY Jets — NY Jets #23 Opp Yards/Att vs New Orleans #27 Yards/Att.</div>
         </li>
     </ul>
         </div>
@@ -11821,7 +11815,7 @@
                 <h4 class="preview-title">Weather</h4>
                 <span class="preview-meta">Kickoff → +3h</span>
             </div>
-            <div class="flex flex-wrap gap-2 text-sm text-slate-700"><span class="preview-chip preview-chip--neutral">Temp 25.1F, Wind 5.4 mph, Precip 18%</span><span class="preview-chip preview-chip--neutral">Temp 25.1F</span><span class="preview-chip preview-chip--neutral">Wind 5.4 mph</span><span class="preview-chip preview-chip--neutral">Precip 18%</span></div>
+            <div class="flex flex-wrap gap-2 text-sm text-slate-700"><span class="preview-chip preview-chip--neutral">Temp 77.2F, Wind 3.4 mph, Precip 18%</span><span class="preview-chip preview-chip--neutral">Temp 77.2F</span><span class="preview-chip preview-chip--neutral">Wind 3.4 mph</span><span class="preview-chip preview-chip--neutral">Precip 18%</span></div>
         </div>
     </div>
         </div>
@@ -13523,12 +13517,12 @@
             </div>
             <div class="mt-3 space-y-2">
                 <div class="preview-edge-bar">
-                    <div class="preview-edge-fill" style="width: 77.10309522273128%; background: #E31837;"></div>
-                    <div class="preview-edge-fill" style="width: 22.89690477726872%; background: #002244;"></div>
+                    <div class="preview-edge-fill" style="width: 93.06102256350692%; background: #E31837;"></div>
+                    <div class="preview-edge-fill" style="width: 6.9389774364930865%; background: #002244;"></div>
                 </div>
                 <div class="flex items-center justify-between text-[11px] text-slate-500">
-                    <span>Kansas City 3.58</span>
-                    <span>Tennessee 1.06</span>
+                    <span>Kansas City 4.33</span>
+                    <span>Tennessee 0.32</span>
                 </div>
                 <div class="text-[11px] text-slate-400">9 of 9 angles show an edge</div>
             </div>
@@ -13549,7 +13543,7 @@
                 <span class="preview-angle-tag">Explosives</span>
                 <span class="preview-chip" style="background: #E31837; color: #FFFFFF; border-color: #b6132c;">ADV: Kansas City</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Kansas City #11 Explosive Pass Rate vs Tennessee #8 Opp 20+ Pass Rate.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Kansas City — Kansas City #11 Explosive Pass Rate vs Tennessee #25 Opp 20+ Pass Rate.</div>
         </li>
     
         <li class="preview-angle">
@@ -13557,7 +13551,7 @@
                 <span class="preview-angle-tag">Turnovers</span>
                 <span class="preview-chip" style="background: #E31837; color: #FFFFFF; border-color: #b6132c;">ADV: Kansas City</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Kansas City #32 Fumbles / G vs Tennessee #21 Opp Fumbles / G.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Kansas City — Kansas City #1 Fumbles / G vs Tennessee #21 Opp Fumbles / G.</div>
         </li>
     
         <li class="preview-angle">
@@ -13565,7 +13559,7 @@
                 <span class="preview-angle-tag">Trend</span>
                 <span class="preview-chip" style="background: #E31837; color: #FFFFFF; border-color: #b6132c;">ADV: Kansas City</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Last 5 avg diff: Kansas City -3.2, Tennessee -8.4.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Kansas City — Last 5 avg diff: Kansas City -3.2, Tennessee -8.4.</div>
         </li>
     
         <li class="preview-angle">
@@ -13573,7 +13567,7 @@
                 <span class="preview-angle-tag">Pass</span>
                 <span class="preview-chip" style="background: #E31837; color: #FFFFFF; border-color: #b6132c;">ADV: Kansas City</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Kansas City #5 Pass YPG vs Tennessee #8 Opp Pass YPG.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Kansas City — Kansas City #5 Pass YPG vs Tennessee #25 Opp Pass YPG.</div>
         </li>
     
         <li class="preview-angle">
@@ -13581,7 +13575,7 @@
                 <span class="preview-angle-tag">Pass</span>
                 <span class="preview-chip" style="background: #E31837; color: #FFFFFF; border-color: #b6132c;">ADV: Kansas City</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Kansas City #12 Yards/Att vs Tennessee #4 Opp Yards/Att.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Kansas City — Kansas City #12 Yards/Att vs Tennessee #29 Opp Yards/Att.</div>
         </li>
     
         <li class="preview-angle">
@@ -13589,15 +13583,15 @@
                 <span class="preview-angle-tag">Red Zone</span>
                 <span class="preview-chip" style="background: #E31837; color: #FFFFFF; border-color: #b6132c;">ADV: Kansas City</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Kansas City #10 RZ TD % vs Tennessee #9 Opp RZ TD %.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Kansas City — Kansas City #10 RZ TD % vs Tennessee #24 Opp RZ TD %.</div>
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pace</span>
-                <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: Tennessee</span>
+                <span class="preview-chip" style="background: #E31837; color: #FFFFFF; border-color: #b6132c;">ADV: Kansas City</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Tempo: Kansas City #31 Seconds/Play, Tennessee #8.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Kansas City — Tempo (lower faster): Kansas City #2, Tennessee #25.</div>
         </li>
     
         <li class="preview-angle">
@@ -13605,7 +13599,7 @@
                 <span class="preview-angle-tag">3rd Down</span>
                 <span class="preview-chip" style="background: #E31837; color: #FFFFFF; border-color: #b6132c;">ADV: Kansas City</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Kansas City #13 3rd Down % vs Tennessee #10 Opp 3rd Down %.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Kansas City — Kansas City #13 3rd Down % vs Tennessee #23 Opp 3rd Down %.</div>
         </li>
     
         <li class="preview-angle">
@@ -13613,7 +13607,7 @@
                 <span class="preview-angle-tag">Turnovers</span>
                 <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: Tennessee</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Tennessee #23 INTs / G vs Kansas City #20 Opp INTs / G.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Tennessee — Tennessee #10 INTs / G vs Kansas City #20 Opp INTs / G.</div>
         </li>
     </ul>
         </div>
@@ -13732,7 +13726,7 @@
                 <h4 class="preview-title">Weather</h4>
                 <span class="preview-meta">Kickoff → +3h</span>
             </div>
-            <div class="flex flex-wrap gap-2 text-sm text-slate-700"><span class="preview-chip preview-chip--neutral">Temp 13.0F, Wind 16.6 mph, Precip 0%</span><span class="preview-chip preview-chip--neutral">Temp 13.0F</span><span class="preview-chip preview-chip--neutral">Wind 16.6 mph</span><span class="preview-chip preview-chip--neutral">Precip 0%</span></div>
+            <div class="flex flex-wrap gap-2 text-sm text-slate-700"><span class="preview-chip preview-chip--neutral">Temp 55.4F, Wind 10.3 mph, Precip 0%</span><span class="preview-chip preview-chip--neutral">Temp 55.4F</span><span class="preview-chip preview-chip--neutral">Wind 10.3 mph</span><span class="preview-chip preview-chip--neutral">Precip 0%</span></div>
         </div>
     </div>
         </div>
@@ -15504,7 +15498,7 @@
                 <span class="preview-angle-tag">Explosives</span>
                 <span class="preview-chip" style="background: #00338D; color: #FFFFFF; border-color: #002971;">ADV: Buffalo</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Buffalo #3 Explosive Pass Rate vs Cleveland #7 Opp 20+ Pass Rate.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Buffalo — Buffalo #3 Explosive Pass Rate vs Cleveland #26 Opp 20+ Pass Rate.</div>
         </li>
     
         <li class="preview-angle">
@@ -15512,7 +15506,7 @@
                 <span class="preview-angle-tag">Discipline</span>
                 <span class="preview-chip preview-chip--neutral">BALANCED</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Cleveland #4 Penalties / G vs Buffalo #32 Opp Penalties / G.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Balance — Cleveland #29 Penalties / G vs Buffalo #32 Opp Penalties / G.</div>
         </li>
     
         <li class="preview-angle">
@@ -15520,7 +15514,7 @@
                 <span class="preview-angle-tag">Trend</span>
                 <span class="preview-chip" style="background: #00338D; color: #FFFFFF; border-color: #002971;">ADV: Buffalo</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Last 5 avg diff: Buffalo +7.2, Cleveland -8.2.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Buffalo — Last 5 avg diff: Buffalo +7.2, Cleveland -8.2.</div>
         </li>
     
         <li class="preview-angle">
@@ -15528,7 +15522,7 @@
                 <span class="preview-angle-tag">Run</span>
                 <span class="preview-chip" style="background: #00338D; color: #FFFFFF; border-color: #002971;">ADV: Buffalo</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Buffalo #1 Rush YPG vs Cleveland #19 Opp Rush YPG.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Buffalo — Buffalo #1 Rush YPG vs Cleveland #14 Opp Rush YPG.</div>
         </li>
     
         <li class="preview-angle">
@@ -15536,7 +15530,7 @@
                 <span class="preview-angle-tag">Explosives</span>
                 <span class="preview-chip" style="background: #FF3C00; color: #FFFFFF; border-color: #cc3000;">ADV: Cleveland</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Cleveland #20 Explosive Run Rate vs Buffalo #2 Opp 10+ Rush Rate.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Cleveland — Cleveland #20 Explosive Run Rate vs Buffalo #31 Opp 10+ Rush Rate.</div>
         </li>
     
         <li class="preview-angle">
@@ -15544,7 +15538,7 @@
                 <span class="preview-angle-tag">Run</span>
                 <span class="preview-chip" style="background: #00338D; color: #FFFFFF; border-color: #002971;">ADV: Buffalo</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Buffalo #2 Yards/Rush vs Cleveland #24 Opp Yards/Rush.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Buffalo — Buffalo #2 Yards/Rush vs Cleveland #9 Opp Yards/Rush.</div>
         </li>
     
         <li class="preview-angle">
@@ -15552,7 +15546,7 @@
                 <span class="preview-angle-tag">3rd Down</span>
                 <span class="preview-chip" style="background: #00338D; color: #FFFFFF; border-color: #002971;">ADV: Buffalo</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Buffalo #3 3rd Down % vs Cleveland #25 Opp 3rd Down %.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Buffalo — Buffalo #3 3rd Down % vs Cleveland #8 Opp 3rd Down %.</div>
         </li>
     
         <li class="preview-angle">
@@ -15560,7 +15554,7 @@
                 <span class="preview-angle-tag">Pass</span>
                 <span class="preview-chip preview-chip--neutral">BALANCED</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Buffalo #7 Yards/Att vs Cleveland #28 Opp Yards/Att.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Balance — Buffalo #7 Yards/Att vs Cleveland #5 Opp Yards/Att.</div>
         </li>
     
         <li class="preview-angle">
@@ -15568,7 +15562,7 @@
                 <span class="preview-angle-tag">Turnovers</span>
                 <span class="preview-chip" style="background: #FF3C00; color: #FFFFFF; border-color: #cc3000;">ADV: Cleveland</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Cleveland #15 Opp INTs / G vs Buffalo #14 INTs / G.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Cleveland — Cleveland #15 Opp INTs / G vs Buffalo #19 INTs / G.</div>
         </li>
     </ul>
         </div>
@@ -15679,7 +15673,7 @@
                 <h4 class="preview-title">Weather</h4>
                 <span class="preview-meta">Kickoff → +3h</span>
             </div>
-            <div class="flex flex-wrap gap-2 text-sm text-slate-700"><span class="preview-chip preview-chip--neutral">Temp -3.8F, Wind 19.6 mph, Precip 0%</span><span class="preview-chip preview-chip--neutral">Temp -3.8F</span><span class="preview-chip preview-chip--neutral">Wind 19.6 mph</span><span class="preview-chip preview-chip--neutral">Precip 0%</span></div>
+            <div class="flex flex-wrap gap-2 text-sm text-slate-700"><span class="preview-chip preview-chip--neutral">Temp 25.2F, Wind 12.2 mph, Precip 0%</span><span class="preview-chip preview-chip--neutral">Temp 25.2F</span><span class="preview-chip preview-chip--neutral">Wind 12.2 mph</span><span class="preview-chip preview-chip--neutral">Precip 0%</span></div>
         </div>
     </div>
         </div>
@@ -17408,7 +17402,7 @@
                 <span class="preview-angle-tag">Explosives</span>
                 <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: Denver</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Denver #6 Explosive Run Rate vs Jacksonville #23 Opp 10+ Rush Rate.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Denver — Denver #6 Explosive Run Rate vs Jacksonville #10 Opp 10+ Rush Rate.</div>
         </li>
     
         <li class="preview-angle">
@@ -17416,7 +17410,7 @@
                 <span class="preview-angle-tag">Turnovers</span>
                 <span class="preview-chip" style="background: #006778; color: #FFFFFF; border-color: #005260;">ADV: Jacksonville</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Jacksonville #21 Fumbles / G vs Denver #21 Opp Fumbles / G.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Jacksonville — Jacksonville #12 Fumbles / G vs Denver #21 Opp Fumbles / G.</div>
         </li>
     
         <li class="preview-angle">
@@ -17424,7 +17418,7 @@
                 <span class="preview-angle-tag">Trend</span>
                 <span class="preview-chip" style="background: #006778; color: #FFFFFF; border-color: #005260;">ADV: Jacksonville</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Last 5 avg diff: Jacksonville +19.8, Denver +4.4.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Jacksonville — Last 5 avg diff: Jacksonville +19.8, Denver +4.4.</div>
         </li>
     
         <li class="preview-angle">
@@ -17432,7 +17426,7 @@
                 <span class="preview-angle-tag">Pass</span>
                 <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: Denver</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Denver #11 Pass YPG vs Jacksonville #13 Opp Pass YPG.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Denver — Denver #11 Pass YPG vs Jacksonville #20 Opp Pass YPG.</div>
         </li>
     
         <li class="preview-angle">
@@ -17440,7 +17434,7 @@
                 <span class="preview-angle-tag">3rd Down</span>
                 <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: Denver</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Denver #8 3rd Down % vs Jacksonville #7 Opp 3rd Down %.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Denver — Denver #8 3rd Down % vs Jacksonville #26 Opp 3rd Down %.</div>
         </li>
     
         <li class="preview-angle">
@@ -17448,7 +17442,7 @@
                 <span class="preview-angle-tag">Red Zone</span>
                 <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: Denver</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Denver #13 RZ TD % vs Jacksonville #12 Opp RZ TD %.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Denver — Denver #13 RZ TD % vs Jacksonville #21 Opp RZ TD %.</div>
         </li>
     
         <li class="preview-angle">
@@ -17456,7 +17450,7 @@
                 <span class="preview-angle-tag">Turnovers</span>
                 <span class="preview-chip preview-chip--neutral">BALANCED</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Denver #29 Fumbles / G vs Jacksonville #6 Opp Fumbles / G.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Balance — Denver #4 Fumbles / G vs Jacksonville #6 Opp Fumbles / G.</div>
         </li>
     
         <li class="preview-angle">
@@ -17464,7 +17458,7 @@
                 <span class="preview-angle-tag">Explosives</span>
                 <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: Denver</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Denver #24 Opp 20+ Pass Rate vs Jacksonville #14 Explosive Pass Rate.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Denver — Denver #9 Opp 20+ Pass Rate vs Jacksonville #14 Explosive Pass Rate.</div>
         </li>
     
         <li class="preview-angle">
@@ -17472,7 +17466,7 @@
                 <span class="preview-angle-tag">Pass</span>
                 <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: Denver</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Denver #22 Opp Pass YPG vs Jacksonville #18 Pass YPG.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Denver — Denver #11 Opp Pass YPG vs Jacksonville #18 Pass YPG.</div>
         </li>
     </ul>
         </div>
@@ -17559,7 +17553,7 @@
                 <h4 class="preview-title">Weather</h4>
                 <span class="preview-meta">Kickoff → +3h</span>
             </div>
-            <div class="flex flex-wrap gap-2 text-sm text-slate-700"><span class="preview-chip preview-chip--neutral">Temp 16.0F, Wind 5.6 mph, Precip 0%</span><span class="preview-chip preview-chip--neutral">Temp 16.0F</span><span class="preview-chip preview-chip--neutral">Wind 5.6 mph</span><span class="preview-chip preview-chip--neutral">Precip 0%</span></div>
+            <div class="flex flex-wrap gap-2 text-sm text-slate-700"><span class="preview-chip preview-chip--neutral">Temp 60.8F, Wind 3.5 mph, Precip 0%</span><span class="preview-chip preview-chip--neutral">Temp 60.8F</span><span class="preview-chip preview-chip--neutral">Wind 3.5 mph</span><span class="preview-chip preview-chip--neutral">Precip 0%</span></div>
         </div>
     </div>
         </div>
@@ -19329,7 +19323,7 @@
                 <span class="preview-angle-tag">Explosives</span>
                 <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV: Atlanta</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Atlanta #15 Explosive Run Rate vs Arizona #10 Opp 10+ Rush Rate.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Atlanta — Atlanta #15 Explosive Run Rate vs Arizona #23 Opp 10+ Rush Rate.</div>
         </li>
     
         <li class="preview-angle">
@@ -19337,7 +19331,7 @@
                 <span class="preview-angle-tag">Turnovers</span>
                 <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV: Atlanta</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Atlanta #27 INTs / G vs Arizona #17 Opp INTs / G.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Atlanta — Atlanta #6 INTs / G vs Arizona #17 Opp INTs / G.</div>
         </li>
     
         <li class="preview-angle">
@@ -19345,7 +19339,7 @@
                 <span class="preview-angle-tag">Trend</span>
                 <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV: Atlanta</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Last 5 avg diff: Atlanta -3.8, Arizona -14.6.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Atlanta — Last 5 avg diff: Atlanta -3.8, Arizona -14.6.</div>
         </li>
     
         <li class="preview-angle">
@@ -19353,7 +19347,7 @@
                 <span class="preview-angle-tag">Run</span>
                 <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV: Atlanta</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Atlanta #13 Yards/Rush vs Arizona #5 Opp Yards/Rush.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Atlanta — Atlanta #13 Yards/Rush vs Arizona #28 Opp Yards/Rush.</div>
         </li>
     
         <li class="preview-angle">
@@ -19361,7 +19355,7 @@
                 <span class="preview-angle-tag">Red Zone</span>
                 <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV: Atlanta</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Atlanta #7 RZ TD % vs Arizona #9 Opp RZ TD %.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Atlanta — Atlanta #7 RZ TD % vs Arizona #24 Opp RZ TD %.</div>
         </li>
     
         <li class="preview-angle">
@@ -19369,7 +19363,7 @@
                 <span class="preview-angle-tag">Pass</span>
                 <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV: Atlanta</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Atlanta #11 Yards/Att vs Arizona #8 Opp Yards/Att.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Atlanta — Atlanta #11 Yards/Att vs Arizona #25 Opp Yards/Att.</div>
         </li>
     
         <li class="preview-angle">
@@ -19377,7 +19371,7 @@
                 <span class="preview-angle-tag">3rd Down</span>
                 <span class="preview-chip" style="background: #97233F; color: #FFFFFF; border-color: #791c32;">ADV: Arizona</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Arizona #7 3rd Down % vs Atlanta #13 Opp 3rd Down %.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Arizona — Arizona #7 3rd Down % vs Atlanta #20 Opp 3rd Down %.</div>
         </li>
     
         <li class="preview-angle">
@@ -19385,7 +19379,7 @@
                 <span class="preview-angle-tag">Run</span>
                 <span class="preview-chip" style="background: #A71930; color: #FFFFFF; border-color: #861426;">ADV: Atlanta</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Atlanta #13 Rush YPG vs Arizona #11 Opp Rush YPG.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Atlanta — Atlanta #13 Rush YPG vs Arizona #22 Opp Rush YPG.</div>
         </li>
     
         <li class="preview-angle">
@@ -19393,7 +19387,7 @@
                 <span class="preview-angle-tag">Discipline</span>
                 <span class="preview-chip" style="background: #97233F; color: #FFFFFF; border-color: #791c32;">ADV: Arizona</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Arizona #13 Penalties / G vs Atlanta #29 Opp Penalties / G.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Arizona — Arizona #20 Penalties / G vs Atlanta #29 Opp Penalties / G.</div>
         </li>
     </ul>
         </div>
@@ -19512,7 +19506,7 @@
                 <h4 class="preview-title">Weather</h4>
                 <span class="preview-meta">Kickoff → +3h</span>
             </div>
-            <div class="flex flex-wrap gap-2 text-sm text-slate-700"><span class="preview-chip preview-chip--neutral">Temp 25.3F, Wind 2.2 mph, Precip 0%</span><span class="preview-chip preview-chip--neutral">Temp 25.3F</span><span class="preview-chip preview-chip--neutral">Wind 2.2 mph</span><span class="preview-chip preview-chip--neutral">Precip 0%</span></div>
+            <div class="flex flex-wrap gap-2 text-sm text-slate-700"><span class="preview-chip preview-chip--neutral">Temp 77.6F, Wind 1.4 mph, Precip 0%</span><span class="preview-chip preview-chip--neutral">Temp 77.6F</span><span class="preview-chip preview-chip--neutral">Wind 1.4 mph</span><span class="preview-chip preview-chip--neutral">Precip 0%</span></div>
         </div>
     </div>
         </div>
@@ -21241,7 +21235,7 @@
                 <span class="preview-angle-tag">Explosives</span>
                 <span class="preview-chip" style="background: #000000; color: #FFFFFF; border-color: #000000;">ADV: Pittsburgh</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Pittsburgh #23 Explosive Pass Rate vs Detroit #1 Opp 20+ Pass Rate.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Pittsburgh — Pittsburgh #23 Explosive Pass Rate vs Detroit #32 Opp 20+ Pass Rate.</div>
         </li>
     
         <li class="preview-angle">
@@ -21249,7 +21243,7 @@
                 <span class="preview-angle-tag">Discipline</span>
                 <span class="preview-chip" style="background: #0076B6; color: #FFFFFF; border-color: #005e92;">ADV: Detroit</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Detroit #30 Penalties / G vs Pittsburgh #24 Opp Penalties / G.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Detroit — Detroit #3 Penalties / G vs Pittsburgh #24 Opp Penalties / G.</div>
         </li>
     
         <li class="preview-angle">
@@ -21257,7 +21251,7 @@
                 <span class="preview-angle-tag">Trend</span>
                 <span class="preview-chip" style="background: #000000; color: #FFFFFF; border-color: #000000;">ADV: Pittsburgh</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Last 5 avg diff: Pittsburgh +3.6, Detroit +0.0.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Pittsburgh — Last 5 avg diff: Pittsburgh +3.6, Detroit +0.0.</div>
         </li>
     
         <li class="preview-angle">
@@ -21265,7 +21259,7 @@
                 <span class="preview-angle-tag">Pass</span>
                 <span class="preview-chip" style="background: #0076B6; color: #FFFFFF; border-color: #005e92;">ADV: Detroit</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Detroit #3 Pass YPG vs Pittsburgh #6 Opp Pass YPG.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Detroit — Detroit #3 Pass YPG vs Pittsburgh #27 Opp Pass YPG.</div>
         </li>
     
         <li class="preview-angle">
@@ -21273,7 +21267,7 @@
                 <span class="preview-angle-tag">Discipline</span>
                 <span class="preview-chip" style="background: #000000; color: #FFFFFF; border-color: #000000;">ADV: Pittsburgh</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Pittsburgh #26 Penalties / G vs Detroit #20 Opp Penalties / G.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Pittsburgh — Pittsburgh #7 Penalties / G vs Detroit #20 Opp Penalties / G.</div>
         </li>
     
         <li class="preview-angle">
@@ -21281,7 +21275,7 @@
                 <span class="preview-angle-tag">Run</span>
                 <span class="preview-chip" style="background: #0076B6; color: #FFFFFF; border-color: #005e92;">ADV: Detroit</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Detroit #4 Yards/Rush vs Pittsburgh #15 Opp Yards/Rush.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Detroit — Detroit #4 Yards/Rush vs Pittsburgh #18 Opp Yards/Rush.</div>
         </li>
     
         <li class="preview-angle">
@@ -21289,7 +21283,7 @@
                 <span class="preview-angle-tag">Run</span>
                 <span class="preview-chip" style="background: #0076B6; color: #FFFFFF; border-color: #005e92;">ADV: Detroit</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Detroit #5 Rush YPG vs Pittsburgh #14 Opp Rush YPG.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Detroit — Detroit #5 Rush YPG vs Pittsburgh #19 Opp Rush YPG.</div>
         </li>
     
         <li class="preview-angle">
@@ -21297,7 +21291,7 @@
                 <span class="preview-angle-tag">Red Zone</span>
                 <span class="preview-chip" style="background: #000000; color: #FFFFFF; border-color: #000000;">ADV: Pittsburgh</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Pittsburgh #9 RZ TD % vs Detroit #15 Opp RZ TD %.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Pittsburgh — Pittsburgh #9 RZ TD % vs Detroit #18 Opp RZ TD %.</div>
         </li>
     
         <li class="preview-angle">
@@ -21305,7 +21299,7 @@
                 <span class="preview-angle-tag">Explosives</span>
                 <span class="preview-chip" style="background: #0076B6; color: #FFFFFF; border-color: #005e92;">ADV: Detroit</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Detroit #10 Explosive Run Rate vs Pittsburgh #11 Opp 10+ Rush Rate.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Detroit — Detroit #10 Explosive Run Rate vs Pittsburgh #22 Opp 10+ Rush Rate.</div>
         </li>
     </ul>
         </div>
@@ -21408,7 +21402,7 @@
                 <h4 class="preview-title">Weather</h4>
                 <span class="preview-meta">Kickoff → +3h</span>
             </div>
-            <div class="flex flex-wrap gap-2 text-sm text-slate-700"><span class="preview-chip preview-chip--neutral">Temp -4.7F, Wind 7.5 mph, Precip 0%</span><span class="preview-chip preview-chip--neutral">Temp -4.7F</span><span class="preview-chip preview-chip--neutral">Wind 7.5 mph</span><span class="preview-chip preview-chip--neutral">Precip 0%</span></div>
+            <div class="flex flex-wrap gap-2 text-sm text-slate-700"><span class="preview-chip preview-chip--neutral">Temp 23.5F, Wind 4.6 mph, Precip 0%</span><span class="preview-chip preview-chip--neutral">Temp 23.5F</span><span class="preview-chip preview-chip--neutral">Wind 4.6 mph</span><span class="preview-chip preview-chip--neutral">Precip 0%</span></div>
         </div>
     </div>
         </div>
@@ -23196,12 +23190,12 @@
             </div>
             <div class="mt-3 space-y-2">
                 <div class="preview-edge-bar">
-                    <div class="preview-edge-fill" style="width: 11.301057941567995%; background: #000000;"></div>
-                    <div class="preview-edge-fill" style="width: 88.698942058432%; background: #03202F;"></div>
+                    <div class="preview-edge-fill" style="width: 0%; background: #000000;"></div>
+                    <div class="preview-edge-fill" style="width: 100%; background: #03202F;"></div>
                 </div>
                 <div class="flex items-center justify-between text-[11px] text-slate-500">
-                    <span>Las Vegas 0.48</span>
-                    <span>Houston 3.80</span>
+                    <span>Las Vegas 0.00</span>
+                    <span>Houston 4.28</span>
                 </div>
                 <div class="text-[11px] text-slate-400">6 of 9 angles show an edge</div>
             </div>
@@ -23222,7 +23216,7 @@
                 <span class="preview-angle-tag">Explosives</span>
                 <span class="preview-chip preview-chip--neutral">BALANCED</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Las Vegas #26 Explosive Pass Rate vs Houston #10 Opp 20+ Pass Rate.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Balance — Las Vegas #26 Explosive Pass Rate vs Houston #23 Opp 20+ Pass Rate.</div>
         </li>
     
         <li class="preview-angle">
@@ -23230,7 +23224,7 @@
                 <span class="preview-angle-tag">Turnovers</span>
                 <span class="preview-chip" style="background: #03202F; color: #FFFFFF; border-color: #021a26;">ADV: Houston</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Houston #27 Fumbles / G vs Las Vegas #17 Opp Fumbles / G.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Houston — Houston #6 Fumbles / G vs Las Vegas #17 Opp Fumbles / G.</div>
         </li>
     
         <li class="preview-angle">
@@ -23238,7 +23232,7 @@
                 <span class="preview-angle-tag">Trend</span>
                 <span class="preview-chip" style="background: #03202F; color: #FFFFFF; border-color: #021a26;">ADV: Houston</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Last 5 avg diff: Las Vegas -17.2, Houston +8.2.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Houston — Last 5 avg diff: Las Vegas -17.2, Houston +8.2.</div>
         </li>
     
         <li class="preview-angle">
@@ -23246,7 +23240,7 @@
                 <span class="preview-angle-tag">Pass</span>
                 <span class="preview-chip" style="background: #03202F; color: #FFFFFF; border-color: #021a26;">ADV: Houston</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Houston #20 Yards/Att vs Las Vegas #9 Opp Yards/Att.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Houston — Houston #20 Yards/Att vs Las Vegas #24 Opp Yards/Att.</div>
         </li>
     
         <li class="preview-angle">
@@ -23254,7 +23248,7 @@
                 <span class="preview-angle-tag">3rd Down</span>
                 <span class="preview-chip" style="background: #03202F; color: #FFFFFF; border-color: #021a26;">ADV: Houston</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Houston #18 3rd Down % vs Las Vegas #1 Opp 3rd Down %.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Houston — Houston #18 3rd Down % vs Las Vegas #32 Opp 3rd Down %.</div>
         </li>
     
         <li class="preview-angle">
@@ -23262,7 +23256,7 @@
                 <span class="preview-angle-tag">Turnovers</span>
                 <span class="preview-chip" style="background: #03202F; color: #FFFFFF; border-color: #021a26;">ADV: Houston</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Houston #23 INTs / G vs Las Vegas #20 Opp INTs / G.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Houston — Houston #10 INTs / G vs Las Vegas #20 Opp INTs / G.</div>
         </li>
     
         <li class="preview-angle">
@@ -23270,7 +23264,7 @@
                 <span class="preview-angle-tag">Pass</span>
                 <span class="preview-chip preview-chip--neutral">BALANCED</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Houston #14 Pass YPG vs Las Vegas #17 Opp Pass YPG.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Balance — Houston #14 Pass YPG vs Las Vegas #16 Opp Pass YPG.</div>
         </li>
     
         <li class="preview-angle">
@@ -23278,15 +23272,15 @@
                 <span class="preview-angle-tag">Red Zone</span>
                 <span class="preview-chip preview-chip--neutral">BALANCED</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Las Vegas #23 RZ TD % vs Houston #8 Opp RZ TD %.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Balance — Las Vegas #23 RZ TD % vs Houston #25 Opp RZ TD %.</div>
         </li>
     
         <li class="preview-angle">
             <div class="flex items-center justify-between gap-2 mb-1">
                 <span class="preview-angle-tag">Pace</span>
-                <span class="preview-chip" style="background: #000000; color: #FFFFFF; border-color: #000000;">ADV: Las Vegas</span>
+                <span class="preview-chip" style="background: #03202F; color: #FFFFFF; border-color: #021a26;">ADV: Houston</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Tempo: Las Vegas #3 Seconds/Play, Houston #18.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Houston — Tempo (lower faster): Las Vegas #30, Houston #15.</div>
         </li>
     </ul>
         </div>
@@ -23341,7 +23335,7 @@
                 <h4 class="preview-title">Weather</h4>
                 <span class="preview-meta">Kickoff → +3h</span>
             </div>
-            <div class="flex flex-wrap gap-2 text-sm text-slate-700"><span class="preview-chip preview-chip--neutral">Temp 24.4F, Wind 5.5 mph, Precip 3%</span><span class="preview-chip preview-chip--neutral">Temp 24.4F</span><span class="preview-chip preview-chip--neutral">Wind 5.5 mph</span><span class="preview-chip preview-chip--neutral">Precip 3%</span></div>
+            <div class="flex flex-wrap gap-2 text-sm text-slate-700"><span class="preview-chip preview-chip--neutral">Temp 75.9F, Wind 3.4 mph, Precip 3%</span><span class="preview-chip preview-chip--neutral">Temp 75.9F</span><span class="preview-chip preview-chip--neutral">Wind 3.4 mph</span><span class="preview-chip preview-chip--neutral">Precip 3%</span></div>
         </div>
     </div>
         </div>
@@ -25154,7 +25148,7 @@
                 <span class="preview-angle-tag">Explosives</span>
                 <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: New England</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">New England #4 Explosive Pass Rate vs Baltimore #12 Opp 20+ Pass Rate.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: New England — New England #4 Explosive Pass Rate vs Baltimore #21 Opp 20+ Pass Rate.</div>
         </li>
     
         <li class="preview-angle">
@@ -25162,7 +25156,7 @@
                 <span class="preview-angle-tag">Discipline</span>
                 <span class="preview-chip" style="background: #241773; color: #FFFFFF; border-color: #1d125c;">ADV: Baltimore</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Baltimore #29 Penalties / G vs New England #15 Opp Penalties / G.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Baltimore — Baltimore #4 Penalties / G vs New England #15 Opp Penalties / G.</div>
         </li>
     
         <li class="preview-angle">
@@ -25170,7 +25164,7 @@
                 <span class="preview-angle-tag">Trend</span>
                 <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: New England</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Last 5 avg diff: New England +7.6, Baltimore +4.2.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: New England — Last 5 avg diff: New England +7.6, Baltimore +4.2.</div>
         </li>
     
         <li class="preview-angle">
@@ -25178,7 +25172,7 @@
                 <span class="preview-angle-tag">Pass</span>
                 <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: New England</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">New England #6 Pass YPG vs Baltimore #7 Opp Pass YPG.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: New England — New England #6 Pass YPG vs Baltimore #26 Opp Pass YPG.</div>
         </li>
     
         <li class="preview-angle">
@@ -25186,7 +25180,7 @@
                 <span class="preview-angle-tag">Pass</span>
                 <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: New England</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">New England #2 Yards/Att vs Baltimore #18 Opp Yards/Att.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: New England — New England #2 Yards/Att vs Baltimore #15 Opp Yards/Att.</div>
         </li>
     
         <li class="preview-angle">
@@ -25194,7 +25188,7 @@
                 <span class="preview-angle-tag">Explosives</span>
                 <span class="preview-chip" style="background: #241773; color: #FFFFFF; border-color: #1d125c;">ADV: Baltimore</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Baltimore #2 Explosive Run Rate vs New England #16 Opp 10+ Rush Rate.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Baltimore — Baltimore #2 Explosive Run Rate vs New England #17 Opp 10+ Rush Rate.</div>
         </li>
     
         <li class="preview-angle">
@@ -25202,7 +25196,7 @@
                 <span class="preview-angle-tag">Run</span>
                 <span class="preview-chip" style="background: #241773; color: #FFFFFF; border-color: #1d125c;">ADV: Baltimore</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Baltimore #1 Yards/Rush vs New England #23 Opp Yards/Rush.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Baltimore — Baltimore #1 Yards/Rush vs New England #10 Opp Yards/Rush.</div>
         </li>
     
         <li class="preview-angle">
@@ -25210,7 +25204,7 @@
                 <span class="preview-angle-tag">Turnovers</span>
                 <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: New England</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">New England #23 INTs / G vs Baltimore #17 Opp INTs / G.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: New England — New England #10 INTs / G vs Baltimore #17 Opp INTs / G.</div>
         </li>
     
         <li class="preview-angle">
@@ -25218,7 +25212,7 @@
                 <span class="preview-angle-tag">Run</span>
                 <span class="preview-chip" style="background: #002244; color: #FFFFFF; border-color: #001b36;">ADV: New England</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">New England #11 Rush YPG vs Baltimore #18 Opp Rush YPG.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: New England — New England #11 Rush YPG vs Baltimore #15 Opp Rush YPG.</div>
         </li>
     </ul>
         </div>
@@ -25313,7 +25307,7 @@
                 <h4 class="preview-title">Weather</h4>
                 <span class="preview-meta">Kickoff → +3h</span>
             </div>
-            <div class="flex flex-wrap gap-2 text-sm text-slate-700"><span class="preview-chip preview-chip--neutral">Temp -2.9F, Wind 7.2 mph, Precip 0%</span><span class="preview-chip preview-chip--neutral">Temp -2.9F</span><span class="preview-chip preview-chip--neutral">Wind 7.2 mph</span><span class="preview-chip preview-chip--neutral">Precip 0%</span></div>
+            <div class="flex flex-wrap gap-2 text-sm text-slate-700"><span class="preview-chip preview-chip--neutral">Temp 26.8F, Wind 4.5 mph, Precip 0%</span><span class="preview-chip preview-chip--neutral">Temp 26.8F</span><span class="preview-chip preview-chip--neutral">Wind 4.5 mph</span><span class="preview-chip preview-chip--neutral">Precip 0%</span></div>
         </div>
     </div>
         </div>
@@ -27169,7 +27163,7 @@
                 <span class="preview-angle-tag">Explosives</span>
                 <span class="preview-chip" style="background: #AA0000; color: #FFFFFF; border-color: #880000;">ADV: San Francisco</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">San Francisco #18 Explosive Pass Rate vs Indianapolis #11 Opp 20+ Pass Rate.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: San Francisco — San Francisco #18 Explosive Pass Rate vs Indianapolis #22 Opp 20+ Pass Rate.</div>
         </li>
     
         <li class="preview-angle">
@@ -27177,7 +27171,7 @@
                 <span class="preview-angle-tag">Discipline</span>
                 <span class="preview-chip" style="background: #AA0000; color: #FFFFFF; border-color: #880000;">ADV: San Francisco</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">San Francisco #30 Penalties / G vs Indianapolis #17 Opp Penalties / G.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: San Francisco — San Francisco #3 Penalties / G vs Indianapolis #17 Opp Penalties / G.</div>
         </li>
     
         <li class="preview-angle">
@@ -27185,7 +27179,7 @@
                 <span class="preview-angle-tag">Trend</span>
                 <span class="preview-chip" style="background: #AA0000; color: #FFFFFF; border-color: #880000;">ADV: San Francisco</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Last 5 avg diff: San Francisco +9.0, Indianapolis -4.0.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: San Francisco — Last 5 avg diff: San Francisco +9.0, Indianapolis -4.0.</div>
         </li>
     
         <li class="preview-angle">
@@ -27193,7 +27187,7 @@
                 <span class="preview-angle-tag">Pass</span>
                 <span class="preview-chip" style="background: #AA0000; color: #FFFFFF; border-color: #880000;">ADV: San Francisco</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">San Francisco #4 Pass YPG vs Indianapolis #2 Opp Pass YPG.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: San Francisco — San Francisco #4 Pass YPG vs Indianapolis #31 Opp Pass YPG.</div>
         </li>
     
         <li class="preview-angle">
@@ -27201,7 +27195,7 @@
                 <span class="preview-angle-tag">3rd Down</span>
                 <span class="preview-chip" style="background: #AA0000; color: #FFFFFF; border-color: #880000;">ADV: San Francisco</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">San Francisco #2 3rd Down % vs Indianapolis #11 Opp 3rd Down %.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: San Francisco — San Francisco #2 3rd Down % vs Indianapolis #22 Opp 3rd Down %.</div>
         </li>
     
         <li class="preview-angle">
@@ -27209,7 +27203,7 @@
                 <span class="preview-angle-tag">Red Zone</span>
                 <span class="preview-chip" style="background: #AA0000; color: #FFFFFF; border-color: #880000;">ADV: San Francisco</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">San Francisco #1 RZ TD % vs Indianapolis #16 Opp RZ TD %.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: San Francisco — San Francisco #1 RZ TD % vs Indianapolis #17 Opp RZ TD %.</div>
         </li>
     
         <li class="preview-angle">
@@ -27217,7 +27211,7 @@
                 <span class="preview-angle-tag">Discipline</span>
                 <span class="preview-chip" style="background: #002C5F; color: #FFFFFF; border-color: #00234c;">ADV: Indianapolis</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Indianapolis #27 Penalties / G vs San Francisco #20 Opp Penalties / G.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Indianapolis — Indianapolis #6 Penalties / G vs San Francisco #20 Opp Penalties / G.</div>
         </li>
     
         <li class="preview-angle">
@@ -27225,7 +27219,7 @@
                 <span class="preview-angle-tag">Pass</span>
                 <span class="preview-chip" style="background: #002C5F; color: #FFFFFF; border-color: #00234c;">ADV: Indianapolis</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Indianapolis #9 Pass YPG vs San Francisco #11 Opp Pass YPG.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Indianapolis — Indianapolis #9 Pass YPG vs San Francisco #22 Opp Pass YPG.</div>
         </li>
     
         <li class="preview-angle">
@@ -27233,7 +27227,7 @@
                 <span class="preview-angle-tag">Run</span>
                 <span class="preview-chip" style="background: #002C5F; color: #FFFFFF; border-color: #00234c;">ADV: Indianapolis</span>
             </div>
-            <div class="text-sm text-slate-700 leading-relaxed">Indianapolis #5 Yards/Rush vs San Francisco #16 Opp Yards/Rush.</div>
+            <div class="text-sm text-slate-700 leading-relaxed">Edge: Indianapolis — Indianapolis #5 Yards/Rush vs San Francisco #17 Opp Yards/Rush.</div>
         </li>
     </ul>
         </div>
@@ -27344,7 +27338,7 @@
                 <h4 class="preview-title">Weather</h4>
                 <span class="preview-meta">Kickoff → +3h</span>
             </div>
-            <div class="flex flex-wrap gap-2 text-sm text-slate-700"><span class="preview-chip preview-chip--neutral">Temp 8.2F, Wind 18.0 mph, Precip 32%</span><span class="preview-chip preview-chip--neutral">Temp 8.2F</span><span class="preview-chip preview-chip--neutral">Wind 18.0 mph</span><span class="preview-chip preview-chip--neutral">Precip 32%</span></div>
+            <div class="flex flex-wrap gap-2 text-sm text-slate-700"><span class="preview-chip preview-chip--neutral">Temp 46.7F, Wind 11.2 mph, Precip 32%</span><span class="preview-chip preview-chip--neutral">Temp 46.7F</span><span class="preview-chip preview-chip--neutral">Wind 11.2 mph</span><span class="preview-chip preview-chip--neutral">Precip 32%</span></div>
         </div>
     </div>
         </div>
