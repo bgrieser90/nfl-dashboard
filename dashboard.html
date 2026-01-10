@@ -697,16 +697,24 @@
             color: #64748b;
         }
 
-        .preview-injury-team {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
+	        .preview-injury-team {
+	            display: inline-flex;
+	            align-items: center;
+	            gap: 6px;
+	        }
 
-        .preview-injury-card {
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 10px;
+	        .overview-injury-frame {
+	            background-color: #ffffff;
+	            background-image: none;
+	            border: 1px solid #e2e8f0;
+	            border-radius: 12px;
+	            box-shadow: none;
+	        }
+
+	        .preview-injury-card {
+	            border: 1px solid #e2e8f0;
+	            border-radius: 12px;
+	            padding: 10px;
             background: #ffffff;
         }
 
@@ -3784,11 +3792,11 @@
                                 <div class="mobile-adv-content" id="game-0-adv-content">
                                     <div class="mobile-adv-team">
                                         <p>12-5 • ATS: 12-5 • O/U: 10-7</p>
-                                        <p>Pick-aligned • Raw: 38.1 • Mean: 31.0 • Mode: 34</p>
+                                        <p>Raw: 38.1 • Mean: 31.0 • Mode: 34</p>
                                     </div>
                                     <div class="mobile-adv-team">
                                         <p>8-9 • ATS: 10-7 • O/U: 7-10</p>
-                                        <p>Pick-aligned • Raw: 23.9 • Mean: 19.1 • Mode: 27</p>
+                                        <p>Raw: 23.9 • Mean: 19.1 • Mode: 27</p>
                                     </div>
                                 </div>
                             </div>
@@ -3810,7 +3818,7 @@
                                     <p class="text-4xl font-bold team-score" style="color: #003594">
                                         26.9
                                     </p>
-                                    <p class="text-[10px] text-gray-500 mt-1">Pick-aligned • Raw: 38.1 • Mean: 31.0 • Mode: 34</p>
+                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 38.1 • Mean: 31.0 • Mode: 34</p>
                                     <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">-10</span>
                                         
@@ -3841,7 +3849,7 @@
                                     <p class="text-4xl font-bold team-score" style="color: #374151">
                                         23.2
                                     </p>
-                                    <p class="text-[10px] text-gray-500 mt-1">Pick-aligned • Raw: 23.9 • Mean: 19.1 • Mode: 27</p>
+                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 23.9 • Mean: 19.1 • Mode: 27</p>
                                     <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold shadow-sm" style="background: linear-gradient(to right, #0085CA, #0099e8); color: #FFFFFF; border: 1px solid #006498; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+10</span>
                                         
@@ -3868,7 +3876,7 @@
                             <!-- Desktop Model Performance Card -->
                             <div class="hidden md:block mt-4">
                                 
-                                    <div class="bg-slate-50 border border-slate-100 rounded-xl px-4 py-3">
+	                                    <div class="overview-injury-frame px-4 py-3">
                                         <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Model Performance</div>
                                         <div class="grid grid-cols-2 gap-4">
                                             <div class="flex items-center gap-3">
@@ -3949,7 +3957,7 @@
                         </div>
                             <!-- Key Predictions (mobile Model Picks) -->
                             <div class="md:hidden">
-                                <div class="prediction-card bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl px-3 py-3 md:px-4 md:py-4">
+                                <div class="prediction-card overview-injury-frame px-3 py-3 md:px-4 md:py-4">
                                     <div class="flex items-center justify-between mb-3">
                                         <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Model Picks</span>
                                     </div>
@@ -3988,7 +3996,7 @@
 
                             <!-- Key Predictions (mobile Safe Picks) -->
                             <div class="md:hidden">
-                                <div class="prediction-card bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl px-3 py-3 md:px-4 md:py-4">
+                                <div class="prediction-card overview-injury-frame px-3 py-3 md:px-4 md:py-4">
                                     <div class="flex items-center justify-between mb-3">
                                         <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Safe Picks</span>
                                     </div>
@@ -4028,7 +4036,7 @@
                             <!-- Key Predictions (desktop Model Picks / Safe Picks) -->
                             <div class="hidden md:grid md:grid-cols-2 md:gap-4 md:space-y-0">
                                 <!-- Model Picks -->
-                                <div class="prediction-card bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl px-3 py-3 md:px-4 md:py-4">
+                                <div class="prediction-card overview-injury-frame px-3 py-3 md:px-4 md:py-4">
                                     <div class="flex items-center justify-between mb-2">
                                         <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Model Picks</span>
                                     </div>
@@ -4057,7 +4065,7 @@
                                 </div>
 
                                 <!-- Safe Picks -->
-                                <div class="prediction-card bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl px-3 py-3 md:px-4 md:py-4">
+                                <div class="prediction-card overview-injury-frame px-3 py-3 md:px-4 md:py-4">
                                     <div class="flex items-center justify-between mb-2">
                                         <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Safe Picks</span>
                                     </div>
@@ -5976,11 +5984,11 @@
                                 <div class="mobile-adv-content" id="game-1-adv-content">
                                     <div class="mobile-adv-team">
                                         <p>9-7-1 • ATS: 6-11 • O/U: 9-8</p>
-                                        <p>Pick-aligned • Raw: 24.6 • Mean: 22.9 • Mode: 27</p>
+                                        <p>Raw: 24.6 • Mean: 22.9 • Mode: 27</p>
                                     </div>
                                     <div class="mobile-adv-team">
                                         <p>11-6 • ATS: 9-7-1 • O/U: 8-9</p>
-                                        <p>Pick-aligned • Raw: 23.1 • Mean: 22.2 • Mode: 20</p>
+                                        <p>Raw: 23.1 • Mean: 22.2 • Mode: 20</p>
                                     </div>
                                 </div>
                             </div>
@@ -6002,7 +6010,7 @@
                                     <p class="text-4xl font-bold team-score" style="color: #30534a">
                                         23.2
                                     </p>
-                                    <p class="text-[10px] text-gray-500 mt-1">Pick-aligned • Raw: 24.6 • Mean: 22.9 • Mode: 27</p>
+                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 24.6 • Mean: 22.9 • Mode: 27</p>
                                     <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">-1.5</span>
                                         
@@ -6033,7 +6041,7 @@
                                     <p class="text-4xl font-bold team-score" style="color: #374151">
                                         22.5
                                     </p>
-                                    <p class="text-[10px] text-gray-500 mt-1">Pick-aligned • Raw: 23.1 • Mean: 22.2 • Mode: 20</p>
+                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 23.1 • Mean: 22.2 • Mode: 20</p>
                                     <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold shadow-sm" style="background: linear-gradient(to right, #0B162A, #0d1930); color: #FFFFFF; border: 1px solid #081120; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+1.5</span>
                                         
@@ -6060,7 +6068,7 @@
                             <!-- Desktop Model Performance Card -->
                             <div class="hidden md:block mt-4">
                                 
-                                    <div class="bg-slate-50 border border-slate-100 rounded-xl px-4 py-3">
+	                                    <div class="overview-injury-frame px-4 py-3">
                                         <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Model Performance</div>
                                         <div class="grid grid-cols-2 gap-4">
                                             <div class="flex items-center gap-3">
@@ -6141,7 +6149,7 @@
                         </div>
                             <!-- Key Predictions (mobile Model Picks) -->
                             <div class="md:hidden">
-                                <div class="prediction-card bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl px-3 py-3 md:px-4 md:py-4">
+                                <div class="prediction-card overview-injury-frame px-3 py-3 md:px-4 md:py-4">
                                     <div class="flex items-center justify-between mb-3">
                                         <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Model Picks</span>
                                     </div>
@@ -6180,7 +6188,7 @@
 
                             <!-- Key Predictions (mobile Safe Picks) -->
                             <div class="md:hidden">
-                                <div class="prediction-card bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl px-3 py-3 md:px-4 md:py-4">
+                                <div class="prediction-card overview-injury-frame px-3 py-3 md:px-4 md:py-4">
                                     <div class="flex items-center justify-between mb-3">
                                         <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Safe Picks</span>
                                     </div>
@@ -6220,7 +6228,7 @@
                             <!-- Key Predictions (desktop Model Picks / Safe Picks) -->
                             <div class="hidden md:grid md:grid-cols-2 md:gap-4 md:space-y-0">
                                 <!-- Model Picks -->
-                                <div class="prediction-card bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl px-3 py-3 md:px-4 md:py-4">
+                                <div class="prediction-card overview-injury-frame px-3 py-3 md:px-4 md:py-4">
                                     <div class="flex items-center justify-between mb-2">
                                         <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Model Picks</span>
                                     </div>
@@ -6249,7 +6257,7 @@
                                 </div>
 
                                 <!-- Safe Picks -->
-                                <div class="prediction-card bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl px-3 py-3 md:px-4 md:py-4">
+                                <div class="prediction-card overview-injury-frame px-3 py-3 md:px-4 md:py-4">
                                     <div class="flex items-center justify-between mb-2">
                                         <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Safe Picks</span>
                                     </div>
@@ -8160,11 +8168,11 @@
                                 <div class="mobile-adv-content" id="game-2-adv-content">
                                     <div class="mobile-adv-team">
                                         <p>12-5 • ATS: 8-9 • O/U: 9-8</p>
-                                        <p>Pick-aligned • Raw: 25.8 • Mean: 25.6 • Mode: 27</p>
+                                        <p>Raw: 25.8 • Mean: 25.6 • Mode: 27</p>
                                     </div>
                                     <div class="mobile-adv-team">
                                         <p>13-4 • ATS: 12-5 • O/U: 10-7</p>
-                                        <p>Pick-aligned • Raw: 19.2 • Mean: 24.0 • Mode: 20</p>
+                                        <p>Raw: 19.2 • Mean: 24.0 • Mode: 20</p>
                                     </div>
                                 </div>
                             </div>
@@ -8186,7 +8194,7 @@
                                     <p class="text-4xl font-bold team-score" style="color: #00338D">
                                         27.4
                                     </p>
-                                    <p class="text-[10px] text-gray-500 mt-1">Pick-aligned • Raw: 25.8 • Mean: 25.6 • Mode: 27</p>
+                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 25.8 • Mean: 25.6 • Mode: 27</p>
                                     <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold shadow-sm" style="background: linear-gradient(to right, #00338D, #003ba2); color: #FFFFFF; border: 1px solid #00266a; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+0</span>
                                         
@@ -8217,7 +8225,7 @@
                                     <p class="text-4xl font-bold team-score" style="color: #374151">
                                         25.8
                                     </p>
-                                    <p class="text-[10px] text-gray-500 mt-1">Pick-aligned • Raw: 19.2 • Mean: 24.0 • Mode: 20</p>
+                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 19.2 • Mean: 24.0 • Mode: 20</p>
                                     <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">+0</span>
                                         
@@ -8244,7 +8252,7 @@
                             <!-- Desktop Model Performance Card -->
                             <div class="hidden md:block mt-4">
                                 
-                                    <div class="bg-slate-50 border border-slate-100 rounded-xl px-4 py-3">
+	                                    <div class="overview-injury-frame px-4 py-3">
                                         <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Model Performance</div>
                                         <div class="grid grid-cols-2 gap-4">
                                             <div class="flex items-center gap-3">
@@ -8325,7 +8333,7 @@
                         </div>
                             <!-- Key Predictions (mobile Model Picks) -->
                             <div class="md:hidden">
-                                <div class="prediction-card bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl px-3 py-3 md:px-4 md:py-4">
+                                <div class="prediction-card overview-injury-frame px-3 py-3 md:px-4 md:py-4">
                                     <div class="flex items-center justify-between mb-3">
                                         <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Model Picks</span>
                                     </div>
@@ -8364,7 +8372,7 @@
 
                             <!-- Key Predictions (mobile Safe Picks) -->
                             <div class="md:hidden">
-                                <div class="prediction-card bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl px-3 py-3 md:px-4 md:py-4">
+                                <div class="prediction-card overview-injury-frame px-3 py-3 md:px-4 md:py-4">
                                     <div class="flex items-center justify-between mb-3">
                                         <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Safe Picks</span>
                                     </div>
@@ -8404,7 +8412,7 @@
                             <!-- Key Predictions (desktop Model Picks / Safe Picks) -->
                             <div class="hidden md:grid md:grid-cols-2 md:gap-4 md:space-y-0">
                                 <!-- Model Picks -->
-                                <div class="prediction-card bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl px-3 py-3 md:px-4 md:py-4">
+                                <div class="prediction-card overview-injury-frame px-3 py-3 md:px-4 md:py-4">
                                     <div class="flex items-center justify-between mb-2">
                                         <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Model Picks</span>
                                     </div>
@@ -8433,7 +8441,7 @@
                                 </div>
 
                                 <!-- Safe Picks -->
-                                <div class="prediction-card bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl px-3 py-3 md:px-4 md:py-4">
+                                <div class="prediction-card overview-injury-frame px-3 py-3 md:px-4 md:py-4">
                                     <div class="flex items-center justify-between mb-2">
                                         <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Safe Picks</span>
                                     </div>
@@ -10344,11 +10352,11 @@
                                 <div class="mobile-adv-content" id="game-3-adv-content">
                                     <div class="mobile-adv-team">
                                         <p>12-5 • ATS: 11-6 • O/U: 10-7</p>
-                                        <p>Pick-aligned • Raw: 29.0 • Mean: 23.6 • Mode: 27</p>
+                                        <p>Raw: 29.0 • Mean: 23.6 • Mode: 27</p>
                                     </div>
                                     <div class="mobile-adv-team">
                                         <p>11-6 • ATS: 10-7 • O/U: 7-10</p>
-                                        <p>Pick-aligned • Raw: 16.1 • Mean: 21.1 • Mode: 20</p>
+                                        <p>Raw: 16.1 • Mean: 21.1 • Mode: 20</p>
                                     </div>
                                 </div>
                             </div>
@@ -10370,7 +10378,7 @@
                                     <p class="text-4xl font-bold team-score" style="color: #374151">
                                         22.8
                                     </p>
-                                    <p class="text-[10px] text-gray-500 mt-1">Pick-aligned • Raw: 29.0 • Mean: 23.6 • Mode: 27</p>
+                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 29.0 • Mean: 23.6 • Mode: 27</p>
                                     <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold shadow-sm" style="background: linear-gradient(to right, #AA0000, #c40000); color: #FFFFFF; border: 1px solid #800000; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+6</span>
                                         
@@ -10401,7 +10409,7 @@
                                     <p class="text-4xl font-bold team-score" style="color: #00727e">
                                         23.3
                                     </p>
-                                    <p class="text-[10px] text-gray-500 mt-1">Pick-aligned • Raw: 16.1 • Mean: 21.1 • Mode: 20</p>
+                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 16.1 • Mean: 21.1 • Mode: 20</p>
                                     <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">-6</span>
                                         
@@ -10428,7 +10436,7 @@
                             <!-- Desktop Model Performance Card -->
                             <div class="hidden md:block mt-4">
                                 
-                                    <div class="bg-slate-50 border border-slate-100 rounded-xl px-4 py-3">
+	                                    <div class="overview-injury-frame px-4 py-3">
                                         <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Model Performance</div>
                                         <div class="grid grid-cols-2 gap-4">
                                             <div class="flex items-center gap-3">
@@ -10509,7 +10517,7 @@
                         </div>
                             <!-- Key Predictions (mobile Model Picks) -->
                             <div class="md:hidden">
-                                <div class="prediction-card bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl px-3 py-3 md:px-4 md:py-4">
+                                <div class="prediction-card overview-injury-frame px-3 py-3 md:px-4 md:py-4">
                                     <div class="flex items-center justify-between mb-3">
                                         <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Model Picks</span>
                                     </div>
@@ -10548,7 +10556,7 @@
 
                             <!-- Key Predictions (mobile Safe Picks) -->
                             <div class="md:hidden">
-                                <div class="prediction-card bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl px-3 py-3 md:px-4 md:py-4">
+                                <div class="prediction-card overview-injury-frame px-3 py-3 md:px-4 md:py-4">
                                     <div class="flex items-center justify-between mb-3">
                                         <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Safe Picks</span>
                                     </div>
@@ -10588,7 +10596,7 @@
                             <!-- Key Predictions (desktop Model Picks / Safe Picks) -->
                             <div class="hidden md:grid md:grid-cols-2 md:gap-4 md:space-y-0">
                                 <!-- Model Picks -->
-                                <div class="prediction-card bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl px-3 py-3 md:px-4 md:py-4">
+                                <div class="prediction-card overview-injury-frame px-3 py-3 md:px-4 md:py-4">
                                     <div class="flex items-center justify-between mb-2">
                                         <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Model Picks</span>
                                     </div>
@@ -10617,7 +10625,7 @@
                                 </div>
 
                                 <!-- Safe Picks -->
-                                <div class="prediction-card bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl px-3 py-3 md:px-4 md:py-4">
+                                <div class="prediction-card overview-injury-frame px-3 py-3 md:px-4 md:py-4">
                                     <div class="flex items-center justify-between mb-2">
                                         <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Safe Picks</span>
                                     </div>
@@ -12402,11 +12410,11 @@
                                 <div class="mobile-adv-content" id="game-4-adv-content">
                                     <div class="mobile-adv-team">
                                         <p>11-6 • ATS: 9-8 • O/U: 7-10</p>
-                                        <p>Pick-aligned • Raw: 18.6 • Mean: 19.4 • Mode: 20</p>
+                                        <p>Raw: 18.6 • Mean: 19.4 • Mode: 20</p>
                                     </div>
                                     <div class="mobile-adv-team">
                                         <p>14-3 • ATS: 12-5 • O/U: 11-6</p>
-                                        <p>Pick-aligned • Raw: 35.1 • Mean: 28.9 • Mode: 37</p>
+                                        <p>Raw: 35.1 • Mean: 28.9 • Mode: 37</p>
                                     </div>
                                 </div>
                             </div>
@@ -12428,7 +12436,7 @@
                                     <p class="text-4xl font-bold team-score" style="color: #374151">
                                         23.5
                                     </p>
-                                    <p class="text-[10px] text-gray-500 mt-1">Pick-aligned • Raw: 18.6 • Mean: 19.4 • Mode: 20</p>
+                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 18.6 • Mean: 19.4 • Mode: 20</p>
                                     <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold shadow-sm" style="background: linear-gradient(to right, #007BC7, #008de5); color: #FFFFFF; border: 1px solid #005c95; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+3.5</span>
                                         
@@ -12459,7 +12467,7 @@
                                     <p class="text-4xl font-bold team-score" style="color: #002244">
                                         24.8
                                     </p>
-                                    <p class="text-[10px] text-gray-500 mt-1">Pick-aligned • Raw: 35.1 • Mean: 28.9 • Mode: 37</p>
+                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 35.1 • Mean: 28.9 • Mode: 37</p>
                                     <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">-3.5</span>
                                         
@@ -12486,7 +12494,7 @@
                             <!-- Desktop Model Performance Card -->
                             <div class="hidden md:block mt-4">
                                 
-                                    <div class="bg-slate-50 border border-slate-100 rounded-xl px-4 py-3">
+	                                    <div class="overview-injury-frame px-4 py-3">
                                         <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Model Performance</div>
                                         <div class="grid grid-cols-2 gap-4">
                                             <div class="flex items-center gap-3">
@@ -12567,7 +12575,7 @@
                         </div>
                             <!-- Key Predictions (mobile Model Picks) -->
                             <div class="md:hidden">
-                                <div class="prediction-card bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl px-3 py-3 md:px-4 md:py-4">
+                                <div class="prediction-card overview-injury-frame px-3 py-3 md:px-4 md:py-4">
                                     <div class="flex items-center justify-between mb-3">
                                         <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Model Picks</span>
                                     </div>
@@ -12606,7 +12614,7 @@
 
                             <!-- Key Predictions (mobile Safe Picks) -->
                             <div class="md:hidden">
-                                <div class="prediction-card bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl px-3 py-3 md:px-4 md:py-4">
+                                <div class="prediction-card overview-injury-frame px-3 py-3 md:px-4 md:py-4">
                                     <div class="flex items-center justify-between mb-3">
                                         <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Safe Picks</span>
                                     </div>
@@ -12646,7 +12654,7 @@
                             <!-- Key Predictions (desktop Model Picks / Safe Picks) -->
                             <div class="hidden md:grid md:grid-cols-2 md:gap-4 md:space-y-0">
                                 <!-- Model Picks -->
-                                <div class="prediction-card bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl px-3 py-3 md:px-4 md:py-4">
+                                <div class="prediction-card overview-injury-frame px-3 py-3 md:px-4 md:py-4">
                                     <div class="flex items-center justify-between mb-2">
                                         <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Model Picks</span>
                                     </div>
@@ -12675,7 +12683,7 @@
                                 </div>
 
                                 <!-- Safe Picks -->
-                                <div class="prediction-card bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl px-3 py-3 md:px-4 md:py-4">
+                                <div class="prediction-card overview-injury-frame px-3 py-3 md:px-4 md:py-4">
                                     <div class="flex items-center justify-between mb-2">
                                         <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Safe Picks</span>
                                     </div>
@@ -14573,11 +14581,11 @@
                                 <div class="mobile-adv-content" id="game-5-adv-content">
                                     <div class="mobile-adv-team">
                                         <p>12-5 • ATS: 9-8 • O/U: 6-11</p>
-                                        <p>Pick-aligned • Raw: 17.2 • Mean: 19.3 • Mode: 13</p>
+                                        <p>Raw: 17.2 • Mean: 19.3 • Mode: 13</p>
                                     </div>
                                     <div class="mobile-adv-team">
                                         <p>10-7 • ATS: 9-7-1 • O/U: 10-7</p>
-                                        <p>Pick-aligned • Raw: 20.9 • Mean: 18.8 • Mode: 20</p>
+                                        <p>Raw: 20.9 • Mean: 18.8 • Mode: 20</p>
                                     </div>
                                 </div>
                             </div>
@@ -14599,7 +14607,7 @@
                                     <p class="text-4xl font-bold team-score" style="color: #053047">
                                         24.7
                                     </p>
-                                    <p class="text-[10px] text-gray-500 mt-1">Pick-aligned • Raw: 17.2 • Mean: 19.3 • Mode: 13</p>
+                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 17.2 • Mean: 19.3 • Mode: 13</p>
                                     <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold shadow-sm" style="background: linear-gradient(to right, #03202F, #032536); color: #FFFFFF; border: 1px solid #021823; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-3</span>
                                         
@@ -14630,7 +14638,7 @@
                                     <p class="text-4xl font-bold team-score" style="color: #374151">
                                         14.8
                                     </p>
-                                    <p class="text-[10px] text-gray-500 mt-1">Pick-aligned • Raw: 20.9 • Mean: 18.8 • Mode: 20</p>
+                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 20.9 • Mean: 18.8 • Mode: 20</p>
                                     <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">+3</span>
                                         
@@ -14657,7 +14665,7 @@
                             <!-- Desktop Model Performance Card -->
                             <div class="hidden md:block mt-4">
                                 
-                                    <div class="bg-slate-50 border border-slate-100 rounded-xl px-4 py-3">
+	                                    <div class="overview-injury-frame px-4 py-3">
                                         <div class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Model Performance</div>
                                         <div class="grid grid-cols-2 gap-4">
                                             <div class="flex items-center gap-3">
@@ -14738,7 +14746,7 @@
                         </div>
                             <!-- Key Predictions (mobile Model Picks) -->
                             <div class="md:hidden">
-                                <div class="prediction-card bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl px-3 py-3 md:px-4 md:py-4">
+                                <div class="prediction-card overview-injury-frame px-3 py-3 md:px-4 md:py-4">
                                     <div class="flex items-center justify-between mb-3">
                                         <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Model Picks</span>
                                     </div>
@@ -14777,7 +14785,7 @@
 
                             <!-- Key Predictions (mobile Safe Picks) -->
                             <div class="md:hidden">
-                                <div class="prediction-card bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl px-3 py-3 md:px-4 md:py-4">
+                                <div class="prediction-card overview-injury-frame px-3 py-3 md:px-4 md:py-4">
                                     <div class="flex items-center justify-between mb-3">
                                         <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Safe Picks</span>
                                     </div>
@@ -14817,7 +14825,7 @@
                             <!-- Key Predictions (desktop Model Picks / Safe Picks) -->
                             <div class="hidden md:grid md:grid-cols-2 md:gap-4 md:space-y-0">
                                 <!-- Model Picks -->
-                                <div class="prediction-card bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl px-3 py-3 md:px-4 md:py-4">
+                                <div class="prediction-card overview-injury-frame px-3 py-3 md:px-4 md:py-4">
                                     <div class="flex items-center justify-between mb-2">
                                         <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Model Picks</span>
                                     </div>
@@ -14846,7 +14854,7 @@
                                 </div>
 
                                 <!-- Safe Picks -->
-                                <div class="prediction-card bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl px-3 py-3 md:px-4 md:py-4">
+                                <div class="prediction-card overview-injury-frame px-3 py-3 md:px-4 md:py-4">
                                     <div class="flex items-center justify-between mb-2">
                                         <span class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Safe Picks</span>
                                     </div>
