@@ -2949,7 +2949,7 @@
 
         // Filter functionality
         const TOTAL_GAMES = 4;
-        const gameData = [{"index":0,"away":"Buffalo","home":"Jacksonville","awayRecord":{"wins":12,"losses":5,"ties":0,"atsWins":8,"atsLosses":9,"atsPushes":0,"overWins":9,"overLosses":8,"overPushes":0},"homeRecord":{"wins":13,"losses":4,"ties":0,"atsWins":12,"atsLosses":5,"atsPushes":0,"overWins":10,"overLosses":7,"overPushes":0},"atsSegment":"AwayFav"},{"index":1,"away":"San Francisco","home":"Philadelphia","awayRecord":{"wins":12,"losses":5,"ties":0,"atsWins":11,"atsLosses":6,"atsPushes":0,"overWins":10,"overLosses":7,"overPushes":0},"homeRecord":{"wins":11,"losses":6,"ties":0,"atsWins":10,"atsLosses":7,"atsPushes":0,"overWins":7,"overLosses":10,"overPushes":0},"atsSegment":"AwayDog"},{"index":2,"away":"LA Chargers","home":"New England","awayRecord":{"wins":11,"losses":6,"ties":0,"atsWins":9,"atsLosses":8,"atsPushes":0,"overWins":7,"overLosses":10,"overPushes":0},"homeRecord":{"wins":14,"losses":3,"ties":0,"atsWins":12,"atsLosses":5,"atsPushes":0,"overWins":11,"overLosses":6,"overPushes":0},"atsSegment":"AwayDog"},{"index":3,"away":"Houston","home":"Pittsburgh","awayRecord":{"wins":12,"losses":5,"ties":0,"atsWins":9,"atsLosses":8,"atsPushes":0,"overWins":6,"overLosses":11,"overPushes":0},"homeRecord":{"wins":10,"losses":7,"ties":0,"atsWins":9,"atsLosses":7,"atsPushes":1,"overWins":10,"overLosses":7,"overPushes":0},"atsSegment":"AwayFav"}];
+        const gameData = [{"index":0,"away":"Buffalo","home":"Jacksonville","awayRecord":{"wins":12,"losses":5,"ties":0,"atsWins":8,"atsLosses":9,"atsPushes":0,"overWins":9,"overLosses":8,"overPushes":0},"homeRecord":{"wins":13,"losses":4,"ties":0,"atsWins":12,"atsLosses":5,"atsPushes":0,"overWins":10,"overLosses":7,"overPushes":0},"atsSegment":"HomeFav"},{"index":1,"away":"San Francisco","home":"Philadelphia","awayRecord":{"wins":12,"losses":5,"ties":0,"atsWins":11,"atsLosses":6,"atsPushes":0,"overWins":10,"overLosses":7,"overPushes":0},"homeRecord":{"wins":11,"losses":6,"ties":0,"atsWins":10,"atsLosses":7,"atsPushes":0,"overWins":7,"overLosses":10,"overPushes":0},"atsSegment":"AwayDog"},{"index":2,"away":"LA Chargers","home":"New England","awayRecord":{"wins":11,"losses":6,"ties":0,"atsWins":9,"atsLosses":8,"atsPushes":0,"overWins":7,"overLosses":10,"overPushes":0},"homeRecord":{"wins":14,"losses":3,"ties":0,"atsWins":12,"atsLosses":5,"atsPushes":0,"overWins":11,"overLosses":6,"overPushes":0},"atsSegment":"AwayDog"},{"index":3,"away":"Houston","home":"Pittsburgh","awayRecord":{"wins":12,"losses":5,"ties":0,"atsWins":9,"atsLosses":8,"atsPushes":0,"overWins":6,"overLosses":11,"overPushes":0},"homeRecord":{"wins":10,"losses":7,"ties":0,"atsWins":9,"atsLosses":7,"atsPushes":1,"overWins":10,"overLosses":7,"overPushes":0},"atsSegment":"AwayFav"}];
 
         function calculateWinPct(record) {
             const total = record.wins + record.losses + (record.ties || 0);
@@ -3241,7 +3241,7 @@
                     <img src="https://a.espncdn.com/i/teamlogos/leagues/500/nfl.png" alt="NFL logo" class="w-10 h-10 sm:w-12 sm:h-12 object-contain" onerror="this.style.display='none';">
                     <div class="flex flex-col justify-center">
                         <h1 class="text-2xl sm:text-4xl font-black gradient-text" style="letter-spacing: -0.03em;">NFL Analytics Dashboard</h1>
-                        <p class="text-sm text-gray-600 mt-1 font-medium">Last Model Run: <span style="color: #10b981;">1/10 8:10 PM</span></p>
+                        <p class="text-sm text-gray-600 mt-1 font-medium">Last Model Run: <span style="color: #10b981;">1/11 6:19 AM</span></p>
                     </div>
                 </div>
             </div>
@@ -3714,7 +3714,7 @@
         <!-- Games Grid -->
         <div class="space-y-6">
         
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="AwayFav" data-su-category="upset" data-ou-pick="over" data-record-visible="true" data-vegas-total="51.5" data-market-spread="0" data-pick-location="away" data-pick-side="underdog" data-su-pick-location="away" data-has-five-star="true">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="HomeFav" data-su-category="favorite" data-ou-pick="over" data-record-visible="true" data-vegas-total="51.5" data-market-spread="1.5" data-pick-location="home" data-pick-side="favorite" data-su-pick-location="home" data-has-five-star="true">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -3765,7 +3765,7 @@
                                                     <img src="https://a.espncdn.com/i/teamlogos/nfl/500/buf.png" alt="Buffalo" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(0)" onerror="this.style.display='none'">
                                                 <div class="flex flex-col items-start leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">BUF</span>
-                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(0)" style="color: #00338D">27.4</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(0)" style="color: #374151">22.1</span>
                                                 </div>
                                             
                                     </div>
@@ -3782,7 +3782,7 @@
                                         
                                                 <div class="flex flex-col items-end leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">JAX</span>
-                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(0)" style="color: #374151">25.7</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(0)" style="color: #006778">31.1</span>
                                                 </div>
                                                 <img src="https://a.espncdn.com/i/teamlogos/nfl/500/jax.png" alt="Jacksonville" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(0)" onerror="this.style.display='none'">
                                             
@@ -3792,11 +3792,11 @@
                                 <div class="mobile-adv-content" id="game-0-adv-content">
                                     <div class="mobile-adv-team">
                                         <p>12-5 • ATS: 8-9 • O/U: 9-8</p>
-                                        <p>Raw: 25.9 • Mean: 25.6 • Mode: 27</p>
+                                        <p>Raw: 26.0 • Mean: 25.3 • Mode: 27</p>
                                     </div>
                                     <div class="mobile-adv-team">
                                         <p>13-4 • ATS: 12-5 • O/U: 10-7</p>
-                                        <p>Raw: 19.2 • Mean: 24.0 • Mode: 20</p>
+                                        <p>Raw: 19.4 • Mean: 24.4 • Mode: 20</p>
                                     </div>
                                 </div>
                             </div>
@@ -3809,18 +3809,18 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/buf.png" alt="Buffalo" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">Buffalo</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #00338D, #003ba2); color: #FFFFFF; border: 1px solid #00266a; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+102</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">+102</span></div>
                                         </div>
                                     </div>
                                     <p class="hidden md:block team-meta text-xs text-gray-600 mb-2">
                                         12-5 • ATS: 8-9 • O/U: 9-8
                                     </p>
-                                    <p class="text-4xl font-bold team-score" style="color: #00338D">
-                                        27.4
+                                    <p class="text-4xl font-bold team-score" style="color: #374151">
+                                        22.1
                                     </p>
-                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 25.9 • Mean: 25.6 • Mode: 27</p>
+                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 26.0 • Mean: 25.3 • Mode: 27</p>
                                     <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
-                                        <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold shadow-sm" style="background: linear-gradient(to right, #00338D, #003ba2); color: #FFFFFF; border: 1px solid #00266a; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+0</span>
+                                        <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">+1.5</span>
                                         
                                     </div>
                                 </div>
@@ -3840,18 +3840,18 @@
                                         <img src="https://a.espncdn.com/i/teamlogos/nfl/500/jax.png" alt="Jacksonville" class="w-12 h-12 object-contain" onerror="this.style.display='none'">
                                         <div class="team-name-row">
                                             <h3 class="team-name text-lg font-semibold text-gray-900">Jacksonville</h3>
-                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline bg-gray-100 text-gray-600">-122</span></div>
+                                            <div class="team-pill-wrapper"><span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--moneyline shadow-sm" style="background: linear-gradient(to right, #006778, #00768a); color: #FFFFFF; border: 1px solid #004d5a; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-122</span></div>
                                         </div>
                                     </div>
                                     <p class="hidden md:block team-meta text-xs text-gray-600 mb-2">
                                         13-4 • ATS: 12-5 • O/U: 10-7
                                     </p>
-                                    <p class="text-4xl font-bold team-score" style="color: #374151">
-                                        25.7
+                                    <p class="text-4xl font-bold team-score" style="color: #006778">
+                                        31.1
                                     </p>
-                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 19.2 • Mean: 24.0 • Mode: 20</p>
+                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 19.4 • Mean: 24.4 • Mode: 20</p>
                                     <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
-                                        <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">+0</span>
+                                        <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold shadow-sm" style="background: linear-gradient(to right, #006778, #00768a); color: #FFFFFF; border: 1px solid #004d5a; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-1.5</span>
                                         
                                     </div>
                                 </div>
@@ -3862,12 +3862,12 @@
                                 <div class="relative h-6 bg-gray-100 rounded-full overflow-hidden">
                                     <div class="absolute inset-0 flex">
                                         <div class="flex items-center justify-center"
-                                             style="width: 53.6%; background: linear-gradient(to right, #00338D, #003ba2)">
-                                            <span class="text-xs font-bold text-white">53.6%</span>
+                                             style="width: 51.9%; background: linear-gradient(to right, #00338D, #003ba2)">
+                                            <span class="text-xs font-bold text-white">51.9%</span>
                                         </div>
                                         <div class="flex items-center justify-center"
-                                             style="width: 46.4%; background: linear-gradient(to right, #006778, #00768a)">
-                                            <span class="text-xs font-bold text-white">46.4%</span>
+                                             style="width: 48.1%; background: linear-gradient(to right, #006778, #00768a)">
+                                            <span class="text-xs font-bold text-white">48.1%</span>
                                         </div>
                                     </div>
                                 </div>
@@ -3913,10 +3913,10 @@
                                             <span class="text-[11px] font-semibold text-gray-800">Bills</span>
                                         </div>
                                         <div class="flex justify-center py-0.5">
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--market shadow-sm" style="background: linear-gradient(to right, #00338D, #003ba2); color: #FFFFFF; border: 1px solid #00266a; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+0</span>
+                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--market bg-gray-100 text-gray-600">+1.5</span>
                                         </div>
                                         <div class="flex justify-center py-0.5">
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--market shadow-sm" style="background: linear-gradient(to right, #00338D, #003ba2); color: #FFFFFF; border: 1px solid #00266a; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+102</span>
+                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--market bg-gray-100 text-gray-600">+102</span>
                                         </div>
                                         <div class="flex justify-center py-0.5">
                                             <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--market shadow-sm" style="background: linear-gradient(to right, #00338D, #003ba2); color: #FFFFFF; border: 1px solid #00266a; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">o51.5</span>
@@ -3935,10 +3935,10 @@
                                             <span class="text-[11px] font-semibold text-gray-800">Jaguars</span>
                                         </div>
                                         <div class="flex justify-center py-0.5">
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--market bg-gray-100 text-gray-600">+0</span>
+                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--market shadow-sm" style="background: linear-gradient(to right, #006778, #00768a); color: #FFFFFF; border: 1px solid #004d5a; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-1.5</span>
                                         </div>
                                         <div class="flex justify-center py-0.5">
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--market bg-gray-100 text-gray-600">-122</span>
+                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--market shadow-sm" style="background: linear-gradient(to right, #006778, #00768a); color: #FFFFFF; border: 1px solid #004d5a; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-122</span>
                                         </div>
                                         <div class="flex justify-center py-0.5">
                                             <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--market bg-gray-100 text-gray-600">u51.5</span>
@@ -3968,9 +3968,9 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>BUF PK (-110)</span>
-                                                                <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
-                                                                <span class="prob-badge ml-1.5 prob-62-70">67% Probability</span>
+                                                                <span>JAX -1.5 (-110)</span>
+                                                                <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
+                                                                <span class="prob-badge ml-1.5 prob-70-80">74% Probability</span>
                                                             </span>
                                                         
                                                 </p>
@@ -3984,7 +3984,7 @@
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
                                                                 <span>OVER 51.5 (-102)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
-                                                                <span class="prob-badge ml-1.5 prob-62-70">65% Probability</span>
+                                                                <span class="prob-badge ml-1.5 prob-62-70">64% Probability</span>
                                                             </span>
                                                         
                                                 </p>
@@ -4007,9 +4007,9 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>BUF +8 (-373)</span>
+                                                                <span>JAX +4.5 (-248)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
-                                                                <span class="prob-badge ml-1.5 prob-80-plus">84% Probability</span>
+                                                                <span class="prob-badge ml-1.5 prob-80-plus">80% Probability</span>
                                                             </span>
                                                         
                                                 </p>
@@ -4045,9 +4045,9 @@
                                         <p class="text-sm font-bold text-gray-900">
                                             
                                                     <span class="inline-flex items-center gap-2 flex-wrap">
-                                                        <span>Buffalo PK (-110)</span>
-                                                        <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
-                                                        <span class="prob-badge prob-62-70">67% Probability</span>
+                                                        <span>Jacksonville -1.5 (-110)</span>
+                                                        <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
+                                                        <span class="prob-badge prob-70-80">74% Probability</span>
                                                     </span>
                                                 
                                         </p>
@@ -4057,7 +4057,7 @@
                                                     <span class="inline-flex items-center gap-2 flex-wrap">
                                                         <span>OVER 51.5 (-102)</span>
                                                         <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
-                                                        <span class="prob-badge prob-62-70">65% Probability</span>
+                                                        <span class="prob-badge prob-62-70">64% Probability</span>
                                                     </span>
                                                 
                                         </p>
@@ -4074,9 +4074,9 @@
                                         <p class="text-sm font-bold text-gray-900">
                                             
                                                     <span class="inline-flex items-center gap-2 flex-wrap">
-                                                        <span>Buffalo +8 (-373)</span>
+                                                        <span>Jacksonville +4.5 (-248)</span>
                                                         <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
-                                                        <span class="prob-badge prob-80-plus">84% Probability</span>
+                                                        <span class="prob-badge prob-80-plus">80% Probability</span>
                                                     </span>
                                                 
                                         </p>
@@ -4140,9 +4140,9 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">1.5</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
-                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="0.8">
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="turnovers" data-value="0.7">
                                         <p class="text-xs text-gray-500 font-medium">Turnovers</p>
-                                        <div class="value text-lg font-bold text-gray-900"><span class="num">0.8</span></div>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">0.7</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
                                 </div>
@@ -4152,9 +4152,9 @@
                             <div class="analytics-panel" style="--accent:#006778;">
                                 <div class="analytics-header"><span>Jacksonville</span></div>
                                 <div class="analytics-grid">
-                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="227">
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="229">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
-                                        <div class="value text-lg font-bold text-gray-900"><span class="num">227</span></div>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">229</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="pass_attempts" data-value="34">
@@ -4202,12 +4202,12 @@
                                 <h5 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 half-analysis-title">First Half</h5>
                                 <p class="text-2xl font-bold text-gray-900 half-analysis-score">21.5</p>
                                 <p class="text-xs text-gray-600 mt-1 half-analysis-note">
-                                    Buffalo -3.3
+                                    Buffalo -3.1
                                 </p>
                             </div>
                             <div class="bg-gray-50 rounded-xl p-4 half-analysis-card">
                                 <h5 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 half-analysis-title">Second Half</h5>
-                                <p class="text-2xl font-bold text-gray-900 half-analysis-score">23.5</p>
+                                <p class="text-2xl font-bold text-gray-900 half-analysis-score">23.7</p>
                                 <p class="text-xs text-gray-600 mt-1 half-analysis-note">
                                     Buffalo -3.5
                                 </p>
@@ -4627,17 +4627,17 @@
                     <div class="pp-stat">
             <div class="pp-stat-label">Att</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">36</span><span class="pp-stat-recent">(34.8/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">O</span> 33.5 <span class="pp-price">@ -102</span> · <span class="pp-prob-chip pp-prob-chip-med">59%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 33.5 <span class="pp-price">@ -102</span> · <span class="pp-prob-chip pp-prob-chip-med">60%</span></div>
         </div>
                     <div class="pp-stat">
             <div class="pp-stat-label">Cmp</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">21</span><span class="pp-stat-recent">(21.0/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">O</span> 20.5 <span class="pp-price">@ -113</span> · <span class="pp-prob-chip pp-prob-chip-low">51%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 20.5 <span class="pp-price">@ -113</span> · <span class="pp-prob-chip pp-prob-chip-low">52%</span></div>
         </div>
                     <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">227</span><span class="pp-stat-recent">(265.4/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 233.5 <span class="pp-price">@ -115</span> · <span class="pp-prob-chip pp-prob-chip-low">53%</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">229</span><span class="pp-stat-recent">(265.4/G)</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 233.5 <span class="pp-price">@ -115</span> · <span class="pp-prob-chip pp-prob-chip-low">52%</span></div>
         </div>
                     <div class="pp-stat">
             <div class="pp-stat-label">INT</div>
@@ -4653,8 +4653,8 @@
             <div class="pp-td-mean"><span class="pp-td-main">1.2</span><span class="pp-td-recent">(2.6/G)</span></div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">1+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 80%"></div></div>
-                <span class="pp-prob-value pp-prob-text-high">80%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 81%"></div></div>
+                <span class="pp-prob-value pp-prob-text-high">81%</span>
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">2+</span>
@@ -4663,8 +4663,8 @@
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">3+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 14%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">14%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 15%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">15%</span>
             </div>
         </div>
                 </div>
@@ -4680,12 +4680,12 @@
                     <div class="pp-stat">
             <div class="pp-stat-label">Att</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">28</span><span class="pp-stat-recent">(29.4/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 32.5 <span class="pp-price">@ +100</span> · <span class="pp-prob-chip pp-prob-chip-med">67%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 32.5 <span class="pp-price">@ +100</span> · <span class="pp-prob-chip pp-prob-chip-med">68%</span></div>
         </div>
                     <div class="pp-stat">
             <div class="pp-stat-label">Cmp</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">17</span><span class="pp-stat-recent">(18.2/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 21.5 <span class="pp-price">@ -119</span> · <span class="pp-prob-chip pp-prob-chip-med">70%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 21.5 <span class="pp-price">@ -119</span> · <span class="pp-prob-chip pp-prob-chip-high">70%</span></div>
         </div>
                     <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
@@ -4716,8 +4716,8 @@
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">3+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 17%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">17%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 18%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">18%</span>
             </div>
         </div>
                 </div>
@@ -4773,8 +4773,8 @@
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">2+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 22%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">22%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 23%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">23%</span>
             </div>
             
         </div>
@@ -4796,17 +4796,17 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Rec</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">2</span><span class="pp-stat-recent">(2.2/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 2.5 <span class="pp-price">@ -158</span> · <span class="pp-prob-chip pp-prob-chip-med">63%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 2.5 <span class="pp-price">@ -158</span> · <span class="pp-prob-chip pp-prob-chip-med">62%</span></div>
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">RecYd</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">16</span><span class="pp-stat-recent">(23.8/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 14.5 <span class="pp-price">@ -114</span> · <span class="pp-prob-chip pp-prob-chip-med">58%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 14.5 <span class="pp-price">@ -114</span> · <span class="pp-prob-chip pp-prob-chip-med">57%</span></div>
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Att</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">13</span><span class="pp-stat-recent">(15.8/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 15.5 <span class="pp-price">@ -130</span> · <span class="pp-prob-chip pp-prob-chip-med">65%</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">12</span><span class="pp-stat-recent">(15.8/G)</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 15.5 <span class="pp-price">@ -130</span> · <span class="pp-prob-chip pp-prob-chip-med">69%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
         <div class="pp-stat-label">&nbsp;</div>
@@ -4821,8 +4821,8 @@
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">2+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 12%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">12%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 11%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">11%</span>
             </div>
             
         </div>
@@ -4886,7 +4886,7 @@
 	                <div class="pp-card-stats">
 	                    <div class="pp-stat">
             <div class="pp-stat-label">RushYd</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">14</span><span class="pp-stat-recent">(13.8/G)</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">15</span><span class="pp-stat-recent">(13.8/G)</span></div>
             <div class="pp-stat-range"><span class="pp-side-label">U</span> 15.5 <span class="pp-price">@ -112</span> · <span class="pp-prob-chip pp-prob-chip-med">58%</span></div>
         </div>
 	                    <div class="pp-stat">
@@ -4896,13 +4896,13 @@
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">RecYd</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">2</span><span class="pp-stat-recent">(3.6/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 0.5 <span class="pp-price">@ -185</span> · <span class="pp-prob-chip pp-prob-chip-med">70%</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">3</span><span class="pp-stat-recent">(3.6/G)</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 0.5 <span class="pp-price">@ -185</span> · <span class="pp-prob-chip pp-prob-chip-med">69%</span></div>
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Att</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">3</span><span class="pp-stat-recent">(4.6/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 4.5 <span class="pp-price">@ -111</span> · <span class="pp-prob-chip pp-prob-chip-med">62%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 4.5 <span class="pp-price">@ -111</span> · <span class="pp-prob-chip pp-prob-chip-med">64%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
         <div class="pp-stat-label">&nbsp;</div>
@@ -4949,7 +4949,7 @@
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">65</span><span class="pp-stat-recent">(85.2/G)</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">66</span><span class="pp-stat-recent">(85.2/G)</span></div>
             <div class="pp-stat-range"><span class="pp-side-label">O</span> 51.5 <span class="pp-price">@ -115</span> · <span class="pp-prob-chip pp-prob-chip-low">54%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
@@ -4996,7 +4996,7 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">37</span><span class="pp-stat-recent">(47.6/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 50.5 <span class="pp-price">@ -113</span> · <span class="pp-prob-chip pp-prob-chip-med">65%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 50.5 <span class="pp-price">@ -113</span> · <span class="pp-prob-chip pp-prob-chip-med">64%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
         <div class="pp-stat-label">&nbsp;</div>
@@ -5011,7 +5011,7 @@
         <div class="pp-stat-value">&nbsp;</div>
     </div>
 	                    <div class="pp-td-block">
-            <div class="pp-td-mean"><span class="pp-td-main">0.2</span><span class="pp-td-recent">(0.2/G)</span></div>
+            <div class="pp-td-mean"><span class="pp-td-main">0.3</span><span class="pp-td-recent">(0.2/G)</span></div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">1+</span>
                 <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 27%"></div></div>
@@ -5019,8 +5019,8 @@
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">2+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 2%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">2%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 3%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">3%</span>
             </div>
             
         </div>
@@ -5037,12 +5037,12 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Rec</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">3</span><span class="pp-stat-recent">(3.2/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">O</span> 2.5 <span class="pp-price">@ -175</span> · <span class="pp-prob-chip pp-prob-chip-med">55%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 2.5 <span class="pp-price">@ -175</span> · <span class="pp-prob-chip pp-prob-chip-med">56%</span></div>
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">36</span><span class="pp-stat-recent">(51.8/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 41.5 <span class="pp-price">@ -112</span> · <span class="pp-prob-chip pp-prob-chip-med">58%</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">37</span><span class="pp-stat-recent">(51.8/G)</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 41.5 <span class="pp-price">@ -112</span> · <span class="pp-prob-chip pp-prob-chip-med">57%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
         <div class="pp-stat-label">&nbsp;</div>
@@ -5088,7 +5088,7 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">35</span><span class="pp-stat-recent">(39.6/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 35.5 <span class="pp-price">@ -111</span> · <span class="pp-prob-chip pp-prob-chip-low">53%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 35.5 <span class="pp-price">@ -111</span> · <span class="pp-prob-chip pp-prob-chip-low">54%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
         <div class="pp-stat-label">&nbsp;</div>
@@ -5111,8 +5111,8 @@
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">2+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 1%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">1%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 2%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">2%</span>
             </div>
             
         </div>
@@ -5129,11 +5129,11 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Rec</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">3</span><span class="pp-stat-recent">(3.6/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 4.5 <span class="pp-price">@ -105</span> · <span class="pp-prob-chip pp-prob-chip-med">57%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 4.5 <span class="pp-price">@ -105</span> · <span class="pp-prob-chip pp-prob-chip-med">58%</span></div>
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">35</span><span class="pp-stat-recent">(31.0/G)</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">34</span><span class="pp-stat-recent">(31.0/G)</span></div>
             <div class="pp-stat-range"><span class="pp-side-label">U</span> 42.5 <span class="pp-price">@ -115</span> · <span class="pp-prob-chip pp-prob-chip-med">59%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
@@ -5149,16 +5149,16 @@
         <div class="pp-stat-value">&nbsp;</div>
     </div>
 	                    <div class="pp-td-block">
-            <div class="pp-td-mean"><span class="pp-td-main">0.2</span><span class="pp-td-recent">(0.2/G)</span></div>
+            <div class="pp-td-mean"><span class="pp-td-main">0.3</span><span class="pp-td-recent">(0.2/G)</span></div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">1+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 24%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">24%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 25%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">25%</span>
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">2+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 3%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">3%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 4%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">4%</span>
             </div>
             
         </div>
@@ -5174,7 +5174,7 @@
 	                <div class="pp-card-stats">
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Rec</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">3</span><span class="pp-stat-recent">(3.4/G)</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">2</span><span class="pp-stat-recent">(3.4/G)</span></div>
             <div class="pp-stat-range"><span class="pp-side-label">U</span> 2.5 <span class="pp-price">@ -175</span> · <span class="pp-prob-chip pp-prob-chip-med">60%</span></div>
         </div>
 	                    <div class="pp-stat">
@@ -5221,7 +5221,7 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Rec</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">2</span><span class="pp-stat-recent">(3.6/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 3.5 <span class="pp-price">@ -135</span> · <span class="pp-prob-chip pp-prob-chip-high">74%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 3.5 <span class="pp-price">@ -135</span> · <span class="pp-prob-chip pp-prob-chip-high">73%</span></div>
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
@@ -5317,8 +5317,8 @@
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">16</span><span class="pp-stat-recent">(57.0/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 20.5 <span class="pp-price">@ -105</span> · <span class="pp-prob-chip pp-prob-chip-med">64%</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">17</span><span class="pp-stat-recent">(57.0/G)</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 20.5 <span class="pp-price">@ -105</span> · <span class="pp-prob-chip pp-prob-chip-med">63%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
         <div class="pp-stat-label">&nbsp;</div>
@@ -5359,12 +5359,12 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Rec</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">1</span><span class="pp-stat-recent">(1.8/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 1.5 <span class="pp-price">@ -125</span> · <span class="pp-prob-chip pp-prob-chip-high">70%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 1.5 <span class="pp-price">@ -125</span> · <span class="pp-prob-chip pp-prob-chip-med">69%</span></div>
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">13</span><span class="pp-stat-recent">(41.6/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 15.5 <span class="pp-price">@ -118</span> · <span class="pp-prob-chip pp-prob-chip-med">61%</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">14</span><span class="pp-stat-recent">(41.6/G)</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 15.5 <span class="pp-price">@ -118</span> · <span class="pp-prob-chip pp-prob-chip-med">60%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
         <div class="pp-stat-label">&nbsp;</div>
@@ -5382,8 +5382,8 @@
             <div class="pp-td-mean"><span class="pp-td-main">0.1</span><span class="pp-td-recent">(0.2/G)</span></div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">1+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 8%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">8%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 9%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">9%</span>
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">2+</span>
@@ -5451,7 +5451,7 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Rec</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">1</span><span class="pp-stat-recent">(1.2/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 0.5 <span class="pp-price">@ -165</span> · <span class="pp-prob-chip pp-prob-chip-med">58%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 0.5 <span class="pp-price">@ -165</span> · <span class="pp-prob-chip pp-prob-chip-med">57%</span></div>
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
@@ -5474,8 +5474,8 @@
             <div class="pp-td-mean"><span class="pp-td-main">0.0</span><span class="pp-td-recent">(0.2/G)</span></div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">1+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 5%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">5%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 4%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">4%</span>
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">2+</span>
@@ -5504,7 +5504,7 @@
                                                 Betting Overview
                                             </span>
                                             <div class="mt-1 flex flex-wrap items-center gap-2">
-                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · Buffalo +8 (-373) · STRONG</span>
+                                                <span class="text-lg font-bold text-gray-900">BEST BET · Spread · Jacksonville +4.5 (-248) · STRONG</span>
                                                 <span class="flex items-center gap-1 text-yellow-400"><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                             </div>
                                             <p class="text-sm text-gray-600 mt-1">
@@ -5520,17 +5520,17 @@
                                                 <span class="text-xs font-semibold text-gray-500 uppercase">ATS Segment</span>
                                                 <div class="flex justify-center mt-1">
                                                         <span class="matchup-pill" style="background-color: rgba(16, 185, 129, 0.18); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.45)">
-                                                            <div class="text-center">Away Favorite</div>
-                                                            <div class="text-[10px] mt-0.5 opacity-90">61.1% hit</div>
+                                                            <div class="text-center">Home Favorite</div>
+                                                            <div class="text-[10px] mt-0.5 opacity-90">64.6% hit</div>
                                                         </span>
                                                     </div>
                                             </div>
                                             <div class="text-center">
                                                 <span class="text-xs font-semibold text-gray-500 uppercase">ML Segment</span>
                                                 <div class="flex justify-center mt-1">
-                                                        <span class="matchup-pill" style="background-color: rgba(16, 185, 129, 0.18); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.45)">
-                                                            <div class="text-center">Away Dog</div>
-                                                            <div class="text-[10px] mt-0.5 opacity-90">75.0% hit</div>
+                                                        <span class="matchup-pill" style="background-color: rgba(245, 158, 11, 0.18); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.45)">
+                                                            <div class="text-center">Home Favorite</div>
+                                                            <div class="text-[10px] mt-0.5 opacity-90">69.1% hit</div>
                                                         </span>
                                                     </div>
                                             </div>
@@ -5552,24 +5552,24 @@
                                             <div class="flex items-center justify-between">
                                                 <div>
                                                     <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Spread</p>
-                                                    <p class="mt-1 text-sm font-bold text-slate-900">Buffalo +8 (-373)</p>
+                                                    <p class="mt-1 text-sm font-bold text-slate-900">Jacksonville +4.5 (-248)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
-                                                    +1.7
+                                                    +0.7
                                                 </span>
                                             </div>
                                             <dl class="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Historical Prob</dt>
-                                                    <dd class="font-semibold text-slate-900">83.5%</dd>
+                                                    <dd class="font-semibold text-slate-900">79.6%</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Raw Model</dt>
-                                                    <dd class="font-semibold text-slate-900">80.0%</dd>
+                                                    <dd class="font-semibold text-slate-900">84.9%</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
-                                                    <dd class="font-semibold text-slate-900">78.9%</dd>
+                                                    <dd class="font-semibold text-slate-900">71.3%</dd>
                                                 </div>
                                             </dl>
                                             
@@ -5581,7 +5581,7 @@
                                                     <p class="mt-1 text-sm font-bold text-slate-900">OVER 46.5 (-205)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
-                                                    +6.7
+                                                    +6.6
                                                 </span>
                                             </div>
                                             <dl class="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs text-slate-600">
@@ -5621,11 +5621,11 @@
                                                 </div>
                                                 <div class="flex justify-between">
                                                     <dt>Raw Total</dt>
-                                                    <dd class="font-semibold text-slate-900">45.1</dd>
+                                                    <dd class="font-semibold text-slate-900">45.4</dd>
                                                 </div>
                                                 <div class="flex justify-between">
                                                     <dt>Adjusted Total</dt>
-                                                    <dd class="font-semibold text-slate-900">53.2</dd>
+                                                    <dd class="font-semibold text-slate-900">53.1</dd>
                                                 </div>
                                             </dl>
                                         </div>
@@ -5646,11 +5646,11 @@
                                             <div class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Score</dt>
-                                                    <dd class="font-semibold text-slate-900">27.4</dd>
+                                                    <dd class="font-semibold text-slate-900">22.1</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Vegas Spread</dt>
-                                                    <dd class="font-semibold text-slate-900">+0</dd>
+                                                    <dd class="font-semibold text-slate-900">+1.5</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Passing Yds</dt>
@@ -5681,15 +5681,15 @@
                                             <div class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Score</dt>
-                                                    <dd class="font-semibold text-slate-900">25.7</dd>
+                                                    <dd class="font-semibold text-slate-900">31.1</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Vegas Spread</dt>
-                                                    <dd class="font-semibold text-slate-900">+0</dd>
+                                                    <dd class="font-semibold text-slate-900">-1.5</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Passing Yds</dt>
-                                                    <dd class="font-semibold text-slate-900">227</dd>
+                                                    <dd class="font-semibold text-slate-900">229</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Rushing Yds</dt>
@@ -6044,11 +6044,11 @@
                                 <div class="mobile-adv-content" id="game-1-adv-content">
                                     <div class="mobile-adv-team">
                                         <p>12-5 • ATS: 11-6 • O/U: 10-7</p>
-                                        <p>Raw: 29.3 • Mean: 23.7 • Mode: 30</p>
+                                        <p>Raw: 29.1 • Mean: 23.7 • Mode: 27</p>
                                     </div>
                                     <div class="mobile-adv-team">
                                         <p>11-6 • ATS: 10-7 • O/U: 7-10</p>
-                                        <p>Raw: 16.0 • Mean: 21.0 • Mode: 13</p>
+                                        <p>Raw: 15.9 • Mean: 21.0 • Mode: 20</p>
                                     </div>
                                 </div>
                             </div>
@@ -6070,7 +6070,7 @@
                                     <p class="text-4xl font-bold team-score" style="color: #374151">
                                         22.8
                                     </p>
-                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 29.3 • Mean: 23.7 • Mode: 30</p>
+                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 29.1 • Mean: 23.7 • Mode: 27</p>
                                     <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold shadow-sm" style="background: linear-gradient(to right, #AA0000, #c40000); color: #FFFFFF; border: 1px solid #800000; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+6</span>
                                         
@@ -6101,7 +6101,7 @@
                                     <p class="text-4xl font-bold team-score" style="color: #00727e">
                                         23.3
                                     </p>
-                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 16.0 • Mean: 21.0 • Mode: 13</p>
+                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 15.9 • Mean: 21.0 • Mode: 20</p>
                                     <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">-6</span>
                                         
@@ -6236,7 +6236,7 @@
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
                                                                 <span>OVER 44.5 (-108)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
-                                                                <span class="prob-badge ml-1.5 prob-55-62">61% Probability</span>
+                                                                <span class="prob-badge ml-1.5 prob-55-62">60% Probability</span>
                                                             </span>
                                                         
                                                 </p>
@@ -6309,7 +6309,7 @@
                                                     <span class="inline-flex items-center gap-2 flex-wrap">
                                                         <span>OVER 44.5 (-108)</span>
                                                         <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
-                                                        <span class="prob-badge prob-55-62">61% Probability</span>
+                                                        <span class="prob-badge prob-55-62">60% Probability</span>
                                                     </span>
                                                 
                                         </p>
@@ -6357,9 +6357,9 @@
                             <div class="analytics-panel" style="--accent:#AA0000;">
                                 <div class="analytics-header"><span>San Francisco</span></div>
                                 <div class="analytics-grid">
-                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="283">
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="282">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
-                                        <div class="value text-lg font-bold text-gray-900"><span class="num">283</span></div>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">282</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="pass_attempts" data-value="32">
@@ -6377,9 +6377,9 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">1.9</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
-                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="rushing_yards" data-value="130">
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="rushing_yards" data-value="131">
                                         <p class="text-xs text-gray-500 font-medium">Rush Yards</p>
-                                        <div class="value text-lg font-bold text-gray-900"><span class="num">130</span></div>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">131</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="rushing_attempts" data-value="27">
@@ -6452,16 +6452,16 @@
                         <div class="grid grid-cols-2 gap-4 half-analysis-grid">
                             <div class="bg-gray-50 rounded-xl p-4 half-analysis-card">
                                 <h5 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 half-analysis-title">First Half</h5>
-                                <p class="text-2xl font-bold text-gray-900 half-analysis-score">22.1</p>
+                                <p class="text-2xl font-bold text-gray-900 half-analysis-score">21.8</p>
                                 <p class="text-xs text-gray-600 mt-1 half-analysis-note">
-                                    San Francisco -6.1
+                                    San Francisco -6.2
                                 </p>
                             </div>
                             <div class="bg-gray-50 rounded-xl p-4 half-analysis-card">
                                 <h5 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 half-analysis-title">Second Half</h5>
-                                <p class="text-2xl font-bold text-gray-900 half-analysis-score">23.1</p>
+                                <p class="text-2xl font-bold text-gray-900 half-analysis-score">23.0</p>
                                 <p class="text-xs text-gray-600 mt-1 half-analysis-note">
-                                    San Francisco -7.1
+                                    San Francisco -7.0
                                 </p>
                             </div>
                         </div>
@@ -6884,11 +6884,11 @@
                     <div class="pp-stat">
             <div class="pp-stat-label">Cmp</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">22</span><span class="pp-stat-recent">(21.4/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">O</span> 20.5 <span class="pp-price">@ -120</span> · <span class="pp-prob-chip pp-prob-chip-med">55%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 20.5 <span class="pp-price">@ -120</span> · <span class="pp-prob-chip pp-prob-chip-low">55%</span></div>
         </div>
                     <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">283</span><span class="pp-stat-recent">(232.8/G)</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">282</span><span class="pp-stat-recent">(232.8/G)</span></div>
             <div class="pp-stat-range"><span class="pp-side-label">O</span> 229.5 <span class="pp-price">@ +104</span> · <span class="pp-prob-chip pp-prob-chip-med">66%</span></div>
         </div>
                     <div class="pp-stat">
@@ -6898,8 +6898,8 @@
         </div>
                     <div class="pp-stat">
             <div class="pp-stat-label">RuYd</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">72</span><span class="pp-stat-recent">(21.6/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">O</span> 17.5 <span class="pp-price">@ -114</span> · <span class="pp-prob-chip pp-prob-chip-high">82%</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">34</span><span class="pp-stat-recent">(21.6/G)</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 17.5 <span class="pp-price">@ -114</span> · <span class="pp-prob-chip pp-prob-chip-med">58%</span></div>
         </div>
                     <div class="pp-td-block">
             <div class="pp-td-mean"><span class="pp-td-main">1.9</span><span class="pp-td-recent">(2.4/G)</span></div>
@@ -6910,13 +6910,13 @@
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">2+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 50%"></div></div>
-                <span class="pp-prob-value pp-prob-text-med">50%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 49%"></div></div>
+                <span class="pp-prob-value pp-prob-text-med">49%</span>
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">3+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 21%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">21%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 20%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">20%</span>
             </div>
         </div>
                 </div>
@@ -6932,7 +6932,7 @@
                     <div class="pp-stat">
             <div class="pp-stat-label">Att</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">33</span><span class="pp-stat-recent">(30.4/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">O</span> 29.5 <span class="pp-price">@ -106</span> · <span class="pp-prob-chip pp-prob-chip-med">62%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 29.5 <span class="pp-price">@ -106</span> · <span class="pp-prob-chip pp-prob-chip-med">61%</span></div>
         </div>
                     <div class="pp-stat">
             <div class="pp-stat-label">Cmp</div>
@@ -6942,7 +6942,7 @@
                     <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">159</span><span class="pp-stat-recent">(183.6/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 208.5 <span class="pp-price">@ -114</span> · <span class="pp-prob-chip pp-prob-chip-med">70%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 208.5 <span class="pp-price">@ -114</span> · <span class="pp-prob-chip pp-prob-chip-high">70%</span></div>
         </div>
                     <div class="pp-stat">
             <div class="pp-stat-label">INT</div>
@@ -6983,7 +6983,55 @@
                         <span class="pp-swipe-hint">Swipe ></span>
                     </div>
                     <div class="pp-pos-row" data-pos="rb">
-                        <div class="pp-player-card" data-side="home" data-pos="rb" style="--team-color: #004C54; --team-color-light: rgba(0, 76, 84, 0.06);">
+                        <div class="pp-player-card" data-side="away" data-pos="rb" style="--team-color: #AA0000; --team-color-light: rgba(170, 0, 0, 0.06);">
+                <div class="pp-card-identity">
+                    <img src="https://a.espncdn.com/i/teamlogos/nfl/500/sf.png" alt="SF logo" class="pp-team-logo">
+                    <div class="pp-name-block">
+                        <span class="pp-name">C.McCaffrey</span>
+                        <span class="pp-team-code">SF</span>
+                    </div>
+	                </div>
+	                <div class="pp-card-stats">
+	                    <div class="pp-stat">
+            <div class="pp-stat-label">RushYd</div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">75</span><span class="pp-stat-recent">(81.2/G)</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 63.5 <span class="pp-price">@ -110</span> · <span class="pp-prob-chip pp-prob-chip-low">53%</span></div>
+        </div>
+	                    <div class="pp-stat">
+            <div class="pp-stat-label">Rec</div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">5</span><span class="pp-stat-recent">(4.2/G)</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 5.5 <span class="pp-price">@ -142</span> · <span class="pp-prob-chip pp-prob-chip-med">57%</span></div>
+        </div>
+	                    <div class="pp-stat">
+            <div class="pp-stat-label">RecYd</div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">48</span><span class="pp-stat-recent">(27.8/G)</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 45.5 <span class="pp-price">@ -114</span> · <span class="pp-prob-chip pp-prob-chip-low">51%</span></div>
+        </div>
+	                    <div class="pp-stat">
+            <div class="pp-stat-label">Att</div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">18</span><span class="pp-stat-recent">(18.8/G)</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 17.5 <span class="pp-price">@ -120</span> · <span class="pp-prob-chip pp-prob-chip-low">51%</span></div>
+        </div>
+	                    <div class="pp-stat pp-stat-empty">
+        <div class="pp-stat-label">&nbsp;</div>
+        <div class="pp-stat-value">&nbsp;</div>
+    </div>
+	                    <div class="pp-td-block">
+            <div class="pp-td-mean"><span class="pp-td-main">1.3</span><span class="pp-td-recent">(1.0/G)</span></div>
+            <div class="pp-prob-row">
+                <span class="pp-prob-label">1+</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 67%"></div></div>
+                <span class="pp-prob-value pp-prob-text-high">67%</span>
+            </div>
+            <div class="pp-prob-row">
+                <span class="pp-prob-label">2+</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 39%"></div></div>
+                <span class="pp-prob-value pp-prob-text-med">39%</span>
+            </div>
+            
+        </div>
+	                </div>
+	            </div><div class="pp-player-card" data-side="home" data-pos="rb" style="--team-color: #004C54; --team-color-light: rgba(0, 76, 84, 0.06);">
                 <div class="pp-card-identity">
                     <img src="https://a.espncdn.com/i/teamlogos/nfl/500/phi.png" alt="PHI logo" class="pp-team-logo">
                     <div class="pp-name-block">
@@ -7017,64 +7065,16 @@
         <div class="pp-stat-value">&nbsp;</div>
     </div>
 	                    <div class="pp-td-block">
-            <div class="pp-td-mean"><span class="pp-td-main">0.5</span><span class="pp-td-recent">(0.6/G)</span></div>
+            <div class="pp-td-mean"><span class="pp-td-main">0.4</span><span class="pp-td-recent">(0.6/G)</span></div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">1+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 47%"></div></div>
-                <span class="pp-prob-value pp-prob-text-med">47%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 46%"></div></div>
+                <span class="pp-prob-value pp-prob-text-med">46%</span>
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">2+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 8%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">8%</span>
-            </div>
-            
-        </div>
-	                </div>
-	            </div><div class="pp-player-card" data-side="away" data-pos="rb" style="--team-color: #AA0000; --team-color-light: rgba(170, 0, 0, 0.06);">
-                <div class="pp-card-identity">
-                    <img src="https://a.espncdn.com/i/teamlogos/nfl/500/sf.png" alt="SF logo" class="pp-team-logo">
-                    <div class="pp-name-block">
-                        <span class="pp-name">B.Robinson</span>
-                        <span class="pp-team-code">SF</span>
-                    </div>
-	                </div>
-	                <div class="pp-card-stats">
-	                    <div class="pp-stat">
-            <div class="pp-stat-label">RushYd</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">57</span><span class="pp-stat-recent">(19.6/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">O</span> 13.5 <span class="pp-price">@ -107</span> · <span class="pp-prob-chip pp-prob-chip-high">87%</span></div>
-        </div>
-	                    <div class="pp-stat">
-            <div class="pp-stat-label">Rec</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">0</span><span class="pp-stat-recent">(0.2/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 0.5 <span class="pp-price">@ -275</span> · <span class="pp-prob-chip pp-prob-chip-high">76%</span></div>
-        </div>
-	                    <div class="pp-stat">
-            <div class="pp-stat-label">RecYd</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">3</span><span class="pp-stat-recent">(1.2/G)</span></div>
-            
-        </div>
-	                    <div class="pp-stat">
-            <div class="pp-stat-label">Att</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">15</span><span class="pp-stat-recent">(5.6/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">O</span> 3.5 <span class="pp-price">@ -165</span> · <span class="pp-prob-chip pp-prob-chip-high">92%</span></div>
-        </div>
-	                    <div class="pp-stat pp-stat-empty">
-        <div class="pp-stat-label">&nbsp;</div>
-        <div class="pp-stat-value">&nbsp;</div>
-    </div>
-	                    <div class="pp-td-block">
-            <div class="pp-td-mean"><span class="pp-td-main">0.8</span><span class="pp-td-recent">(0.0/G)</span></div>
-            <div class="pp-prob-row">
-                <span class="pp-prob-label">1+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 27%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">27%</span>
-            </div>
-            <div class="pp-prob-row">
-                <span class="pp-prob-label">2+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 19%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">19%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 7%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">7%</span>
             </div>
             
         </div>
@@ -7131,46 +7131,46 @@
                 <div class="pp-card-identity">
                     <img src="https://a.espncdn.com/i/teamlogos/nfl/500/sf.png" alt="SF logo" class="pp-team-logo">
                     <div class="pp-name-block">
-                        <span class="pp-name">C.McCaffrey</span>
+                        <span class="pp-name">B.Robinson</span>
                         <span class="pp-team-code">SF</span>
                     </div>
 	                </div>
 	                <div class="pp-card-stats">
 	                    <div class="pp-stat">
             <div class="pp-stat-label">RushYd</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">0</span><span class="pp-stat-recent">(81.2/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 59.5 <span class="pp-price">@ -114</span> · <span class="pp-prob-chip pp-prob-chip-high">91%</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">21</span><span class="pp-stat-recent">(19.6/G)</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 13.5 <span class="pp-price">@ -107</span> · <span class="pp-prob-chip pp-prob-chip-med">59%</span></div>
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Rec</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">5</span><span class="pp-stat-recent">(4.2/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 5.5 <span class="pp-price">@ -142</span> · <span class="pp-prob-chip pp-prob-chip-med">56%</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">0</span><span class="pp-stat-recent">(0.2/G)</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 0.5 <span class="pp-price">@ -275</span> · <span class="pp-prob-chip pp-prob-chip-high">76%</span></div>
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">RecYd</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">48</span><span class="pp-stat-recent">(27.8/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 45.5 <span class="pp-price">@ -114</span> · <span class="pp-prob-chip pp-prob-chip-low">52%</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">3</span><span class="pp-stat-recent">(1.2/G)</span></div>
+            
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Att</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">0</span><span class="pp-stat-recent">(18.8/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 17.5 <span class="pp-price">@ -102</span> · <span class="pp-prob-chip pp-prob-chip-high">91%</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">5</span><span class="pp-stat-recent">(5.6/G)</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 3.5 <span class="pp-price">@ -165</span> · <span class="pp-prob-chip pp-prob-chip-med">63%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
         <div class="pp-stat-label">&nbsp;</div>
         <div class="pp-stat-value">&nbsp;</div>
     </div>
 	                    <div class="pp-td-block">
-            <div class="pp-td-mean"><span class="pp-td-main">0.4</span><span class="pp-td-recent">(1.0/G)</span></div>
+            <div class="pp-td-mean"><span class="pp-td-main">0.3</span><span class="pp-td-recent">(0.0/G)</span></div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">1+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 43%"></div></div>
-                <span class="pp-prob-value pp-prob-text-med">43%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 16%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">16%</span>
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">2+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 6%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">6%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 4%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">4%</span>
             </div>
             
         </div>
@@ -7196,7 +7196,7 @@
 	                <div class="pp-card-stats">
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Rec</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">6</span><span class="pp-stat-recent">(6.0/G)</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">5</span><span class="pp-stat-recent">(6.0/G)</span></div>
             <div class="pp-stat-range"><span class="pp-side-label">U</span> 5.5 <span class="pp-price">@ -137</span> · <span class="pp-prob-chip pp-prob-chip-low">52%</span></div>
         </div>
 	                    <div class="pp-stat">
@@ -7266,8 +7266,8 @@
             <div class="pp-td-mean"><span class="pp-td-main">0.4</span><span class="pp-td-recent">(1.0/G)</span></div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">1+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 30%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">30%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 29%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">29%</span>
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">2+</span>
@@ -7312,8 +7312,8 @@
             <div class="pp-td-mean"><span class="pp-td-main">0.1</span><span class="pp-td-recent">(0.6/G)</span></div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">1+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 23%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">23%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 22%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">22%</span>
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">2+</span>
@@ -7335,12 +7335,12 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Rec</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">3</span><span class="pp-stat-recent">(3.4/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 4.5 <span class="pp-price">@ -105</span> · <span class="pp-prob-chip pp-prob-chip-med">65%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 4.5 <span class="pp-price">@ -105</span> · <span class="pp-prob-chip pp-prob-chip-med">66%</span></div>
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">35</span><span class="pp-stat-recent">(41.2/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 53.5 <span class="pp-price">@ -115</span> · <span class="pp-prob-chip pp-prob-chip-high">71%</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">34</span><span class="pp-stat-recent">(41.2/G)</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 53.5 <span class="pp-price">@ -115</span> · <span class="pp-prob-chip pp-prob-chip-high">72%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
         <div class="pp-stat-label">&nbsp;</div>
@@ -7358,8 +7358,8 @@
             <div class="pp-td-mean"><span class="pp-td-main">0.1</span><span class="pp-td-recent">(0.2/G)</span></div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">1+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 20%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">20%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 21%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">21%</span>
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">2+</span>
@@ -7385,7 +7385,7 @@
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">16</span><span class="pp-stat-recent">(43.0/G)</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">17</span><span class="pp-stat-recent">(43.0/G)</span></div>
             <div class="pp-stat-range"><span class="pp-side-label">U</span> 39.5 <span class="pp-price">@ -114</span> · <span class="pp-prob-chip pp-prob-chip-high">71%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
@@ -7432,7 +7432,7 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">14</span><span class="pp-stat-recent">(22.2/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">O</span> 8.5 <span class="pp-price">@ -111</span> · <span class="pp-prob-chip pp-prob-chip-low">53%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 8.5 <span class="pp-price">@ -111</span> · <span class="pp-prob-chip pp-prob-chip-low">52%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
         <div class="pp-stat-label">&nbsp;</div>
@@ -7473,7 +7473,7 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Rec</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">2</span><span class="pp-stat-recent">(1.8/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">O</span> 0.5 <span class="pp-price">@ +125</span> · <span class="pp-prob-chip pp-prob-chip-med">57%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 0.5 <span class="pp-price">@ +125</span> · <span class="pp-prob-chip pp-prob-chip-med">56%</span></div>
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
@@ -7524,7 +7524,7 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">8</span><span class="pp-stat-recent">(15.8/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 6.5 <span class="pp-price">@ -107</span> · <span class="pp-prob-chip pp-prob-chip-low">51%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 6.5 <span class="pp-price">@ -107</span> · <span class="pp-prob-chip pp-prob-chip-low">50%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
         <div class="pp-stat-label">&nbsp;</div>
@@ -7735,7 +7735,7 @@
                                                 </div>
                                                 <div class="flex justify-between">
                                                     <dt>Raw Total</dt>
-                                                    <dd class="font-semibold text-slate-900">45.3</dd>
+                                                    <dd class="font-semibold text-slate-900">45.0</dd>
                                                 </div>
                                                 <div class="flex justify-between">
                                                     <dt>Adjusted Total</dt>
@@ -7768,11 +7768,11 @@
                                                 </div>
                                                 <div>
                                                     <dt>Passing Yds</dt>
-                                                    <dd class="font-semibold text-slate-900">283</dd>
+                                                    <dd class="font-semibold text-slate-900">282</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Rushing Yds</dt>
-                                                    <dd class="font-semibold text-slate-900">130</dd>
+                                                    <dd class="font-semibold text-slate-900">131</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Pass TDs</dt>
@@ -8158,11 +8158,11 @@
                                 <div class="mobile-adv-content" id="game-2-adv-content">
                                     <div class="mobile-adv-team">
                                         <p>11-6 • ATS: 9-8 • O/U: 7-10</p>
-                                        <p>Raw: 18.6 • Mean: 19.4 • Mode: 17</p>
+                                        <p>Raw: 18.6 • Mean: 19.4 • Mode: 13</p>
                                     </div>
                                     <div class="mobile-adv-team">
                                         <p>14-3 • ATS: 12-5 • O/U: 11-6</p>
-                                        <p>Raw: 35.0 • Mean: 28.9 • Mode: 34</p>
+                                        <p>Raw: 35.1 • Mean: 28.9 • Mode: 37</p>
                                     </div>
                                 </div>
                             </div>
@@ -8184,7 +8184,7 @@
                                     <p class="text-4xl font-bold team-score" style="color: #374151">
                                         23.5
                                     </p>
-                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 18.6 • Mean: 19.4 • Mode: 17</p>
+                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 18.6 • Mean: 19.4 • Mode: 13</p>
                                     <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold shadow-sm" style="background: linear-gradient(to right, #007BC7, #008de5); color: #FFFFFF; border: 1px solid #005c95; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">+3.5</span>
                                         
@@ -8215,7 +8215,7 @@
                                     <p class="text-4xl font-bold team-score" style="color: #002244">
                                         24.8
                                     </p>
-                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 35.0 • Mean: 28.9 • Mode: 34</p>
+                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 35.1 • Mean: 28.9 • Mode: 37</p>
                                     <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">-3.5</span>
                                         
@@ -8228,12 +8228,12 @@
                                 <div class="relative h-6 bg-gray-100 rounded-full overflow-hidden">
                                     <div class="absolute inset-0 flex">
                                         <div class="flex items-center justify-center"
-                                             style="width: 31.5%; background: linear-gradient(to right, #007BC7, #008de5)">
-                                            <span class="text-xs font-bold text-white">31.5%</span>
+                                             style="width: 30.9%; background: linear-gradient(to right, #007BC7, #008de5)">
+                                            <span class="text-xs font-bold text-white">30.9%</span>
                                         </div>
                                         <div class="flex items-center justify-center"
-                                             style="width: 68.5%; background: linear-gradient(to right, #002244, #00274e)">
-                                            <span class="text-xs font-bold text-white">68.5%</span>
+                                             style="width: 69.1%; background: linear-gradient(to right, #002244, #00274e)">
+                                            <span class="text-xs font-bold text-white">69.1%</span>
                                         </div>
                                     </div>
                                 </div>
@@ -8471,9 +8471,9 @@
                             <div class="analytics-panel" style="--accent:#007BC7;">
                                 <div class="analytics-header"><span>LA Chargers</span></div>
                                 <div class="analytics-grid">
-                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="175">
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="174">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
-                                        <div class="value text-lg font-bold text-gray-900"><span class="num">175</span></div>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">174</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="pass_attempts" data-value="32">
@@ -8518,9 +8518,9 @@
                             <div class="analytics-panel" style="--accent:#002244;">
                                 <div class="analytics-header"><span>New England</span></div>
                                 <div class="analytics-grid">
-                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="323">
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="322">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
-                                        <div class="value text-lg font-bold text-gray-900"><span class="num">323</span></div>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">322</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="pass_attempts" data-value="30">
@@ -8566,16 +8566,16 @@
                         <div class="grid grid-cols-2 gap-4 half-analysis-grid">
                             <div class="bg-gray-50 rounded-xl p-4 half-analysis-card">
                                 <h5 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 half-analysis-title">First Half</h5>
-                                <p class="text-2xl font-bold text-gray-900 half-analysis-score">26.6</p>
+                                <p class="text-2xl font-bold text-gray-900 half-analysis-score">26.5</p>
                                 <p class="text-xs text-gray-600 mt-1 half-analysis-note">
-                                    New England -7.2
+                                    New England -7.3
                                 </p>
                             </div>
                             <div class="bg-gray-50 rounded-xl p-4 half-analysis-card">
                                 <h5 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 half-analysis-title">Second Half</h5>
-                                <p class="text-2xl font-bold text-gray-900 half-analysis-score">27.0</p>
+                                <p class="text-2xl font-bold text-gray-900 half-analysis-score">27.1</p>
                                 <p class="text-xs text-gray-600 mt-1 half-analysis-note">
-                                    New England -9.2
+                                    New England -9.1
                                 </p>
                             </div>
                         </div>
@@ -8985,12 +8985,12 @@
                     <div class="pp-stat">
             <div class="pp-stat-label">Cmp</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">20</span><span class="pp-stat-recent">(20.4/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 20.5 <span class="pp-price">@ -119</span> · <span class="pp-prob-chip pp-prob-chip-low">52%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 20.5 <span class="pp-price">@ -119</span> · <span class="pp-prob-chip pp-prob-chip-low">51%</span></div>
         </div>
                     <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">323</span><span class="pp-stat-recent">(247.4/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">O</span> 242.5 <span class="pp-price">@ -111</span> · <span class="pp-prob-chip pp-prob-chip-high">71%</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">322</span><span class="pp-stat-recent">(247.4/G)</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 242.5 <span class="pp-price">@ -111</span> · <span class="pp-prob-chip pp-prob-chip-high">70%</span></div>
         </div>
                     <div class="pp-stat">
             <div class="pp-stat-label">INT</div>
@@ -9006,13 +9006,13 @@
             <div class="pp-td-mean"><span class="pp-td-main">2.1</span><span class="pp-td-recent">(2.0/G)</span></div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">1+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 89%"></div></div>
-                <span class="pp-prob-value pp-prob-text-high">89%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 90%"></div></div>
+                <span class="pp-prob-value pp-prob-text-high">90%</span>
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">2+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 59%"></div></div>
-                <span class="pp-prob-value pp-prob-text-med">59%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 60%"></div></div>
+                <span class="pp-prob-value pp-prob-text-med">60%</span>
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">3+</span>
@@ -9033,7 +9033,7 @@
                     <div class="pp-stat">
             <div class="pp-stat-label">Att</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">36</span><span class="pp-stat-recent">(31.0/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">O</span> 31.5 <span class="pp-price">@ -110</span> · <span class="pp-prob-chip pp-prob-chip-med">64%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 31.5 <span class="pp-price">@ -110</span> · <span class="pp-prob-chip pp-prob-chip-med">65%</span></div>
         </div>
                     <div class="pp-stat">
             <div class="pp-stat-label">Cmp</div>
@@ -9042,7 +9042,7 @@
         </div>
                     <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">175</span><span class="pp-stat-recent">(189.6/G)</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">174</span><span class="pp-stat-recent">(189.6/G)</span></div>
             <div class="pp-stat-range"><span class="pp-side-label">U</span> 220.5 <span class="pp-price">@ -115</span> · <span class="pp-prob-chip pp-prob-chip-med">68%</span></div>
         </div>
                     <div class="pp-stat">
@@ -9053,7 +9053,7 @@
                     <div class="pp-stat">
             <div class="pp-stat-label">RuYd</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">26</span><span class="pp-stat-recent">(30.6/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 27.5 <span class="pp-price">@ -115</span> · <span class="pp-prob-chip pp-prob-chip-med">57%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 27.5 <span class="pp-price">@ -115</span> · <span class="pp-prob-chip pp-prob-chip-med">56%</span></div>
         </div>
                     <div class="pp-td-block">
             <div class="pp-td-mean"><span class="pp-td-main">0.8</span><span class="pp-td-recent">(1.4/G)</span></div>
@@ -9095,8 +9095,8 @@
 	                <div class="pp-card-stats">
 	                    <div class="pp-stat">
             <div class="pp-stat-label">RushYd</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">54</span><span class="pp-stat-recent">(63.8/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">O</span> 38.5 <span class="pp-price">@ -108</span> · <span class="pp-prob-chip pp-prob-chip-med">56%</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">55</span><span class="pp-stat-recent">(63.8/G)</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 38.5 <span class="pp-price">@ -108</span> · <span class="pp-prob-chip pp-prob-chip-med">57%</span></div>
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Rec</div>
@@ -9105,7 +9105,7 @@
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">RecYd</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">40</span><span class="pp-stat-recent">(34.6/G)</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">39</span><span class="pp-stat-recent">(34.6/G)</span></div>
             <div class="pp-stat-range"><span class="pp-side-label">O</span> 15.5 <span class="pp-price">@ -107</span> · <span class="pp-prob-chip pp-prob-chip-med">66%</span></div>
         </div>
 	                    <div class="pp-stat">
@@ -9118,7 +9118,7 @@
         <div class="pp-stat-value">&nbsp;</div>
     </div>
 	                    <div class="pp-td-block">
-            <div class="pp-td-mean"><span class="pp-td-main">0.7</span><span class="pp-td-recent">(1.2/G)</span></div>
+            <div class="pp-td-mean"><span class="pp-td-main">0.8</span><span class="pp-td-recent">(1.2/G)</span></div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">1+</span>
                 <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 47%"></div></div>
@@ -9197,7 +9197,7 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Rec</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">1</span><span class="pp-stat-recent">(3.6/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 1.5 <span class="pp-price">@ +125</span> · <span class="pp-prob-chip pp-prob-chip-high">71%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 1.5 <span class="pp-price">@ +125</span> · <span class="pp-prob-chip pp-prob-chip-high">72%</span></div>
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">RecYd</div>
@@ -9207,7 +9207,7 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Att</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">7</span><span class="pp-stat-recent">(14.0/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 11.5 <span class="pp-price">@ -102</span> · <span class="pp-prob-chip pp-prob-chip-med">70%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 11.5 <span class="pp-price">@ -102</span> · <span class="pp-prob-chip pp-prob-chip-high">70%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
         <div class="pp-stat-label">&nbsp;</div>
@@ -9250,7 +9250,7 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">RecYd</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">1</span><span class="pp-stat-recent">(16.8/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 3.5 <span class="pp-price">@ -110</span> · <span class="pp-prob-chip pp-prob-chip-high">77%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 3.5 <span class="pp-price">@ -110</span> · <span class="pp-prob-chip pp-prob-chip-high">76%</span></div>
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Att</div>
@@ -9326,8 +9326,8 @@
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">2+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 8%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">8%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 7%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">7%</span>
             </div>
             
         </div>
@@ -9344,12 +9344,12 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Rec</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">5</span><span class="pp-stat-recent">(3.8/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 4.5 <span class="pp-price">@ -194</span> · <span class="pp-prob-chip pp-prob-chip-med">57%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 4.5 <span class="pp-price">@ -194</span> · <span class="pp-prob-chip pp-prob-chip-med">56%</span></div>
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">69</span><span class="pp-stat-recent">(46.2/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">O</span> 44.5 <span class="pp-price">@ -114</span> · <span class="pp-prob-chip pp-prob-chip-med">61%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 44.5 <span class="pp-price">@ -114</span> · <span class="pp-prob-chip pp-prob-chip-med">62%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
         <div class="pp-stat-label">&nbsp;</div>
@@ -9372,8 +9372,8 @@
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">2+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 8%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">8%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 9%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">9%</span>
             </div>
             
         </div>
@@ -9410,16 +9410,16 @@
         <div class="pp-stat-value">&nbsp;</div>
     </div>
 	                    <div class="pp-td-block">
-            <div class="pp-td-mean"><span class="pp-td-main">0.2</span><span class="pp-td-recent">(0.0/G)</span></div>
+            <div class="pp-td-mean"><span class="pp-td-main">0.3</span><span class="pp-td-recent">(0.0/G)</span></div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">1+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 23%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">23%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 24%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">24%</span>
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">2+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 3%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">3%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 2%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">2%</span>
             </div>
             
         </div>
@@ -9441,7 +9441,7 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">33</span><span class="pp-stat-recent">(31.4/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">O</span> 18.5 <span class="pp-price">@ -115</span> · <span class="pp-prob-chip pp-prob-chip-med">65%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 18.5 <span class="pp-price">@ -115</span> · <span class="pp-prob-chip pp-prob-chip-med">66%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
         <div class="pp-stat-label">&nbsp;</div>
@@ -9486,7 +9486,7 @@
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">32</span><span class="pp-stat-recent">(37.5/G)</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">31</span><span class="pp-stat-recent">(37.5/G)</span></div>
             <div class="pp-stat-range"><span class="pp-side-label">O</span> 5.5 <span class="pp-price">@ -118</span> · <span class="pp-prob-chip pp-prob-chip-low">54%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
@@ -9528,12 +9528,12 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Rec</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">2</span><span class="pp-stat-recent">(1.4/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">O</span> 1.5 <span class="pp-price">@ -125</span> · <span class="pp-prob-chip pp-prob-chip-low">53%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 1.5 <span class="pp-price">@ -125</span> · <span class="pp-prob-chip pp-prob-chip-low">52%</span></div>
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">30</span><span class="pp-stat-recent">(15.6/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">O</span> 21.5 <span class="pp-price">@ -110</span> · <span class="pp-prob-chip pp-prob-chip-low">52%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 21.5 <span class="pp-price">@ -110</span> · <span class="pp-prob-chip pp-prob-chip-low">51%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
         <div class="pp-stat-label">&nbsp;</div>
@@ -9551,8 +9551,8 @@
             <div class="pp-td-mean"><span class="pp-td-main">0.2</span><span class="pp-td-recent">(0.0/G)</span></div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">1+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 18%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">18%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 17%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">17%</span>
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">2+</span>
@@ -9578,7 +9578,7 @@
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">29</span><span class="pp-stat-recent">(24.0/G)</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">30</span><span class="pp-stat-recent">(24.0/G)</span></div>
             <div class="pp-stat-range"><span class="pp-side-label">U</span> 29.5 <span class="pp-price">@ -114</span> · <span class="pp-prob-chip pp-prob-chip-low">54%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
@@ -9620,7 +9620,7 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Rec</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">2</span><span class="pp-stat-recent">(2.2/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 2.5 <span class="pp-price">@ +131</span> · <span class="pp-prob-chip pp-prob-chip-low">54%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 2.5 <span class="pp-price">@ +131</span> · <span class="pp-prob-chip pp-prob-chip-low">55%</span></div>
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
@@ -9643,8 +9643,8 @@
             <div class="pp-td-mean"><span class="pp-td-main">0.1</span><span class="pp-td-recent">(0.2/G)</span></div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">1+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 13%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">13%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 12%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">12%</span>
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">2+</span>
@@ -9666,12 +9666,12 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Rec</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">1</span><span class="pp-stat-recent">(1.4/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 1.5 <span class="pp-price">@ -175</span> · <span class="pp-prob-chip pp-prob-chip-med">67%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 1.5 <span class="pp-price">@ -175</span> · <span class="pp-prob-chip pp-prob-chip-med">68%</span></div>
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">15</span><span class="pp-stat-recent">(23.4/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 15.5 <span class="pp-price">@ -110</span> · <span class="pp-prob-chip pp-prob-chip-med">58%</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">14</span><span class="pp-stat-recent">(23.4/G)</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 15.5 <span class="pp-price">@ -110</span> · <span class="pp-prob-chip pp-prob-chip-med">59%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
         <div class="pp-stat-label">&nbsp;</div>
@@ -9717,7 +9717,7 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">10</span><span class="pp-stat-recent">(55.0/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 36.5 <span class="pp-price">@ -114</span> · <span class="pp-prob-chip pp-prob-chip-high">72%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 36.5 <span class="pp-price">@ -114</span> · <span class="pp-prob-chip pp-prob-chip-high">73%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
         <div class="pp-stat-label">&nbsp;</div>
@@ -9735,8 +9735,8 @@
             <div class="pp-td-mean"><span class="pp-td-main">0.0</span><span class="pp-td-recent">(0.4/G)</span></div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">1+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 11%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">11%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 10%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">10%</span>
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">2+</span>
@@ -9758,12 +9758,12 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Rec</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">1</span><span class="pp-stat-recent">(1.8/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">O</span> 0.5 <span class="pp-price">@ -210</span> · <span class="pp-prob-chip pp-prob-chip-high">71%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 0.5 <span class="pp-price">@ -210</span> · <span class="pp-prob-chip pp-prob-chip-high">70%</span></div>
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">8</span><span class="pp-stat-recent">(14.4/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">O</span> 6.5 <span class="pp-price">@ -120</span> · <span class="pp-prob-chip pp-prob-chip-low">53%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 6.5 <span class="pp-price">@ -120</span> · <span class="pp-prob-chip pp-prob-chip-low">52%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
         <div class="pp-stat-label">&nbsp;</div>
@@ -9809,7 +9809,7 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">6</span><span class="pp-stat-recent">(29.0/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 40.5 <span class="pp-price">@ -114</span> · <span class="pp-prob-chip pp-prob-chip-high">84%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 40.5 <span class="pp-price">@ -114</span> · <span class="pp-prob-chip pp-prob-chip-high">85%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
         <div class="pp-stat-label">&nbsp;</div>
@@ -9918,7 +9918,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Raw Model</dt>
-                                                    <dd class="font-semibold text-slate-900">85.2%</dd>
+                                                    <dd class="font-semibold text-slate-900">85.0%</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
@@ -9944,7 +9944,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Raw Model</dt>
-                                                    <dd class="font-semibold text-slate-900">85.6%</dd>
+                                                    <dd class="font-semibold text-slate-900">85.7%</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
@@ -9974,7 +9974,7 @@
                                                 </div>
                                                 <div class="flex justify-between">
                                                     <dt>Raw Total</dt>
-                                                    <dd class="font-semibold text-slate-900">53.6</dd>
+                                                    <dd class="font-semibold text-slate-900">53.7</dd>
                                                 </div>
                                                 <div class="flex justify-between">
                                                     <dt>Adjusted Total</dt>
@@ -10007,7 +10007,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Passing Yds</dt>
-                                                    <dd class="font-semibold text-slate-900">175</dd>
+                                                    <dd class="font-semibold text-slate-900">174</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Rushing Yds</dt>
@@ -10042,7 +10042,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Passing Yds</dt>
-                                                    <dd class="font-semibold text-slate-900">323</dd>
+                                                    <dd class="font-semibold text-slate-900">322</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Rushing Yds</dt>
@@ -10319,7 +10319,7 @@
 	                </div>
 	            </div>
 	        
-            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="AwayFav" data-su-category="favorite" data-ou-pick="over" data-record-visible="true" data-vegas-total="38" data-market-spread="3" data-pick-location="away" data-pick-side="favorite" data-su-pick-location="away" data-has-five-star="true">
+            <div class="game-card bg-white rounded-2xl card-shadow hover-lift overflow-hidden" style="opacity: 0;" data-stars="5" data-stars-cal="5" data-ats-segment="AwayFav" data-su-category="favorite" data-ou-pick="over" data-record-visible="true" data-vegas-total="38.5" data-market-spread="3" data-pick-location="away" data-pick-side="favorite" data-su-pick-location="away" data-has-five-star="true">
 
                 <!-- Tab Navigation -->
                 <div class="border-b border-gray-200 bg-gray-50">
@@ -10370,7 +10370,7 @@
                                                     <img src="https://a.espncdn.com/i/teamlogos/nfl/500/hou.png" alt="Houston" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(3)" onerror="this.style.display='none'">
                                                 <div class="flex flex-col items-start leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">HOU</span>
-                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(3)" style="color: #053047">24.7</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(3)" style="color: #053047">25.0</span>
                                                 </div>
                                             
                                     </div>
@@ -10378,8 +10378,8 @@
                                     <!-- Center: game meta -->
                                     <div class="flex flex-col items-center text-[10px] text-gray-500 leading-tight px-2 self-start">
                                         <span>Jan 12 • 8:00 PM ET</span>
-                                        <span class="mt-0">OU 38</span>
-                                        <span>Model: 39.5 (o)</span>
+                                        <span class="mt-0">OU 38.5</span>
+                                        <span>Model: 40 (o)</span>
                                     </div>
 
                                     <!-- Home team (right) -->
@@ -10387,7 +10387,7 @@
                                         
                                                 <div class="flex flex-col items-end leading-tight">
                                                     <span class="text-xs font-extrabold tracking-wide text-gray-900">PIT</span>
-                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(3)" style="color: #374151">14.8</span>
+                                                    <span class="text-2xl font-bold mobile-adv-trigger" onclick="toggleMobileAdv(3)" style="color: #374151">15.1</span>
                                                 </div>
                                                 <img src="https://a.espncdn.com/i/teamlogos/nfl/500/pit.png" alt="Pittsburgh" class="w-8 h-8 object-contain mobile-adv-trigger" onclick="toggleMobileAdv(3)" onerror="this.style.display='none'">
                                             
@@ -10397,11 +10397,11 @@
                                 <div class="mobile-adv-content" id="game-3-adv-content">
                                     <div class="mobile-adv-team">
                                         <p>12-5 • ATS: 9-8 • O/U: 6-11</p>
-                                        <p>Raw: 17.2 • Mean: 19.3 • Mode: 13</p>
+                                        <p>Raw: 17.4 • Mean: 19.5 • Mode: 13</p>
                                     </div>
                                     <div class="mobile-adv-team">
                                         <p>10-7 • ATS: 9-7-1 • O/U: 10-7</p>
-                                        <p>Raw: 20.9 • Mean: 18.8 • Mode: 20</p>
+                                        <p>Raw: 20.8 • Mean: 18.9 • Mode: 20</p>
                                     </div>
                                 </div>
                             </div>
@@ -10421,9 +10421,9 @@
                                         12-5 • ATS: 9-8 • O/U: 6-11
                                     </p>
                                     <p class="text-4xl font-bold team-score" style="color: #053047">
-                                        24.7
+                                        25.0
                                     </p>
-                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 17.2 • Mean: 19.3 • Mode: 13</p>
+                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 17.4 • Mean: 19.5 • Mode: 13</p>
                                     <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold shadow-sm" style="background: linear-gradient(to right, #03202F, #032536); color: #FFFFFF; border: 1px solid #021823; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-3</span>
                                         
@@ -10435,7 +10435,7 @@
                                     <p class="text-xs text-gray-600 font-medium mb-1 mobile-kickoff-label">Jan 12 • 8:00 PM ET</p>
                                     <span class="text-sm text-gray-400 font-medium mobile-vs-label">VS</span>
                                     <div class="mt-1 mobile-ou-line">
-                                        <span class="text-xs text-gray-600 font-medium">O/U 38 <span class="text-[10px] text-gray-400">Model: 39.5 (o)</span></span>
+                                        <span class="text-xs text-gray-600 font-medium">O/U 38.5 <span class="text-[10px] text-gray-400">Model: 40 (o)</span></span>
                                     </div>
                                 </div>
                                 
@@ -10452,9 +10452,9 @@
                                         10-7 • ATS: 9-7-1 • O/U: 10-7
                                     </p>
                                     <p class="text-4xl font-bold team-score" style="color: #374151">
-                                        14.8
+                                        15.1
                                     </p>
-                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 20.9 • Mean: 18.8 • Mode: 20</p>
+                                    <p class="text-[10px] text-gray-500 mt-1">Raw: 20.8 • Mean: 18.9 • Mode: 20</p>
                                     <div class="mt-2 flex flex-wrap items-center gap-2 justify-center team-pill-row">
                                         <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">+3</span>
                                         
@@ -10467,12 +10467,12 @@
                                 <div class="relative h-6 bg-gray-100 rounded-full overflow-hidden">
                                     <div class="absolute inset-0 flex">
                                         <div class="flex items-center justify-center"
-                                             style="width: 53.8%; background: linear-gradient(to right, #03202F, #032536)">
-                                            <span class="text-xs font-bold text-white">53.8%</span>
+                                             style="width: 53.1%; background: linear-gradient(to right, #03202F, #032536)">
+                                            <span class="text-xs font-bold text-white">53.1%</span>
                                         </div>
                                         <div class="flex items-center justify-center"
-                                             style="width: 46.2%; background: linear-gradient(to right, #000000, #000000)">
-                                            <span class="text-xs font-bold text-white">46.2%</span>
+                                             style="width: 46.9%; background: linear-gradient(to right, #000000, #000000)">
+                                            <span class="text-xs font-bold text-white">46.9%</span>
                                         </div>
                                     </div>
                                 </div>
@@ -10524,7 +10524,7 @@
                                             <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--market shadow-sm" style="background: linear-gradient(to right, #03202F, #032536); color: #FFFFFF; border: 1px solid #021823; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">-162</span>
                                         </div>
                                         <div class="flex justify-center py-0.5">
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--market shadow-sm" style="background: linear-gradient(to right, #03202F, #032536); color: #FFFFFF; border: 1px solid #021823; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">o38</span>
+                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--market shadow-sm" style="background: linear-gradient(to right, #03202F, #032536); color: #FFFFFF; border: 1px solid #021823; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);">o38.5</span>
                                         </div>
 
                                         <!-- Away model hit rates sub-row -->
@@ -10546,7 +10546,7 @@
                                             <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--market bg-gray-100 text-gray-600">+136</span>
                                         </div>
                                         <div class="flex justify-center py-0.5">
-                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--market bg-gray-100 text-gray-600">u38</span>
+                                            <span class="team-pill inline-flex items-center justify-center flex-shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold team-pill--market bg-gray-100 text-gray-600">u38.5</span>
                                         </div>
 
                                         <!-- Home model hit rates sub-row -->
@@ -10587,7 +10587,7 @@
                                                 <p class="text-[13px] font-semibold text-gray-900">
                                                     
                                                             <span class="inline-flex items-center gap-1 flex-wrap">
-                                                                <span>OVER 38 (-105)</span>
+                                                                <span>OVER 38.5 (-105)</span>
                                                                 <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                                 <span class="prob-badge ml-1.5 prob-55-62">56% Probability</span>
                                                             </span>
@@ -10660,7 +10660,7 @@
                                         <p class="text-sm font-bold text-gray-900">
                                             
                                                     <span class="inline-flex items-center gap-2 flex-wrap">
-                                                        <span>OVER 38 (-105)</span>
+                                                        <span>OVER 38.5 (-105)</span>
                                                         <span class="flex items-center"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></span>
                                                         <span class="prob-badge prob-55-62">56% Probability</span>
                                                     </span>
@@ -10710,9 +10710,9 @@
                             <div class="analytics-panel" style="--accent:#03202F;">
                                 <div class="analytics-header"><span>Houston</span></div>
                                 <div class="analytics-grid">
-                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="196">
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_yards" data-value="198">
                                         <p class="text-xs text-gray-500 font-medium">Pass Yards</p>
-                                        <div class="value text-lg font-bold text-gray-900"><span class="num">196</span></div>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">198</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="pass_attempts" data-value="35">
@@ -10725,9 +10725,9 @@
                                         <div class="value text-lg font-bold text-gray-900"><span class="num">22</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
-                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_tds" data-value="0.8">
+                                    <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="passing_tds" data-value="0.9">
                                         <p class="text-xs text-gray-500 font-medium">Pass TDs</p>
-                                        <div class="value text-lg font-bold text-gray-900"><span class="num">0.8</span></div>
+                                        <div class="value text-lg font-bold text-gray-900"><span class="num">0.9</span></div>
                                         <div class="range-wrap"><span class="range-pill js-pill"></span><div class="rangebar"><div class="whisker js-whisker"></div><div class="center js-center"></div></div></div>
                                     </div>
                                     <div class="bg-white border border-[#e6e8ee] rounded-xl p-3 stat-card" data-prop="rushing_yards" data-value="96">
@@ -10805,14 +10805,14 @@
                         <div class="grid grid-cols-2 gap-4 half-analysis-grid">
                             <div class="bg-gray-50 rounded-xl p-4 half-analysis-card">
                                 <h5 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 half-analysis-title">First Half</h5>
-                                <p class="text-2xl font-bold text-gray-900 half-analysis-score">19.2</p>
+                                <p class="text-2xl font-bold text-gray-900 half-analysis-score">19.1</p>
                                 <p class="text-xs text-gray-600 mt-1 half-analysis-note">
-                                    Pittsburgh -2.2
+                                    Pittsburgh -2.1
                                 </p>
                             </div>
                             <div class="bg-gray-50 rounded-xl p-4 half-analysis-card">
                                 <h5 class="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2 half-analysis-title">Second Half</h5>
-                                <p class="text-2xl font-bold text-gray-900 half-analysis-score">18.8</p>
+                                <p class="text-2xl font-bold text-gray-900 half-analysis-score">19.0</p>
                                 <p class="text-xs text-gray-600 mt-1 half-analysis-note">
                                     Pittsburgh -1.4
                                 </p>
@@ -11239,19 +11239,19 @@
                     <div class="pp-stat">
             <div class="pp-stat-label">INT</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">0</span><span class="pp-stat-recent">(0.0/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 0.5 <span class="pp-price">@ -135</span> · <span class="pp-prob-chip pp-prob-chip-med">65%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 0.5 <span class="pp-price">@ -135</span> · <span class="pp-prob-chip pp-prob-chip-med">64%</span></div>
         </div>
                     <div class="pp-stat">
             <div class="pp-stat-label">RuYd</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">11</span><span class="pp-stat-recent">(7.0/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">O</span> 0.5 <span class="pp-price">@ -115</span> · <span class="pp-prob-chip pp-prob-chip-med">57%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 0.5 <span class="pp-price">@ -115</span> · <span class="pp-prob-chip pp-prob-chip-med">56%</span></div>
         </div>
                     <div class="pp-td-block">
             <div class="pp-td-mean"><span class="pp-td-main">1.0</span><span class="pp-td-recent">(1.0/G)</span></div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">1+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 72%"></div></div>
-                <span class="pp-prob-value pp-prob-text-high">72%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 71%"></div></div>
+                <span class="pp-prob-value pp-prob-text-high">71%</span>
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">2+</span>
@@ -11277,7 +11277,7 @@
                     <div class="pp-stat">
             <div class="pp-stat-label">Att</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">37</span><span class="pp-stat-recent">(30.0/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">O</span> 32.5 <span class="pp-price">@ -114</span> · <span class="pp-prob-chip pp-prob-chip-med">68%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 32.5 <span class="pp-price">@ -114</span> · <span class="pp-prob-chip pp-prob-chip-med">67%</span></div>
         </div>
                     <div class="pp-stat">
             <div class="pp-stat-label">Cmp</div>
@@ -11286,35 +11286,35 @@
         </div>
                     <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">196</span><span class="pp-stat-recent">(208.4/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 229.5 <span class="pp-price">@ -112</span> · <span class="pp-prob-chip pp-prob-chip-med">63%</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">198</span><span class="pp-stat-recent">(208.4/G)</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 229.5 <span class="pp-price">@ -112</span> · <span class="pp-prob-chip pp-prob-chip-med">62%</span></div>
         </div>
                     <div class="pp-stat">
             <div class="pp-stat-label">INT</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">1</span><span class="pp-stat-recent">(0.4/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 0.5 <span class="pp-price">@ -108</span> · <span class="pp-prob-chip pp-prob-chip-low">54%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 0.5 <span class="pp-price">@ -108</span> · <span class="pp-prob-chip pp-prob-chip-low">53%</span></div>
         </div>
                     <div class="pp-stat">
             <div class="pp-stat-label">RuYd</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">7</span><span class="pp-stat-recent">(4.0/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 11.5 <span class="pp-price">@ -120</span> · <span class="pp-prob-chip pp-prob-chip-high">70%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 11.5 <span class="pp-price">@ -120</span> · <span class="pp-prob-chip pp-prob-chip-high">71%</span></div>
         </div>
                     <div class="pp-td-block">
-            <div class="pp-td-mean"><span class="pp-td-main">0.8</span><span class="pp-td-recent">(1.6/G)</span></div>
+            <div class="pp-td-mean"><span class="pp-td-main">0.9</span><span class="pp-td-recent">(1.6/G)</span></div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">1+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 72%"></div></div>
-                <span class="pp-prob-value pp-prob-text-high">72%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 73%"></div></div>
+                <span class="pp-prob-value pp-prob-text-high">73%</span>
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">2+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 30%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">30%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 31%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">31%</span>
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">3+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 9%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">9%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 8%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">8%</span>
             </div>
         </div>
                 </div>
@@ -11339,7 +11339,7 @@
 	                <div class="pp-card-stats">
 	                    <div class="pp-stat">
             <div class="pp-stat-label">RushYd</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">69</span><span class="pp-stat-recent">(63.8/G)</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">68</span><span class="pp-stat-recent">(63.8/G)</span></div>
             <div class="pp-stat-range"><span class="pp-side-label">O</span> 52.5 <span class="pp-price">@ -113</span> · <span class="pp-prob-chip pp-prob-chip-med">56%</span></div>
         </div>
 	                    <div class="pp-stat">
@@ -11398,7 +11398,7 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">RecYd</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">13</span><span class="pp-stat-recent">(4.6/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">O</span> 9.5 <span class="pp-price">@ -117</span> · <span class="pp-prob-chip pp-prob-chip-low">52%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 9.5 <span class="pp-price">@ -117</span> · <span class="pp-prob-chip pp-prob-chip-low">53%</span></div>
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Att</div>
@@ -11418,8 +11418,8 @@
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">2+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 6%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">6%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 5%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">5%</span>
             </div>
             
         </div>
@@ -11441,12 +11441,12 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Rec</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">5</span><span class="pp-stat-recent">(5.8/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">O</span> 4.5 <span class="pp-price">@ -140</span> · <span class="pp-prob-chip pp-prob-chip-low">55%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 4.5 <span class="pp-price">@ -140</span> · <span class="pp-prob-chip pp-prob-chip-low">54%</span></div>
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">RecYd</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">43</span><span class="pp-stat-recent">(45.4/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">O</span> 32.5 <span class="pp-price">@ -114</span> · <span class="pp-prob-chip pp-prob-chip-low">53%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 32.5 <span class="pp-price">@ -114</span> · <span class="pp-prob-chip pp-prob-chip-low">54%</span></div>
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Att</div>
@@ -11466,8 +11466,8 @@
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">2+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 8%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">8%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 9%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">9%</span>
             </div>
             
         </div>
@@ -11484,7 +11484,7 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">RushYd</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">11</span><span class="pp-stat-recent">(17.4/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 13.5 <span class="pp-price">@ -110</span> · <span class="pp-prob-chip pp-prob-chip-med">62%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 13.5 <span class="pp-price">@ -110</span> · <span class="pp-prob-chip pp-prob-chip-med">63%</span></div>
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Rec</div>
@@ -11493,7 +11493,7 @@
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">RecYd</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">1</span><span class="pp-stat-recent">(1.6/G)</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">0</span><span class="pp-stat-recent">(1.6/G)</span></div>
             
         </div>
 	                    <div class="pp-stat">
@@ -11546,7 +11546,7 @@
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">61</span><span class="pp-stat-recent">(32.8/G)</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">62</span><span class="pp-stat-recent">(32.8/G)</span></div>
             <div class="pp-stat-range"><span class="pp-side-label">O</span> 14.5 <span class="pp-price">@ -112</span> · <span class="pp-prob-chip pp-prob-chip-high">72%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
@@ -11592,8 +11592,8 @@
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">56</span><span class="pp-stat-recent">(45.0/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">O</span> 43.5 <span class="pp-price">@ -114</span> · <span class="pp-prob-chip pp-prob-chip-med">57%</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">57</span><span class="pp-stat-recent">(45.0/G)</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 43.5 <span class="pp-price">@ -114</span> · <span class="pp-prob-chip pp-prob-chip-med">58%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
         <div class="pp-stat-label">&nbsp;</div>
@@ -11611,8 +11611,8 @@
             <div class="pp-td-mean"><span class="pp-td-main">0.1</span><span class="pp-td-recent">(0.4/G)</span></div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">1+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 19%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">19%</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 20%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">20%</span>
             </div>
             <div class="pp-prob-row">
                 <span class="pp-prob-label">2+</span>
@@ -11638,8 +11638,8 @@
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">43</span><span class="pp-stat-recent">(37.6/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 33.5 <span class="pp-price">@ -114</span> · <span class="pp-prob-chip pp-prob-chip-low">50%</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">44</span><span class="pp-stat-recent">(37.6/G)</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 33.5 <span class="pp-price">@ -110</span> · <span class="pp-prob-chip pp-prob-chip-low">51%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
         <div class="pp-stat-label">&nbsp;</div>
@@ -11680,11 +11680,11 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Rec</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">2</span><span class="pp-stat-recent">(4.4/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 4.5 <span class="pp-price">@ -153</span> · <span class="pp-prob-chip pp-prob-chip-med">68%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 4.5 <span class="pp-price">@ -153</span> · <span class="pp-prob-chip pp-prob-chip-med">69%</span></div>
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">32</span><span class="pp-stat-recent">(59.8/G)</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">31</span><span class="pp-stat-recent">(59.8/G)</span></div>
             <div class="pp-stat-range"><span class="pp-side-label">U</span> 51.5 <span class="pp-price">@ -110</span> · <span class="pp-prob-chip pp-prob-chip-med">62%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
@@ -11731,7 +11731,7 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">25</span><span class="pp-stat-recent">(33.2/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 28.5 <span class="pp-price">@ -118</span> · <span class="pp-prob-chip pp-prob-chip-med">62%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 28.5 <span class="pp-price">@ -118</span> · <span class="pp-prob-chip pp-prob-chip-med">61%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
         <div class="pp-stat-label">&nbsp;</div>
@@ -11810,52 +11810,6 @@
                 <div class="pp-card-identity">
                     <img src="https://a.espncdn.com/i/teamlogos/nfl/500/pit.png" alt="PIT logo" class="pp-team-logo">
                     <div class="pp-name-block">
-                        <span class="pp-name">C.Austin</span>
-                        <span class="pp-team-code">PIT</span>
-                    </div>
-	                </div>
-	                <div class="pp-card-stats">
-	                    <div class="pp-stat">
-            <div class="pp-stat-label">Rec</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">1</span><span class="pp-stat-recent">(2.0/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 1.5 <span class="pp-price">@ -145</span> · <span class="pp-prob-chip pp-prob-chip-med">62%</span></div>
-        </div>
-	                    <div class="pp-stat">
-            <div class="pp-stat-label">Yds</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">18</span><span class="pp-stat-recent">(27.0/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">U</span> 12.5 <span class="pp-price">@ -110</span> · <span class="pp-prob-chip pp-prob-chip-low">53%</span></div>
-        </div>
-	                    <div class="pp-stat pp-stat-empty">
-        <div class="pp-stat-label">&nbsp;</div>
-        <div class="pp-stat-value">&nbsp;</div>
-    </div>
-	                    <div class="pp-stat pp-stat-empty">
-        <div class="pp-stat-label">&nbsp;</div>
-        <div class="pp-stat-value">&nbsp;</div>
-    </div>
-	                    <div class="pp-stat pp-stat-empty">
-        <div class="pp-stat-label">&nbsp;</div>
-        <div class="pp-stat-value">&nbsp;</div>
-    </div>
-	                    <div class="pp-td-block">
-            <div class="pp-td-mean"><span class="pp-td-main">0.1</span><span class="pp-td-recent">(0.2/G)</span></div>
-            <div class="pp-prob-row">
-                <span class="pp-prob-label">1+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 8%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">8%</span>
-            </div>
-            <div class="pp-prob-row">
-                <span class="pp-prob-label">2+</span>
-                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 1%"></div></div>
-                <span class="pp-prob-value pp-prob-text-low">1%</span>
-            </div>
-            
-        </div>
-	                </div>
-	            </div><div class="pp-player-card" data-side="home" data-pos="wrte" style="--team-color: #000000; --team-color-light: rgba(0, 0, 0, 0.06);">
-                <div class="pp-card-identity">
-                    <img src="https://a.espncdn.com/i/teamlogos/nfl/500/pit.png" alt="PIT logo" class="pp-team-logo">
-                    <div class="pp-name-block">
                         <span class="pp-name">M.Valdes-Scantling</span>
                         <span class="pp-team-code">PIT</span>
                     </div>
@@ -11868,7 +11822,7 @@
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">17</span><span class="pp-stat-recent">(20.0/G)</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">18</span><span class="pp-stat-recent">(20.0/G)</span></div>
             <div class="pp-stat-range"><span class="pp-side-label">O</span> 12.5 <span class="pp-price">@ -114</span> · <span class="pp-prob-chip pp-prob-chip-low">51%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
@@ -11898,6 +11852,52 @@
             
         </div>
 	                </div>
+	            </div><div class="pp-player-card" data-side="home" data-pos="wrte" style="--team-color: #000000; --team-color-light: rgba(0, 0, 0, 0.06);">
+                <div class="pp-card-identity">
+                    <img src="https://a.espncdn.com/i/teamlogos/nfl/500/pit.png" alt="PIT logo" class="pp-team-logo">
+                    <div class="pp-name-block">
+                        <span class="pp-name">C.Austin</span>
+                        <span class="pp-team-code">PIT</span>
+                    </div>
+	                </div>
+	                <div class="pp-card-stats">
+	                    <div class="pp-stat">
+            <div class="pp-stat-label">Rec</div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">1</span><span class="pp-stat-recent">(2.0/G)</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 1.5 <span class="pp-price">@ -145</span> · <span class="pp-prob-chip pp-prob-chip-med">62%</span></div>
+        </div>
+	                    <div class="pp-stat">
+            <div class="pp-stat-label">Yds</div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">17</span><span class="pp-stat-recent">(27.0/G)</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">U</span> 12.5 <span class="pp-price">@ -110</span> · <span class="pp-prob-chip pp-prob-chip-low">53%</span></div>
+        </div>
+	                    <div class="pp-stat pp-stat-empty">
+        <div class="pp-stat-label">&nbsp;</div>
+        <div class="pp-stat-value">&nbsp;</div>
+    </div>
+	                    <div class="pp-stat pp-stat-empty">
+        <div class="pp-stat-label">&nbsp;</div>
+        <div class="pp-stat-value">&nbsp;</div>
+    </div>
+	                    <div class="pp-stat pp-stat-empty">
+        <div class="pp-stat-label">&nbsp;</div>
+        <div class="pp-stat-value">&nbsp;</div>
+    </div>
+	                    <div class="pp-td-block">
+            <div class="pp-td-mean"><span class="pp-td-main">0.1</span><span class="pp-td-recent">(0.2/G)</span></div>
+            <div class="pp-prob-row">
+                <span class="pp-prob-label">1+</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 8%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">8%</span>
+            </div>
+            <div class="pp-prob-row">
+                <span class="pp-prob-label">2+</span>
+                <div class="pp-prob-bar"><div class="pp-prob-fill" style="width: 1%"></div></div>
+                <span class="pp-prob-value pp-prob-text-low">1%</span>
+            </div>
+            
+        </div>
+	                </div>
 	            </div><div class="pp-player-card" data-side="away" data-pos="wrte" style="--team-color: #03202F; --team-color-light: rgba(3, 32, 47, 0.06);">
                 <div class="pp-card-identity">
                     <img src="https://a.espncdn.com/i/teamlogos/nfl/500/hou.png" alt="HOU logo" class="pp-team-logo">
@@ -11914,7 +11914,7 @@
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">15</span><span class="pp-stat-recent">(84.0/G)</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">14</span><span class="pp-stat-recent">(84.0/G)</span></div>
             <div class="pp-stat-range"><span class="pp-side-label">U</span> 69.5 <span class="pp-price">@ -118</span> · <span class="pp-prob-chip pp-prob-chip-high">77%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
@@ -12002,7 +12002,7 @@
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Rec</div>
             <div class="pp-stat-value"><span class="pp-stat-value-main">1</span><span class="pp-stat-recent">(1.6/G)</span></div>
-            <div class="pp-stat-range"><span class="pp-side-label">O</span> 0.5 <span class="pp-price">@ -195</span> · <span class="pp-prob-chip pp-prob-chip-med">67%</span></div>
+            <div class="pp-stat-range"><span class="pp-side-label">O</span> 0.5 <span class="pp-price">@ -195</span> · <span class="pp-prob-chip pp-prob-chip-med">66%</span></div>
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
@@ -12052,7 +12052,7 @@
         </div>
 	                    <div class="pp-stat">
             <div class="pp-stat-label">Yds</div>
-            <div class="pp-stat-value"><span class="pp-stat-value-main">7</span><span class="pp-stat-recent">(15.2/G)</span></div>
+            <div class="pp-stat-value"><span class="pp-stat-value-main">8</span><span class="pp-stat-recent">(15.2/G)</span></div>
             <div class="pp-stat-range"><span class="pp-side-label">U</span> 7.5 <span class="pp-price">@ -110</span> · <span class="pp-prob-chip pp-prob-chip-low">53%</span></div>
         </div>
 	                    <div class="pp-stat pp-stat-empty">
@@ -12152,7 +12152,7 @@
                                                     <p class="mt-1 text-sm font-bold text-slate-900">Houston +3.5 (-291)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
-                                                    +2.5
+                                                    +2.4
                                                 </span>
                                             </div>
                                             <dl class="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs text-slate-600">
@@ -12162,7 +12162,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Raw Model</dt>
-                                                    <dd class="font-semibold text-slate-900">85.9%</dd>
+                                                    <dd class="font-semibold text-slate-900">84.8%</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
@@ -12178,7 +12178,7 @@
                                                     <p class="mt-1 text-sm font-bold text-slate-900">OVER 28.5 (-463)</p>
                                                 </div>
                                                 <span class="text-sm font-semibold text-emerald-600">
-                                                    +11.1
+                                                    +11.6
                                                 </span>
                                             </div>
                                             <dl class="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs text-slate-600">
@@ -12188,7 +12188,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Raw Model</dt>
-                                                    <dd class="font-semibold text-slate-900">67.8%</dd>
+                                                    <dd class="font-semibold text-slate-900">66.3%</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Market Implied</dt>
@@ -12218,11 +12218,11 @@
                                                 </div>
                                                 <div class="flex justify-between">
                                                     <dt>Raw Total</dt>
-                                                    <dd class="font-semibold text-slate-900">38.1</dd>
+                                                    <dd class="font-semibold text-slate-900">38.3</dd>
                                                 </div>
                                                 <div class="flex justify-between">
                                                     <dt>Adjusted Total</dt>
-                                                    <dd class="font-semibold text-slate-900">39.6</dd>
+                                                    <dd class="font-semibold text-slate-900">40.1</dd>
                                                 </div>
                                             </dl>
                                         </div>
@@ -12243,7 +12243,7 @@
                                             <div class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Score</dt>
-                                                    <dd class="font-semibold text-slate-900">24.7</dd>
+                                                    <dd class="font-semibold text-slate-900">25.0</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Vegas Spread</dt>
@@ -12251,7 +12251,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Passing Yds</dt>
-                                                    <dd class="font-semibold text-slate-900">196</dd>
+                                                    <dd class="font-semibold text-slate-900">198</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Rushing Yds</dt>
@@ -12259,7 +12259,7 @@
                                                 </div>
                                                 <div>
                                                     <dt>Pass TDs</dt>
-                                                    <dd class="font-semibold text-slate-900">0.8</dd>
+                                                    <dd class="font-semibold text-slate-900">0.9</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Rush TDs</dt>
@@ -12278,7 +12278,7 @@
                                             <div class="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-600">
                                                 <div>
                                                     <dt>Model Score</dt>
-                                                    <dd class="font-semibold text-slate-900">14.8</dd>
+                                                    <dd class="font-semibold text-slate-900">15.1</dd>
                                                 </div>
                                                 <div>
                                                     <dt>Vegas Spread</dt>
@@ -12582,7 +12582,7 @@
         <!-- Footer -->
         <div class="mt-8 pb-8 text-center">
             <p class="text-xs text-gray-400">Generated with NFL Advanced Analytics Engine</p>
-            <p class="text-xs text-gray-400 mt-1">Data refreshed: 1/10 8:10 PM</p>
+            <p class="text-xs text-gray-400 mt-1">Data refreshed: 1/11 6:19 AM</p>
         </div>
     </div>
 <script>
