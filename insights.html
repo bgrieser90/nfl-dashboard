@@ -510,7 +510,7 @@
 	                        <button type="button" data-acc-chart-mode="all" class="px-2.5 py-1 text-[11px] rounded-full font-semibold text-slate-600 hover:text-slate-900">All</button>
 	                    </div>
 	                </div>
-	                <div id="accuracy-chart-toggles" class="hidden md:flex items-center justify-end gap-4 text-xs text-slate-500 mb-2">
+	                <div id="accuracy-chart-toggles" class="flex items-center justify-start gap-4 text-xs text-slate-500 mb-2">
 	                    <label class="inline-flex items-center gap-2 cursor-pointer select-none">
 	                        <input id="accuracy-chart-show-tease" type="checkbox" class="h-3.5 w-3.5" checked>
 	                        <span>Show Teased +10</span>
@@ -1340,35 +1340,79 @@
 	
 	        function applyAccuracyChartMode() {
 	            if (!accuracyChartInstance || !currentAccuracyView) return;
-	
+
 	            const mobile = isMobileViewport();
-	            const mode = accuracyChartMode || (mobile ? 'ats' : 'all');
+	            const mode = accuracyChartMode || 'all';
 	            const allowTease = Boolean(accuracyChartShowTease) && hasAnyTeaseData(currentAccuracyView);
-	            const showTeaseInAll = !mobile && allowTease;
-	
+	            const showTeaseInAll = allowTease;
+
 	            const ds = accuracyChartInstance.data.datasets;
+	
+	            const setDatasetVisible = (index, visible) => {
+	                const shouldShow = !!visible;
+	
+	                // Chart.js v3+ API
+	                try {
+	                    if (typeof accuracyChartInstance.setDatasetVisibility === 'function') {
+	                        accuracyChartInstance.setDatasetVisibility(index, shouldShow);
+	                    }
+	                } catch (_) {}
+	
+	                // Chart.js v2 API (and still available in v3+)
+	                try {
+	                    if (typeof accuracyChartInstance.getDatasetMeta === 'function') {
+	                        const meta = accuracyChartInstance.getDatasetMeta(index);
+	                        if (meta) meta.hidden = !shouldShow;
+	                    }
+	                } catch (_) {}
+	
+	                // Fallback
+	                if (ds[index]) ds[index].hidden = !shouldShow;
+	            };
+	
+	            const isVisible = (index) => {
+	                // Chart.js v3+ API
+	                try {
+	                    if (typeof accuracyChartInstance.isDatasetVisible === 'function') {
+	                        return !!accuracyChartInstance.isDatasetVisible(index);
+	                    }
+	                } catch (_) {}
+	
+	                // Chart.js v2 meta visibility
+	                try {
+	                    if (typeof accuracyChartInstance.getDatasetMeta === 'function') {
+	                        const meta = accuracyChartInstance.getDatasetMeta(index);
+	                        if (meta && meta.hidden !== null && typeof meta.hidden !== 'undefined') {
+	                            return !meta.hidden;
+	                        }
+	                    }
+	                } catch (_) {}
+	
+	                return ds[index] ? !ds[index].hidden : false;
+	            };
+	
 	            const showSu = mode === 'all' || mode === 'su';
 	            const showAts = mode === 'all' || mode === 'ats';
 	            const showOu = mode === 'all' || mode === 'ou';
-	
+
 	            // SU / ATS / O/U
-	            ds[0].hidden = !showSu;
-	            ds[1].hidden = !showAts;
-	            ds[2].hidden = !showOu;
+	            setDatasetVisible(0, showSu);
+	            setDatasetVisible(1, showAts);
+	            setDatasetVisible(2, showOu);
 
 	            // Teased variants
 	            const showAtsTease = (mode === 'ats' && allowTease) || (mode === 'all' && showTeaseInAll);
 	            const showOuTease = (mode === 'ou' && allowTease) || (mode === 'all' && showTeaseInAll);
-	            ds[3].hidden = !showAtsTease;
-	            ds[4].hidden = !showOuTease;
-	
+	            setDatasetVisible(3, showAtsTease);
+	            setDatasetVisible(4, showOuTease);
+
 	            // Break-even always visible
-	            ds[5].hidden = false;
-	
+	            setDatasetVisible(5, true);
+
 	            // Adjust y-axis bounds based on visible series
 	            const visibleValues = [];
-	            ds.forEach(d => {
-	                if (d.hidden) return;
+	            ds.forEach((d, idx) => {
+	                if (!isVisible(idx)) return;
 	                (d.data || []).forEach(v => {
 	                    if (v == null || isNaN(v)) return;
 	                    visibleValues.push(Number(v));
@@ -1496,11 +1540,12 @@
                 ).join('');
             }
 
-            initAccuracyChart();
-            initTeamFormTable();
-            initTeamStatsMobile();
-            initMatchupCards();
-        });
+	            initAccuracyChart();
+	            switchAccuracyTab(isMobileViewport() ? 'last3Weeks' : 'lastWeek');
+	            initTeamFormTable();
+	            initTeamStatsMobile();
+	            initMatchupCards();
+	        });
 
         // Accuracy Tab Switching
         function switchAccuracyTab(period) {
@@ -2097,7 +2142,7 @@
 	            if (!view || !view.weeks.length) return;
 	
 	            currentAccuracyView = view;
-	            accuracyChartMode = isMobileViewport() ? 'ats' : 'all';
+	            accuracyChartMode = 'all';
 	            accuracyChartShowTease = true;
 
 	            const yMin = 30;
